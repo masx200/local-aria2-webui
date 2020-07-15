@@ -1,6 +1,10 @@
 !(function(e) {
   function t(t) {
-    for (var a, r, s = t[0], l = t[1], c = t[2], u = 0, p = []; u < s.length; u++)
+    for (
+      var a, r, s = t[0], l = t[1], c = t[2], u = 0, p = [];
+      u < s.length;
+      u++
+    )
       (r = s[u]), o[r] && p.push(o[r][0]), (o[r] = 0);
     for (a in l) Object.prototype.hasOwnProperty.call(l, a) && (e[a] = l[a]);
     for (d && d(t); p.length; ) p.shift()();
@@ -82,28 +86,30 @@
     "use strict";
     var a = n(0),
       o = n.n(a);
-    t.a = o.a.module("webui.services.alerts", ["webui.services.deps"]).factory("$alerts", [
-      "$_",
-      function(e) {
-        var t = [];
-        return {
-          addAlert: function() {
-            var n = Array.prototype.slice.call(arguments, 0);
-            setTimeout(function() {
-              e.each(t, function(e) {
-                e.apply({}, n);
-              });
-            }, 0);
-          },
-          addAlerter: function(e) {
-            t.push(e);
-          },
-          log: function(e) {
-            this.addAlert(e, "info");
-          }
-        };
-      }
-    ]).name;
+    t.a = o.a
+      .module("webui.services.alerts", ["webui.services.deps"])
+      .factory("$alerts", [
+        "$_",
+        function(e) {
+          var t = [];
+          return {
+            addAlert: function() {
+              var n = Array.prototype.slice.call(arguments, 0);
+              setTimeout(function() {
+                e.each(t, function(e) {
+                  e.apply({}, n);
+                });
+              }, 0);
+            },
+            addAlerter: function(e) {
+              t.push(e);
+            },
+            log: function(e) {
+              this.addAlert(e, "info");
+            }
+          };
+        }
+      ]).name;
   },
   function(e, t, n) {
     "use strict";
@@ -112,7 +118,8 @@
     t.a = o.a.module("webui.services.base64", []).factory("$base64", [
       function() {
         var e = {},
-          t = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",
+          t =
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",
           n = {
             indexOf: function(e) {
               return e.charCodeAt(0);
@@ -130,17 +137,22 @@
             h = (e = String(e)).length;
           for (r = 0; r < h || (!t && p > 1); r += 1) {
             if (((c *= o), (u *= o), r < h)) {
-              if ((s = n.indexOf(e.charAt(r))) <= -1 || s >= o) throw new RangeError();
+              if ((s = n.indexOf(e.charAt(r))) <= -1 || s >= o)
+                throw new RangeError();
               (p *= o), (c += s);
             }
             for (; u >= i; )
-              (u /= i), p > 1 && ((l = c), (c %= u), (d += a.charAt((l - c) / u)), (p /= i));
+              (u /= i),
+                p > 1 &&
+                  ((l = c), (c %= u), (d += a.charAt((l - c) / u)), (p /= i));
           }
           return d;
         }
         return (
           (e.btoa = function(e) {
-            return (e = a(e, !1, n, t, 256, 64)) + "====".slice(e.length % 4 || 4);
+            return (
+              (e = a(e, !1, n, t, 256, 64)) + "====".slice(e.length % 4 || 4)
+            );
           }),
           (e.atob = function(e) {
             var o;
@@ -168,7 +180,9 @@
       )
       .constant("$pageSize", 11)
       .constant("$authconf", {
-        host: location.protocol.startsWith("http") ? location.hostname : "localhost",
+        host: location.protocol.startsWith("http")
+          ? location.hostname
+          : "localhost",
         path: "/jsonrpc",
         port: 6800,
         encrypt: !1,
@@ -215,70 +229,72 @@
     "use strict";
     var a = n(0),
       o = n.n(a);
-    t.a = o.a.module("webui.services.errors", []).value("$getErrorStatus", function(e) {
-      switch ((e -= 1)) {
-        case 0:
-          return "download was unsuccessful";
-        case 1:
-          return "unknown error occurred";
-        case 2:
-          return "time out occurred";
-        case 3:
-          return "resource was not found";
-        case 4:
-          return 'aria2 saw the specified number of "resource not found" error. See --max-file-not-found option';
-        case 5:
-          return "download aborted because download speed was too slow. See --lowest-speed-limit option";
-        case 6:
-          return "there were unfinished downloads";
-        case 7:
-          return "remote server did not support resume when resume was required to complete download";
-        case 8:
-          return "not enough disk space available";
-        case 9:
-          return "piece length was different from one in .aria2 control";
-        case 10:
-          return "downloading same file at that moment";
-        case 11:
-          return "downloading same info hash torrent at that moment";
-        case 12:
-          return "file already existed";
-        case 13:
-          return "renaming file failed";
-        case 14:
-          return "could not open existing file";
-        case 15:
-          return "could not create new file or truncate existing file";
-        case 16:
-          return "file I/O error occurred";
-        case 17:
-          return "could not create directory";
-        case 18:
-          return "name resolution failed";
-        case 19:
-          return "could not parse Metalink document";
-        case 20:
-          return "FTP command failed";
-        case 21:
-          return "HTTP response header was bad or unexpected";
-        case 22:
-          return "too many redirects occurred";
-        case 23:
-          return "HTTP authorization failed";
-        case 24:
-          return "could not parse bencoded file";
-        case 25:
-          return ' ".torrent" file was corrupted or missing information ';
-        case 26:
-          return "Magnet URI was bad";
-        case 27:
-          return "bad/unrecognized option was given or unexpected option argument was given";
-        case 28:
-          return "remote server was unable to handle the request due to a temporary overloading or maintenance";
-        case 29:
-          return "could not parse JSON-RPC request";
-      }
-    }).name;
+    t.a = o.a
+      .module("webui.services.errors", [])
+      .value("$getErrorStatus", function(e) {
+        switch ((e -= 1)) {
+          case 0:
+            return "download was unsuccessful";
+          case 1:
+            return "unknown error occurred";
+          case 2:
+            return "time out occurred";
+          case 3:
+            return "resource was not found";
+          case 4:
+            return 'aria2 saw the specified number of "resource not found" error. See --max-file-not-found option';
+          case 5:
+            return "download aborted because download speed was too slow. See --lowest-speed-limit option";
+          case 6:
+            return "there were unfinished downloads";
+          case 7:
+            return "remote server did not support resume when resume was required to complete download";
+          case 8:
+            return "not enough disk space available";
+          case 9:
+            return "piece length was different from one in .aria2 control";
+          case 10:
+            return "downloading same file at that moment";
+          case 11:
+            return "downloading same info hash torrent at that moment";
+          case 12:
+            return "file already existed";
+          case 13:
+            return "renaming file failed";
+          case 14:
+            return "could not open existing file";
+          case 15:
+            return "could not create new file or truncate existing file";
+          case 16:
+            return "file I/O error occurred";
+          case 17:
+            return "could not create directory";
+          case 18:
+            return "name resolution failed";
+          case 19:
+            return "could not parse Metalink document";
+          case 20:
+            return "FTP command failed";
+          case 21:
+            return "HTTP response header was bad or unexpected";
+          case 22:
+            return "too many redirects occurred";
+          case 23:
+            return "HTTP authorization failed";
+          case 24:
+            return "could not parse bencoded file";
+          case 25:
+            return ' ".torrent" file was corrupted or missing information ';
+          case 26:
+            return "Magnet URI was bad";
+          case 27:
+            return "bad/unrecognized option was given or unexpected option argument was given";
+          case 28:
+            return "remote server was unable to handle the request due to a temporary overloading or maintenance";
+          case 29:
+            return "could not parse JSON-RPC request";
+        }
+      }).name;
   },
   function(e, t, n) {
     "use strict";
@@ -311,7 +327,11 @@
           m && u.unshift(m),
             r.search().host &&
               (u.unshift(r.search()),
-              (u[0].auth = { token: u[0].token, user: u[0].username, pass: u[0].password })),
+              (u[0].auth = {
+                token: u[0].token,
+                user: u[0].username,
+                pass: u[0].password
+              })),
             -1 != ["http", "https"].indexOf(r.protocol()) &&
               "localhost" != r.host() &&
               u.push(
@@ -322,7 +342,12 @@
                   path: "/jsonrpc",
                   encrypt: "https" == r.protocol()
                 },
-                { host: r.host(), port: r.port(), path: s.path, encrypt: "https" == r.protocol() }
+                {
+                  host: r.host(),
+                  port: r.port(),
+                  path: s.path,
+                  encrypt: "https" == r.protocol()
+                }
               );
           var g = !0,
             v = function() {
@@ -333,7 +358,8 @@
               if (o.length) {
                 if ("initializing" == e.state)
                   return (
-                    console.log("Syscall is initializing, waiting"), void (h = setTimeout(v, t))
+                    console.log("Syscall is initializing, waiting"),
+                    void (h = setTimeout(v, t))
                   );
                 if (g && u.length)
                   return (
@@ -391,7 +417,8 @@
                     _.each(e.result, function(e, t) {
                       var a = o[t];
                       a &&
-                        (e.code && (console.error(a, e), n.addAlert(e.message, "error")),
+                        (e.code &&
+                          (console.error(a, e), n.addAlert(e.message, "error")),
                         r.push({ cb: a.cb, data: e }),
                         a.once && (a.once = 2));
                     }),
@@ -399,7 +426,9 @@
                         e.cb(e.data);
                       }),
                       i.$digest(),
-                      f ? ((f = !1), (h = setTimeout(v, 0))) : (h = setTimeout(v, t));
+                      f
+                        ? ((f = !1), (h = setTimeout(v, 0)))
+                        : (h = setTimeout(v, t));
                   },
                   error: function() {
                     g = !0;
@@ -453,7 +482,12 @@
               },
               subscribe: function(e, t, n, a) {
                 n = n || o.a.noop;
-                var i = { once: !1, name: "aria2." + e, params: (t = t || []), cb: n };
+                var i = {
+                  once: !1,
+                  name: "aria2." + e,
+                  params: (t = t || []),
+                  cb: n
+                };
                 return d.push(i), a || this.forceUpdate(), i;
               },
               unsubscribe: function(e) {
@@ -531,7 +565,10 @@
     var a = n(0),
       o = n.n(a);
     t.a = o.a
-      .module("webui.services.rpc.jsoncall", ["webui.services.deps", "webui.services.base64"])
+      .module("webui.services.rpc.jsoncall", [
+        "webui.services.deps",
+        "webui.services.base64"
+      ])
       .factory("$jsoncall", [
         "$",
         "$json",
@@ -548,7 +585,12 @@
                 url: n,
                 timeout: this.avgTimeout,
                 contentType: "application/json",
-                data: t.stringify({ jsonrpc: 2, id: "webui", method: a, params: o }),
+                data: t.stringify({
+                  jsonrpc: 2,
+                  id: "webui",
+                  method: a,
+                  params: o
+                }),
                 success: function(e) {
                   return (l.avgTimeout = 2e3 + 3 * (new Date() - s)), i(e);
                 },
@@ -630,7 +672,9 @@
                 r.onready && (r.onready(), (r.onready = null));
             },
             onclose: function(e) {
-              r.handles && r.handles.length && r.onerror("Connection reset while calling aria2"),
+              r.handles &&
+                r.handles.length &&
+                r.onerror("Connection reset while calling aria2"),
                 (r.initialized = !1),
                 r.onready && (r.onready(), (r.onready = null));
             },
@@ -640,7 +684,11 @@
                 r.onready && (r.onready(), (r.onready = null));
             },
             onmessage: function(e) {
-              for (var n = t.parse(e.data), a = r.handles.length - 1; a >= 0; a--)
+              for (
+                var n = t.parse(e.data), a = r.handles.length - 1;
+                a >= 0;
+                a--
+              )
                 if (r.handles[a].id === n.id)
                   return r.handles[a].success(n), void r.handles.splice(a, 1);
             },
@@ -666,16 +714,27 @@
                 "undefined" == typeof WebSocket)
               )
                 return (
-                  i.addAlert("Web sockets are not supported! Falling back to JSONP.", "info"),
+                  i.addAlert(
+                    "Web sockets are not supported! Falling back to JSONP.",
+                    "info"
+                  ),
                   void t()
                 );
               (r.conf = e || r.conf),
                 (r.scheme = r.conf.encrypt ? "wss" : "ws"),
                 r.sock &&
                   ((r.sock.onopen = r.sock.onmessage = r.sock.onerror = r.sock.onclose = null),
-                  r.onerror({ message: "Changing the websocket aria2 server details" }));
+                  r.onerror({
+                    message: "Changing the websocket aria2 server details"
+                  }));
               try {
-                var n = r.scheme + "://" + e.host + ":" + e.port + (e.path || "/jsonrpc");
+                var n =
+                  r.scheme +
+                  "://" +
+                  e.host +
+                  ":" +
+                  e.port +
+                  (e.path || "/jsonrpc");
                 r.conf.auth &&
                   r.conf.auth.user &&
                   r.conf.auth.pass &&
@@ -698,7 +757,10 @@
                   (r.onready = t);
               } catch (e) {
                 console.log("not using websocket for aria2 rpc due to: ", e),
-                  i.addAlert("Web sockets not working due to " + e.message, "info"),
+                  i.addAlert(
+                    "Web sockets not working due to " + e.message,
+                    "info"
+                  ),
                   t();
               }
             }
@@ -758,7 +820,10 @@
           desc:
             'Use this proxy server for all   protocols. To erase previously defined proxy, use "". You can override this setting and specify a proxy server for a particular protocol using http-proxy, https-proxy and ftp-proxy options. This affects all URIs. The format of PROXY is [http://][USER:PASSWORD@]HOST[:PORT].'
         },
-        "all-proxy-passwd": { val: "", desc: "Set password for all-proxy option." },
+        "all-proxy-passwd": {
+          val: "",
+          desc: "Set password for all-proxy option."
+        },
         "all-proxy-user": { val: "", desc: "Set user for all-proxy option." },
         "allow-overwrite": {
           val: !1,
@@ -831,7 +896,8 @@
         },
         "bt-max-open-files": {
           val: 100,
-          desc: "Specify maximum number of files to open in each BitTorrent download. Default: 100"
+          desc:
+            "Specify maximum number of files to open in each BitTorrent download. Default: 100"
         },
         "bt-max-peers": {
           val: 55,
@@ -873,7 +939,8 @@
           options: ["true", "false"]
         },
         "bt-seed-unverified": {
-          desc: "Seed previously downloaded files without verifying piece hashes. Default: false",
+          desc:
+            "Seed previously downloaded files without verifying piece hashes. Default: false",
           val: !1,
           options: ["true", "false"]
         },
@@ -897,7 +964,10 @@
           desc:
             "Set the interval in seconds between tracker requests. This completely overrides interval value and aria2 just uses this value and ignores the min interval and interval value in the response of tracker. If 0 is set, aria2 determines interval based on the response of tracker and the download progress. Default: 0"
         },
-        "bt-tracker-timeout": { val: 60, desc: "Set timeout in seconds. Default: 60" },
+        "bt-tracker-timeout": {
+          val: 60,
+          desc: "Set timeout in seconds. Default: 60"
+        },
         "bt-remove-unselected-file": {
           desc:
             "Removes the unselected files when download is completed in BitTorrent. To select files, use --select-file option. If it is not used, all files are assumed to be selected. Please use this option with care because it will actually remove files from your disk. Default: false",
@@ -1049,7 +1119,10 @@
           desc:
             'Use this proxy server for FTP. To erase previously defined proxy, use "". See also --all-proxy option. This affects all URIs. The format of PROXY is [http://][USER:PASSWORD@]HOST[:PORT].'
         },
-        "ftp-proxy-passwd": { val: "", desc: "Set password for --ftp-proxy option." },
+        "ftp-proxy-passwd": {
+          val: "",
+          desc: "Set password for --ftp-proxy option."
+        },
         "ftp-proxy-user": { val: "", desc: "Set user for --ftp-proxy option." },
         "ftp-reuse-connection": {
           desc: "Reuse connection in FTP. Default: true.",
@@ -1057,7 +1130,8 @@
           options: ["true", "false"]
         },
         "ftp-type": {
-          desc: "Set FTP transfer type. TYPE is either binary or ascii. Default: binary",
+          desc:
+            "Set FTP transfer type. TYPE is either binary or ascii. Default: binary",
           val: "binary",
           options: ["binary", "ascii"]
         },
@@ -1065,7 +1139,11 @@
           val: "anonymous",
           desc: "Set FTP user. This affects all URIs. Default: anonymous"
         },
-        header: { val: "", desc: "Append HEADER to HTTP request header.", multiline: !0 },
+        header: {
+          val: "",
+          desc: "Append HEADER to HTTP request header.",
+          multiline: !0
+        },
         "http-accept-gzip": {
           desc:
             "Send Accept: deflate, gzip request header and inflate response if remote server responds with Content-Encoding: gzip or Content-Encoding: deflate. Default: false",
@@ -1091,8 +1169,14 @@
           desc:
             'Use this proxy server for HTTP. To erase previously defined proxy, use "". See also --all-proxy option. This affects all URIs. The format of PROXY is [http://][USER:PASSWORD@]HOST[:PORT].'
         },
-        "http-proxy-passwd": { val: "", desc: "Set password for --http-proxy option." },
-        "http-proxy-user": { val: "", desc: "Set user for --http-proxy option." },
+        "http-proxy-passwd": {
+          val: "",
+          desc: "Set password for --http-proxy option."
+        },
+        "http-proxy-user": {
+          val: "",
+          desc: "Set user for --http-proxy option."
+        },
         "human-readable": {
           desc:
             "Print sizes and speed in human readable format (e.g., 1.2Ki, 3.4Mi) in the console readout. Default: true",
@@ -1111,7 +1195,8 @@
         },
         "max-connection-per-server": {
           val: 1,
-          desc: "The maximum number of connections to one server for each download. Default: 1"
+          desc:
+            "The maximum number of connections to one server for each download. Default: 1"
         },
         "max-download-limit": {
           val: "0",
@@ -1130,7 +1215,8 @@
         },
         "max-tries": {
           val: 0,
-          desc: "Set number of tries. 0 means unlimited. See also --retry-wait. Default: 5"
+          desc:
+            "Set number of tries. 0 means unlimited. See also --retry-wait. Default: 5"
         },
         "max-upload-limit": {
           val: "0",
@@ -1143,14 +1229,23 @@
           val: !0,
           options: ["true", "false"]
         },
-        "metalink-language": { val: "", desc: "The language of the file to download." },
+        "metalink-language": {
+          val: "",
+          desc: "The language of the file to download."
+        },
         "metalink-location": {
           val: "",
           desc:
             "The location of the preferred server. A comma-delimited list of locations is acceptable, for example, jp,us."
         },
-        "metalink-os": { val: "", desc: "The operating system of the file to download." },
-        "metalink-version": { val: "", desc: "The version of the file to download." },
+        "metalink-os": {
+          val: "",
+          desc: "The operating system of the file to download."
+        },
+        "metalink-version": {
+          val: "",
+          desc: "The version of the file to download."
+        },
         "min-split-size": {
           val: "20M",
           desc:
@@ -1225,7 +1320,8 @@
           options: ["true", "false"]
         },
         "reuse-uri": {
-          desc: "Reuse already used URIs if no unused URIs are left. Default: true",
+          desc:
+            "Reuse already used URIs if no unused URIs are left. Default: true",
           val: !0,
           options: ["true", "false"]
         },
@@ -1251,7 +1347,8 @@
         },
         timeout: { val: 60, desc: "Set timeout in seconds. Default: 60" },
         "use-head": {
-          desc: "Use HEAD method for the first request to the HTTP server. Default: false",
+          desc:
+            "Use HEAD method for the first request to the HTTP server. Default: false",
           val: !1,
           options: ["true", "false"]
         },
@@ -1312,7 +1409,8 @@
           options: ["true", "false"]
         },
         "truncate-console-readout": {
-          desc: "Truncate console readout to fit in a single line. Default: true",
+          desc:
+            "Truncate console readout to fit in a single line. Default: true",
           val: !0,
           options: ["true", "false"]
         },
@@ -1393,7 +1491,13 @@
             "Specify the filename to which performance profile of the servers is saved. You can load saved data using --server-stat-if option. See Server Performance Profile subsection below for file format."
         }
       })
-      .value("$globalExclude", ["checksum", "index-out", "out", "pause", "select-file"])
+      .value("$globalExclude", [
+        "checksum",
+        "index-out",
+        "out",
+        "pause",
+        "select-file"
+      ])
       .value("$waitingExclude", [
         "dry-run",
         "metalink-base-uri",
@@ -1415,7 +1519,13 @@
       o = n.n(a);
     t.a = o.a
       .module("webui.services.settings.filters", [])
-      .value("$globalsettingsexclude", ["checksum", "index-out", "out", "pause", "select-file"])
+      .value("$globalsettingsexclude", [
+        "checksum",
+        "index-out",
+        "out",
+        "pause",
+        "select-file"
+      ])
       .value("$waitingsettingsexclude", [
         "dry-run",
         "metalink-base-uri",
@@ -1435,157 +1545,176 @@
     "use strict";
     var a = n(0),
       o = n.n(a);
-    t.a = o.a.module("webui.services.modals", []).factory("$modals", function() {
-      var e = {};
-      return {
-        register: function(t, n) {
-          e[t] = n;
-        },
-        invoke: function(t, n) {
-          if (!e[t]) return !1;
-          var a = Array.prototype.slice.call(arguments, 1);
-          return e[t].apply({}, a);
-        }
-      };
-    }).name;
+    t.a = o.a
+      .module("webui.services.modals", [])
+      .factory("$modals", function() {
+        var e = {};
+        return {
+          register: function(t, n) {
+            e[t] = n;
+          },
+          invoke: function(t, n) {
+            if (!e[t]) return !1;
+            var a = Array.prototype.slice.call(arguments, 1);
+            return e[t].apply({}, a);
+          }
+        };
+      }).name;
   },
   function(e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a);
-    t.a = o.a.module("webui.services.utils", ["webui.services.configuration"]).factory("$utils", [
-      "$filter",
-      "$name",
-      "$titlePattern",
-      function(e, t, n) {
-        var a = (function() {
-            var e = new Uint8Array(16),
-              t = function() {
-                for (var t, n = 0; n < 16; n++)
-                  n % 3 || (t = (4294967296 * Math.random()) | 0),
-                    (e[n] = (t >>> ((3 & n) << 3)) & 255);
-                return e;
-              };
-            return window.crypto && crypto.getRandomValues
-              ? function() {
-                  try {
-                    return crypto.getRandomValues(e), e;
-                  } catch (e) {
-                    return t();
+    t.a = o.a
+      .module("webui.services.utils", ["webui.services.configuration"])
+      .factory("$utils", [
+        "$filter",
+        "$name",
+        "$titlePattern",
+        function(e, t, n) {
+          var a = (function() {
+              var e = new Uint8Array(16),
+                t = function() {
+                  for (var t, n = 0; n < 16; n++)
+                    n % 3 || (t = (4294967296 * Math.random()) | 0),
+                      (e[n] = (t >>> ((3 & n) << 3)) & 255);
+                  return e;
+                };
+              return window.crypto && crypto.getRandomValues
+                ? function() {
+                    try {
+                      return crypto.getRandomValues(e), e;
+                    } catch (e) {
+                      return t();
+                    }
                   }
-                }
-              : t;
-          })(),
-          o = {
-            fmtsize: function(e) {
-              return (e = +e) <= 1024
-                ? e.toFixed(0) + " B"
-                : (e /= 1024) <= 1024
+                : t;
+            })(),
+            o = {
+              fmtsize: function(e) {
+                return (e = +e) <= 1024
+                  ? e.toFixed(0) + " B"
+                  : (e /= 1024) <= 1024
                   ? e.toFixed(1) + " KB"
                   : (e /= 1024) <= 1024
-                    ? e.toFixed(2) + " MB"
-                    : (e /= 1024).toFixed(3) + " GB";
-            },
-            fmtspeed: function(e) {
-              return o.fmtsize(e) + "/s";
-            },
-            setCookie: function(e, t) {
-              var n = new Date();
-              n.setDate(n.getDate() + 360);
-              var a = escape(JSON.stringify(t)) + "; expires=" + n.toUTCString();
-              document.cookie = e + "=" + a;
-            },
-            getCookie: function(e) {
-              for (var t = document.cookie.split(";"), n = 0; n < t.length; n++) {
-                var a = t[n].substr(0, t[n].indexOf("=")).replace(/^\s+|\s+$/g, ""),
-                  o = t[n].substr(t[n].indexOf("=") + 1);
-                if (e == a) return JSON.parse(unescape(o));
-              }
-              return null;
-            },
-            getFileName: function(e) {
-              var t = e.split(/[/\\]/);
-              return t[t.length - 1];
-            },
-            uuid: (function() {
-              for (var e = [], t = 0; t < 256; ++t) e.push((t + 256).toString(16).substr(1));
-              return (
-                Object.freeze(e),
-                function() {
-                  var t = a();
-                  return (
-                    (t[6] = (15 & t[6]) | 64),
-                    (t[8] = (63 & t[8]) | 128),
-                    e[t[0]] +
-                      e[t[1]] +
-                      e[t[2]] +
-                      e[t[3]] +
-                      "-" +
-                      e[t[4]] +
-                      e[t[5]] +
-                      "-" +
-                      e[t[6]] +
-                      e[t[7]] +
-                      "-" +
-                      e[t[8]] +
-                      e[t[9]] +
-                      "-" +
-                      e[t[10]] +
-                      e[t[11]] +
-                      e[t[12]] +
-                      e[t[13]] +
-                      e[t[14]] +
-                      e[t[15]]
-                  );
+                  ? e.toFixed(2) + " MB"
+                  : (e /= 1024).toFixed(3) + " GB";
+              },
+              fmtspeed: function(e) {
+                return o.fmtsize(e) + "/s";
+              },
+              setCookie: function(e, t) {
+                var n = new Date();
+                n.setDate(n.getDate() + 360);
+                var a =
+                  escape(JSON.stringify(t)) + "; expires=" + n.toUTCString();
+                document.cookie = e + "=" + a;
+              },
+              getCookie: function(e) {
+                for (
+                  var t = document.cookie.split(";"), n = 0;
+                  n < t.length;
+                  n++
+                ) {
+                  var a = t[n]
+                      .substr(0, t[n].indexOf("="))
+                      .replace(/^\s+|\s+$/g, ""),
+                    o = t[n].substr(t[n].indexOf("=") + 1);
+                  if (e == a) return JSON.parse(unescape(o));
                 }
-              );
-            })(),
-            randStr: function() {
-              return o.uuid();
-            },
-            mergeMap: function(e, t, n) {
-              t || (t = []);
-              for (var a = 0, o = Math.min(e.length, t.length); a < o; ++a) n(e[a], t[a]);
-              for (; a < e.length; ) t.push(n(e[a++]));
-              return (t.length = e.length), t;
-            },
-            getTitle: function(e) {
-              return (
-                e || (e = {}),
-                n
-                  .replace("{active}", e.numActive || "⌛")
-                  .replace("{waiting}", e.numWaiting || "⌛")
-                  .replace("{download_speed}", o.fmtspeed(e.downloadSpeed) || "⌛")
-                  .replace("{upload_speed}", o.fmtspeed(e.uploadSpeed) || "⌛")
-                  .replace("{stopped}", e.numStopped || "⌛")
-                  .replace("{name}", t)
-              );
-            },
-            getChunksFromHex: function(e, t) {
-              var n = [],
-                a = 0,
-                o = parseInt(t);
-              if (!e) return [];
-              if (o > 1)
-                for (var i = 1 / o, r = 0, s = 0; s < e.length; s++)
-                  for (var l = parseInt(e[s], 16), c = 1; c <= 4; c++) {
-                    var d = l & (1 << (4 - c));
-                    d && 0;
-                    var u = !!d;
-                    if (
-                      (a >= 1 && n[a - 1].show == u
-                        ? (n[a - 1].ratio += i)
-                        : (n.push({ ratio: i, show: u }), a++),
-                      ++r == o)
-                    )
-                      return n;
+                return null;
+              },
+              getFileName: function(e) {
+                var t = e.split(/[/\\]/);
+                return t[t.length - 1];
+              },
+              uuid: (function() {
+                for (var e = [], t = 0; t < 256; ++t)
+                  e.push((t + 256).toString(16).substr(1));
+                return (
+                  Object.freeze(e),
+                  function() {
+                    var t = a();
+                    return (
+                      (t[6] = (15 & t[6]) | 64),
+                      (t[8] = (63 & t[8]) | 128),
+                      e[t[0]] +
+                        e[t[1]] +
+                        e[t[2]] +
+                        e[t[3]] +
+                        "-" +
+                        e[t[4]] +
+                        e[t[5]] +
+                        "-" +
+                        e[t[6]] +
+                        e[t[7]] +
+                        "-" +
+                        e[t[8]] +
+                        e[t[9]] +
+                        "-" +
+                        e[t[10]] +
+                        e[t[11]] +
+                        e[t[12]] +
+                        e[t[13]] +
+                        e[t[14]] +
+                        e[t[15]]
+                    );
                   }
-              return n;
-            }
-          };
-        return o;
-      }
-    ]).name;
+                );
+              })(),
+              randStr: function() {
+                return o.uuid();
+              },
+              mergeMap: function(e, t, n) {
+                t || (t = []);
+                for (var a = 0, o = Math.min(e.length, t.length); a < o; ++a)
+                  n(e[a], t[a]);
+                for (; a < e.length; ) t.push(n(e[a++]));
+                return (t.length = e.length), t;
+              },
+              getTitle: function(e) {
+                return (
+                  e || (e = {}),
+                  n
+                    .replace("{active}", e.numActive || "⌛")
+                    .replace("{waiting}", e.numWaiting || "⌛")
+                    .replace(
+                      "{download_speed}",
+                      o.fmtspeed(e.downloadSpeed) || "⌛"
+                    )
+                    .replace(
+                      "{upload_speed}",
+                      o.fmtspeed(e.uploadSpeed) || "⌛"
+                    )
+                    .replace("{stopped}", e.numStopped || "⌛")
+                    .replace("{name}", t)
+                );
+              },
+              getChunksFromHex: function(e, t) {
+                var n = [],
+                  a = 0,
+                  o = parseInt(t);
+                if (!e) return [];
+                if (o > 1)
+                  for (var i = 1 / o, r = 0, s = 0; s < e.length; s++)
+                    for (var l = parseInt(e[s], 16), c = 1; c <= 4; c++) {
+                      var d = l & (1 << (4 - c));
+                      d && 0;
+                      var u = !!d;
+                      if (
+                        (a >= 1 && n[a - 1].show == u
+                          ? (n[a - 1].ratio += i)
+                          : (n.push({ ratio: i, show: u }), a++),
+                        ++r == o)
+                      )
+                        return n;
+                    }
+                return n;
+              }
+            };
+          return o;
+        }
+      ]).name;
   },
   function(e, t, n) {
     "use strict";
@@ -1628,58 +1757,67 @@
     "use strict";
     var a = n(0),
       o = n.n(a);
-    t.a = o.a.module("webui.filters.url", ["webui.services.utils"]).filter("encodeURI", function() {
-      return window.encodeURI;
-    }).name;
-  },
-  function(e, t, n) {
-    "use strict";
-    var a = n(0),
-      o = n.n(a);
-    t.a = o.a.module("webui.directives.chunkbar", ["webui.services.utils"]).directive("chunkbar", [
-      "$utils",
-      function(e) {
-        return function(t, n, a) {
-          var o = "",
-            i = 0,
-            r = !0,
-            s = function() {
-              r &&
-                (function(e, t, n) {
-                  if (((t = t || []), e.getContext)) {
-                    var a = e.getContext("2d");
-                    (a.fillStyle = n || "#149BDF"), a.clearRect(0, 0, e.width, e.height);
-                    var o = 0,
-                      i = e.width,
-                      r = e.height;
-                    t.forEach(function(e) {
-                      var t = e.ratio * i;
-                      e.show && a.fillRect(o, 0, t, r), (o += t);
-                    });
-                  } else console.log("use chunk bar on an canvas implementation!");
-                })(n[0], e.getChunksFromHex(o, i), a.fillStyle);
-            };
-          t.$watch(a.bitfield, function(e) {
-            (o = e), s();
-          }),
-            t.$watch(a.pieces, function(e) {
-              (i = e), s();
-            }),
-            a.draw &&
-              t.$watch(a.draw, function(e) {
-                r = e;
-              }),
-            s();
-        };
-      }
-    ]).name;
+    t.a = o.a
+      .module("webui.filters.url", ["webui.services.utils"])
+      .filter("encodeURI", function() {
+        return window.encodeURI;
+      }).name;
   },
   function(e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a);
     t.a = o.a
-      .module("webui.directives.dgraph", ["webui.filters.bytes", "webui.services.deps"])
+      .module("webui.directives.chunkbar", ["webui.services.utils"])
+      .directive("chunkbar", [
+        "$utils",
+        function(e) {
+          return function(t, n, a) {
+            var o = "",
+              i = 0,
+              r = !0,
+              s = function() {
+                r &&
+                  (function(e, t, n) {
+                    if (((t = t || []), e.getContext)) {
+                      var a = e.getContext("2d");
+                      (a.fillStyle = n || "#149BDF"),
+                        a.clearRect(0, 0, e.width, e.height);
+                      var o = 0,
+                        i = e.width,
+                        r = e.height;
+                      t.forEach(function(e) {
+                        var t = e.ratio * i;
+                        e.show && a.fillRect(o, 0, t, r), (o += t);
+                      });
+                    } else
+                      console.log("use chunk bar on an canvas implementation!");
+                  })(n[0], e.getChunksFromHex(o, i), a.fillStyle);
+              };
+            t.$watch(a.bitfield, function(e) {
+              (o = e), s();
+            }),
+              t.$watch(a.pieces, function(e) {
+                (i = e), s();
+              }),
+              a.draw &&
+                t.$watch(a.draw, function(e) {
+                  r = e;
+                }),
+              s();
+          };
+        }
+      ]).name;
+  },
+  function(e, t, n) {
+    "use strict";
+    var a = n(0),
+      o = n.n(a);
+    t.a = o.a
+      .module("webui.directives.dgraph", [
+        "webui.filters.bytes",
+        "webui.services.deps"
+      ])
       .directive("dgraph", [
         "$",
         "$filter",
@@ -1687,7 +1825,8 @@
         function(e, t, n) {
           var a = "%H:%M:%S";
           try {
-            /16/.test(new Date(2e3, 0, 1, 16, 7, 9).toLocaleTimeString()) || (a = "%I:%M:%S %P");
+            /16/.test(new Date(2e3, 0, 1, 16, 7, 9).toLocaleTimeString()) ||
+              (a = "%I:%M:%S %P");
           } catch (e) {}
           return function(n, i, r) {
             var s = !1,
@@ -1695,8 +1834,18 @@
               c = 0,
               d = 0,
               u = !1,
-              p = { label: "DOWN", data: [], color: "#00ff00", lines: { show: !0 } },
-              h = { label: "UP", data: [], color: "#0000ff", lines: { show: !0 } };
+              p = {
+                label: "DOWN",
+                data: [],
+                color: "#00ff00",
+                lines: { show: !0 }
+              },
+              h = {
+                label: "UP",
+                data: [],
+                color: "#0000ff",
+                lines: { show: !0 }
+              };
             i.height(0.6 * i.width());
             var f = e.plot(i, [p, h], {
                 legend: {
@@ -1705,7 +1854,10 @@
                   margin: [10, 20],
                   labelFormatter: function(e, n) {
                     return n.data.length
-                      ? e + " (" + t("bspeed")(n.data[n.data.length - 1][1]) + ")"
+                      ? e +
+                          " (" +
+                          t("bspeed")(n.data[n.data.length - 1][1]) +
+                          ")"
                       : e;
                   },
                   position: "sw"
@@ -1742,7 +1894,11 @@
               m = function() {
                 var e = i.width();
                 0 != e &&
-                  (i.height(0.6 * e), f.setData([p, h]), f.resize(), f.setupGrid(), f.draw());
+                  (i.height(0.6 * e),
+                  f.setData([p, h]),
+                  f.resize(),
+                  f.setupGrid(),
+                  f.draw());
               };
             n.$watch(r.dspeed, function(e) {
               void 0 !== e && ((u = !0), (c = parseFloat(e) || 0));
@@ -1783,17 +1939,19 @@
     "use strict";
     var a = n(0),
       o = n.n(a);
-    t.a = o.a.module("webui.directives.fselect", ["webui.services.deps"]).directive("fselect", [
-      "$parse",
-      function(e) {
-        return function(t, n, a) {
-          var o = e(a.fselect || a.files).assign;
-          n.bind("change", function() {
-            o(t, n[0].files);
-          }).filestyle({ placeholder: "No file selected" });
-        };
-      }
-    ]).name;
+    t.a = o.a
+      .module("webui.directives.fselect", ["webui.services.deps"])
+      .directive("fselect", [
+        "$parse",
+        function(e) {
+          return function(t, n, a) {
+            var o = e(a.fselect || a.files).assign;
+            n.bind("change", function() {
+              o(t, n[0].files);
+            }).filestyle({ placeholder: "No file selected" });
+          };
+        }
+      ]).name;
   },
   function(e, t, n) {
     "use strict";
@@ -1833,12 +1991,17 @@
                 },
                 f = function(e) {
                   return function(t) {
-                    if (t.targetScope !== t.currentScope) return e.apply(this, arguments);
+                    if (t.targetScope !== t.currentScope)
+                      return e.apply(this, arguments);
                   };
                 };
               if (
-                (a.indeterminate && e(a.indeterminate).constant && d(t.$eval(a.indeterminate)),
-                a.indeterminate && e(a.indeterminate).constant && !t.$eval(a.indeterminate))
+                (a.indeterminate &&
+                  e(a.indeterminate).constant &&
+                  d(t.$eval(a.indeterminate)),
+                a.indeterminate &&
+                  e(a.indeterminate).constant &&
+                  !t.$eval(a.indeterminate))
               )
                 o.$viewChangeListeners.push(
                   h(function() {
@@ -1866,7 +2029,8 @@
                   p(
                     (function(e) {
                       return function() {
-                        if (!n.prop("indeterminate")) return e.apply(this, arguments);
+                        if (!n.prop("indeterminate"))
+                          return e.apply(this, arguments);
                       };
                     })(function() {
                       t.$broadcast("ParentSelectedChange", c());
@@ -1879,7 +2043,8 @@
                       p(function(e, t) {
                         if (s + l !== r.length) {
                           (s = 0), (l = 0);
-                          for (var n = 0; n < r.length; n++) r[n]() ? (s += 1) : (l += 1);
+                          for (var n = 0; n < r.length; n++)
+                            r[n]() ? (s += 1) : (l += 1);
                         } else t ? (s++, l--) : (s--, l++);
                         var a = 0 === l;
                         d(a !== s > 0), u(a);
@@ -1911,32 +2076,37 @@
     "use strict";
     var a = n(0),
       o = n.n(a);
-    t.a = o.a.module("webui.ctrls.alert", ["webui.services.alerts"]).controller("AlertCtrl", [
-      "$scope",
-      "$alerts",
-      "$sce",
-      function(e, t, n) {
-        (e.pendingAlerts = []),
-          (e.removeAlert = function(e) {
-            this.pendingAlerts.splice(e, 1);
-          }),
-          t.addAlerter(function(t, a) {
-            a = a || "warning";
-            var o = { msg: n.trustAsHtml(t), type: a };
-            (e.pendingAlerts = _.filter(e.pendingAlerts, function(e) {
-              return !e.expired;
-            })),
-              e.pendingAlerts.push(o),
-              setTimeout(function() {
-                var t = e.pendingAlerts.indexOf(o);
-                -1 != t &&
-                  ((e.pendingAlerts[t].expired = !0),
-                  e.pendingAlerts.length > 0 && e.removeAlert(t));
-              }, "error" == a ? 15e3 : 5e3),
-              e.$digest();
-          });
-      }
-    ]).name;
+    t.a = o.a
+      .module("webui.ctrls.alert", ["webui.services.alerts"])
+      .controller("AlertCtrl", [
+        "$scope",
+        "$alerts",
+        "$sce",
+        function(e, t, n) {
+          (e.pendingAlerts = []),
+            (e.removeAlert = function(e) {
+              this.pendingAlerts.splice(e, 1);
+            }),
+            t.addAlerter(function(t, a) {
+              a = a || "warning";
+              var o = { msg: n.trustAsHtml(t), type: a };
+              (e.pendingAlerts = _.filter(e.pendingAlerts, function(e) {
+                return !e.expired;
+              })),
+                e.pendingAlerts.push(o),
+                setTimeout(
+                  function() {
+                    var t = e.pendingAlerts.indexOf(o);
+                    -1 != t &&
+                      ((e.pendingAlerts[t].expired = !0),
+                      e.pendingAlerts.length > 0 && e.removeAlert(t));
+                  },
+                  "error" == a ? 15e3 : 5e3
+                ),
+                e.$digest();
+            });
+        }
+      ]).name;
   },
   function(e, t, n) {
     "use strict";
@@ -2020,22 +2190,32 @@
               });
             }),
             (e.canRestart = function(e) {
-              return -1 == ["active", "paused"].indexOf(e.status) && !e.bittorrent;
+              return (
+                -1 == ["active", "paused"].indexOf(e.status) && !e.bittorrent
+              );
             }),
             (e.remove = function(t, n, o) {
               setTimeout(function() {
                 if (
                   o ||
                   confirm(
-                    f("translate")("Remove {{name}} and associated meta-data?", { name: t.name })
+                    f("translate")(
+                      "Remove {{name}} and associated meta-data?",
+                      { name: t.name }
+                    )
                   )
                 ) {
                   var i = "remove";
                   "stopped" == e.getType(t) && (i = "removeDownloadResult"),
                     t.followedFrom &&
-                      (e.remove(t.followedFrom, function() {}, !0), (t.followedFrom = null)),
+                      (e.remove(t.followedFrom, function() {}, !0),
+                      (t.followedFrom = null)),
                     a.once(i, [t.gid], n);
-                  for (var r = [e.active, e.waiting, e.stopped], s = 0; s < r.length; ++s) {
+                  for (
+                    var r = [e.active, e.waiting, e.stopped], s = 0;
+                    s < r.length;
+                    ++s
+                  ) {
                     var l = r[s],
                       c = l.indexOf(t);
                     if (!(c < 0)) return void l.splice(c, 1);
@@ -2095,7 +2275,8 @@
                 (e.downloadFilterTimer = setTimeout(function() {
                   delete e.downloadFilterTimer,
                     e.downloadFilterCommitted !== e.downloadFilter &&
-                      ((e.downloadFilterCommitted = e.downloadFilter), e.$digest());
+                      ((e.downloadFilterCommitted = e.downloadFilter),
+                      e.$digest());
                 }, 500));
             }),
             (e.filterDownloads = function(t) {
@@ -2242,7 +2423,9 @@
               return (
                 (n = e.filterDownloads(n)),
                 (e.totalDownloads = n.length),
-                (n = n.slice((e.currentPage - 1) * e.pageSize)).splice(e.pageSize),
+                (n = n.slice((e.currentPage - 1) * e.pageSize)).splice(
+                  e.pageSize
+                ),
                 n
               );
             }),
@@ -2263,7 +2446,9 @@
                   (t.errorCode = e.errorCode),
                   (t.gid = e.gid),
                   (t.followedBy =
-                    e.followedBy && 1 == e.followedBy.length ? e.followedBy[0] : null),
+                    e.followedBy && 1 == e.followedBy.length
+                      ? e.followedBy[0]
+                      : null),
                   (t.followedFrom = null),
                   (t.numPieces = e.numPieces),
                   (t.connections = e.connections),
@@ -2279,7 +2464,8 @@
                     ((t.completedLength = e.completedLength),
                     (t.fmtCompletedLength = i.fmtsize(e.completedLength))),
                   e.verifiedLength
-                    ? t.verifiedLength !== e.verifiedLength && (t.verifiedLength = e.verifiedLength)
+                    ? t.verifiedLength !== e.verifiedLength &&
+                      (t.verifiedLength = e.verifiedLength)
                     : delete t.verifiedLength,
                   e.verifyIntegrityPending
                     ? t.verifyIntegrityPending !== e.verifyIntegrityPending &&
@@ -2301,7 +2487,10 @@
                     dir: e.dir,
                     status: e.status,
                     gid: e.gid,
-                    followedBy: e.followedBy && 1 == e.followedBy.length ? e.followedBy[0] : null,
+                    followedBy:
+                      e.followedBy && 1 == e.followedBy.length
+                        ? e.followedBy[0]
+                        : null,
                     followedFrom: null,
                     numPieces: e.numPieces,
                     connections: e.connections,
@@ -2326,7 +2515,8 @@
                     files: []
                   }),
                   e.verifiedLength &&
-                    ((t.verifiedLength = e.verifiedLength), (t.status = "verifing")),
+                    ((t.verifiedLength = e.verifiedLength),
+                    (t.status = "verifing")),
                   e.verifyIntegrityPending &&
                     ((t.verifyIntegrityPending = e.verifyIntegrityPending),
                     (t.status = "verifyPending")));
@@ -2345,14 +2535,16 @@
                     l.relpath
                       ? l.relpath.startsWith("[") ||
                         (l.relpath = l.relpath.substr(t.dir.length + 1))
-                      : (l.relpath = (c.uris && c.uris[0] && c.uris[0].uri) || "Unknown")),
+                      : (l.relpath =
+                          (c.uris && c.uris[0] && c.uris[0].uri) || "Unknown")),
                     (l.selected = "true" === c.selected);
                 }
                 (r.length = o.length), r.length && (n = r[0].relpath);
               } else delete t.files;
               return (
                 e.bittorrent
-                  ? ((a = e.bittorrent.info && e.bittorrent.info.name), (t.bittorrent = !0))
+                  ? ((a = e.bittorrent.info && e.bittorrent.info.name),
+                    (t.bittorrent = !0))
                   : delete t.bittorrent,
                 (t.name = a || n || "Unknown"),
                 (t.metadata = t.name.startsWith("[METADATA]")),
@@ -2391,19 +2583,27 @@
               return (
                 (t = (t = e.verifiedLength
                   ? (e.verifiedLength / e.totalLength) * 100 || 0
-                  : (e.completedLength / e.totalLength) * 100 || 0).toFixed(2)) || (t = 0),
+                  : (e.completedLength / e.totalLength) * 100 || 0).toFixed(
+                  2
+                )) || (t = 0),
                 t
               );
             }),
             (e.getRatio = function(e) {
               var t = 0;
-              return (t = (t = e.uploadLength / e.completedLength || 0).toFixed(2)) || (t = 0), t;
+              return (
+                (t = (t = e.uploadLength / e.completedLength || 0).toFixed(
+                  2
+                )) || (t = 0),
+                t
+              );
             }),
             (e.getType = function(e) {
               var t = e.status;
               return (
                 "paused" == t && (t = "waiting"),
-                -1 != ["error", "removed", "complete"].indexOf(t) && (t = "stopped"),
+                -1 != ["error", "removed", "complete"].indexOf(t) &&
+                  (t = "stopped"),
                 t
               );
             }),
@@ -2415,9 +2615,13 @@
                     e.selected && (n += "," + e.index);
                   }),
                     (n = n.slice(1)),
-                    a.once("changeOption", [e.gid, { "select-file": n }], function(e) {
-                      console.log("changed indexes to:", n, e);
-                    });
+                    a.once(
+                      "changeOption",
+                      [e.gid, { "select-file": n }],
+                      function(e) {
+                        console.log("changed indexes to:", n, e);
+                      }
+                    );
                 });
             }),
             (e.showSettings = function(t) {
@@ -2431,11 +2635,17 @@
                     ("active" == n && -1 == c.indexOf(u)) ||
                       ("waiting" == n && -1 != d.indexOf(u)) ||
                       ((o[u] = r[u]), (o[u].val = i[u] || o[u].val));
-                  s.invoke("settings", o, t.name + " settings", "Change", function(e) {
-                    var n = {};
-                    for (var o in e) n[o] = e[o].val;
-                    a.once("changeOption", [t.gid, n]);
-                  });
+                  s.invoke(
+                    "settings",
+                    o,
+                    t.name + " settings",
+                    "Change",
+                    function(e) {
+                      var n = {};
+                      for (var o in e) n[o] = e[o].val;
+                      a.once("changeOption", [t.gid, n]);
+                    }
+                  );
                 }),
                 !1
               );
@@ -2517,9 +2727,11 @@
                     if ((delete o.inst, o.cb)) {
                       var e = {};
                       for (var t in o.settings)
-                        r[t].val != o.settings[t].val && (e[t] = o.settings[t].val);
+                        r[t].val != o.settings[t].val &&
+                          (e[t] = o.settings[t].val);
                       for (var t in o.fsettings)
-                        r[t].val != o.fsettings[t].val && (e[t] = o.fsettings[t].val);
+                        r[t].val != o.fsettings[t].val &&
+                          (e[t] = o.fsettings[t].val);
                       console.log("sending settings:", e), o.cb(o.parse(), e);
                     }
                   },
@@ -2578,15 +2790,23 @@
                 this.files = e.cloneDeep(a);
                 (this.groupedFiles = (function(e) {
                   function t() {
-                    (this.dirs = {}), (this.files = []), (this.show = !1), (this.selected = !0);
+                    (this.dirs = {}),
+                      (this.files = []),
+                      (this.show = !1),
+                      (this.selected = !0);
                   }
                   e.sort(function(e, t) {
                     return e.relpath < t.relpath ? -1 : 1;
                   });
                   for (var n, a = new t(), o = 0; o < e.length; o++) {
                     n = a;
-                    for (var i = e[o].relpath.split("/"), r = 0; r < i.length - 1; r++)
-                      n.dirs[i[r]] || (n.dirs[i[r]] = new t()), (n = n.dirs[i[r]]);
+                    for (
+                      var i = e[o].relpath.split("/"), r = 0;
+                      r < i.length - 1;
+                      r++
+                    )
+                      n.dirs[i[r]] || (n.dirs[i[r]] = new t()),
+                        (n = n.dirs[i[r]]);
                     n.files.push(e[o]);
                   }
                   return a;
@@ -2648,9 +2868,11 @@
                             i(l.files, function(e) {
                               var t = {};
                               for (var n in l.settings)
-                                r[n].val != l.settings[n].val && (t[n] = l.settings[n].val);
+                                r[n].val != l.settings[n].val &&
+                                  (t[n] = l.settings[n].val);
                               for (var n in l.fsettings)
-                                r[n].val != l.fsettings[n].val && (t[n] = l.fsettings[n].val);
+                                r[n].val != l.fsettings[n].val &&
+                                  (t[n] = l.fsettings[n].val);
                               console.log("sending settings:", t), o(e, t);
                             });
                       },
@@ -2733,7 +2955,8 @@
           }),
             (e.collapsed = !0),
             (e.onDownloadFilter = function() {
-              (e.$parent.downloadFilter = e.downloadFilter), e.$parent.onDownloadFilter();
+              (e.$parent.downloadFilter = e.downloadFilter),
+                e.$parent.onDownloadFilter();
             }),
             (e.forcePauseAll = function() {
               n.once("forcePauseAll", []);
@@ -2754,7 +2977,11 @@
               t.invoke("getTorrents", _.bind(a.addTorrents, a));
             }),
             (e.changeCSettings = function() {
-              t.invoke("connection", n.getConfiguration(), _.bind(n.configure, n));
+              t.invoke(
+                "connection",
+                n.getConfiguration(),
+                _.bind(n.configure, n)
+              );
             }),
             (e.changeGSettings = function() {
               n.once("getGlobalOption", [], function(e) {
@@ -2765,13 +2992,19 @@
                 for (var u in (_.forEach([o, i], function(e) {
                   for (var t in e)
                     -1 == r.indexOf(t) &&
-                      ((d[t] = _.cloneDeep(e[t])), (d[t].starred = -1 != a.indexOf(t)));
+                      ((d[t] = _.cloneDeep(e[t])),
+                      (d[t].starred = -1 != a.indexOf(t)));
                 }),
                 l))
                   u in r ||
                     (u in d
                       ? (d[u].val = l[u])
-                      : (d[u] = { name: u, val: l[u], desc: "", starred: -1 != a.indexOf(u) }));
+                      : (d[u] = {
+                          name: u,
+                          val: l[u],
+                          desc: "",
+                          starred: -1 != a.indexOf(u)
+                        }));
                 t.invoke(
                   "settings",
                   _.cloneDeep(d),
@@ -2781,7 +3014,8 @@
                     var t = {},
                       a = [];
                     for (var o in e)
-                      d[o].val != e[o].val && (t[o] = e[o].val), e[o].starred && a.push(o);
+                      d[o].val != e[o].val && (t[o] = e[o].val),
+                        e[o].starred && a.push(o);
                     console.log("saving aria2 settings:", t),
                       console.log("saving aria2 starred:", a),
                       n.once("changeGlobalOption", [t]),
@@ -2845,13 +3079,23 @@
               n && a.once("changeGlobalOption", [t]);
             }),
             a.subscribe("getGlobalOption", [], function(t) {
-              for (var a = t[0], r = e.getProps(), s = [], l = 0; l < r.length; l++) {
+              for (
+                var a = t[0], r = e.getProps(), s = [], l = 0;
+                l < r.length;
+                l++
+              ) {
                 var c = {};
                 r[l] in o
-                  ? ((c = o[r[l]]), r[l] in a && (c.val = a[r[l]]), (c.name = r[l]), s.push(c))
+                  ? ((c = o[r[l]]),
+                    r[l] in a && (c.val = a[r[l]]),
+                    (c.name = r[l]),
+                    s.push(c))
                   : r[l] in i
-                    ? ((c = i[r[l]]), r[l] in a && (c.val = a[r[l]]), (c.name = r[l]), s.push(c))
-                    : r[l] in a && s.push({ name: r[l], val: a[r[l]] });
+                  ? ((c = i[r[l]]),
+                    r[l] in a && (c.val = a[r[l]]),
+                    (c.name = r[l]),
+                    s.push(c))
+                  : r[l] in a && s.push({ name: r[l], val: a[r[l]] });
               }
               n.mergeMap(s, e.properties, function(e, t) {
                 return (
@@ -2951,7 +3195,8 @@
           "pascalprecht.translate"
         ]);
         function M(e, t) {
-          for (var n in t) t.hasOwnProperty(n) && ((e[n] && e[n].length) || (e[n] = t[n]));
+          for (var n in t)
+            t.hasOwnProperty(n) && ((e[n] && e[n].length) || (e[n] = t[n]));
           return e;
         }
         $.config([
@@ -3076,7 +3321,11 @@
                   .addClass("collapsing")
                   .attr("aria-expanded", !0)
                   .attr("aria-hidden", !1),
-                  e.addClass(n, "in", { to: { height: n[0].scrollHeight + "px" } }).then(i);
+                  e
+                    .addClass(n, "in", {
+                      to: { height: n[0].scrollHeight + "px" }
+                    })
+                    .then(i);
               }
               function i() {
                 n.removeClass("collapsing"), n.css({ height: "auto" });
@@ -3089,11 +3338,15 @@
                       .addClass("collapsing")
                       .attr("aria-expanded", !1)
                       .attr("aria-hidden", !0),
-                    void e.removeClass(n, "in", { to: { height: "0" } }).then(s))
+                    void e
+                      .removeClass(n, "in", { to: { height: "0" } })
+                      .then(s))
                   : s();
               }
               function s() {
-                n.css({ height: "0" }), n.removeClass("collapsing"), n.addClass("collapse");
+                n.css({ height: "0" }),
+                  n.removeClass("collapsing"),
+                  n.addClass("collapse");
               }
               t.$watch(a.collapse, function(e) {
                 e ? r() : o();
@@ -3112,7 +3365,9 @@
           function(e, t, n) {
             (this.groups = []),
               (this.closeOthers = function(a) {
-                (angular.isDefined(t.closeOthers) ? e.$eval(t.closeOthers) : n.closeOthers) &&
+                (angular.isDefined(t.closeOthers)
+                  ? e.$eval(t.closeOthers)
+                  : n.closeOthers) &&
                   angular.forEach(this.groups, function(e) {
                     e !== a && (e.isOpen = !1);
                   });
@@ -3165,7 +3420,9 @@
                   t.toggleClass(e.openClass, n), n && a.closeOthers(e);
                 }),
                 (e.toggleOpen = function(t) {
-                  e.isDisabled || (t && 32 !== t.which) || (e.isOpen = !e.isOpen);
+                  e.isDisabled ||
+                    (t && 32 !== t.which) ||
+                    (e.isOpen = !e.isOpen);
                 });
             }
           };
@@ -3239,7 +3496,10 @@
           "$bindHtmlUnsafeSuppressDeprecated",
           function(e, t) {
             return function(n, a, o) {
-              t || e.warn("bindHtmlUnsafe is now deprecated. Use ngBindHtml instead"),
+              t ||
+                e.warn(
+                  "bindHtmlUnsafe is now deprecated. Use ngBindHtml instead"
+                ),
                 a.addClass("ng-binding").data("$binding", o.bindHtmlUnsafe),
                 n.$watch(o.bindHtmlUnsafe, function(e) {
                   a.html(e || "");
@@ -3249,7 +3509,10 @@
         ]),
       angular
         .module("ui.bootstrap.buttons", [])
-        .constant("buttonConfig", { activeClass: "active", toggleEvent: "click" })
+        .constant("buttonConfig", {
+          activeClass: "active",
+          toggleEvent: "click"
+        })
         .controller("ButtonsController", [
           "buttonConfig",
           function(e) {
@@ -3267,14 +3530,18 @@
                 i = a[1];
               t.find("input").css({ display: "none" }),
                 (i.$render = function() {
-                  t.toggleClass(o.activeClass, angular.equals(i.$modelValue, e.$eval(n.btnRadio)));
+                  t.toggleClass(
+                    o.activeClass,
+                    angular.equals(i.$modelValue, e.$eval(n.btnRadio))
+                  );
                 }),
                 t.bind(o.toggleEvent, function() {
                   if (!n.disabled) {
                     var a = t.hasClass(o.activeClass);
                     (!a || angular.isDefined(n.uncheckable)) &&
                       e.$apply(function() {
-                        i.$setViewValue(a ? null : e.$eval(n.btnRadio)), i.$render();
+                        i.$setViewValue(a ? null : e.$eval(n.btnRadio)),
+                          i.$render();
                       });
                   }
                 });
@@ -3303,12 +3570,16 @@
                   c = o[1];
                 n.find("input").css({ display: "none" }),
                   (c.$render = function() {
-                    n.toggleClass(l.activeClass, angular.equals(c.$modelValue, i()));
+                    n.toggleClass(
+                      l.activeClass,
+                      angular.equals(c.$modelValue, i())
+                    );
                   }),
                   n.bind(l.toggleEvent, function() {
                     a.disabled ||
                       t.$apply(function() {
-                        c.$setViewValue(n.hasClass(l.activeClass) ? r() : i()), c.$render();
+                        c.$setViewValue(n.hasClass(l.activeClass) ? r() : i()),
+                          c.$render();
                       });
                   }),
                   n.on("keypress", function(o) {
@@ -3316,7 +3587,8 @@
                       32 !== o.which ||
                       e[0].activeElement !== n[0] ||
                       t.$apply(function() {
-                        c.$setViewValue(n.hasClass(l.activeClass) ? r() : i()), c.$render();
+                        c.$setViewValue(n.hasClass(l.activeClass) ? r() : i()),
+                          c.$render();
                       });
                   });
               }
@@ -3334,7 +3606,10 @@
             function o(t, n, o) {
               g ||
                 (angular.extend(t, { direction: o, active: !0 }),
-                angular.extend(u.currentSlide || {}, { direction: o, active: !1 }),
+                angular.extend(u.currentSlide || {}, {
+                  direction: o,
+                  active: !1
+                }),
                 a.enabled() &&
                   !e.noTransition &&
                   !e.$currentTransition &&
@@ -3347,7 +3622,8 @@
                   (e.$currentTransition = !0),
                   h
                     ? a.on("addClass", t.$element, function(t, n) {
-                        "close" === n && ((e.$currentTransition = null), a.off("addClass", t));
+                        "close" === n &&
+                          ((e.$currentTransition = null), a.off("addClass", t));
                       })
                     : t.$element.one("$animate:close", function() {
                         e.$currentTransition = null;
@@ -3359,7 +3635,8 @@
             function i(e) {
               if (angular.isUndefined(p[e].index)) return p[e];
               var t;
-              for (p.length, t = 0; t < p.length; ++t) if (p[t].index == e) return p[t];
+              for (p.length, t = 0; t < p.length; ++t)
+                if (p[t].index == e) return p[t];
             }
             function r() {
               s();
@@ -3385,7 +3662,10 @@
             (u.select = e.select = function(t, n) {
               var a = e.indexOfSlide(t);
               void 0 === n && (n = a > u.getCurrentIndex() ? "next" : "prev"),
-                t && t !== u.currentSlide && !e.$currentTransition && o(t, a, n);
+                t &&
+                  t !== u.currentSlide &&
+                  !e.$currentTransition &&
+                  o(t, a, n);
             }),
               e.$on("$destroy", function() {
                 g = !0;
@@ -3400,11 +3680,18 @@
               }),
               (e.next = function() {
                 var t = (u.getCurrentIndex() + 1) % p.length;
-                return 0 === t && e.noWrap() ? void e.pause() : u.select(i(t), "next");
+                return 0 === t && e.noWrap()
+                  ? void e.pause()
+                  : u.select(i(t), "next");
               }),
               (e.prev = function() {
-                var t = u.getCurrentIndex() - 1 < 0 ? p.length - 1 : u.getCurrentIndex() - 1;
-                return e.noWrap() && t === p.length - 1 ? void e.pause() : u.select(i(t), "prev");
+                var t =
+                  u.getCurrentIndex() - 1 < 0
+                    ? p.length - 1
+                    : u.getCurrentIndex() - 1;
+                return e.noWrap() && t === p.length - 1
+                  ? void e.pause()
+                  : u.select(i(t), "prev");
               }),
               (e.isActive = function(e) {
                 return u.currentSlide === e;
@@ -3455,7 +3742,12 @@
               templateUrl: function(e, t) {
                 return t.templateUrl || "template/carousel/carousel.html";
               },
-              scope: { interval: "=", noTransition: "=", noPause: "=", noWrap: "&" }
+              scope: {
+                interval: "=",
+                noTransition: "=",
+                noPause: "=",
+                noWrap: "&"
+              }
             };
           }
         ])
@@ -3552,7 +3844,8 @@
                 var i = e.indexOf(o);
                 if (i > -1) {
                   (e = e.split("")), (a[i] = "(" + n.regex + ")"), (e[i] = "$");
-                  for (var r = i + 1, s = i + o.length; s > r; r++) (a[r] = ""), (e[r] = "$");
+                  for (var r = i + 1, s = i + o.length; s > r; r++)
+                    (a[r] = ""), (e[r] = "$");
                   (e = e.join("")), t.push({ index: i, apply: n.apply });
                 }
               }),
@@ -3675,7 +3968,8 @@
             a: {
               regex: t.DATETIME_FORMATS.AMPMS.join("|"),
               apply: function(e) {
-                12 === this.hours && (this.hours = 0), "PM" === e && (this.hours += 12);
+                12 === this.hours && (this.hours = 0),
+                  "PM" === e && (this.hours += 12);
               }
             }
           };
@@ -3718,7 +4012,8 @@
                   return (
                     !(1 > n) &&
                     (1 === t && n > 28
-                      ? 29 === n && ((e % 4 == 0 && e % 100 != 0) || e % 400 == 0)
+                      ? 29 === n &&
+                        ((e % 4 == 0 && e % 100 != 0) || e % 400 == 0)
                       : (3 !== t && 5 !== t && 8 !== t && 10 !== t) || 31 > n)
                   );
                 })(u.year, u.month, u.date) &&
@@ -3748,13 +4043,14 @@
                 return e.currentStyle
                   ? e.currentStyle[n]
                   : t.getComputedStyle
-                    ? t.getComputedStyle(e)[n]
-                    : e.style[n];
+                  ? t.getComputedStyle(e)[n]
+                  : e.style[n];
               })(e, "position") || "static")
             );
           }
           var a = function(t) {
-            for (var a = e[0], o = t.offsetParent || a; o && o !== a && n(o); ) o = o.offsetParent;
+            for (var a = e[0], o = t.offsetParent || a; o && o !== a && n(o); )
+              o = o.offsetParent;
             return o || a;
           };
           return {
@@ -3763,7 +4059,8 @@
                 o = { top: 0, left: 0 },
                 i = a(t[0]);
               i != e[0] &&
-                (((o = this.offset(angular.element(i))).top += i.clientTop - i.scrollTop),
+                (((o = this.offset(angular.element(i))).top +=
+                  i.clientTop - i.scrollTop),
                 (o.left += i.clientLeft - i.scrollLeft));
               var r = t[0].getBoundingClientRect();
               return {
@@ -3779,7 +4076,8 @@
                 width: a.width || n.prop("offsetWidth"),
                 height: a.height || n.prop("offsetHeight"),
                 top: a.top + (t.pageYOffset || e[0].documentElement.scrollTop),
-                left: a.left + (t.pageXOffset || e[0].documentElement.scrollLeft)
+                left:
+                  a.left + (t.pageXOffset || e[0].documentElement.scrollLeft)
               };
             },
             positionElements: function(e, t, n, a) {
@@ -3834,7 +4132,10 @@
         }
       ]),
       angular
-        .module("ui.bootstrap.datepicker", ["ui.bootstrap.dateparser", "ui.bootstrap.position"])
+        .module("ui.bootstrap.datepicker", [
+          "ui.bootstrap.dateparser",
+          "ui.bootstrap.position"
+        ])
         .value("$datepickerSuppressError", !1)
         .constant("datepickerConfig", {
           formatDay: "dd",
@@ -3900,17 +4201,21 @@
                       (l[a] = angular.isDefined(n) ? n : t[a]),
                         (e[a] = l[a]),
                         (("minMode" == a &&
-                          l.modes.indexOf(e.datepickerMode) < l.modes.indexOf(l[a])) ||
+                          l.modes.indexOf(e.datepickerMode) <
+                            l.modes.indexOf(l[a])) ||
                           ("maxMode" == a &&
-                            l.modes.indexOf(e.datepickerMode) > l.modes.indexOf(l[a]))) &&
+                            l.modes.indexOf(e.datepickerMode) >
+                              l.modes.indexOf(l[a]))) &&
                           (e.datepickerMode = l[a]);
                     })
                   : ((l[a] = r[a] || null), (e[a] = l[a]));
               }),
               (e.datepickerMode = e.datepickerMode || r.datepickerMode),
-              (e.uniqueId = "datepicker-" + e.$id + "-" + Math.floor(1e4 * Math.random())),
+              (e.uniqueId =
+                "datepicker-" + e.$id + "-" + Math.floor(1e4 * Math.random())),
               angular.isDefined(t.initDate)
-                ? ((this.activeDate = e.$parent.$eval(t.initDate) || new Date()),
+                ? ((this.activeDate =
+                    e.$parent.$eval(t.initDate) || new Date()),
                   e.$parent.$watch(t.initDate, function(e) {
                     e &&
                       (c.$isEmpty(c.$modelValue) || c.$invalid) &&
@@ -3918,7 +4223,10 @@
                   }))
                 : (this.activeDate = new Date()),
               (e.isActive = function(t) {
-                return 0 === l.compare(t.date, l.activeDate) && ((e.activeDateId = t.uid), !0);
+                return (
+                  0 === l.compare(t.date, l.activeDate) &&
+                  ((e.activeDateId = t.uid), !0)
+                );
               }),
               (this.init = function(e) {
                 (c = e).$render = function() {
@@ -3941,7 +4249,10 @@
                 if (this.element) {
                   this._refreshView();
                   var e = c.$viewValue ? new Date(c.$viewValue) : null;
-                  c.$setValidity("dateDisabled", !e || (this.element && !this.isDisabled(e)));
+                  c.$setValidity(
+                    "dateDisabled",
+                    !e || (this.element && !this.isDisabled(e))
+                  );
                 }
               }),
               (this.createDateObject = function(e, t) {
@@ -3959,7 +4270,8 @@
                 return (
                   (this.minDate && this.compare(n, this.minDate) < 0) ||
                   (this.maxDate && this.compare(n, this.maxDate) > 0) ||
-                  (t.dateDisabled && e.dateDisabled({ date: n, mode: e.datepickerMode }))
+                  (t.dateDisabled &&
+                    e.dateDisabled({ date: n, mode: e.datepickerMode }))
                 );
               }),
               (this.customClass = function(t) {
@@ -3975,13 +4287,16 @@
               }),
               (e.select = function(t) {
                 if (e.datepickerMode === l.minMode) {
-                  var n = c.$viewValue ? new Date(c.$viewValue) : new Date(0, 0, 0, 0, 0, 0, 0);
+                  var n = c.$viewValue
+                    ? new Date(c.$viewValue)
+                    : new Date(0, 0, 0, 0, 0, 0, 0);
                   n.setFullYear(t.getFullYear(), t.getMonth(), t.getDate()),
                     c.$setViewValue(n),
                     c.$render();
                 } else
                   (l.activeDate = t),
-                    (e.datepickerMode = l.modes[l.modes.indexOf(e.datepickerMode) - 1]);
+                    (e.datepickerMode =
+                      l.modes[l.modes.indexOf(e.datepickerMode) - 1]);
               }),
               (e.move = function(e) {
                 var t = l.activeDate.getFullYear() + e * (l.step.years || 0),
@@ -3992,7 +4307,8 @@
                 (t = t || 1),
                   (e.datepickerMode === l.maxMode && 1 === t) ||
                     (e.datepickerMode === l.minMode && -1 === t) ||
-                    (e.datepickerMode = l.modes[l.modes.indexOf(e.datepickerMode) + t]);
+                    (e.datepickerMode =
+                      l.modes[l.modes.indexOf(e.datepickerMode) + t]);
               }),
               (e.keys = {
                 13: "enter",
@@ -4060,17 +4376,23 @@
               require: "^datepicker",
               link: function(t, n, a, o) {
                 function i(e, t) {
-                  return 1 !== t || e % 4 != 0 || (e % 100 == 0 && e % 400 != 0) ? s[t] : 29;
+                  return 1 !== t || e % 4 != 0 || (e % 100 == 0 && e % 400 != 0)
+                    ? s[t]
+                    : 29;
                 }
                 function r(e) {
                   var t = new Date(e);
                   t.setDate(t.getDate() + 4 - (t.getDay() || 7));
                   var n = t.getTime();
                   return (
-                    t.setMonth(0), t.setDate(1), Math.floor(Math.round((n - t) / 864e5) / 7) + 1
+                    t.setMonth(0),
+                    t.setDate(1),
+                    Math.floor(Math.round((n - t) / 864e5) / 7) + 1
                   );
                 }
-                (t.showWeeks = o.showWeeks), (o.step = { months: 1 }), (o.element = n);
+                (t.showWeeks = o.showWeeks),
+                  (o.step = { months: 1 }),
+                  (o.element = n);
                 var s = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
                 (o._refreshView = function() {
                   var n = o.activeDate.getFullYear(),
@@ -4082,7 +4404,11 @@
                   l > 0 && c.setDate(1 - l);
                   for (
                     var d = (function(e, t) {
-                        for (var n, a = new Array(t), i = new Date(e), r = 0; t > r; )
+                        for (
+                          var n, a = new Array(t), i = new Date(e), r = 0;
+                          t > r;
+
+                        )
                           (n = new Date(i)),
                             o.fixTimeZone(n),
                             (a[r++] = n),
@@ -4093,10 +4419,13 @@
                     42 > u;
                     u++
                   )
-                    d[u] = angular.extend(o.createDateObject(d[u], o.formatDay), {
-                      secondary: d[u].getMonth() !== a,
-                      uid: t.uniqueId + "-" + u
-                    });
+                    d[u] = angular.extend(
+                      o.createDateObject(d[u], o.formatDay),
+                      {
+                        secondary: d[u].getMonth() !== a,
+                        uid: t.uniqueId + "-" + u
+                      }
+                    );
                   t.labels = new Array(7);
                   for (var p = 0; 7 > p; p++)
                     t.labels[p] = {
@@ -4109,7 +4438,13 @@
                     t.showWeeks)
                   ) {
                     t.weekNumbers = [];
-                    for (var h = (11 - o.startingDay) % 7, f = t.rows.length, m = 0; f > m; m++)
+                    for (
+                      var h = (11 - o.startingDay) % 7,
+                        f = t.rows.length,
+                        m = 0;
+                      f > m;
+                      m++
+                    )
                       t.weekNumbers.push(r(t.rows[m][h].date));
                   }
                 }),
@@ -4126,14 +4461,24 @@
                     else if ("right" === e) n += 1;
                     else if ("down" === e) n += 7;
                     else if ("pageup" === e || "pagedown" === e) {
-                      var a = o.activeDate.getMonth() + ("pageup" === e ? -1 : 1);
+                      var a =
+                        o.activeDate.getMonth() + ("pageup" === e ? -1 : 1);
                       o.activeDate.setMonth(a, 1),
-                        (n = Math.min(i(o.activeDate.getFullYear(), o.activeDate.getMonth()), n));
+                        (n = Math.min(
+                          i(
+                            o.activeDate.getFullYear(),
+                            o.activeDate.getMonth()
+                          ),
+                          n
+                        ));
                     } else
                       "home" === e
                         ? (n = 1)
                         : "end" === e &&
-                          (n = i(o.activeDate.getFullYear(), o.activeDate.getMonth()));
+                          (n = i(
+                            o.activeDate.getFullYear(),
+                            o.activeDate.getMonth()
+                          ));
                     o.activeDate.setDate(n);
                   }),
                   o.refreshView();
@@ -4154,16 +4499,23 @@
                   (o.element = n),
                   (o._refreshView = function() {
                     for (
-                      var n, a = new Array(12), i = o.activeDate.getFullYear(), r = 0;
+                      var n,
+                        a = new Array(12),
+                        i = o.activeDate.getFullYear(),
+                        r = 0;
                       12 > r;
                       r++
                     )
                       (n = new Date(i, r, 1)),
                         o.fixTimeZone(n),
-                        (a[r] = angular.extend(o.createDateObject(n, o.formatMonth), {
-                          uid: t.uniqueId + "-" + r
-                        }));
-                    (t.title = e(o.activeDate, o.formatMonthTitle)), (t.rows = o.split(a, 3));
+                        (a[r] = angular.extend(
+                          o.createDateObject(n, o.formatMonth),
+                          {
+                            uid: t.uniqueId + "-" + r
+                          }
+                        ));
+                    (t.title = e(o.activeDate, o.formatMonthTitle)),
+                      (t.rows = o.split(a, 3));
                   }),
                   (o.compare = function(e, t) {
                     return (
@@ -4178,7 +4530,8 @@
                     else if ("right" === e) n += 1;
                     else if ("down" === e) n += 3;
                     else if ("pageup" === e || "pagedown" === e) {
-                      var a = o.activeDate.getFullYear() + ("pageup" === e ? -1 : 1);
+                      var a =
+                        o.activeDate.getFullYear() + ("pageup" === e ? -1 : 1);
                       o.activeDate.setFullYear(a);
                     } else "home" === e ? (n = 0) : "end" === e && (n = 11);
                     o.activeDate.setMonth(n);
@@ -4205,16 +4558,23 @@
                   (a.element = t),
                   (a._refreshView = function() {
                     for (
-                      var t, n = new Array(i), r = 0, s = o(a.activeDate.getFullYear());
+                      var t,
+                        n = new Array(i),
+                        r = 0,
+                        s = o(a.activeDate.getFullYear());
                       i > r;
                       r++
                     )
                       (t = new Date(s + r, 0, 1)),
                         a.fixTimeZone(t),
-                        (n[r] = angular.extend(a.createDateObject(t, a.formatYear), {
-                          uid: e.uniqueId + "-" + r
-                        }));
-                    (e.title = [n[0].label, n[i - 1].label].join(" - ")), (e.rows = a.split(n, 5));
+                        (n[r] = angular.extend(
+                          a.createDateObject(t, a.formatYear),
+                          {
+                            uid: e.uniqueId + "-" + r
+                          }
+                        ));
+                    (e.title = [n[0].label, n[i - 1].label].join(" - ")),
+                      (e.rows = a.split(n, 5));
                   }),
                   (a.compare = function(e, t) {
                     return e.getFullYear() - t.getFullYear();
@@ -4224,16 +4584,17 @@
                     "left" === e
                       ? (n -= 1)
                       : "up" === e
-                        ? (n -= 5)
-                        : "right" === e
-                          ? (n += 1)
-                          : "down" === e
-                            ? (n += 5)
-                            : "pageup" === e || "pagedown" === e
-                              ? (n += ("pageup" === e ? -1 : 1) * a.step.years)
-                              : "home" === e
-                                ? (n = o(a.activeDate.getFullYear()))
-                                : "end" === e && (n = o(a.activeDate.getFullYear()) + i - 1),
+                      ? (n -= 5)
+                      : "right" === e
+                      ? (n += 1)
+                      : "down" === e
+                      ? (n += 5)
+                      : "pageup" === e || "pagedown" === e
+                      ? (n += ("pageup" === e ? -1 : 1) * a.step.years)
+                      : "home" === e
+                      ? (n = o(a.activeDate.getFullYear()))
+                      : "end" === e &&
+                        (n = o(a.activeDate.getFullYear()) + i - 1),
                       a.activeDate.setFullYear(n);
                   }),
                   a.refreshView();
@@ -4330,14 +4691,22 @@
                       u.$observe("datepickerPopup", function(e, t) {
                         var n = e || s.datepickerPopup;
                         if (n !== f && ((f = n), (p.$modelValue = null), !f))
-                          throw new Error("datepickerPopup must have a date format specified.");
+                          throw new Error(
+                            "datepickerPopup must have a date format specified."
+                          );
                       })),
                   !f)
                 )
-                  throw new Error("datepickerPopup must have a date format specified.");
+                  throw new Error(
+                    "datepickerPopup must have a date format specified."
+                  );
                 if (k && u.datepickerPopup)
-                  throw new Error("HTML5 date input types do not support custom formats.");
-                var S = angular.element("<div datepicker-popup-wrap><div datepicker></div></div>");
+                  throw new Error(
+                    "HTML5 date input types do not support custom formats."
+                  );
+                var S = angular.element(
+                  "<div datepicker-popup-wrap><div datepicker></div></div>"
+                );
                 S.attr({
                   "ng-model": "date",
                   "ng-change": "dateSelection(date)",
@@ -4348,13 +4717,16 @@
                   (T.attr("template-url", w),
                   k &&
                     "month" === u.type &&
-                    (T.attr("datepicker-mode", '"month"'), T.attr("min-mode", "month")),
+                    (T.attr("datepicker-mode", '"month"'),
+                    T.attr("min-mode", "month")),
                   u.datepickerOptions)
                 ) {
                   var C = c.$parent.$eval(u.datepickerOptions);
                   C &&
                     C.initDate &&
-                    ((c.initDate = C.initDate), T.attr("init-date", "initDate"), delete C.initDate),
+                    ((c.initDate = C.initDate),
+                    T.attr("init-date", "initDate"),
+                    delete C.initDate),
                     angular.forEach(C, function(e, t) {
                       T.attr(h(t), e);
                     });
@@ -4376,7 +4748,8 @@
                         if (
                           (c.$parent.$watch(n, function(t) {
                             (c.watchData[e] = t),
-                              ("minDate" === e || "maxDate" === e) && (y[e] = new Date(t));
+                              ("minDate" === e || "maxDate" === e) &&
+                                (y[e] = new Date(t));
                           }),
                           T.attr(h(e), "watchData." + e),
                           "datepickerMode" === e)
@@ -4390,10 +4763,16 @@
                     }
                   ),
                   u.dateDisabled &&
-                    T.attr("date-disabled", "dateDisabled({ date: date, mode: mode })"),
+                    T.attr(
+                      "date-disabled",
+                      "dateDisabled({ date: date, mode: mode })"
+                    ),
                   u.showWeeks && T.attr("show-weeks", u.showWeeks),
                   u.customClass &&
-                    T.attr("custom-class", "customClass({ date: date, mode: mode })"),
+                    T.attr(
+                      "custom-class",
+                      "customClass({ date: date, mode: mode })"
+                    ),
                   k
                     ? p.$formatters.push(function(e) {
                         return (c.date = e), e;
@@ -4413,7 +4792,8 @@
                         return !0;
                       }),
                       p.$parsers.unshift(function(e) {
-                        if ((angular.isNumber(e) && (e = new Date(e)), !e)) return null;
+                        if ((angular.isNumber(e) && (e = new Date(e)), !e))
+                          return null;
                         if (angular.isDate(e) && !isNaN(e)) return e;
                         if (angular.isString(e)) {
                           var t = r.parse(e, f, c.date);
@@ -4426,7 +4806,9 @@
                   (c.dateSelection = function(e) {
                     angular.isDefined(e) && (c.date = e);
                     var t = c.date ? i(c.date, f) : null;
-                    d.val(t), p.$setViewValue(t), m && ((c.isOpen = !1), d[0].focus());
+                    d.val(t),
+                      p.$setViewValue(t),
+                      m && ((c.isOpen = !1), d[0].focus());
                   }),
                   p.$viewChangeListeners.push(function() {
                     c.date = r.parse(p.$viewValue, f, c.date);
@@ -4462,10 +4844,12 @@
                   c.$watch("isOpen", function(e) {
                     e
                       ? ((c.position = g ? o.offset(d) : o.position(d)),
-                        (c.position.top = c.position.top + d.prop("offsetHeight")),
+                        (c.position.top =
+                          c.position.top + d.prop("offsetHeight")),
                         l(
                           function() {
-                            v && c.$broadcast("datepicker.focus"), n.bind("click", P);
+                            v && c.$broadcast("datepicker.focus"),
+                              n.bind("click", P);
                           },
                           0,
                           !1
@@ -4529,14 +4913,18 @@
                 (n = t);
             }),
               (this.close = function(t) {
-                n === t && ((n = null), e.unbind("click", a), e.unbind("keydown", o));
+                n === t &&
+                  ((n = null), e.unbind("click", a), e.unbind("keydown", o));
               });
             var a = function(e) {
                 if (n && (!e || "disabled" !== n.getAutoClose())) {
                   var a = n.getToggleElement();
                   if (!(e && a && a[0].contains(e.target))) {
                     var o = n.getDropdownElement();
-                    (e && "outsideClick" === n.getAutoClose() && o && o[0].contains(e.target)) ||
+                    (e &&
+                      "outsideClick" === n.getAutoClose() &&
+                      o &&
+                      o[0].contains(e.target)) ||
                       ((n.isOpen = !1), t.$$phase || n.$apply());
                   }
                 }
@@ -4547,7 +4935,9 @@
                   : n.isKeynavEnabled() &&
                     /(38|40)/.test(e.which) &&
                     n.isOpen &&
-                    (e.preventDefault(), e.stopPropagation(), n.focusDropdownEntry(e.which));
+                    (e.preventDefault(),
+                    e.stopPropagation(),
+                    n.focusDropdownEntry(e.which));
               };
           }
         ])
@@ -4628,7 +5018,8 @@
                     break;
                   case 38:
                     angular.isNumber(p.selectedOption)
-                      ? (p.selectedOption = 0 === p.selectedOption ? 0 : p.selectedOption - 1)
+                      ? (p.selectedOption =
+                          0 === p.selectedOption ? 0 : p.selectedOption - 1)
                       : (p.selectedOption = t.length - 1);
                 }
                 t[p.selectedOption].focus();
@@ -4641,12 +5032,19 @@
               }),
               h.$watch("isOpen", function(t, n) {
                 if (v && p.dropdownMenu) {
-                  var a = r.positionElements(p.$element, p.dropdownMenu, "bottom-left", !0),
+                  var a = r.positionElements(
+                      p.$element,
+                      p.dropdownMenu,
+                      "bottom-left",
+                      !0
+                    ),
                     s = { top: a.top + "px", display: t ? "block" : "none" };
                   p.dropdownMenu.hasClass("dropdown-menu-right")
                     ? ((s.left = "auto"),
                       (s.right =
-                        window.innerWidth - (a.left + p.$element.prop("offsetWidth")) + "px"))
+                        window.innerWidth -
+                        (a.left + p.$element.prop("offsetWidth")) +
+                        "px"))
                     : ((s.left = a.left + "px"), (s.right = "auto")),
                     p.dropdownMenu.css(s);
                 }
@@ -4701,7 +5099,8 @@
             link: function(e, t, n, a) {
               if (a) {
                 var o = n.templateUrl;
-                o && (a.dropdownMenuTemplateUrl = o), a.dropdownMenu || (a.dropdownMenu = t);
+                o && (a.dropdownMenuTemplateUrl = o),
+                  a.dropdownMenu || (a.dropdownMenu = t);
               }
             }
           };
@@ -4726,7 +5125,8 @@
                       break;
                     case 38:
                       angular.isNumber(a.selectedOption)
-                        ? (a.selectedOption = 0 === a.selectedOption ? 0 : a.selectedOption - 1)
+                        ? (a.selectedOption =
+                            0 === a.selectedOption ? 0 : a.selectedOption - 1)
                         : (a.selectedOption = t.length - 1);
                   }
                   t[a.selectedOption].focus();
@@ -4772,7 +5172,8 @@
                   e.push({ key: t, value: n });
                 },
                 get: function(t) {
-                  for (var n = 0; n < e.length; n++) if (t == e[n].key) return e[n];
+                  for (var n = 0; n < e.length; n++)
+                    if (t == e[n].key) return e[n];
                 },
                 keys: function() {
                   for (var t = [], n = 0; n < e.length; n++) t.push(e[n].key);
@@ -4839,7 +5240,9 @@
           function(e, t, n) {
             function a(t, a, i) {
               i.modalInClass &&
-                (o ? o(a, { addClass: i.modalInClass }).start() : e.addClass(a, i.modalInClass),
+                (o
+                  ? o(a, { addClass: i.modalInClass }).start()
+                  : e.addClass(a, i.modalInClass),
                 t.$on(n.NOW_CLOSING_EVENT, function(t, n) {
                   var r = n();
                   o
@@ -5005,7 +5408,8 @@
               );
             }
             function p(e, t, n) {
-              return !e.value.modalScope.$broadcast("modal.closing", t, n).defaultPrevented;
+              return !e.value.modalScope.$broadcast("modal.closing", t, n)
+                .defaultPrevented;
             }
             var h = null;
             r.has("$animateCss") && (h = r.get("$animateCss"));
@@ -5035,8 +5439,10 @@
                       y.loadFocusElementList(t);
                       var n = !1;
                       e.shiftKey
-                        ? y.isFocusInFirstItem(e) && (n = y.focusLastFocusableElement())
-                        : y.isFocusInLastItem(e) && (n = y.focusFirstFocusableElement()),
+                        ? y.isFocusInFirstItem(e) &&
+                          (n = y.focusLastFocusableElement())
+                        : y.isFocusInLastItem(e) &&
+                          (n = y.focusFirstFocusableElement()),
                         n && (e.preventDefault(), e.stopPropagation());
                   }
               }),
@@ -5056,13 +5462,17 @@
                   l = c();
                 if (l >= 0 && !f) {
                   (m = o.$new(!0)).index = l;
-                  var d = angular.element('<div modal-backdrop="modal-backdrop"></div>');
+                  var d = angular.element(
+                    '<div modal-backdrop="modal-backdrop"></div>'
+                  );
                   d.attr("backdrop-class", t.backdropClass),
                     t.animation && d.attr("modal-animation", "true"),
                     (f = a(d)(m)),
                     s.append(f);
                 }
-                var u = angular.element('<div modal-window="modal-window"></div>');
+                var u = angular.element(
+                  '<div modal-window="modal-window"></div>'
+                );
                 u
                   .attr({
                     "template-url": t.windowTemplateUrl,
@@ -5099,7 +5509,8 @@
                   : !n;
               }),
               (y.dismissAll = function(e) {
-                for (var t = this.getTop(); t && this.dismiss(t.key, e); ) t = this.getTop();
+                for (var t = this.getTop(); t && this.dismiss(t.key, e); )
+                  t = this.getTop();
               }),
               (y.getTop = function() {
                 return b.top();
@@ -5118,7 +5529,9 @@
                 return g.length > 0 && (e.target || e.srcElement) == g[0];
               }),
               (y.isFocusInLastItem = function(e) {
-                return g.length > 0 && (e.target || e.srcElement) == g[g.length - 1];
+                return (
+                  g.length > 0 && (e.target || e.srcElement) == g[g.length - 1]
+                );
               }),
               (y.clearFocusListCache = function() {
                 (g = []), 0;
@@ -5151,7 +5564,11 @@
                 function s(e) {
                   return e.template
                     ? a.when(e.template)
-                    : o(angular.isFunction(e.templateUrl) ? e.templateUrl() : e.templateUrl);
+                    : o(
+                        angular.isFunction(e.templateUrl)
+                          ? e.templateUrl()
+                          : e.templateUrl
+                      );
                 }
                 function l(e) {
                   var n = [];
@@ -5160,8 +5577,8 @@
                       angular.isFunction(e) || angular.isArray(e)
                         ? n.push(a.when(t.invoke(e)))
                         : angular.isString(e)
-                          ? n.push(a.when(t.get(e)))
-                          : n.push(a.when(e));
+                        ? n.push(a.when(t.get(e)))
+                        : n.push(a.when(e));
                     }),
                     n
                   );
@@ -5188,10 +5605,13 @@
                         }
                       };
                     if (
-                      (((t = angular.extend({}, e.options, t)).resolve = t.resolve || {}),
+                      (((t = angular.extend({}, e.options, t)).resolve =
+                        t.resolve || {}),
                       !t.template && !t.templateUrl)
                     )
-                      throw new Error("One of template or templateUrl options is required.");
+                      throw new Error(
+                        "One of template or templateUrl options is required."
+                      );
                     var h,
                       f = a.all([s(t)].concat(l(t.resolve)));
                     return (
@@ -5278,7 +5698,8 @@
                 }),
                 t.itemsPerPage
                   ? e.$parent.$watch(n(t.itemsPerPage), function(t) {
-                      (a.itemsPerPage = parseInt(t, 10)), (e.totalPages = a.calculateTotalPages());
+                      (a.itemsPerPage = parseInt(t, 10)),
+                        (e.totalPages = a.calculateTotalPages());
                     })
                   : (this.itemsPerPage = s.itemsPerPage),
                 e.$watch("totalItems", function() {
@@ -5289,7 +5710,10 @@
                 });
             }),
               (this.calculateTotalPages = function() {
-                var t = this.itemsPerPage < 1 ? 1 : Math.ceil(e.totalItems / this.itemsPerPage);
+                var t =
+                  this.itemsPerPage < 1
+                    ? 1
+                    : Math.ceil(e.totalItems / this.itemsPerPage);
                 return Math.max(t || 0, 1);
               }),
               (this.render = function() {
@@ -5301,7 +5725,9 @@
                     e.page !== t &&
                     t > 0 &&
                     t <= e.totalPages &&
-                    (n && n.target && n.target.blur(), o.$setViewValue(t), o.$render());
+                    (n && n.target && n.target.blur(),
+                    o.$setViewValue(t),
+                    o.$render());
               }),
               (e.getText = function(t) {
                 return e[t + "Text"] || a.config[t + "Text"];
@@ -5352,8 +5778,12 @@
                 var s = i[0],
                   l = i[1];
                 if (l) {
-                  var c = angular.isDefined(o.maxSize) ? n.$parent.$eval(o.maxSize) : t.maxSize,
-                    d = angular.isDefined(o.rotate) ? n.$parent.$eval(o.rotate) : t.rotate;
+                  var c = angular.isDefined(o.maxSize)
+                      ? n.$parent.$eval(o.maxSize)
+                      : t.maxSize,
+                    d = angular.isDefined(o.rotate)
+                      ? n.$parent.$eval(o.rotate)
+                      : t.rotate;
                   (n.boundaryLinks = angular.isDefined(o.boundaryLinks)
                     ? n.$parent.$eval(o.boundaryLinks)
                     : t.boundaryLinks),
@@ -5377,8 +5807,10 @@
                             i = angular.isDefined(c) && t > c;
                           i &&
                             (d
-                              ? (o = (a = Math.max(e - Math.floor(c / 2), 1)) + c - 1) > t &&
-                                (a = (o = t) - c + 1)
+                              ? (o =
+                                  (a = Math.max(e - Math.floor(c / 2), 1)) +
+                                  c -
+                                  1) > t && (a = (o = t) - c + 1)
                               : ((a = (Math.ceil(e / c) - 1) * c + 1),
                                 (o = Math.min(a + c - 1, t))));
                           for (var s = a; o >= s; s++) {
@@ -5414,7 +5846,12 @@
           function(e) {
             return {
               restrict: "EA",
-              scope: { totalItems: "=", previousText: "@", nextText: "@", ngDisabled: "=" },
+              scope: {
+                totalItems: "=",
+                previousText: "@",
+                nextText: "@",
+                ngDisabled: "="
+              },
               require: ["pager", "?ngModel"],
               controller: "PaginationController",
               controllerAs: "pagination",
@@ -5426,17 +5863,32 @@
                 var i = o[0],
                   r = o[1];
                 r &&
-                  ((t.align = angular.isDefined(a.align) ? t.$parent.$eval(a.align) : e.align),
+                  ((t.align = angular.isDefined(a.align)
+                    ? t.$parent.$eval(a.align)
+                    : e.align),
                   i.init(r, e));
               }
             };
           }
         ]),
       angular
-        .module("ui.bootstrap.tooltip", ["ui.bootstrap.position", "ui.bootstrap.bindHtml"])
+        .module("ui.bootstrap.tooltip", [
+          "ui.bootstrap.position",
+          "ui.bootstrap.bindHtml"
+        ])
         .provider("$tooltip", function() {
-          var e = { placement: "top", animation: !0, popupDelay: 0, useContentExp: !1 },
-            t = { mouseenter: "mouseleave", click: "click", focus: "blur", none: "" },
+          var e = {
+              placement: "top",
+              animation: !0,
+              popupDelay: 0,
+              useContentExp: !1
+            },
+            t = {
+              mouseenter: "mouseleave",
+              click: "click",
+              focus: "blur",
+              none: ""
+            },
             n = {};
           (this.options = function(e) {
             angular.extend(n, e);
@@ -5509,7 +5961,9 @@
                                 t = parseInt(e, 10);
                               D.popupDelay = isNaN(t) ? h.popupDelay : t;
                             })(),
-                            D.popupDelay ? C || (C = i(v, D.popupDelay, !1)) : v());
+                            D.popupDelay
+                              ? C || (C = i(v, D.popupDelay, !1))
+                              : v());
                         }
                         function g() {
                           b(), c.$$phase || c.$digest();
@@ -5568,20 +6022,34 @@
                           T,
                           C,
                           P,
-                          A = !!angular.isDefined(h.appendToBody) && h.appendToBody,
+                          A =
+                            !!angular.isDefined(h.appendToBody) &&
+                            h.appendToBody,
                           x = f(void 0),
                           R = angular.isDefined(o[u + "Enable"]),
                           D = e.$new(!0),
                           $ = !1,
-                          M = !!angular.isDefined(o[u + "IsOpen"]) && d(o[u + "IsOpen"]),
+                          M =
+                            !!angular.isDefined(o[u + "IsOpen"]) &&
+                            d(o[u + "IsOpen"]),
                           I = function() {
                             k &&
                               (P ||
                                 (P = i(
                                   function() {
-                                    k.css({ top: 0, left: 0, width: "auto", height: "auto" });
+                                    k.css({
+                                      top: 0,
+                                      left: 0,
+                                      width: "auto",
+                                      height: "auto"
+                                    });
                                     var e = s.position(k),
-                                      n = s.positionElements(t, k, D.placement, A);
+                                      n = s.positionElements(
+                                        t,
+                                        k,
+                                        D.placement,
+                                        A
+                                      );
                                     (n.top += "px"),
                                       (n.left += "px"),
                                       (n.width = e.width + "px"),
@@ -5603,7 +6071,8 @@
                               (D.content = e), !e && D.isOpen ? b() : I();
                             }),
                           o.$observe("disabled", function(e) {
-                            C && e && (i.cancel(C), (C = null)), e && D.isOpen && b();
+                            C && e && (i.cancel(C), (C = null)),
+                              e && D.isOpen && b();
                           }),
                           o.$observe(u + "Title", function(e) {
                             (D.title = e), I();
@@ -5643,7 +6112,12 @@
                             D.isOpen && b();
                           }),
                           e.$on("$destroy", function() {
-                            i.cancel(T), i.cancel(C), i.cancel(P), E(), w(), (D = null);
+                            i.cancel(T),
+                              i.cancel(C),
+                              i.cancel(P),
+                              E(),
+                              w(),
+                              (D = null);
                           });
                       };
                     }
@@ -5675,26 +6149,31 @@
                         (l = c),
                         (c = null));
                   };
-                o.$watch(t.parseAsResourceUrl(r.tooltipTemplateTransclude), function(t) {
-                  var r = ++u;
-                  t
-                    ? (a(t, !0).then(
-                        function(a) {
-                          if (r === u) {
-                            var o = d.$new(),
-                              l = n(a)(o, function(t) {
-                                p(), e.enter(t, i);
-                              });
-                            (c = l), (s = o).$emit("$includeContentLoaded", t);
+                o.$watch(
+                  t.parseAsResourceUrl(r.tooltipTemplateTransclude),
+                  function(t) {
+                    var r = ++u;
+                    t
+                      ? (a(t, !0).then(
+                          function(a) {
+                            if (r === u) {
+                              var o = d.$new(),
+                                l = n(a)(o, function(t) {
+                                  p(), e.enter(t, i);
+                                });
+                              (c = l),
+                                (s = o).$emit("$includeContentLoaded", t);
+                            }
+                          },
+                          function() {
+                            r === u &&
+                              (p(), o.$emit("$includeContentError", t));
                           }
-                        },
-                        function() {
-                          r === u && (p(), o.$emit("$includeContentError", t));
-                        }
-                      ),
-                      o.$emit("$includeContentRequested", t))
-                    : p();
-                }),
+                        ),
+                        o.$emit("$includeContentRequested", t))
+                      : p();
+                  }
+                ),
                   o.$on("$destroy", p);
               }
             };
@@ -5714,7 +6193,13 @@
           return {
             restrict: "EA",
             replace: !0,
-            scope: { content: "@", placement: "@", popupClass: "@", animation: "&", isOpen: "&" },
+            scope: {
+              content: "@",
+              placement: "@",
+              popupClass: "@",
+              animation: "&",
+              isOpen: "&"
+            },
             templateUrl: "template/tooltip/tooltip-popup.html"
           };
         })
@@ -5742,7 +6227,9 @@
         .directive("tooltipTemplate", [
           "$tooltip",
           function(e) {
-            return e("tooltipTemplate", "tooltip", "mouseenter", { useContentExp: !0 });
+            return e("tooltipTemplate", "tooltip", "mouseenter", {
+              useContentExp: !0
+            });
           }
         ])
         .directive("tooltipHtmlPopup", function() {
@@ -5762,14 +6249,22 @@
         .directive("tooltipHtml", [
           "$tooltip",
           function(e) {
-            return e("tooltipHtml", "tooltip", "mouseenter", { useContentExp: !0 });
+            return e("tooltipHtml", "tooltip", "mouseenter", {
+              useContentExp: !0
+            });
           }
         ])
         .directive("tooltipHtmlUnsafePopup", function() {
           return {
             restrict: "EA",
             replace: !0,
-            scope: { content: "@", placement: "@", popupClass: "@", animation: "&", isOpen: "&" },
+            scope: {
+              content: "@",
+              placement: "@",
+              popupClass: "@",
+              animation: "&",
+              isOpen: "&"
+            },
             templateUrl: "template/tooltip/tooltip-html-unsafe-popup.html"
           };
         })
@@ -5809,7 +6304,9 @@
         .directive("popoverTemplate", [
           "$tooltip",
           function(e) {
-            return e("popoverTemplate", "popover", "click", { useContentExp: !0 });
+            return e("popoverTemplate", "popover", "click", {
+              useContentExp: !0
+            });
           }
         ])
         .directive("popoverHtmlPopup", function() {
@@ -5864,7 +6361,9 @@
           "progressConfig",
           function(e, t, n) {
             var a = this,
-              o = angular.isDefined(t.animate) ? e.$parent.$eval(t.animate) : n.animate;
+              o = angular.isDefined(t.animate)
+                ? e.$parent.$eval(t.animate)
+                : n.animate;
             (this.bars = []),
               (e.max = angular.isDefined(e.max) ? e.max : n.max),
               (this.addBar = function(t, n) {
@@ -5919,7 +6418,10 @@
               scope: { max: "=?" },
               templateUrl: "template/progressbar/progress.html",
               link: function() {
-                t && e.warn("progress is now deprecated. Use uib-progress instead");
+                t &&
+                  e.warn(
+                    "progress is now deprecated. Use uib-progress instead"
+                  );
               }
             };
           }
@@ -5949,7 +6451,8 @@
               scope: { value: "=", type: "@" },
               templateUrl: "template/progressbar/bar.html",
               link: function(n, a, o, i) {
-                t && e.warn("bar is now deprecated. Use uib-bar instead"), i.addBar(n, a);
+                t && e.warn("bar is now deprecated. Use uib-bar instead"),
+                  i.addBar(n, a);
               }
             };
           }
@@ -5984,7 +6487,10 @@
             (this.init = function(o) {
               ((a = o).$render = this.render),
                 a.$formatters.push(function(e) {
-                  return angular.isNumber(e) && e << 0 !== e && (e = Math.round(e)), e;
+                  return (
+                    angular.isNumber(e) && e << 0 !== e && (e = Math.round(e)),
+                    e
+                  );
                 }),
                 (this.stateOn = angular.isDefined(t.stateOn)
                   ? e.$parent.$eval(t.stateOn)
@@ -5992,18 +6498,26 @@
                 (this.stateOff = angular.isDefined(t.stateOff)
                   ? e.$parent.$eval(t.stateOff)
                   : n.stateOff);
-              var i = angular.isDefined(t.titles) ? e.$parent.$eval(t.titles) : n.titles;
+              var i = angular.isDefined(t.titles)
+                ? e.$parent.$eval(t.titles)
+                : n.titles;
               this.titles = angular.isArray(i) && i.length > 0 ? i : n.titles;
               var r = angular.isDefined(t.ratingStates)
                 ? e.$parent.$eval(t.ratingStates)
-                : new Array(angular.isDefined(t.max) ? e.$parent.$eval(t.max) : n.max);
+                : new Array(
+                    angular.isDefined(t.max) ? e.$parent.$eval(t.max) : n.max
+                  );
               e.range = this.buildTemplateObjects(r);
             }),
               (this.buildTemplateObjects = function(e) {
                 for (var t = 0, n = e.length; n > t; t++)
                   e[t] = angular.extend(
                     { index: t },
-                    { stateOn: this.stateOn, stateOff: this.stateOff, title: this.getTitle(t) },
+                    {
+                      stateOn: this.stateOn,
+                      stateOff: this.stateOff,
+                      title: this.getTitle(t)
+                    },
                     e[t]
                   );
                 return e;
@@ -6027,7 +6541,9 @@
                 /(37|38|39|40)/.test(t.which) &&
                   (t.preventDefault(),
                   t.stopPropagation(),
-                  e.rate(e.value + (38 === t.which || 39 === t.which ? 1 : -1)));
+                  e.rate(
+                    e.value + (38 === t.which || 39 === t.which ? 1 : -1)
+                  ));
               }),
               (this.render = function() {
                 e.value = a.$viewValue;
@@ -6059,7 +6575,9 @@
               a = (n.tabs = e.tabs = []);
             (n.select = function(e) {
               angular.forEach(a, function(t) {
-                t.active && t !== e && ((t.active = !1), t.onDeselect(), (e.selectCalled = !1));
+                t.active &&
+                  t !== e &&
+                  ((t.active = !1), t.onDeselect(), (e.selectCalled = !1));
               }),
                 (e.active = !0),
                 e.selectCalled || (e.onSelect(), (e.selectCalled = !0));
@@ -6069,8 +6587,8 @@
                   1 === a.length && !1 !== e.active
                     ? (e.active = !0)
                     : e.active
-                      ? n.select(e)
-                      : (e.active = !1);
+                    ? n.select(e)
+                    : (e.active = !1);
               }),
               (n.removeTab = function(e) {
                 var o = a.indexOf(e);
@@ -6094,8 +6612,11 @@
             controller: "TabsetController",
             templateUrl: "template/tabs/tabset.html",
             link: function(e, t, n) {
-              (e.vertical = !!angular.isDefined(n.vertical) && e.$parent.$eval(n.vertical)),
-                (e.justified = !!angular.isDefined(n.justified) && e.$parent.$eval(n.justified));
+              (e.vertical =
+                !!angular.isDefined(n.vertical) && e.$parent.$eval(n.vertical)),
+                (e.justified =
+                  !!angular.isDefined(n.justified) &&
+                  e.$parent.$eval(n.justified));
             }
           };
         })
@@ -6109,7 +6630,12 @@
               replace: !0,
               templateUrl: "template/tabs/tab.html",
               transclude: !0,
-              scope: { active: "=?", heading: "@", onSelect: "&select", onDeselect: "&deselect" },
+              scope: {
+                active: "=?",
+                heading: "@",
+                onSelect: "&select",
+                onDeselect: "&deselect"
+              },
               controller: function() {},
               link: function(n, a, o, i, r) {
                 n.$watch("active", function(e) {
@@ -6201,7 +6727,9 @@
               return (e.showMeridian
               ? t > 0 && 13 > t
               : t >= 0 && 24 > t)
-                ? (e.showMeridian && (12 === t && (t = 0), e.meridian === g[1] && (t += 12)), t)
+                ? (e.showMeridian &&
+                    (12 === t && (t = 0), e.meridian === g[1] && (t += 12)),
+                  t)
                 : void 0;
             }
             function s() {
@@ -6209,13 +6737,17 @@
               return t >= 0 && 60 > t ? t : void 0;
             }
             function l(e) {
-              return angular.isDefined(e) && e.toString().length < 2 ? "0" + e : e.toString();
+              return angular.isDefined(e) && e.toString().length < 2
+                ? "0" + e
+                : e.toString();
             }
             function c(e) {
               d(), m.$setViewValue(new Date(f)), u(e);
             }
             function d() {
-              m.$setValidity("time", !0), (e.invalidHours = !1), (e.invalidMinutes = !1);
+              m.$setValidity("time", !0),
+                (e.invalidHours = !1),
+                (e.invalidMinutes = !1);
             }
             function u(t) {
               var n = f.getHours(),
@@ -6245,10 +6777,12 @@
                 });
               var o = a.eq(0),
                 r = a.eq(1);
-              (angular.isDefined(t.mousewheel) ? e.$parent.$eval(t.mousewheel) : i.mousewheel) &&
-                this.setupMousewheelEvents(o, r),
-                (angular.isDefined(t.arrowkeys) ? e.$parent.$eval(t.arrowkeys) : i.arrowkeys) &&
-                  this.setupArrowkeyEvents(o, r),
+              (angular.isDefined(t.mousewheel)
+                ? e.$parent.$eval(t.mousewheel)
+                : i.mousewheel) && this.setupMousewheelEvents(o, r),
+                (angular.isDefined(t.arrowkeys)
+                  ? e.$parent.$eval(t.arrowkeys)
+                  : i.arrowkeys) && this.setupArrowkeyEvents(o, r),
                 (e.readonlyInput = angular.isDefined(t.readonlyInput)
                   ? e.$parent.$eval(t.readonlyInput)
                   : i.readonlyInput),
@@ -6299,7 +6833,9 @@
                   if (((e.showMeridian = !!t), m.$error.time)) {
                     var n = r(),
                       a = s();
-                    angular.isDefined(n) && angular.isDefined(a) && (f.setHours(n), c());
+                    angular.isDefined(n) &&
+                      angular.isDefined(a) &&
+                      (f.setHours(n), c());
                   } else u();
                 }),
               (this.setupMousewheelEvents = function(t, n) {
@@ -6309,10 +6845,13 @@
                   return e.detail || t > 0;
                 };
                 t.bind("mousewheel wheel", function(t) {
-                  e.$apply(a(t) ? e.incrementHours() : e.decrementHours()), t.preventDefault();
+                  e.$apply(a(t) ? e.incrementHours() : e.decrementHours()),
+                    t.preventDefault();
                 }),
                   n.bind("mousewheel wheel", function(t) {
-                    e.$apply(a(t) ? e.incrementMinutes() : e.decrementMinutes()),
+                    e.$apply(
+                      a(t) ? e.incrementMinutes() : e.decrementMinutes()
+                    ),
                       t.preventDefault();
                   });
               }),
@@ -6320,17 +6859,22 @@
                 t.bind("keydown", function(t) {
                   38 === t.which
                     ? (t.preventDefault(), e.incrementHours(), e.$apply())
-                    : 40 === t.which && (t.preventDefault(), e.decrementHours(), e.$apply());
+                    : 40 === t.which &&
+                      (t.preventDefault(), e.decrementHours(), e.$apply());
                 }),
                   n.bind("keydown", function(t) {
                     38 === t.which
                       ? (t.preventDefault(), e.incrementMinutes(), e.$apply())
-                      : 40 === t.which && (t.preventDefault(), e.decrementMinutes(), e.$apply());
+                      : 40 === t.which &&
+                        (t.preventDefault(), e.decrementMinutes(), e.$apply());
                   });
               }),
               (this.setupInputEvents = function(t, n) {
                 if (e.readonlyInput)
-                  return (e.updateHours = angular.noop), void (e.updateMinutes = angular.noop);
+                  return (
+                    (e.updateHours = angular.noop),
+                    void (e.updateMinutes = angular.noop)
+                  );
                 var a = function(t, n) {
                   m.$setViewValue(null),
                     m.$setValidity("time", !1),
@@ -6355,7 +6899,8 @@
                     var e = s(),
                       t = r();
                     angular.isDefined(e) && angular.isDefined(t)
-                      ? (f.setMinutes(e), b > f || f > w ? a(void 0, !0) : c("m"))
+                      ? (f.setMinutes(e),
+                        b > f || f > w ? a(void 0, !0) : c("m"))
                       : a(void 0, !0);
                   }),
                   n.bind("blur", function(t) {
@@ -6375,7 +6920,9 @@
                     ))
                   : (t && (f = t),
                     b > f || f > w
-                      ? (m.$setValidity("time", !1), (e.invalidHours = !0), (e.invalidMinutes = !0))
+                      ? (m.$setValidity("time", !1),
+                        (e.invalidHours = !0),
+                        (e.invalidMinutes = !0))
                       : d(),
                     u());
               }),
@@ -6430,11 +6977,19 @@
             function i(e) {
               for (var t in e) if (void 0 !== s.style[t]) return e[t];
             }
-            o || a.warn("$transition is now deprecated. Use $animate from ngAnimate instead.");
+            o ||
+              a.warn(
+                "$transition is now deprecated. Use $animate from ngAnimate instead."
+              );
             var r = function(a, o, i) {
                 i = i || {};
                 var s = e.defer(),
-                  l = r[i.animation ? "animationEndEventName" : "transitionEndEventName"],
+                  l =
+                    r[
+                      i.animation
+                        ? "animationEndEventName"
+                        : "transitionEndEventName"
+                    ],
                   c = function(e) {
                     n.$apply(function() {
                       a.unbind(l, c), s.resolve(a);
@@ -6446,8 +7001,8 @@
                     angular.isString(o)
                       ? a.addClass(o)
                       : angular.isFunction(o)
-                        ? o(a)
-                        : angular.isObject(o) && a.css(o),
+                      ? o(a)
+                      : angular.isObject(o) && a.css(o),
                       l || s.resolve(a);
                   }),
                   (s.promise.cancel = function() {
@@ -6519,7 +7074,9 @@
                   U.moveInProgress || ((U.moveInProgress = !0), U.$digest()),
                     N && a.cancel(N),
                     (N = a(function() {
-                      U.matches.length && g(), (U.moveInProgress = !1), U.$digest();
+                      U.matches.length && g(),
+                        (U.moveInProgress = !1),
+                        U.$digest();
                     }, d));
                 }
                 function g() {
@@ -6540,10 +7097,16 @@
                     !!angular.isDefined(h.typeaheadSelectOnBlur) &&
                     u.$eval(h.typeaheadSelectOnBlur),
                   x = t(h.typeaheadNoResults).assign || angular.noop,
-                  R = h.typeaheadInputFormatter ? t(h.typeaheadInputFormatter) : void 0,
-                  D = !!h.typeaheadAppendToBody && u.$eval(h.typeaheadAppendToBody),
+                  R = h.typeaheadInputFormatter
+                    ? t(h.typeaheadInputFormatter)
+                    : void 0,
+                  D =
+                    !!h.typeaheadAppendToBody &&
+                    u.$eval(h.typeaheadAppendToBody),
                   $ = !1 !== u.$eval(h.typeaheadFocusFirst),
-                  M = !!h.typeaheadSelectOnExact && u.$eval(h.typeaheadSelectOnExact),
+                  M =
+                    !!h.typeaheadSelectOnExact &&
+                    u.$eval(h.typeaheadSelectOnExact),
                   I = t(h.ngModel),
                   E = t(h.ngModel + "($$$p)"),
                   z = l.parse(h.typeahead),
@@ -6552,8 +7115,13 @@
                     U.$destroy();
                   });
                 U.$on("$destroy", L);
-                var F = "typeahead-" + U.$id + "-" + Math.floor(1e4 * Math.random());
-                p.attr({ "aria-autocomplete": "list", "aria-expanded": !1, "aria-owns": F });
+                var F =
+                  "typeahead-" + U.$id + "-" + Math.floor(1e4 * Math.random());
+                p.attr({
+                  "aria-autocomplete": "list",
+                  "aria-expanded": !1,
+                  "aria-owns": F
+                });
                 var O = angular.element("<div typeahead-popup></div>");
                 O.attr({
                   id: F,
@@ -6569,7 +7137,9 @@
                   angular.isDefined(h.typeaheadPopupTemplateUrl) &&
                     O.attr("popup-template-url", h.typeaheadPopupTemplateUrl);
                 var B = function() {
-                    (U.matches = []), (U.activeIdx = -1), p.attr("aria-expanded", !1);
+                    (U.matches = []),
+                      (U.activeIdx = -1),
+                      p.attr("aria-expanded", !1);
                   },
                   j = function(e) {
                     return F + "-option-" + e;
@@ -6589,7 +7159,9 @@
                           var a = e === v.$viewValue;
                           if (a && y)
                             if (n && n.length > 0) {
-                              (U.activeIdx = $ ? 0 : -1), x(u, !1), (U.matches.length = 0);
+                              (U.activeIdx = $ ? 0 : -1),
+                                x(u, !1),
+                                (U.matches.length = 0);
                               for (var o = 0; o < n.length; o++)
                                 (t[z.itemName] = n[o]),
                                   U.matches.push({
@@ -6605,7 +7177,8 @@
                                   (function(e, t) {
                                     return (
                                       !!(U.matches.length > t && e) &&
-                                      e.toUpperCase() === U.matches[t].label.toUpperCase()
+                                      e.toUpperCase() ===
+                                        U.matches[t].label.toUpperCase()
                                     );
                                   })(e, 0) &&
                                   U.select(0);
@@ -6617,7 +7190,9 @@
                         }
                       );
                   };
-                D && (angular.element(i).bind("resize", m), o.find("body").bind("scroll", m)),
+                D &&
+                  (angular.element(i).bind("resize", m),
+                  o.find("body").bind("scroll", m)),
                   (U.moveInProgress = !1),
                   B(),
                   (U.query = void 0);
@@ -6641,8 +7216,8 @@
                     T
                       ? e
                       : e
-                        ? void v.$setValidity("editable", !1)
-                        : (v.$setValidity("editable", !0), null)
+                      ? void v.$setValidity("editable", !1)
+                      : (v.$setValidity("editable", !0), null)
                   );
                 }),
                   v.$formatters.push(function(e) {
@@ -6666,7 +7241,10 @@
                       (o[z.itemName] = n = U.matches[e].model),
                       (t = z.modelMapper(u, o)),
                       (function(e, t) {
-                        angular.isFunction(I(u)) && b && b.$options && b.$options.getterSetter
+                        angular.isFunction(I(u)) &&
+                        b &&
+                        b.$options &&
+                        b.$options.getterSetter
                           ? E(e, { $$$p: t })
                           : I.assign(e, t);
                       })(u, t),
@@ -6685,20 +7263,28 @@
                   }),
                   p.bind("keydown", function(e) {
                     if (0 !== U.matches.length && -1 !== c.indexOf(e.which)) {
-                      if (-1 === U.activeIdx && (9 === e.which || 13 === e.which))
+                      if (
+                        -1 === U.activeIdx &&
+                        (9 === e.which || 13 === e.which)
+                      )
                         return B(), void U.$digest();
                       e.preventDefault(),
                         40 === e.which
-                          ? ((U.activeIdx = (U.activeIdx + 1) % U.matches.length), U.$digest())
+                          ? ((U.activeIdx =
+                              (U.activeIdx + 1) % U.matches.length),
+                            U.$digest())
                           : 38 === e.which
-                            ? ((U.activeIdx =
-                                (U.activeIdx > 0 ? U.activeIdx : U.matches.length) - 1),
-                              U.$digest())
-                            : 13 === e.which || 9 === e.which
-                              ? U.$apply(function() {
-                                  U.select(U.activeIdx);
-                                })
-                              : 27 === e.which && (e.stopPropagation(), B(), U.$digest());
+                          ? ((U.activeIdx =
+                              (U.activeIdx > 0
+                                ? U.activeIdx
+                                : U.matches.length) - 1),
+                            U.$digest())
+                          : 13 === e.which || 9 === e.which
+                          ? U.$apply(function() {
+                              U.select(U.activeIdx);
+                            })
+                          : 27 === e.which &&
+                            (e.stopPropagation(), B(), U.$digest());
                     }
                   }),
                   p.bind("blur", function() {
@@ -6742,7 +7328,9 @@
             },
             replace: !0,
             templateUrl: function(e, t) {
-              return t.popupTemplateUrl || "template/typeahead/typeahead-popup.html";
+              return (
+                t.popupTemplateUrl || "template/typeahead/typeahead-popup.html"
+              );
             },
             link: function(e, t, n) {
               (e.templateUrl = n.templateUrl),
@@ -6770,7 +7358,9 @@
               restrict: "EA",
               scope: { index: "=", match: "=", query: "=" },
               link: function(a, o, i) {
-                var r = n(i.templateUrl)(a.$parent) || "template/typeahead/typeahead-match.html";
+                var r =
+                  n(i.templateUrl)(a.$parent) ||
+                  "template/typeahead/typeahead-match.html";
                 e(r).then(function(e) {
                   t(e.trim())(a, function(e) {
                     o.replaceWith(e);
@@ -6948,15 +7538,17 @@
           );
         }
       ]),
-      angular.module("template/tooltip/tooltip-html-unsafe-popup.html", []).run([
-        "$templateCache",
-        function(e) {
-          e.put(
-            "template/tooltip/tooltip-html-unsafe-popup.html",
-            '<div class="tooltip"\n  tooltip-animation-class="fade"\n  tooltip-classes\n  ng-class="{ in: isOpen() }">\n  <div class="tooltip-arrow"></div>\n  <div class="tooltip-inner" bind-html-unsafe="content"></div>\n</div>\n'
-          );
-        }
-      ]),
+      angular
+        .module("template/tooltip/tooltip-html-unsafe-popup.html", [])
+        .run([
+          "$templateCache",
+          function(e) {
+            e.put(
+              "template/tooltip/tooltip-html-unsafe-popup.html",
+              '<div class="tooltip"\n  tooltip-animation-class="fade"\n  tooltip-classes\n  ng-class="{ in: isOpen() }">\n  <div class="tooltip-arrow"></div>\n  <div class="tooltip-inner" bind-html-unsafe="content"></div>\n</div>\n'
+            );
+          }
+        ]),
       angular.module("template/tooltip/tooltip-popup.html", []).run([
         "$templateCache",
         function(e) {
@@ -7014,7 +7606,10 @@
       angular.module("template/progressbar/progress.html", []).run([
         "$templateCache",
         function(e) {
-          e.put("template/progressbar/progress.html", '<div class="progress" ng-transclude></div>');
+          e.put(
+            "template/progressbar/progress.html",
+            '<div class="progress" ng-transclude></div>'
+          );
         }
       ]),
       angular.module("template/progressbar/progressbar.html", []).run([
@@ -7094,7 +7689,9 @@
         "use strict";
         var t = 0,
           n = function(t, n) {
-            (this.options = n), (this.$elementFilestyle = []), (this.$element = e(t));
+            (this.options = n),
+              (this.$elementFilestyle = []),
+              (this.$element = e(t));
           };
         n.prototype = {
           clear: function() {
@@ -7125,13 +7722,17 @@
               this.options.buttonBefore ||
                 ((this.options.buttonBefore = !0),
                 this.options.input &&
-                  (this.$elementFilestyle.remove(), this.constructor(), this.pushNameFiles()));
+                  (this.$elementFilestyle.remove(),
+                  this.constructor(),
+                  this.pushNameFiles()));
             else {
               if (!1 !== e) return this.options.buttonBefore;
               this.options.buttonBefore &&
                 ((this.options.buttonBefore = !1),
                 this.options.input &&
-                  (this.$elementFilestyle.remove(), this.constructor(), this.pushNameFiles()));
+                  (this.$elementFilestyle.remove(),
+                  this.constructor(),
+                  this.pushNameFiles()));
             }
           },
           icon: function(e) {
@@ -7155,11 +7756,14 @@
                   : this.$elementFilestyle.prepend(this.htmlInput()),
                 this.$elementFilestyle.find(".badge").remove(),
                 this.pushNameFiles(),
-                this.$elementFilestyle.find(".group-span-filestyle").addClass("input-group-btn"));
+                this.$elementFilestyle
+                  .find(".group-span-filestyle")
+                  .addClass("input-group-btn"));
             else {
               if (!1 !== e) return this.options.input;
               if (this.options.input) {
-                (this.options.input = !1), this.$elementFilestyle.find(":text").remove();
+                (this.options.input = !1),
+                  this.$elementFilestyle.find(":text").remove();
                 var t = this.pushNameFiles();
                 t.length > 0 &&
                   this.options.badge &&
@@ -7188,7 +7792,9 @@
           buttonText: function(e) {
             if (void 0 === e) return this.options.buttonText;
             (this.options.buttonText = e),
-              this.$elementFilestyle.find("label .buttonText").html(this.options.buttonText);
+              this.$elementFilestyle
+                .find("label .buttonText")
+                .html(this.options.buttonText);
           },
           buttonName: function(e) {
             if (void 0 === e) return this.options.buttonName;
@@ -7205,13 +7811,17 @@
           },
           htmlIcon: function() {
             return this.options.icon
-              ? '<span class="icon-span-filestyle ' + this.options.iconName + '"></span> '
+              ? '<span class="icon-span-filestyle ' +
+                  this.options.iconName +
+                  '"></span> '
               : "";
           },
           htmlInput: function() {
             return this.options.input
               ? '<input type="text" class="form-control ' +
-                  ("nr" == this.options.size ? "" : "input-" + this.options.size) +
+                  ("nr" == this.options.size
+                    ? ""
+                    : "input-" + this.options.size) +
                   '" placeholder="' +
                   this.options.placeholder +
                   '" disabled> '
@@ -7223,10 +7833,13 @@
             void 0 === this.$element[0].files
               ? (t[0] = { name: this.$element[0] && this.$element[0].value })
               : (t = this.$element[0].files);
-            for (var n = 0; n < t.length; n++) e += t[n].name.split("\\").pop() + ", ";
+            for (var n = 0; n < t.length; n++)
+              e += t[n].name.split("\\").pop() + ", ";
             return (
               "" !== e
-                ? this.$elementFilestyle.find(":text").val(e.replace(/\, $/g, ""))
+                ? this.$elementFilestyle
+                    .find(":text")
+                    .val(e.replace(/\, $/g, ""))
                 : this.$elementFilestyle.find(":text").val(""),
               t
             );
@@ -7237,7 +7850,8 @@
               o = this,
               i = "",
               r = o.$element.attr("id");
-            ("" !== r && r) || ((r = "filestyle-" + t), o.$element.attr({ id: r }), t++),
+            ("" !== r && r) ||
+              ((r = "filestyle-" + t), o.$element.attr({ id: r }), t++),
               (i =
                 '<div class="group-span-filestyle ' +
                 (o.options.input ? "input-group-btn" : "btn-group") +
@@ -7250,7 +7864,9 @@
                 " " +
                 ("nr" == o.options.size ? "" : "btn-" + o.options.size) +
                 '" ' +
-                (o.options.disabled || o.$element.attr("disabled") ? 'disabled="true"' : "") +
+                (o.options.disabled || o.$element.attr("disabled")
+                  ? 'disabled="true"'
+                  : "") +
                 ">" +
                 o.htmlIcon() +
                 '<span class="buttonText">' +
@@ -7290,8 +7906,8 @@
                         .find("label")
                         .append(' <span class="badge">' + e.length + "</span>")
                     : 0 == e.length
-                      ? o.$elementFilestyle.find(".badge").remove()
-                      : o.$elementFilestyle.find(".badge").html(e.length)
+                    ? o.$elementFilestyle.find(".badge").remove()
+                    : o.$elementFilestyle.find(".badge").html(e.length)
                   : o.$elementFilestyle.find(".badge").remove();
               }),
               window.navigator.userAgent.search(/firefox/i) > -1 &&
@@ -7307,8 +7923,14 @@
               if ("file" === e(this).attr("type")) {
                 var i = e(this),
                   r = i.data("filestyle"),
-                  s = e.extend({}, e.fn.filestyle.defaults, t, "object" == typeof t && t);
-                r || (i.data("filestyle", (r = new n(this, s))), r.constructor()),
+                  s = e.extend(
+                    {},
+                    e.fn.filestyle.defaults,
+                    t,
+                    "object" == typeof t && t
+                  );
+                r ||
+                  (i.data("filestyle", (r = new n(this, s))), r.constructor()),
                   "string" == typeof t && (o = r[t](a));
               }
             });
@@ -7395,16 +8017,27 @@
           (e.color.extract = function(t, n) {
             var a;
             do {
-              if ("" != (a = t.css(n).toLowerCase()) && "transparent" != a) break;
+              if ("" != (a = t.css(n).toLowerCase()) && "transparent" != a)
+                break;
               t = t.parent();
             } while (t.length && !e.nodeName(t.get(0), "body"));
-            return "rgba(0, 0, 0, 0)" == a && (a = "transparent"), e.color.parse(a);
+            return (
+              "rgba(0, 0, 0, 0)" == a && (a = "transparent"), e.color.parse(a)
+            );
           }),
           (e.color.parse = function(n) {
             var a,
               o = e.color.make;
-            if ((a = /rgb\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*\)/.exec(n)))
-              return o(parseInt(a[1], 10), parseInt(a[2], 10), parseInt(a[3], 10));
+            if (
+              (a = /rgb\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*\)/.exec(
+                n
+              ))
+            )
+              return o(
+                parseInt(a[1], 10),
+                parseInt(a[2], 10),
+                parseInt(a[3], 10)
+              );
             if (
               (a = /rgba\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*,\s*([0-9]+(?:\.[0-9]+)?)\s*\)/.exec(
                 n
@@ -7421,7 +8054,11 @@
                 n
               ))
             )
-              return o(2.55 * parseFloat(a[1]), 2.55 * parseFloat(a[2]), 2.55 * parseFloat(a[3]));
+              return o(
+                2.55 * parseFloat(a[1]),
+                2.55 * parseFloat(a[2]),
+                2.55 * parseFloat(a[3])
+              );
             if (
               (a = /rgba\(\s*([0-9]+(?:\.[0-9]+)?)\%\s*,\s*([0-9]+(?:\.[0-9]+)?)\%\s*,\s*([0-9]+(?:\.[0-9]+)?)\%\s*,\s*([0-9]+(?:\.[0-9]+)?)\s*\)/.exec(
                 n
@@ -7433,8 +8070,14 @@
                 2.55 * parseFloat(a[3]),
                 parseFloat(a[4])
               );
-            if ((a = /#([a-fA-F0-9]{2})([a-fA-F0-9]{2})([a-fA-F0-9]{2})/.exec(n)))
-              return o(parseInt(a[1], 16), parseInt(a[2], 16), parseInt(a[3], 16));
+            if (
+              (a = /#([a-fA-F0-9]{2})([a-fA-F0-9]{2})([a-fA-F0-9]{2})/.exec(n))
+            )
+              return o(
+                parseInt(a[1], 16),
+                parseInt(a[2], 16),
+                parseInt(a[3], 16)
+              );
             if ((a = /#([a-fA-F0-9])([a-fA-F0-9])([a-fA-F0-9])/.exec(n)))
               return o(
                 parseInt(a[1] + a[1], 16),
@@ -7500,7 +8143,12 @@
               null == a &&
               (((a = document.createElement("canvas")).className = t),
               e(a)
-                .css({ direction: "ltr", position: "absolute", left: 0, top: 0 })
+                .css({
+                  direction: "ltr",
+                  position: "absolute",
+                  left: 0,
+                  top: 0
+                })
                 .appendTo(n),
               !a.getContext)
             ) {
@@ -7661,7 +8309,8 @@
                     a = -1;
                   for (t = 0; t < r.length; ++t) {
                     var o = r[t].color;
-                    null != o && (n--, "number" == typeof o && o > a && (a = o));
+                    null != o &&
+                      (n--, "number" == typeof o && o > a && (a = o));
                   }
                   n <= a && (n = a + 1);
                   var i,
@@ -7671,7 +8320,9 @@
                     u = 0;
                   for (t = 0; t < n; t++)
                     (i = e.color.parse(c[t % d] || "#666")),
-                      t % d == 0 && t && (u = u >= 0 ? (u < 0.5 ? -u - 0.2 : 0) : -u),
+                      t % d == 0 &&
+                        t &&
+                        (u = u >= 0 ? (u < 0.5 ? -u - 0.2 : 0) : -u),
                       (l[t] = i.scale("rgb", 1 + u));
                   var p,
                     m = 0;
@@ -7679,7 +8330,8 @@
                     if (
                       (null == (p = r[t]).color
                         ? ((p.color = l[m].toString()), ++m)
-                        : "number" == typeof p.color && (p.color = l[p.color].toString()),
+                        : "number" == typeof p.color &&
+                          (p.color = l[p.color].toString()),
                       null == p.lines.show)
                     ) {
                       var g,
@@ -7727,15 +8379,28 @@
                     ((i = r[t]).datapoints = { points: [] }),
                       y(b.processRawData, [i, i.data, i.datapoints]);
                   for (t = 0; t < r.length; ++t) {
-                    if (((i = r[t]), (p = i.data), !(h = i.datapoints.format))) {
+                    if (
+                      ((i = r[t]), (p = i.data), !(h = i.datapoints.format))
+                    ) {
                       if (
                         ((h = []).push({ x: !0, number: !0, required: !0 }),
                         h.push({ y: !0, number: !0, required: !0 }),
                         i.bars.show || (i.lines.show && i.lines.fill))
                       ) {
-                        var w = !!((i.bars.show && i.bars.zero) || (i.lines.show && i.lines.zero));
-                        h.push({ y: !0, number: !0, required: !1, defaultValue: 0, autoscale: w }),
-                          i.bars.horizontal && (delete h[h.length - 1].y, (h[h.length - 1].x = !0));
+                        var w = !!(
+                          (i.bars.show && i.bars.zero) ||
+                          (i.lines.show && i.lines.zero)
+                        );
+                        h.push({
+                          y: !0,
+                          number: !0,
+                          required: !1,
+                          defaultValue: 0,
+                          autoscale: w
+                        }),
+                          i.bars.horizontal &&
+                            (delete h[h.length - 1].y,
+                            (h[h.length - 1].x = !0));
                       }
                       i.datapoints.format = h;
                     }
@@ -7744,7 +8409,11 @@
                         (l = i.datapoints.pointsize),
                         (s = i.datapoints.points);
                       var k = i.lines.show && i.lines.steps;
-                      for (i.xaxis.used = i.yaxis.used = !0, n = a = 0; n < p.length; ++n, a += l) {
+                      for (
+                        i.xaxis.used = i.yaxis.used = !0, n = a = 0;
+                        n < p.length;
+                        ++n, a += l
+                      ) {
                         var S = null == (u = p[n]);
                         if (!S)
                           for (o = 0; o < l; ++o)
@@ -7756,17 +8425,19 @@
                                   isNaN(c)
                                     ? (c = null)
                                     : c == 1 / 0
-                                      ? (c = g)
-                                      : c == -1 / 0 && (c = -g)),
+                                    ? (c = g)
+                                    : c == -1 / 0 && (c = -g)),
                                 null == c &&
                                   (d.required && (S = !0),
-                                  null != d.defaultValue && (c = d.defaultValue))),
+                                  null != d.defaultValue &&
+                                    (c = d.defaultValue))),
                               (s[a + o] = c);
                         if (S)
                           for (o = 0; o < l; ++o)
                             null != (c = s[a + o]) &&
                               !1 !== (d = h[o]).autoscale &&
-                              (d.x && v(i.xaxis, c, c), d.y && v(i.yaxis, c, c)),
+                              (d.x && v(i.xaxis, c, c),
+                              d.y && v(i.yaxis, c, c)),
                               (s[a + o] = null);
                         else if (
                           k &&
@@ -7821,13 +8492,18 @@
                     v(i.xaxis, C, A), v(i.yaxis, P, x);
                   }
                   e.each(T(), function(e, t) {
-                    t.datamin == f && (t.datamin = null), t.datamax == m && (t.datamax = null);
+                    t.datamin == f && (t.datamin = null),
+                      t.datamax == m && (t.datamax = null);
                   });
                 })();
             }
             function S(e, t) {
               var n = e[t + "axis"];
-              return "object" == typeof n && (n = n.n), "number" != typeof n && (n = 1), n;
+              return (
+                "object" == typeof n && (n = n.n),
+                "number" != typeof n && (n = 1),
+                n
+              );
             }
             function T() {
               return e.grep(h.concat(f), function(e) {
@@ -7838,9 +8514,15 @@
               var t,
                 n,
                 a = {};
-              for (t = 0; t < h.length; ++t) (n = h[t]) && n.used && (a["x" + n.n] = n.c2p(e.left));
-              for (t = 0; t < f.length; ++t) (n = f[t]) && n.used && (a["y" + n.n] = n.c2p(e.top));
-              return void 0 !== a.x1 && (a.x = a.x1), void 0 !== a.y1 && (a.y = a.y1), a;
+              for (t = 0; t < h.length; ++t)
+                (n = h[t]) && n.used && (a["x" + n.n] = n.c2p(e.left));
+              for (t = 0; t < f.length; ++t)
+                (n = f[t]) && n.used && (a["y" + n.n] = n.c2p(e.top));
+              return (
+                void 0 !== a.x1 && (a.x = a.x1),
+                void 0 !== a.y1 && (a.y = a.y1),
+                a
+              );
             }
             function P(t, n) {
               return (
@@ -7875,7 +8557,9 @@
               e.each(i ? h : f, function(e, n) {
                 n &&
                   (n.show || n.reserveSpace) &&
-                  (n === t ? (v = !0) : n.options.position === o && (v ? (p = !1) : (u = !1)),
+                  (n === t
+                    ? (v = !0)
+                    : n.options.position === o && (v ? (p = !1) : (u = !1)),
                   v || (g = !1));
               }),
                 p && (c = 0),
@@ -7884,12 +8568,16 @@
                 i
                   ? ((a += d),
                     "bottom" == o
-                      ? ((m.bottom += a + c), (t.box = { top: l.height - m.bottom, height: a }))
-                      : ((t.box = { top: m.top + c, height: a }), (m.top += a + c)))
+                      ? ((m.bottom += a + c),
+                        (t.box = { top: l.height - m.bottom, height: a }))
+                      : ((t.box = { top: m.top + c, height: a }),
+                        (m.top += a + c)))
                   : ((n += d),
                     "left" == o
-                      ? ((t.box = { left: m.left + c, width: n }), (m.left += n + c))
-                      : ((m.right += n + c), (t.box = { left: l.width - m.right, width: n }))),
+                      ? ((t.box = { left: m.left + c, width: n }),
+                        (m.left += n + c))
+                      : ((m.right += n + c),
+                        (t.box = { left: l.width - m.right, width: n }))),
                 (t.position = o),
                 (t.tickLength = r),
                 (t.box.padding = d),
@@ -7911,7 +8599,8 @@
                 (e.each(a, function(e, t) {
                   var n = t.options;
                   (t.show = null == n.show ? t.used : n.show),
-                    (t.reserveSpace = null == n.reserveSpace ? t.show : n.reserveSpace),
+                    (t.reserveSpace =
+                      null == n.reserveSpace ? t.show : n.reserveSpace),
                     (function(e) {
                       var t = e.options,
                         n = +(null != t.min ? t.min : e.datamin),
@@ -7919,7 +8608,8 @@
                         o = a - n;
                       if (0 == o) {
                         var i = 0 == a ? 1 : 0.01;
-                        null == t.min && (n -= i), (null != t.max && null == t.min) || (a += i);
+                        null == t.min && (n -= i),
+                          (null != t.max && null == t.min) || (a += i);
                       } else {
                         var r = t.autoscaleMargin;
                         null != r &&
@@ -7950,7 +8640,8 @@
                       n =
                         "number" == typeof a.ticks && a.ticks > 0
                           ? a.ticks
-                          : 0.3 * Math.sqrt("x" == t.direction ? l.width : l.height);
+                          : 0.3 *
+                            Math.sqrt("x" == t.direction ? l.width : l.height);
                       var o = (t.max - t.min) / n,
                         i = -Math.floor(Math.log(o) / Math.LN10),
                         r = a.tickDecimals;
@@ -7961,16 +8652,24 @@
                       d < 1.5
                         ? (s = 1)
                         : d < 3
-                          ? ((s = 2), d > 2.25 && (null == r || i + 1 <= r) && ((s = 2.5), ++i))
-                          : (s = d < 7.5 ? 5 : 10);
-                      (s *= c), null != a.minTickSize && s < a.minTickSize && (s = a.minTickSize);
+                        ? ((s = 2),
+                          d > 2.25 &&
+                            (null == r || i + 1 <= r) &&
+                            ((s = 2.5), ++i))
+                        : (s = d < 7.5 ? 5 : 10);
+                      (s *= c),
+                        null != a.minTickSize &&
+                          s < a.minTickSize &&
+                          (s = a.minTickSize);
                       if (
                         ((t.delta = o),
                         (t.tickDecimals = Math.max(0, null != r ? r : i)),
                         (t.tickSize = a.tickSize || s),
                         "time" == a.mode && !t.tickGenerator)
                       )
-                        throw new Error("Time mode requires the flot.time plugin.");
+                        throw new Error(
+                          "Time mode requires the flot.time plugin."
+                        );
                       t.tickGenerator ||
                         ((t.tickGenerator = function(e) {
                           var t,
@@ -7986,13 +8685,18 @@
                           return n;
                         }),
                         (t.tickFormatter = function(e, t) {
-                          var n = t.tickDecimals ? Math.pow(10, t.tickDecimals) : 1,
+                          var n = t.tickDecimals
+                              ? Math.pow(10, t.tickDecimals)
+                              : 1,
                             a = "" + Math.round(e * n) / n;
                           if (null != t.tickDecimals) {
                             var o = a.indexOf("."),
                               i = -1 == o ? 0 : a.length - o - 1;
                             if (i < t.tickDecimals)
-                              return (i ? a : a + ".") + ("" + n).substr(1, t.tickDecimals - i);
+                              return (
+                                (i ? a : a + ".") +
+                                ("" + n).substr(1, t.tickDecimals - i)
+                              );
                           }
                           return a;
                         }));
@@ -8001,7 +8705,9 @@
                           return "" + a.tickFormatter(e, t);
                         });
                       if (null != a.alignTicksWithAxis) {
-                        var u = ("x" == t.direction ? h : f)[a.alignTicksWithAxis - 1];
+                        var u = ("x" == t.direction ? h : f)[
+                          a.alignTicksWithAxis - 1
+                        ];
                         if (u && u.used && u != t) {
                           var p = t.tickGenerator(t);
                           if (
@@ -8022,9 +8728,13 @@
                             }),
                             !t.mode && null == a.tickDecimals)
                           ) {
-                            var m = Math.max(0, 1 - Math.floor(Math.log(t.delta) / Math.LN10)),
+                            var m = Math.max(
+                                0,
+                                1 - Math.floor(Math.log(t.delta) / Math.LN10)
+                              ),
                               g = t.tickGenerator(t);
-                            (g.length > 1 && /\..*0$/.test((g[1] - g[0]).toFixed(m))) ||
+                            (g.length > 1 &&
+                              /\..*0$/.test((g[1] - g[0]).toFixed(m))) ||
                               (t.tickDecimals = m);
                           }
                         }
@@ -8051,7 +8761,8 @@
                       (function(e, t) {
                         e.options.autoscaleMargin &&
                           t.length > 0 &&
-                          (null == e.options.min && (e.min = Math.min(e.min, t[0].v)),
+                          (null == e.options.min &&
+                            (e.min = Math.min(e.min, t[0].v)),
                           null == e.options.max &&
                             t.length > 1 &&
                             (e.max = Math.max(e.max, t[t.length - 1].v)));
@@ -8064,8 +8775,15 @@
                             o = t.labelHeight || 0,
                             i =
                               a ||
-                              ("x" == e.direction ? Math.floor(l.width / (n.length || 1)) : null),
-                            r = e.direction + "Axis " + e.direction + e.n + "Axis",
+                              ("x" == e.direction
+                                ? Math.floor(l.width / (n.length || 1))
+                                : null),
+                            r =
+                              e.direction +
+                              "Axis " +
+                              e.direction +
+                              e.n +
+                              "Axis",
                             s =
                               "flot-" +
                               e.direction +
@@ -8082,10 +8800,12 @@
                           var u = n[d];
                           if (u.label) {
                             var p = l.getTextInfo(s, u.label, c, null, i);
-                            (a = Math.max(a, p.width)), (o = Math.max(o, p.height));
+                            (a = Math.max(a, p.width)),
+                              (o = Math.max(o, p.height));
                           }
                         }
-                        (e.labelWidth = t.labelWidth || a), (e.labelHeight = t.labelHeight || o);
+                        (e.labelWidth = t.labelWidth || a),
+                          (e.labelHeight = t.labelHeight || o);
                       })(n);
                   }),
                     n = d.length - 1;
@@ -8098,7 +8818,10 @@
                     n = s.grid.minBorderMargin;
                   if (null == n)
                     for (n = 0, t = 0; t < r.length; ++t)
-                      n = Math.max(n, 2 * (r[t].points.radius + r[t].points.lineWidth / 2));
+                      n = Math.max(
+                        n,
+                        2 * (r[t].points.radius + r[t].points.lineWidth / 2)
+                      );
                   var a = { left: n, right: n, top: n, bottom: n };
                   e.each(T(), function(e, t) {
                     t.reserveSpace &&
@@ -8119,9 +8842,11 @@
                     !(function(e) {
                       "x" == e.direction
                         ? ((e.box.left = m.left - e.labelWidth / 2),
-                          (e.box.width = l.width - m.left - m.right + e.labelWidth))
+                          (e.box.width =
+                            l.width - m.left - m.right + e.labelWidth))
                         : ((e.box.top = m.top - e.labelHeight / 2),
-                          (e.box.height = l.height - m.bottom - m.top + e.labelHeight));
+                          (e.box.height =
+                            l.height - m.bottom - m.top + e.labelHeight));
                     })(t);
                   });
               }
@@ -8139,7 +8864,8 @@
                     "x" == e.direction
                       ? ((n = e.scale = g / Math.abs(o(e.max) - o(e.min))),
                         (a = Math.min(o(e.max), o(e.min))))
-                      : ((n = -(n = e.scale = v / Math.abs(o(e.max) - o(e.min)))),
+                      : ((n = -(n = e.scale =
+                          v / Math.abs(o(e.max) - o(e.min)))),
                         (a = Math.max(o(e.max), o(e.min)))),
                       (e.p2c =
                         o == t
@@ -8167,7 +8893,14 @@
                       r,
                       s = t.box,
                       c = t.direction + "Axis " + t.direction + t.n + "Axis",
-                      d = "flot-" + t.direction + "-axis flot-" + t.direction + t.n + "-axis " + c,
+                      d =
+                        "flot-" +
+                        t.direction +
+                        "-axis flot-" +
+                        t.direction +
+                        t.n +
+                        "-axis " +
+                        c,
                       u = t.options.font || "flot-tick-label tickLabel";
                     if ((l.removeText(d), t.show && 0 != t.ticks.length))
                       for (var p = 0; p < t.ticks.length; ++p)
@@ -8179,11 +8912,13 @@
                               (a = m.left + t.p2c(n.v)),
                               "bottom" == t.position
                                 ? (o = s.top + s.padding)
-                                : ((o = s.top + s.height - s.padding), (r = "bottom")))
+                                : ((o = s.top + s.height - s.padding),
+                                  (r = "bottom")))
                             : ((r = "middle"),
                               (o = m.top + t.p2c(n.v)),
                               "left" == t.position
-                                ? ((a = s.left + s.width - s.padding), (i = "right"))
+                                ? ((a = s.left + s.width - s.padding),
+                                  (i = "right"))
                                 : (a = s.left + s.padding)),
                           l.addText(d, a, o, n.label, u, null, null, i, r));
                   }),
@@ -8193,7 +8928,13 @@
                     : t.find(".legend").remove();
                   if (!s.legend.show) return;
                   for (
-                    var n, a, o = [], i = [], l = !1, c = s.legend.labelFormatter, d = 0;
+                    var n,
+                      a,
+                      o = [],
+                      i = [],
+                      l = !1,
+                      c = s.legend.labelFormatter,
+                      d = 0;
                     d < r.length;
                     ++d
                   )
@@ -8206,12 +8947,17 @@
                     else {
                       var u = "descending" != s.legend.sorted;
                       i.sort(function(e, t) {
-                        return e.label == t.label ? 0 : e.label < t.label != u ? 1 : -1;
+                        return e.label == t.label
+                          ? 0
+                          : e.label < t.label != u
+                          ? 1
+                          : -1;
                       });
                     }
                   for (var d = 0; d < i.length; ++d) {
                     var p = i[d];
-                    d % s.legend.noColumns == 0 && (l && o.push("</tr>"), o.push("<tr>"), (l = !0)),
+                    d % s.legend.noColumns == 0 &&
+                      (l && o.push("</tr>"), o.push("<tr>"), (l = !0)),
                       o.push(
                         '<td class="legendColorBox"><div style="border:1px solid ' +
                           s.legend.labelBoxBorderColor +
@@ -8238,13 +8984,18 @@
                     null == v[0] && (v = [v, v]),
                       "n" == g.charAt(0)
                         ? (f += "top:" + (v[1] + m.top) + "px;")
-                        : "s" == g.charAt(0) && (f += "bottom:" + (v[1] + m.bottom) + "px;"),
+                        : "s" == g.charAt(0) &&
+                          (f += "bottom:" + (v[1] + m.bottom) + "px;"),
                       "e" == g.charAt(1)
                         ? (f += "right:" + (v[0] + m.right) + "px;")
-                        : "w" == g.charAt(1) && (f += "left:" + (v[0] + m.left) + "px;");
+                        : "w" == g.charAt(1) &&
+                          (f += "left:" + (v[0] + m.left) + "px;");
                     var b = e(
                       '<div class="legend">' +
-                        h.replace('style="', 'style="position:absolute;' + f + ";") +
+                        h.replace(
+                          'style="',
+                          'style="position:absolute;' + f + ";"
+                        ) +
                         "</div>"
                     ).appendTo(t);
                     if (0 != s.legend.backgroundOpacity) {
@@ -8280,24 +9031,34 @@
                 e.backgroundColor &&
                 (u.save(),
                 u.translate(m.left, m.top),
-                (u.fillStyle = G(s.grid.backgroundColor, v, 0, "rgba(255, 255, 255, 0)")),
+                (u.fillStyle = G(
+                  s.grid.backgroundColor,
+                  v,
+                  0,
+                  "rgba(255, 255, 255, 0)"
+                )),
                 u.fillRect(0, 0, g, v),
                 u.restore()),
                 e.show && !e.aboveData && M();
-              for (var t = 0; t < r.length; ++t) y(b.drawSeries, [u, r[t]]), I(r[t]);
+              for (var t = 0; t < r.length; ++t)
+                y(b.drawSeries, [u, r[t]]), I(r[t]);
               y(b.draw, [u]), e.show && e.aboveData && M(), l.render(), N();
             }
             function $(e, t) {
               for (var n, a, o, i, r = T(), s = 0; s < r.length; ++s)
                 if (
                   (n = r[s]).direction == t &&
-                  (e[(i = t + n.n + "axis")] || 1 != n.n || (i = t + "axis"), e[i])
+                  (e[(i = t + n.n + "axis")] || 1 != n.n || (i = t + "axis"),
+                  e[i])
                 ) {
                   (a = e[i].from), (o = e[i].to);
                   break;
                 }
               if (
-                (e[i] || ((n = "x" == t ? h[0] : f[0]), (a = e[t + "1"]), (o = e[t + "2"])),
+                (e[i] ||
+                  ((n = "x" == t ? h[0] : f[0]),
+                  (a = e[t + "1"]),
+                  (o = e[t + "2"])),
                 null != a && null != o && a > o)
               ) {
                 var l = a;
@@ -8356,12 +9117,19 @@
                           (u.strokeStyle = r.color || s.grid.markingsColor),
                           (u.lineWidth = h),
                           d
-                            ? (u.moveTo(l.to + f, c.from), u.lineTo(l.to + f, c.to))
-                            : (u.moveTo(l.from, c.to + f), u.lineTo(l.to, c.to + f)),
+                            ? (u.moveTo(l.to + f, c.from),
+                              u.lineTo(l.to + f, c.to))
+                            : (u.moveTo(l.from, c.to + f),
+                              u.lineTo(l.to, c.to + f)),
                           u.stroke();
                       } else
                         (u.fillStyle = r.color || s.grid.markingsColor),
-                          u.fillRect(l.from, c.to, l.to - l.from, c.from - c.to);
+                          u.fillRect(
+                            l.from,
+                            c.to,
+                            l.to - l.from,
+                            c.from - c.to
+                          );
                   }
                 }
               (n = T()), (a = s.grid.borderWidth);
@@ -8383,14 +9151,18 @@
                               ? "top" == P.position
                                 ? 0
                                 : v
-                              : A.top - m.top + ("top" == P.position ? A.height : 0)))
+                              : A.top -
+                                m.top +
+                                ("top" == P.position ? A.height : 0)))
                         : ((k = 0),
                           (y =
                             "full" == x
                               ? "left" == P.position
                                 ? 0
                                 : g
-                              : A.left - m.left + ("left" == P.position ? A.width : 0))),
+                              : A.left -
+                                m.left +
+                                ("left" == P.position ? A.width : 0))),
                       P.innermost ||
                         ((u.strokeStyle = P.options.color),
                         u.beginPath(),
@@ -8415,7 +9187,8 @@
                         R < P.min ||
                         R > P.max ||
                         ("full" == x &&
-                          (("object" == typeof a && a[P.position] > 0) || a > 0) &&
+                          (("object" == typeof a && a[P.position] > 0) ||
+                            a > 0) &&
                           (R == P.min || R == P.max)) ||
                         ("x" == P.direction
                           ? ((y = P.p2c(R)),
@@ -8437,8 +9210,10 @@
               a &&
                 ((o = s.grid.borderColor),
                 "object" == typeof a || "object" == typeof o
-                  ? ("object" != typeof a && (a = { top: a, right: a, bottom: a, left: a }),
-                    "object" != typeof o && (o = { top: o, right: o, bottom: o, left: o }),
+                  ? ("object" != typeof a &&
+                      (a = { top: a, right: a, bottom: a, left: a }),
+                    "object" != typeof o &&
+                      (o = { top: o, right: o, bottom: o, left: o }),
                     a.top > 0 &&
                       ((u.strokeStyle = o.top),
                       (u.lineWidth = a.top),
@@ -8489,33 +9264,42 @@
                       if (null != d && null != h) {
                         if (p <= f && p < o.min) {
                           if (f < o.min) continue;
-                          (d = ((o.min - p) / (f - p)) * (h - d) + d), (p = o.min);
+                          (d = ((o.min - p) / (f - p)) * (h - d) + d),
+                            (p = o.min);
                         } else if (f <= p && f < o.min) {
                           if (p < o.min) continue;
-                          (h = ((o.min - p) / (f - p)) * (h - d) + d), (f = o.min);
+                          (h = ((o.min - p) / (f - p)) * (h - d) + d),
+                            (f = o.min);
                         }
                         if (p >= f && p > o.max) {
                           if (f > o.max) continue;
-                          (d = ((o.max - p) / (f - p)) * (h - d) + d), (p = o.max);
+                          (d = ((o.max - p) / (f - p)) * (h - d) + d),
+                            (p = o.max);
                         } else if (f >= p && f > o.max) {
                           if (p > o.max) continue;
-                          (h = ((o.max - p) / (f - p)) * (h - d) + d), (f = o.max);
+                          (h = ((o.max - p) / (f - p)) * (h - d) + d),
+                            (f = o.max);
                         }
                         if (d <= h && d < a.min) {
                           if (h < a.min) continue;
-                          (p = ((a.min - d) / (h - d)) * (f - p) + p), (d = a.min);
+                          (p = ((a.min - d) / (h - d)) * (f - p) + p),
+                            (d = a.min);
                         } else if (h <= d && h < a.min) {
                           if (d < a.min) continue;
-                          (f = ((a.min - d) / (h - d)) * (f - p) + p), (h = a.min);
+                          (f = ((a.min - d) / (h - d)) * (f - p) + p),
+                            (h = a.min);
                         }
                         if (d >= h && d > a.max) {
                           if (h > a.max) continue;
-                          (p = ((a.max - d) / (h - d)) * (f - p) + p), (d = a.max);
+                          (p = ((a.max - d) / (h - d)) * (f - p) + p),
+                            (d = a.max);
                         } else if (h >= d && h > a.max) {
                           if (d > a.max) continue;
-                          (f = ((a.max - d) / (h - d)) * (f - p) + p), (h = a.max);
+                          (f = ((a.max - d) / (h - d)) * (f - p) + p),
+                            (h = a.max);
                         }
-                        (d == s && p == l) || u.moveTo(a.p2c(d) + t, o.p2c(p) + n),
+                        (d == s && p == l) ||
+                          u.moveTo(a.p2c(d) + t, o.p2c(p) + n),
                           (s = h),
                           (l = f),
                           u.lineTo(a.p2c(h) + t, o.p2c(f) + n);
@@ -8576,45 +9360,59 @@
                         if (null != p && null != f) {
                           if (p <= f && p < t.min) {
                             if (f < t.min) continue;
-                            (h = ((t.min - p) / (f - p)) * (m - h) + h), (p = t.min);
+                            (h = ((t.min - p) / (f - p)) * (m - h) + h),
+                              (p = t.min);
                           } else if (f <= p && f < t.min) {
                             if (p < t.min) continue;
-                            (m = ((t.min - p) / (f - p)) * (m - h) + h), (f = t.min);
+                            (m = ((t.min - p) / (f - p)) * (m - h) + h),
+                              (f = t.min);
                           }
                           if (p >= f && p > t.max) {
                             if (f > t.max) continue;
-                            (h = ((t.max - p) / (f - p)) * (m - h) + h), (p = t.max);
+                            (h = ((t.max - p) / (f - p)) * (m - h) + h),
+                              (p = t.max);
                           } else if (f >= p && f > t.max) {
                             if (p > t.max) continue;
-                            (m = ((t.max - p) / (f - p)) * (m - h) + h), (f = t.max);
+                            (m = ((t.max - p) / (f - p)) * (m - h) + h),
+                              (f = t.max);
                           }
                           if (
-                            (s || (u.beginPath(), u.moveTo(t.p2c(p), n.p2c(i)), (s = !0)),
+                            (s ||
+                              (u.beginPath(),
+                              u.moveTo(t.p2c(p), n.p2c(i)),
+                              (s = !0)),
                             h >= n.max && m >= n.max)
                           )
-                            u.lineTo(t.p2c(p), n.p2c(n.max)), u.lineTo(t.p2c(f), n.p2c(n.max));
+                            u.lineTo(t.p2c(p), n.p2c(n.max)),
+                              u.lineTo(t.p2c(f), n.p2c(n.max));
                           else if (h <= n.min && m <= n.min)
-                            u.lineTo(t.p2c(p), n.p2c(n.min)), u.lineTo(t.p2c(f), n.p2c(n.min));
+                            u.lineTo(t.p2c(p), n.p2c(n.min)),
+                              u.lineTo(t.p2c(f), n.p2c(n.min));
                           else {
                             var g = p,
                               v = f;
                             h <= m && h < n.min && m >= n.min
-                              ? ((p = ((n.min - h) / (m - h)) * (f - p) + p), (h = n.min))
+                              ? ((p = ((n.min - h) / (m - h)) * (f - p) + p),
+                                (h = n.min))
                               : m <= h &&
                                 m < n.min &&
                                 h >= n.min &&
-                                ((f = ((n.min - h) / (m - h)) * (f - p) + p), (m = n.min)),
+                                ((f = ((n.min - h) / (m - h)) * (f - p) + p),
+                                (m = n.min)),
                               h >= m && h > n.max && m <= n.max
-                                ? ((p = ((n.max - h) / (m - h)) * (f - p) + p), (h = n.max))
+                                ? ((p = ((n.max - h) / (m - h)) * (f - p) + p),
+                                  (h = n.max))
                                 : m >= h &&
                                   m > n.max &&
                                   h <= n.max &&
-                                  ((f = ((n.max - h) / (m - h)) * (f - p) + p), (m = n.max)),
+                                  ((f = ((n.max - h) / (m - h)) * (f - p) + p),
+                                  (m = n.max)),
                               p != g && u.lineTo(t.p2c(g), n.p2c(h)),
                               u.lineTo(t.p2c(p), n.p2c(h)),
                               u.lineTo(t.p2c(f), n.p2c(m)),
                               f != v &&
-                                (u.lineTo(t.p2c(f), n.p2c(m)), u.lineTo(t.p2c(v), n.p2c(m)));
+                                (u.lineTo(t.p2c(f), n.p2c(m)),
+                                u.lineTo(t.p2c(v), n.p2c(m)));
                           }
                         }
                       }
@@ -8647,7 +9445,11 @@
                         }
                       : null;
                     (function(t, n, a, o, i, r) {
-                      for (var s = t.points, l = t.pointsize, c = 0; c < s.length; c += l)
+                      for (
+                        var s = t.points, l = t.pointsize, c = 0;
+                        c < s.length;
+                        c += l
+                      )
                         null != s[c] &&
                           E(
                             s[c],
@@ -8662,13 +9464,24 @@
                             e.bars.horizontal,
                             e.bars.lineWidth
                           );
-                    })(e.datapoints, t, t + e.bars.barWidth, n, e.xaxis, e.yaxis),
+                    })(
+                      e.datapoints,
+                      t,
+                      t + e.bars.barWidth,
+                      n,
+                      e.xaxis,
+                      e.yaxis
+                    ),
                       u.restore();
                   })(e),
                 e.points.show &&
                   (function(e) {
                     function t(e, t, n, a, o, i, r, s) {
-                      for (var l = e.points, c = e.pointsize, d = 0; d < l.length; d += c) {
+                      for (
+                        var l = e.points, c = e.pointsize, d = 0;
+                        d < l.length;
+                        d += c
+                      ) {
                         var p = l[d],
                           h = l[d + 1];
                         null == p ||
@@ -8697,13 +9510,40 @@
                       var r = a / 2;
                       (u.lineWidth = r),
                         (u.strokeStyle = "rgba(0,0,0,0.1)"),
-                        t(e.datapoints, o, null, r + r / 2, !0, e.xaxis, e.yaxis, i),
+                        t(
+                          e.datapoints,
+                          o,
+                          null,
+                          r + r / 2,
+                          !0,
+                          e.xaxis,
+                          e.yaxis,
+                          i
+                        ),
                         (u.strokeStyle = "rgba(0,0,0,0.2)"),
-                        t(e.datapoints, o, null, r / 2, !0, e.xaxis, e.yaxis, i);
+                        t(
+                          e.datapoints,
+                          o,
+                          null,
+                          r / 2,
+                          !0,
+                          e.xaxis,
+                          e.yaxis,
+                          i
+                        );
                     }
                     (u.lineWidth = n),
                       (u.strokeStyle = e.color),
-                      t(e.datapoints, o, z(e.points, e.color), 0, !1, e.xaxis, e.yaxis, i),
+                      t(
+                        e.datapoints,
+                        o,
+                        z(e.points, e.color),
+                        0,
+                        !1,
+                        e.xaxis,
+                        e.yaxis,
+                        i
+                      ),
                       u.restore();
                   })(e);
             }
@@ -8714,12 +9554,14 @@
                   (m = !1),
                   (f = t + a),
                   (h = t + o),
-                  (p = e) < (u = n) && ((w = p), (p = u), (u = w), (m = !0), (g = !1)))
+                  (p = e) < (u = n) &&
+                    ((w = p), (p = u), (u = w), (m = !0), (g = !1)))
                 : ((m = g = v = !0),
                   (b = !1),
                   (u = e + a),
                   (p = e + o),
-                  (f = t) < (h = n) && ((w = f), (f = h), (h = w), (b = !0), (v = !1))),
+                  (f = t) < (h = n) &&
+                    ((w = f), (f = h), (h = w), (b = !0), (v = !1))),
                 p < r.min ||
                   u > r.max ||
                   f < s.min ||
@@ -8732,7 +9574,8 @@
                   (h = s.p2c(h)),
                   (p = r.p2c(p)),
                   (f = s.p2c(f)),
-                  i && ((l.fillStyle = i(h, f)), l.fillRect(u, f, p - u, h - f)),
+                  i &&
+                    ((l.fillStyle = i(h, f)), l.fillRect(u, f, p - u, h - f)),
                   d > 0 &&
                     (m || g || v || b) &&
                     (l.beginPath(),
@@ -8748,7 +9591,11 @@
               if (!i) return null;
               if (t.fillColor) return G(t.fillColor, a, o, n);
               var r = e.color.parse(n);
-              return (r.a = "number" == typeof i ? i : 0.4), r.normalize(), r.toString();
+              return (
+                (r.a = "number" == typeof i ? i : 0.4),
+                r.normalize(),
+                r.toString()
+              );
             }
             (w.setData = k),
               (w.setupGrid = R),
@@ -8800,7 +9647,9 @@
                   if (
                     (n = h[t]) &&
                     n.used &&
-                    ((a = "x" + n.n), null == e[a] && 1 == n.n && (a = "x"), null != e[a])
+                    ((a = "x" + n.n),
+                    null == e[a] && 1 == n.n && (a = "x"),
+                    null != e[a])
                   ) {
                     o.left = n.p2c(e[a]);
                     break;
@@ -8809,7 +9658,9 @@
                   if (
                     (n = f[t]) &&
                     n.used &&
-                    ((a = "y" + n.n), null == e[a] && 1 == n.n && (a = "y"), null != e[a])
+                    ((a = "y" + n.n),
+                    null == e[a] && 1 == n.n && (a = "y"),
+                    null != e[a])
                   ) {
                     o.top = n.p2c(e[a]);
                     break;
@@ -8873,7 +9724,8 @@
                   (s.xaxis.tickColor = s.grid.tickColor || s.xaxis.color);
                 null == s.yaxis.tickColor &&
                   (s.yaxis.tickColor = s.grid.tickColor || s.yaxis.color);
-                null == s.grid.borderColor && (s.grid.borderColor = s.grid.color);
+                null == s.grid.borderColor &&
+                  (s.grid.borderColor = s.grid.color);
                 null == s.grid.tickColor &&
                   (s.grid.tickColor = e.color
                     .parse(s.grid.color)
@@ -8898,7 +9750,8 @@
                     o.font &&
                       ((o.font = e.extend({}, c, o.font)),
                       o.font.color || (o.font.color = o.color),
-                      o.font.lineHeight || (o.font.lineHeight = Math.round(1.15 * o.font.size)));
+                      o.font.lineHeight ||
+                        (o.font.lineHeight = Math.round(1.15 * o.font.size)));
                 for (i = s.yaxes.length || 1, a = 0; a < i; ++a)
                   (o = s.yaxes[a]) && !o.tickColor && (o.tickColor = o.color),
                     (o = e.extend(!0, {}, s.yaxis, o)),
@@ -8906,9 +9759,14 @@
                     o.font &&
                       ((o.font = e.extend({}, c, o.font)),
                       o.font.color || (o.font.color = o.color),
-                      o.font.lineHeight || (o.font.lineHeight = Math.round(1.15 * o.font.size)));
-                s.xaxis.noTicks && null == s.xaxis.ticks && (s.xaxis.ticks = s.xaxis.noTicks);
-                s.yaxis.noTicks && null == s.yaxis.ticks && (s.yaxis.ticks = s.yaxis.noTicks);
+                      o.font.lineHeight ||
+                        (o.font.lineHeight = Math.round(1.15 * o.font.size)));
+                s.xaxis.noTicks &&
+                  null == s.xaxis.ticks &&
+                  (s.xaxis.ticks = s.xaxis.noTicks);
+                s.yaxis.noTicks &&
+                  null == s.yaxis.ticks &&
+                  (s.yaxis.ticks = s.yaxis.noTicks);
                 s.x2axis &&
                   ((s.xaxes[1] = e.extend(!0, {}, s.xaxis, s.x2axis)),
                   (s.xaxes[1].position = "top"),
@@ -8920,16 +9778,22 @@
                   null == s.y2axis.min && (s.yaxes[1].min = null),
                   null == s.y2axis.max && (s.yaxes[1].max = null));
                 s.grid.coloredAreas && (s.grid.markings = s.grid.coloredAreas);
-                s.grid.coloredAreasColor && (s.grid.markingsColor = s.grid.coloredAreasColor);
+                s.grid.coloredAreasColor &&
+                  (s.grid.markingsColor = s.grid.coloredAreasColor);
                 s.lines && e.extend(!0, s.series.lines, s.lines);
                 s.points && e.extend(!0, s.series.points, s.points);
                 s.bars && e.extend(!0, s.series.bars, s.bars);
                 null != s.shadowSize && (s.series.shadowSize = s.shadowSize);
-                null != s.highlightColor && (s.series.highlightColor = s.highlightColor);
-                for (a = 0; a < s.xaxes.length; ++a) P(h, a + 1).options = s.xaxes[a];
-                for (a = 0; a < s.yaxes.length; ++a) P(f, a + 1).options = s.yaxes[a];
+                null != s.highlightColor &&
+                  (s.series.highlightColor = s.highlightColor);
+                for (a = 0; a < s.xaxes.length; ++a)
+                  P(h, a + 1).options = s.xaxes[a];
+                for (a = 0; a < s.yaxes.length; ++a)
+                  P(f, a + 1).options = s.yaxes[a];
                 for (var d in b)
-                  s.hooks[d] && s.hooks[d].length && (b[d] = b[d].concat(s.hooks[d]));
+                  s.hooks[d] &&
+                    s.hooks[d].length &&
+                    (b[d] = b[d].concat(s.hooks[d]));
                 y(b.processOptions, [s]);
               })(o),
               (function() {
@@ -8937,10 +9801,14 @@
                   .css("padding", 0)
                   .children()
                   .filter(function() {
-                    return !e(this).hasClass("flot-overlay") && !e(this).hasClass("flot-base");
+                    return (
+                      !e(this).hasClass("flot-overlay") &&
+                      !e(this).hasClass("flot-base")
+                    );
                   })
                   .remove(),
-                  "static" == t.css("position") && t.css("position", "relative");
+                  "static" == t.css("position") &&
+                    t.css("position", "relative");
                 (l = new n("flot-base", t)),
                   (c = new n("flot-overlay", t)),
                   (u = l.context),
@@ -9009,7 +9877,10 @@
                       for (o = 0; o < f.length; o += i) {
                         var w = f[o],
                           y = f[o + 1];
-                        if (null != w && !(w - m > v || w - m < -v || y - g > b || y - g < -b)) {
+                        if (
+                          null != w &&
+                          !(w - m > v || w - m < -v || y - g > b || y - g < -b)
+                        ) {
                           var k = Math.abs(p.p2c(w) - e),
                             S = Math.abs(h.p2c(y) - t),
                             T = k * k + S * S;
@@ -9028,12 +9899,19 @@
                         default:
                           C = -u.bars.barWidth / 2;
                       }
-                      for (P = C + u.bars.barWidth, o = 0; o < f.length; o += i) {
+                      for (
+                        P = C + u.bars.barWidth, o = 0;
+                        o < f.length;
+                        o += i
+                      ) {
                         (w = f[o]), (y = f[o + 1]);
                         var A = f[o + 2];
                         null != w &&
                           (r[a].bars.horizontal
-                            ? m <= Math.max(A, w) && m >= Math.min(A, w) && g >= y + C && g <= y + P
+                            ? m <= Math.max(A, w) &&
+                              m >= Math.min(A, w) &&
+                              g >= y + C &&
+                              g <= y + P
                             : m >= w + C &&
                               m <= w + P &&
                               g >= Math.min(A, y) &&
@@ -9047,7 +9925,10 @@
                     (o = d[1]),
                     (i = r[a].datapoints.pointsize),
                     {
-                      datapoint: r[a].datapoints.points.slice(o * i, (o + 1) * i),
+                      datapoint: r[a].datapoints.points.slice(
+                        o * i,
+                        (o + 1) * i
+                      ),
                       dataIndex: o,
                       series: r[a],
                       seriesIndex: a
@@ -9056,8 +9937,14 @@
               })(i, l, a);
               if (
                 (u &&
-                  ((u.pageX = parseInt(u.series.xaxis.p2c(u.datapoint[0]) + o.left + m.left, 10)),
-                  (u.pageY = parseInt(u.series.yaxis.p2c(u.datapoint[1]) + o.top + m.top, 10))),
+                  ((u.pageX = parseInt(
+                    u.series.xaxis.p2c(u.datapoint[0]) + o.left + m.left,
+                    10
+                  )),
+                  (u.pageY = parseInt(
+                    u.series.yaxis.p2c(u.datapoint[1]) + o.top + m.top,
+                    10
+                  ))),
                 s.grid.autoHighlight)
               ) {
                 for (var p = 0; p < U.length; ++p) {
@@ -9080,11 +9967,17 @@
             function H() {
               var e, t;
               for (
-                L = null, p.save(), c.clear(), p.translate(m.left, m.top), e = 0;
+                L = null,
+                  p.save(),
+                  c.clear(),
+                  p.translate(m.left, m.top),
+                  e = 0;
                 e < U.length;
                 ++e
               )
-                (t = U[e]).series.bars.show ? _(t.series, t.point) : q(t.series, t.point);
+                (t = U[e]).series.bars.show
+                  ? _(t.series, t.point)
+                  : q(t.series, t.point);
               p.restore(), y(b.drawOverlay, [p]);
             }
             function W(e, t, n) {
@@ -9093,7 +9986,9 @@
                 t = e.datapoints.points.slice(a * t, a * (t + 1));
               }
               var o = Y(e, t);
-              -1 == o ? (U.push({ series: e, point: t, auto: n }), N()) : n || (U[o].auto = !1);
+              -1 == o
+                ? (U.push({ series: e, point: t, auto: n }), N())
+                : n || (U[o].auto = !1);
             }
             function V(e, t) {
               if (null == e && null == t) return (U = []), void N();
@@ -9107,7 +10002,8 @@
             function Y(e, t) {
               for (var n = 0; n < U.length; ++n) {
                 var a = U[n];
-                if (a.series == e && a.point[0] == t[0] && a.point[1] == t[1]) return n;
+                if (a.series == e && a.point[0] == t[0] && a.point[1] == t[1])
+                  return n;
               }
               return -1;
             }
@@ -9178,7 +10074,9 @@
             function G(t, n, a, o) {
               if ("string" == typeof t) return t;
               for (
-                var i = u.createLinearGradient(0, a, 0, n), r = 0, s = t.colors.length;
+                var i = u.createLinearGradient(0, a, 0, n),
+                  r = 0,
+                  s = t.colors.length;
                 r < s;
                 ++r
               ) {
@@ -9202,13 +10100,23 @@
             }),
             (n.prototype.resize = function(e, t) {
               if (e <= 0 || t <= 0)
-                throw new Error("Invalid dimensions for plot, width = " + e + ", height = " + t);
+                throw new Error(
+                  "Invalid dimensions for plot, width = " +
+                    e +
+                    ", height = " +
+                    t
+                );
               var n = this.element,
                 a = this.context,
                 o = this.pixelRatio;
-              this.width != e && ((n.width = e * o), (n.style.width = e + "px"), (this.width = e)),
+              this.width != e &&
+                ((n.width = e * o),
+                (n.style.width = e + "px"),
+                (this.width = e)),
                 this.height != t &&
-                  ((n.height = t * o), (n.style.height = t + "px"), (this.height = t)),
+                  ((n.height = t * o),
+                  (n.style.height = t + "px"),
+                  (this.height = t)),
                 a.restore(),
                 a.save(),
                 a.scale(o, o);
@@ -9227,10 +10135,16 @@
                       var r = o[i];
                       for (var s in r)
                         if (t.call(r, s)) {
-                          for (var l, c = r[s].positions, d = 0; (l = c[d]); d++)
+                          for (
+                            var l, c = r[s].positions, d = 0;
+                            (l = c[d]);
+                            d++
+                          )
                             l.active
-                              ? l.rendered || (a.append(l.element), (l.rendered = !0))
-                              : (c.splice(d--, 1), l.rendered && l.element.detach());
+                              ? l.rendered ||
+                                (a.append(l.element), (l.rendered = !0))
+                              : (c.splice(d--, 1),
+                                l.rendered && l.element.detach());
                           0 == c.length && delete r[s];
                         }
                     }
@@ -9255,7 +10169,13 @@
                       .insertAfter(this.element)),
                   (n = this.text[t] = e("<div></div>")
                     .addClass(t)
-                    .css({ position: "absolute", top: 0, left: 0, bottom: 0, right: 0 })
+                    .css({
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      bottom: 0,
+                      right: 0
+                    })
                     .appendTo(this.textContainer))),
                 n
               );
@@ -9278,7 +10198,8 @@
                       "px " +
                       a.family
                     : a),
-                null == (s = this._textCache[t]) && (s = this._textCache[t] = {}),
+                null == (s = this._textCache[t]) &&
+                  (s = this._textCache[t] = {}),
                 null == (l = s[r]) && (l = s[r] = {}),
                 null == (c = l[n]))
               ) {
@@ -9302,8 +10223,12 @@
             (n.prototype.addText = function(e, t, n, a, o, i, r, s, l) {
               var c = this.getTextInfo(e, a, o, i, r),
                 d = c.positions;
-              "center" == s ? (t -= c.width / 2) : "right" == s && (t -= c.width),
-                "middle" == l ? (n -= c.height / 2) : "bottom" == l && (n -= c.height);
+              "center" == s
+                ? (t -= c.width / 2)
+                : "right" == s && (t -= c.width),
+                "middle" == l
+                  ? (n -= c.height / 2)
+                  : "bottom" == l && (n -= c.height);
               for (var u, p = 0; (u = d[p]); p++)
                 if (u.x == t && u.y == n) return void (u.active = !0);
               (u = {
@@ -9314,7 +10239,11 @@
                 y: n
               }),
                 d.push(u),
-                u.element.css({ top: Math.round(n), left: Math.round(t), "text-align": s });
+                u.element.css({
+                  top: Math.round(n),
+                  left: Math.round(t),
+                  "text-align": s
+                });
             }),
             (n.prototype.removeText = function(e, n, a, o, i, r) {
               if (null == o) {
@@ -9325,11 +10254,16 @@
                       var c = s[l];
                       for (var d in c)
                         if (t.call(c, d))
-                          for (var u = c[d].positions, p = 0; (h = u[p]); p++) h.active = !1;
+                          for (var u = c[d].positions, p = 0; (h = u[p]); p++)
+                            h.active = !1;
                     }
               } else {
                 var h;
-                for (u = this.getTextInfo(e, o, i, r).positions, p = 0; (h = u[p]); p++)
+                for (
+                  u = this.getTextInfo(e, o, i, r).positions, p = 0;
+                  (h = u[p]);
+                  p++
+                )
                   h.x == n && h.y == a && (h.active = !1);
               }
             }),
@@ -9356,7 +10290,11 @@
           if ("function" == typeof e.strftime) return e.strftime(t);
           var o,
             i = function(e, t) {
-              return (e = "" + e), (t = "" + (null == t ? "0" : t)), 1 == e.length ? t + e : e;
+              return (
+                (e = "" + e),
+                (t = "" + (null == t ? "0" : t)),
+                1 == e.length ? t + e : e
+              );
             },
             r = [],
             s = !1,
@@ -9377,7 +10315,8 @@
               "Nov",
               "Dec"
             ]),
-            null == a && (a = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]),
+            null == a &&
+              (a = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]),
             (o = l > 12 ? l - 12 : 0 == l ? 12 : l);
           for (var d = 0; d < t.length; ++d) {
             var u = t.charAt(d);
@@ -9462,13 +10401,17 @@
             o < a.length;
             o++
           )
-            t(n, "get" + a[o], e, "getUTC" + a[o]), t(n, "set" + a[o], e, "setUTC" + a[o]);
+            t(n, "get" + a[o], e, "getUTC" + a[o]),
+              t(n, "set" + a[o], e, "setUTC" + a[o]);
           return n;
         }
         function o(e, t) {
           if ("browser" == t.timezone) return new Date(e);
           if (t.timezone && "utc" != t.timezone) {
-            if ("undefined" != typeof timezoneJS && void 0 !== timezoneJS.Date) {
+            if (
+              "undefined" != typeof timezoneJS &&
+              void 0 !== timezoneJS.Date
+            ) {
               var n = new timezoneJS.Date();
               return n.setTimezone(t.timezone), n.setTime(e), n;
             }
@@ -9509,8 +10452,16 @@
             [1, "month"],
             [2, "month"]
           ],
-          s = r.concat([[3, "month"], [6, "month"], [1, "year"]]),
-          l = r.concat([[1, "quarter"], [2, "quarter"], [1, "year"]]);
+          s = r.concat([
+            [3, "month"],
+            [6, "month"],
+            [1, "year"]
+          ]),
+          l = r.concat([
+            [1, "quarter"],
+            [2, "quarter"],
+            [1, "year"]
+          ]);
         e.plot.plugins.push({
           init: function(a) {
             a.hooks.processOptions.push(function(a, r) {
@@ -9535,8 +10486,10 @@
                       var u = 0;
                       u < d.length - 1 &&
                       !(
-                        e.delta < (d[u][0] * i[d[u][1]] + d[u + 1][0] * i[d[u + 1][1]]) / 2 &&
-                        d[u][0] * i[d[u][1]] >= c
+                        e.delta <
+                          (d[u][0] * i[d[u][1]] +
+                            d[u + 1][0] * i[d[u + 1][1]]) /
+                            2 && d[u][0] * i[d[u][1]] >= c
                       );
                       ++u
                     );
@@ -9546,9 +10499,13 @@
                       if (null != r.minTickSize && "year" == r.minTickSize[1])
                         p = Math.floor(r.minTickSize[0]);
                       else {
-                        var f = Math.pow(10, Math.floor(Math.log(e.delta / i.year) / Math.LN10)),
+                        var f = Math.pow(
+                            10,
+                            Math.floor(Math.log(e.delta / i.year) / Math.LN10)
+                          ),
                           m = e.delta / i.year / f;
-                        (p = m < 1.5 ? 1 : m < 3 ? 2 : m < 7.5 ? 5 : 10), (p *= f);
+                        (p = m < 1.5 ? 1 : m < 3 ? 2 : m < 7.5 ? 5 : 10),
+                          (p *= f);
                       }
                       p < 1 && (p = 1);
                     }
@@ -9559,14 +10516,14 @@
                     "second" == h
                       ? a.setSeconds(t(a.getSeconds(), g))
                       : "minute" == h
-                        ? a.setMinutes(t(a.getMinutes(), g))
-                        : "hour" == h
-                          ? a.setHours(t(a.getHours(), g))
-                          : "month" == h
-                            ? a.setMonth(t(a.getMonth(), g))
-                            : "quarter" == h
-                              ? a.setMonth(3 * t(a.getMonth() / 3, g))
-                              : "year" == h && a.setFullYear(t(a.getFullYear(), g)),
+                      ? a.setMinutes(t(a.getMinutes(), g))
+                      : "hour" == h
+                      ? a.setHours(t(a.getHours(), g))
+                      : "month" == h
+                      ? a.setMonth(t(a.getMonth(), g))
+                      : "quarter" == h
+                      ? a.setMonth(3 * t(a.getMonth() / 3, g))
+                      : "year" == h && a.setFullYear(t(a.getFullYear(), g)),
                       a.setMilliseconds(0),
                       v >= i.minute && a.setSeconds(0),
                       v >= i.hour && a.setMinutes(0),
@@ -9579,7 +10536,12 @@
                       w = 0,
                       y = Number.NaN;
                     do {
-                      if (((b = y), (y = a.getTime()), n.push(y), "month" == h || "quarter" == h))
+                      if (
+                        ((b = y),
+                        (y = a.getTime()),
+                        n.push(y),
+                        "month" == h || "quarter" == h)
+                      )
                         if (g < 1) {
                           a.setDate(1);
                           var k = a.getTime();
@@ -9588,17 +10550,26 @@
                           a.setTime(y + w * i.hour + (S - k) * g),
                             (w = a.getHours()),
                             a.setHours(0);
-                        } else a.setMonth(a.getMonth() + g * ("quarter" == h ? 3 : 1));
-                      else "year" == h ? a.setFullYear(a.getFullYear() + g) : a.setTime(y + v);
+                        } else
+                          a.setMonth(
+                            a.getMonth() + g * ("quarter" == h ? 3 : 1)
+                          );
+                      else
+                        "year" == h
+                          ? a.setFullYear(a.getFullYear() + g)
+                          : a.setTime(y + v);
                     } while (y < e.max && y != b);
                     return n;
                   }),
                   (a.tickFormatter = function(e, t) {
                     var a = o(e, t.options);
-                    if (null != r.timeformat) return n(a, r.timeformat, r.monthNames, r.dayNames);
+                    if (null != r.timeformat)
+                      return n(a, r.timeformat, r.monthNames, r.dayNames);
                     var s =
-                        (t.options.tickSize && "quarter" == t.options.tickSize[1]) ||
-                        (t.options.minTickSize && "quarter" == t.options.minTickSize[1]),
+                        (t.options.tickSize &&
+                          "quarter" == t.options.tickSize[1]) ||
+                        (t.options.minTickSize &&
+                          "quarter" == t.options.minTickSize[1]),
                       l = t.tickSize[0] * i[t.tickSize[1]],
                       c = t.max - t.min,
                       d = r.twelveHourClock ? " %p" : "",
@@ -9608,20 +10579,20 @@
                       l < i.minute
                         ? u + ":%M:%S" + d
                         : l < i.day
-                          ? c < 2 * i.day
-                            ? u + ":%M" + d
-                            : "%b %d " + u + ":%M" + d
-                          : l < i.month
-                            ? "%b %d"
-                            : (s && l < i.quarter) || (!s && l < i.year)
-                              ? c < i.year
-                                ? "%b"
-                                : "%b %Y"
-                              : s && l < i.year
-                                ? c < i.year
-                                  ? "Q%q"
-                                  : "Q%q %Y"
-                                : "%Y",
+                        ? c < 2 * i.day
+                          ? u + ":%M" + d
+                          : "%b %d " + u + ":%M" + d
+                        : l < i.month
+                        ? "%b %d"
+                        : (s && l < i.quarter) || (!s && l < i.year)
+                        ? c < i.year
+                          ? "%b"
+                          : "%b %Y"
+                        : s && l < i.year
+                        ? c < i.year
+                          ? "Q%q"
+                          : "Q%q %Y"
+                        : "%Y",
                       r.monthNames,
                       r.dayNames
                     );
@@ -9630,7 +10601,12 @@
             });
           },
           options: {
-            xaxis: { timezone: null, timeformat: null, twelveHourClock: !1, monthNames: null }
+            xaxis: {
+              timezone: null,
+              timeformat: null,
+              twelveHourClock: !1,
+              monthNames: null
+            }
           },
           name: "time",
           version: "1.0"
@@ -9684,7 +10660,8 @@
         "Save settings": "Instellingen opslaan",
         "Currently no download in line to display, use the":
           "Momenteel geen downloads weer te geven, gebruik de ",
-        "download button to start downloading files!": "knop om bestanden te gaan downloaden!",
+        "download button to start downloading files!":
+          "knop om bestanden te gaan downloaden!",
         Peers: "Peers",
         "More Info": "Meer informatie",
         Remove: "Verwijderen",
@@ -9702,7 +10679,8 @@
         Cancel: "Annuleren",
         Start: "Starten",
         Choose: "Kiezen",
-        "Quick Access (shown on the main page)": "Snelle toegang (op de hoofdpagina)",
+        "Quick Access (shown on the main page)":
+          "Snelle toegang (op de hoofdpagina)",
         "Add Downloads By Torrents": "Downloads toevoegen met torrents",
         "- Select the torrent from the local filesystem to start the download.":
           "- Selecteer de torrent van het locale bestandssysteem om de download te starten.",
@@ -9734,13 +10712,16 @@
           "Invoeren van het eindpunt van het Aria2 RPC pad (standaard: /jsonrpc)",
         "SSL/TLS encryption": "SSL/TLS versleuteling",
         "Enable SSL/TLS encryption": "SSL/TLS versleuteling inschakelen",
-        "Enter the secret token (optional)": "Invoeren van het wachtwoord (facultatief)",
+        "Enter the secret token (optional)":
+          "Invoeren van het wachtwoord (facultatief)",
         "Enter the Aria2 RPC secret token (leave empty if authentication is not enabled)":
           "Invoeren van het Aria2 RPC wachtwoord (niet invullen als authenticatie niet is ingeschakeld)",
-        "Enter the username (optional)": "Invoeren van de gebruikersnaam (facultatief)",
+        "Enter the username (optional)":
+          "Invoeren van de gebruikersnaam (facultatief)",
         "Enter the Aria2 RPC username (empty if authentication not enabled)":
           "Invoeren van de Aria2 RPC gebruikersnaam (niet invullen als authenticatie niet is ingeschakeld)",
-        "Enter the password (optional)": "Invoeren van het wachtwoord (facultatief)",
+        "Enter the password (optional)":
+          "Invoeren van het wachtwoord (facultatief)",
         "Enter the Aria2 RPC password (empty if authentication not enabled)":
           "Invoeren van het Aria2 RPC wachtwoord (niet invullen als authenticatie niet is ingeschakeld)",
         "Enter base URL (optional)": "Invoeren van de basis URL (facultatief)",
@@ -9823,7 +10804,8 @@
         Cancel: "Cancel",
         Start: "Start",
         Choose: "Choose",
-        "Quick Access (shown on the main page)": "Quick Access (shown on the main page)",
+        "Quick Access (shown on the main page)":
+          "Quick Access (shown on the main page)",
         "Add Downloads By Torrents": "Add Downloads By Torrents",
         "- Select the torrent from the local filesystem to start the download.":
           "- Select the torrent from the local filesystem to start the download.",
@@ -9840,7 +10822,8 @@
         "- You can select multiple Metalinks to start multiple downloads.":
           "- You can select multiple Metalinks to start multiple downloads.",
         "Select a Metalink": "Select a Metalink",
-        "Choose files to start download for": "Choose files to start download for",
+        "Choose files to start download for":
+          "Choose files to start download for",
         "Select to download": "Select to download",
         "Aria2 RPC host and port": "Aria2 RPC host and port",
         "Enter the host": "Enter the host",
@@ -9854,7 +10837,8 @@
           "Enter the path for the Aria2 RPC endpoint (default: /jsonrpc)",
         "SSL/TLS encryption": "SSL/TLS encryption",
         "Enable SSL/TLS encryption": "Enable SSL/TLS encryption",
-        "Enter the secret token (optional)": "Enter the secret token (optional)",
+        "Enter the secret token (optional)":
+          "Enter the secret token (optional)",
         "Enter the Aria2 RPC secret token (leave empty if authentication is not enabled)":
           "Enter the Aria2 RPC secret token (leave empty if authentication is not enabled)",
         "Enter the username (optional)": "Enter the username (optional)",
@@ -9905,7 +10889,8 @@
           "Successfully connected to Aria2 through remote RPC, however the connection is still insecure. For complete security try adding an authorization secret token while starting Aria2 (through the flag --rpc-secret)",
         "Trying to connect to aria2 using the new connection configuration":
           "Trying to connect to aria2 using the new connection configuration",
-        "Remove {{name}} and associated meta-data?": "Remove {{name}} and associated meta-data?"
+        "Remove {{name}} and associated meta-data?":
+          "Remove {{name}} and associated meta-data?"
       });
   },
   function(e, t) {
@@ -9965,16 +10950,20 @@
         Cancel: "ยกเลิก",
         Start: "เริ่มต้น",
         Choose: "เลือก",
-        "Quick Access (shown on the main page)": "ใช้งานอย่างรวดเร็ว (แสดงที่เพจหลัก)",
+        "Quick Access (shown on the main page)":
+          "ใช้งานอย่างรวดเร็ว (แสดงที่เพจหลัก)",
         "Add Downloads By Torrents": "เพิ่มดาวน์โหลดด้วยทอร์เรนต์",
-        "- Select the torrent from the local filesystem to start the download.": "",
+        "- Select the torrent from the local filesystem to start the download.":
+          "",
         "- You can select multiple torrents to start multiple downloads.": "",
-        "- To add a BitTorrent-Magnet URL, use the Add By URI option and add it there.": "",
+        "- To add a BitTorrent-Magnet URL, use the Add By URI option and add it there.":
+          "",
         "Select Torrents": "เลือกทอร์เรนต์",
         "Select a Torrent": "เลือกทอร์เรนต์",
         "Add Downloads By Metalinks": "เพิ่มดาวน์โหลดด้วยเมทาลิงค์",
         "Select Metalinks": "เลือกเมทาลิงค์",
-        "- Select the Metalink from the local filesystem to start the download.": "",
+        "- Select the Metalink from the local filesystem to start the download.":
+          "",
         "- You can select multiple Metalinks to start multiple downloads.": "",
         "Select a Metalink": "เลือกเมทาลิงค์",
         "Choose files to start download for": "เลือกไฟล์ที่จะเริ่มดาวน์โหลด",
@@ -9984,20 +10973,26 @@
         "Enter the IP or DNS name of the server on which the RPC for Aria2 is running (default: localhost)":
           "",
         "Enter the port": "ป้อนพอร์ต",
-        "Enter the port of the server on which the RPC for Aria2 is running (default: 6800)": "",
+        "Enter the port of the server on which the RPC for Aria2 is running (default: 6800)":
+          "",
         "Enter the RPC path": "ป้อนเส้นทาง RPC",
         "Enter the path for the Aria2 RPC endpoint (default: /jsonrpc)": "",
         "SSL/TLS encryption": "การเข้ารหัสลับ SSL/TLS",
         "Enable SSL/TLS encryption": "เปิดใช้การเข้ารหัสลับ SSL/TLS",
-        "Enter the secret token (optional)": "ป้อนสัญลักษณ์ความลับ (เป็นตัวเลือก)",
-        "Enter the Aria2 RPC secret token (leave empty if authentication is not enabled)": "",
+        "Enter the secret token (optional)":
+          "ป้อนสัญลักษณ์ความลับ (เป็นตัวเลือก)",
+        "Enter the Aria2 RPC secret token (leave empty if authentication is not enabled)":
+          "",
         "Enter the username (optional)": "ป้อนเชื่อ (เป็นตัวเลือก)",
-        "Enter the Aria2 RPC username (empty if authentication not enabled)": "",
+        "Enter the Aria2 RPC username (empty if authentication not enabled)":
+          "",
         "Enter the password (optional)": "ป้อนรหัสผ่าน (เป็นตัวเลือก)",
-        "Enter the Aria2 RPC password (empty if authentication not enabled)": "",
+        "Enter the Aria2 RPC password (empty if authentication not enabled)":
+          "",
         "Enter base URL (optional)": "ป้อน URL หลัก (เป็นตัวเลือก)",
         "Direct Download": "ดาวน์โหลดโดยตรง",
-        "If supplied, links will be created to enable direct download from the Aria2 server.": "",
+        "If supplied, links will be created to enable direct download from the Aria2 server.":
+          "",
         "(Requires appropriate webserver to be configured.)": "",
         "Save Connection configuration": "บันทึกการตั้งค่าการเชื่อมต่อ",
         Filter: "กรอง",
@@ -10053,7 +11048,8 @@
         "Quick Access Settings": "快速访问设置",
         Save: "保存",
         "Save settings": "保存设置",
-        "Currently no download in line to display, use the": "当前没有可显示的下载项，使用",
+        "Currently no download in line to display, use the":
+          "当前没有可显示的下载项，使用",
         "download button to start downloading files!": "按钮来开始下载！",
         Peers: "Peers",
         "More Info": "更多信息",
@@ -10065,7 +11061,8 @@
           "- 你可以同时添加多个文件下载任务，每行下载一个文件；",
         "- You can also add multiple URIs (mirrors) for the *same* file. To do this, separate the URIs by a space.":
           "- 你也可以给同一个下载任务添加多个镜像链接，写在一行并用空格分隔每条链接；",
-        "- A URI can be HTTP(S)/FTP/BitTorrent-Magnet.": "- 链接可以是 HTTP(S)、FTP 和磁力链接。",
+        "- A URI can be HTTP(S)/FTP/BitTorrent-Magnet.":
+          "- 链接可以是 HTTP(S)、FTP 和磁力链接。",
         "Download settings": "下载设置",
         "Advanced settings": "高级设置",
         Cancel: "取消",
@@ -10115,7 +11112,8 @@
         "Direct Download": "直接下载",
         "If supplied, links will be created to enable direct download from the Aria2 server.":
           "如果指定该选项，将会创建可以直接从 Aria2 服务器上下载文件的链接。",
-        "(Requires appropriate webserver to be configured.)": "（需要 WEB 服务器配置正确）",
+        "(Requires appropriate webserver to be configured.)":
+          "（需要 WEB 服务器配置正确）",
         "Save Connection configuration": "保存连接配置",
         Filter: "过滤",
         "Aria2 server info": "Aria2 服务器信息",
@@ -10145,12 +11143,14 @@
           "无法连接到 Aria2 RPC 服务器，将在10秒后重试。您可能需要检查连接设置，请前往 设置 > 连接设置",
         "Authentication failed while connecting to Aria2 RPC server. Will retry in 10 secs. You might want to confirm your authentication details by going to Settings > Connection Settings":
           "连接到 Aria2 RPC 服务器时认证失败，将在10秒后重试。您可能需要确认您的身份验证信息，请前往 设置 > 连接设置",
-        "Successfully connected to Aria2 through its remote RPC …": "通过 RPC 连接到 Aria2 成功！",
+        "Successfully connected to Aria2 through its remote RPC …":
+          "通过 RPC 连接到 Aria2 成功！",
         "Successfully connected to Aria2 through remote RPC, however the connection is still insecure. For complete security try adding an authorization secret token while starting Aria2 (through the flag --rpc-secret)":
           "通过 RPC 连接到 Aria2 成功，但是连接并不安全。要想使用安全连接，尝试在启动 Aria2 时添加一个授权密码令牌（通过 --rpc-secret 参数）",
         "Trying to connect to aria2 using the new connection configuration":
           "正在尝试使用新的连接配置来连接到 Aria2 ……",
-        "Remove {{name}} and associated meta-data?": "是否删除 {{name}} 和关联的元数据？"
+        "Remove {{name}} and associated meta-data?":
+          "是否删除 {{name}} 和关联的元数据？"
       });
   },
   function(e, t) {
@@ -10195,7 +11195,8 @@
         "Quick Access Settings": "快速訪問設定",
         Save: "儲存",
         "Save settings": "儲存設定",
-        "Currently no download in line to display, use the": "當前沒有可顯示的下載項，使用",
+        "Currently no download in line to display, use the":
+          "當前沒有可顯示的下載項，使用",
         "download button to start downloading files!": "按鈕來開始下載！",
         Peers: "Peers",
         "More Info": "更多資訊",
@@ -10207,7 +11208,8 @@
           "- 你可以同時新增多個檔案下載任務，每行下載一個檔案；",
         "- You can also add multiple URIs (mirrors) for the *same* file. To do this, separate the URIs by a space.":
           "- 你也可以給同一個下載任務新增多個映象連結，寫在一行並用空格分隔每條連結；",
-        "- A URI can be HTTP(S)/FTP/BitTorrent-Magnet.": "- 連結可以是 HTTP(S)、FTP 和磁力連結。",
+        "- A URI can be HTTP(S)/FTP/BitTorrent-Magnet.":
+          "- 連結可以是 HTTP(S)、FTP 和磁力連結。",
         "Download settings": "下載設定",
         "Advanced settings": "高階設定",
         Cancel: "取消",
@@ -10257,7 +11259,8 @@
         "Direct Download": "直接下載",
         "If supplied, links will be created to enable direct download from the Aria2 server.":
           "如果指定該選項，將會建立可以直接從 Aria2 伺服器上下載檔案的連結。",
-        "(Requires appropriate webserver to be configured.)": "（需要 WEB 伺服器配置正確）",
+        "(Requires appropriate webserver to be configured.)":
+          "（需要 WEB 伺服器配置正確）",
         "Save Connection configuration": "儲存連線配置",
         Filter: "過濾",
         "Aria2 server info": "Aria2 伺服器資訊",
@@ -10287,12 +11290,14 @@
           "無法連線到 Aria2 RPC 伺服器，將在10秒後重試。您可能需要檢查連線設定，請前往 設定 > 連線設定",
         "Authentication failed while connecting to Aria2 RPC server. Will retry in 10 secs. You might want to confirm your authentication details by going to Settings > Connection Settings":
           "連線到 Aria2 RPC 伺服器時認證失敗，將在10秒後重試。您可能需要確認您的身份驗證資訊，請前往 設定 > 連線設定",
-        "Successfully connected to Aria2 through its remote RPC …": "通過 RPC 連線到 Aria2 成功！",
+        "Successfully connected to Aria2 through its remote RPC …":
+          "通過 RPC 連線到 Aria2 成功！",
         "Successfully connected to Aria2 through remote RPC, however the connection is still insecure. For complete security try adding an authorization secret token while starting Aria2 (through the flag --rpc-secret)":
           "通過 RPC 連線到 Aria2 成功，但是連線並不安全。要想使用安全連線，嘗試在啟動 Aria2 時新增一個授權密碼令牌（通過 --rpc-secret 引數）",
         "Trying to connect to aria2 using the new connection configuration":
           "正在嘗試使用新的連線配置來連線到 Aria2 ……",
-        "Remove {{name}} and associated meta-data?": "是否刪除 {{name}} 和關聯的元資料？"
+        "Remove {{name}} and associated meta-data?":
+          "是否刪除 {{name}} 和關聯的元資料？"
       });
   },
   function(e, t) {
@@ -10335,7 +11340,8 @@
         "Save settings": "Zapisz ustawienia",
         "Currently no download in line to display, use the":
           "Obecnie nie można wyświetlić żadnych pobieranych plików. Użyj przycisku",
-        "download button to start downloading files!": "aby rozpocząć ściąganie plików!",
+        "download button to start downloading files!":
+          "aby rozpocząć ściąganie plików!",
         Peers: "Peerów",
         "More Info": "Więcej info",
         Remove: "Usuń",
@@ -10353,7 +11359,8 @@
         Cancel: "Anuluj",
         Start: "Rozpocznij",
         Choose: "Wybierz",
-        "Quick Access (shown on the main page)": "Szybki dostęp (pokazywane na głównej stronie)",
+        "Quick Access (shown on the main page)":
+          "Szybki dostęp (pokazywane na głównej stronie)",
         "Add Downloads By Torrents": "Dodaj pobierania przez Torrenty",
         "- Select the torrent from the local filesystem to start the download.":
           "- Wybierz torrent z lokalnego systemu plików, aby rozpocząć pobieranie.",
@@ -10370,7 +11377,8 @@
         "- You can select multiple Metalinks to start multiple downloads.":
           "- Możesz wybrać wiele Metalinków, aby rozpocząć wiele pobrań.",
         "Select a Metalink": "Wybierz Metalink",
-        "Choose files to start download for": "Wybierz pliki, aby rozpocząć pobieranie dla",
+        "Choose files to start download for":
+          "Wybierz pliki, aby rozpocząć pobieranie dla",
         "Select to download": "Wybierz do pobierania",
         "Aria2 RPC host and port": "Aria2 RPC host i port",
         "Enter the host": "Wprowadź host",
@@ -10384,16 +11392,19 @@
           "Wprowadź ścieżkę dla punktu końcowego Aria2 RPC (domyślnie: /jsonrpc)",
         "SSL/TLS encryption": "szyfrowanie SSL/TLS",
         "Enable SSL/TLS encryption": "Włącz szyfrowanie SSL/TLS",
-        "Enter the secret token (optional)": "Wprowadź sekretny token (opcja dodatkowa)",
+        "Enter the secret token (optional)":
+          "Wprowadź sekretny token (opcja dodatkowa)",
         "Enter the Aria2 RPC secret token (leave empty if authentication is not enabled)":
           "Wprowadź sekretny token Aria2 RPC (pozostaw puste, jeżeli uwierzytelnienie nie jest włączone)",
-        "Enter the username (optional)": "Wprowadź nazwę użytkownika (opcja dodatkowa)",
+        "Enter the username (optional)":
+          "Wprowadź nazwę użytkownika (opcja dodatkowa)",
         "Enter the Aria2 RPC username (empty if authentication not enabled)":
           "Wprowadź nazwę użytkownika Aria2 RPC (pozostaw puste, jeżeli uwierzytelnienie nie jest włączone)",
         "Enter the password (optional)": "Wprowadź hasło (opcja dodatkowa)",
         "Enter the Aria2 RPC password (empty if authentication not enabled)":
           "Wprowadź hasło Aria2 RPC (pozostaw puste, jeżeli uwierzytelnienie nie jest włączone)",
-        "Enter base URL (optional)": "Wprowadź podstawowy URL (opcja dodatkowa)",
+        "Enter base URL (optional)":
+          "Wprowadź podstawowy URL (opcja dodatkowa)",
         "Direct Download": "Bezpośrednie pobieranie",
         "If supplied, links will be created to enable direct download from the Aria2 server.":
           "Jeżeli zaznaczone, linki mogą być utworzone do włączenia bezpośredniego pobierania z serwera Aria2",
@@ -10497,8 +11508,10 @@
         Cancel: "Annuler",
         Start: "Démarrer",
         Choose: "Choisir",
-        "Quick Access (shown on the main page)": "Accès rapide (affiché sur la page principale",
-        "Add Downloads By Torrents": "Ajouter des téléchargements à partir de fichiers Torrent",
+        "Quick Access (shown on the main page)":
+          "Accès rapide (affiché sur la page principale",
+        "Add Downloads By Torrents":
+          "Ajouter des téléchargements à partir de fichiers Torrent",
         "- Select the torrent from the local filesystem to start the download.":
           "- Sélectionnez le torrent depuis votre système de fichier local pour commencer le téléchargement.",
         "- You can select multiple torrents to start multiple downloads.":
@@ -10507,7 +11520,8 @@
           "Pour ajouter une URL BitTorrent-Magnet, utilisez l'option Ajouter par URIs et ajoutez-la à ce niveau.",
         "Select Torrents": "Sélectionner des Torrents",
         "Select a Torrent": "Sélectionner un Torrent",
-        "Add Downloads By Metalinks": "Ajouter des téléchargements par Metaliens",
+        "Add Downloads By Metalinks":
+          "Ajouter des téléchargements par Metaliens",
         "Select Metalinks": "Sélectionner des Métaliens",
         "- Select the Metalink from the local filesystem to start the download.":
           "Sélectionner le Métalien depuis votre système de fichier local pour commencer le téléchargement.",
@@ -10529,10 +11543,12 @@
           "Entrer le chemin final pour le RPC Aria2 (défaut : /jsonrpc)",
         "SSL/TLS encryption": "Chiffrage SSL/TLS",
         "Enable SSL/TLS encryption": "Activer le chiffrage SSL/TLS",
-        "Enter the secret token (optional)": "Entrer le token secret (optionnel)",
+        "Enter the secret token (optional)":
+          "Entrer le token secret (optionnel)",
         "Enter the Aria2 RPC secret token (leave empty if authentication is not enabled)":
           "Entrer le token secret pour le RPC Aria2 (laisser vide si l'authentification n'est pas activée)",
-        "Enter the username (optional)": "Entrer le nom d'utilisateur (optionnel)",
+        "Enter the username (optional)":
+          "Entrer le nom d'utilisateur (optionnel)",
         "Enter the Aria2 RPC username (empty if authentication not enabled)":
           "Entrer le nom d'utilisateur RPC Aria2 (laisser vide si l'authentification n'est pas activée)",
         "Enter the password (optional)": "Entrer le mot de passe (optionnel)",
@@ -10544,7 +11560,8 @@
           "S'ils sont fournis, les liens seront créés pour activer le téléchargement direct depuis le serveur Aria2",
         "(Requires appropriate webserver to be configured.)":
           "(Nécessite un serveur web approprié pour être configuré)",
-        "Save Connection configuration": "Sauvegarder la configuration de connexion",
+        "Save Connection configuration":
+          "Sauvegarder la configuration de connexion",
         Filter: "Filtre",
         "Aria2 server info": "Infos serveur Aria2",
         "Aria2 Version": "Version Aria2",
@@ -10643,7 +11660,8 @@
         Cancel: "Abbrechen",
         Start: "Beginnen",
         Choose: "Auswählen",
-        "Quick Access (shown on the main page)": "Schnellzugriff (Anzeige auf der Hauptseite)",
+        "Quick Access (shown on the main page)":
+          "Schnellzugriff (Anzeige auf der Hauptseite)",
         "Add Downloads By Torrents": "Downloads mit Torrents hinzufügen",
         "- Select the torrent from the local filesystem to start the download.":
           "- Wähle ein Torrent vom lokalen Dateisystem um den Download zu starten",
@@ -10660,7 +11678,8 @@
         "- You can select multiple Metalinks to start multiple downloads.":
           "- Es können mehrere Metalinks ausgewählt werden um mehrere Downloads zu starten",
         "Select a Metalink": "Wähle einen Metalink",
-        "Choose files to start download for": "Wähle Dateien für den Download aus",
+        "Choose files to start download for":
+          "Wähle Dateien für den Download aus",
         "Select to download": "Wähle zum Download",
         "Aria2 RPC host and port": "Aria2 RPC host und port",
         "Enter the host": "Host",
@@ -10757,7 +11776,8 @@
         "Save settings": "Guardar Ajustes",
         "Currently no download in line to display, use the":
           "En este momento no hay descargas para mostrar. ¡Use la opción",
-        "download button to start downloading files!": "para empezar a descargar sus archivos!",
+        "download button to start downloading files!":
+          "para empezar a descargar sus archivos!",
         Peers: "Pares",
         "More Info": "Mas Info",
         Remove: "Eliminar",
@@ -10775,7 +11795,8 @@
         Cancel: "Cancelar",
         Start: "Iniciar",
         Choose: "Escoja",
-        "Quick Access (shown on the main page)": "Acceso Rápido (Se muestra en la pág principal)",
+        "Quick Access (shown on the main page)":
+          "Acceso Rápido (Se muestra en la pág principal)",
         "Add Downloads By Torrents": "Añadir descargas Torrent",
         "- Select the torrent from the local filesystem to start the download.":
           "Seleccione el archivo Torrent de su equipo para iniciar la descarga",
@@ -10792,7 +11813,8 @@
         "- You can select multiple Metalinks to start multiple downloads.":
           "Puede escoger varios archivos Metalink",
         "Select a Metalink": "Escoja el archivo Metalink",
-        "Choose files to start download for": "Escoja los archivos que desea descargar",
+        "Choose files to start download for":
+          "Escoja los archivos que desea descargar",
         "Select to download": "Escoja que descargar",
         "Aria2 RPC host and port": "Servidor Aria2 y puerto",
         "Enter the host": "Escriba la dirección",
@@ -10806,7 +11828,8 @@
           "Escriba la ruta de acceso RPC de Aria2 (por defecto: /jsonrpc)",
         "SSL/TLS encryption": "Cifrado SSL/TLS",
         "Enable SSL/TLS encryption": "Habilitar Cifrado SSL/TLS",
-        "Enter the secret token (optional)": "Escriba la frase Token (opcional)",
+        "Enter the secret token (optional)":
+          "Escriba la frase Token (opcional)",
         "Enter the Aria2 RPC secret token (leave empty if authentication is not enabled)":
           "Escriba la frase Token secreta (vacío si la autenticación está deshabilitada)",
         "Enter the username (optional)": "Usuario (opcional)",
@@ -10898,7 +11921,8 @@
         "Save settings": "Сохранить настройки",
         "Currently no download in line to display, use the":
           "На данный момент ничего не загружается, используйте кнопку",
-        "download button to start downloading files!": "чтобы начать загрузку файла!",
+        "download button to start downloading files!":
+          "чтобы начать загрузку файла!",
         Peers: "Пиры",
         "More Info": "Информация",
         Remove: "Удалить",
@@ -10916,7 +11940,8 @@
         Cancel: "Отмена",
         Start: "Начать",
         Choose: "Выбрать",
-        "Quick Access (shown on the main page)": "Простой доступ (смотреть на главной странице)",
+        "Quick Access (shown on the main page)":
+          "Простой доступ (смотреть на главной странице)",
         "Add Downloads By Torrents": "Добавить загрузку из Torrent-файлов",
         "- Select the torrent from the local filesystem to start the download.":
           "- Выберите Torrent-файлы из локальной файловой системы для начала загрузку.",
@@ -10933,7 +11958,8 @@
         "- You can select multiple Metalinks to start multiple downloads.":
           "- Вы можете выбрать несколько Metalink-файлов для запуска нескольких загрузок.",
         "Select a Metalink": "Выберите Metalink",
-        "Choose files to start download for": "Выберите файлы чтобы начать загрузку для",
+        "Choose files to start download for":
+          "Выберите файлы чтобы начать загрузку для",
         "Select to download": "Выберите для загрузки",
         "Aria2 RPC host and port": "Aria2 RPC хост и порт",
         "Enter the host": "Укажите хост",
@@ -10947,16 +11973,19 @@
           "Укажите конечный путь для Aria2 RPC (по умолчанию: /jsonrpc)",
         "SSL/TLS encryption": "SSL/TLS шифрование",
         "Enable SSL/TLS encryption": "Разрешить SSL/TLS шифрование",
-        "Enter the secret token (optional)": "Укажите секретный токен (необязательно)",
+        "Enter the secret token (optional)":
+          "Укажите секретный токен (необязательно)",
         "Enter the Aria2 RPC secret token (leave empty if authentication is not enabled)":
           "Укажите секретный токен Aria2 RPC (оставьте пустым, если авторизация не включена)",
-        "Enter the username (optional)": "Укажите имя пользователя (необязательно)",
+        "Enter the username (optional)":
+          "Укажите имя пользователя (необязательно)",
         "Enter the Aria2 RPC username (empty if authentication not enabled)":
           "Укажите имя пользователя Aria2 RPC (оставьте пустым, если авторизация не включена)",
         "Enter the password (optional)": "Укажите пароль (необязательно)",
         "Enter the Aria2 RPC password (empty if authentication not enabled)":
           "Укажите пароль для Aria2 RPC (оставьте пустым, если авторизация не включена)",
-        "Enter base URL (optional)": "Укажите базовый URL-адрес (необязательно)",
+        "Enter base URL (optional)":
+          "Укажите базовый URL-адрес (необязательно)",
         "Direct Download": "Прямая загрузка",
         "If supplied, links will be created to enable direct download from the Aria2 server.":
           "Ссылки (при наличии) будут созданы для загрузки непосредственно с сервера Aria2.",
@@ -11038,7 +12067,8 @@
         "Save settings": "Salva impostazioni",
         "Currently no download in line to display, use the":
           "Attualmente non c'è nessun download da mostrare, usa il pulsante ",
-        "download button to start downloading files!": "dowload per cominciare a scaricare!",
+        "download button to start downloading files!":
+          "dowload per cominciare a scaricare!",
         Peers: "Peers",
         "More Info": "Altre informazioni",
         Remove: "Rimuovi",
@@ -11088,7 +12118,8 @@
           "Inserisci la path per l'endpoint RPC di Aria2 (default: /jsonrpc)",
         "SSL/TLS encryption": "Cifratura SSL/TLS",
         "Enable SSL/TLS encryption": "Abilita la cifratura SSL/TLS",
-        "Enter the secret token (optional)": "Inserisci il token segreto (opzionale)",
+        "Enter the secret token (optional)":
+          "Inserisci il token segreto (opzionale)",
         "Enter the Aria2 RPC secret token (leave empty if authentication is not enabled)":
           "Inserisci il token segreto per Aria2 (lascia vuoto se non è abilitato)",
         "Enter the username (optional)": "Inserisci l'username (opzionale)",
@@ -11103,7 +12134,8 @@
           "Se inserito, verrano creati dei link per scaricare direttamente i file dal server Aria2.",
         "(Requires appropriate webserver to be configured.)":
           "(Richiede un webserver correttamente configurato)",
-        "Save Connection configuration": "Salva la configurazione di connessione",
+        "Save Connection configuration":
+          "Salva la configurazione di connessione",
         Filter: "Filtro",
         "Aria2 server info": "Informazioni sul server Aria2",
         "Aria2 Version": "Versione di Aria2",
@@ -11198,7 +12230,8 @@
         Cancel: "İptal et",
         Start: "Başlat",
         Choose: "Seçiniz",
-        "Quick Access (shown on the main page)": "Hızlı Erişim (ana sayfada gösterilir)",
+        "Quick Access (shown on the main page)":
+          "Hızlı Erişim (ana sayfada gösterilir)",
         "Add Downloads By Torrents": "Torrent kullanarak indirmelere ekle",
         "- Select the torrent from the local filesystem to start the download.":
           "- İndirmeyi başlatmak için yerel dosya sisteminden torrenti seçin.",
@@ -11215,9 +12248,11 @@
         "- You can select multiple Metalinks to start multiple downloads.":
           "- Birden fazla yüklemeye başlamak için birden fazla Metalink seçebilirsiniz.",
         "Select a Metalink": "Bir Metalink Seç",
-        "Choose files to start download for": "Için indirmeye başlamak için dosyaları seçin",
+        "Choose files to start download for":
+          "Için indirmeye başlamak için dosyaları seçin",
         "Select to download": "Indirmek için seçin",
-        "Aria2 RPC host and port": "Aria2 RPC ana bilgisayar ve bağlantı noktası",
+        "Aria2 RPC host and port":
+          "Aria2 RPC ana bilgisayar ve bağlantı noktası",
         "Enter the host": "Ana bilgisayar(host) girin",
         "Enter the IP or DNS name of the server on which the RPC for Aria2 is running (default: localhost)":
           "Aria2 için RPC'nin çalıştığı sunucunun IP veya DNS adını girin (varsayılan: localhost)",
@@ -11322,8 +12357,10 @@
         "Quick Access Settings": "Rychlé nastavení",
         Save: "Uložit",
         "Save settings": "Uložit nastavení",
-        "Currently no download in line to display, use the": "Není co zobrazit, použijte",
-        "download button to start downloading files!": "tlačítko pro stáhnutí souborů!",
+        "Currently no download in line to display, use the":
+          "Není co zobrazit, použijte",
+        "download button to start downloading files!":
+          "tlačítko pro stáhnutí souborů!",
         Peers: "Zdroje",
         "More Info": "Víc informací",
         Remove: "Odstranit",
@@ -11341,7 +12378,8 @@
         Cancel: "Zrušit",
         Start: "Spustit",
         Choose: "Zvolit",
-        "Quick Access (shown on the main page)": "Rychlý přístup (Zobrazení na hlavní stránce)",
+        "Quick Access (shown on the main page)":
+          "Rychlý přístup (Zobrazení na hlavní stránce)",
         "Add Downloads By Torrents": "Přidat stahování z torrentu",
         "- Select the torrent from the local filesystem to start the download.":
           "- Pro stahování vyberte torrent soubor z disku",
@@ -11372,16 +12410,19 @@
           "Zadejte cestu k endpointu Aria2 RPC (výchozí: /jsonrpc)",
         "SSL/TLS encryption": "SSL/TLS šifrování",
         "Enable SSL/TLS encryption": "Zapnout SSL/TLS šifrování",
-        "Enter the secret token (optional)": "Zadejte bezpečnostní token (volitelné)",
+        "Enter the secret token (optional)":
+          "Zadejte bezpečnostní token (volitelné)",
         "Enter the Aria2 RPC secret token (leave empty if authentication is not enabled)":
           "Zadejte bezpečnostní token k Aria2 RPC (nechte prázné pokud autentifikace není nastavena)",
-        "Enter the username (optional)": "Zadejte uživatelské jméno (volitelné)",
+        "Enter the username (optional)":
+          "Zadejte uživatelské jméno (volitelné)",
         "Enter the Aria2 RPC username (empty if authentication not enabled)":
           "Zadejte uživatelské jméno pro Aria2 RPC (nechte prázné pokud autentifikace není nastavena)",
         "Enter the password (optional)": "Zadejte heslo (volitelné)",
         "Enter the Aria2 RPC password (empty if authentication not enabled)":
           "Zadej heslo k Aria2 RPC (nechte prázné pokud autentifikace není nastavena)",
-        "Enter base URL (optional)": "Zadejte kořenovou URL serveru (volitelné)",
+        "Enter base URL (optional)":
+          "Zadejte kořenovou URL serveru (volitelné)",
         "Direct Download": "Přímé stažení",
         "If supplied, links will be created to enable direct download from the Aria2 server.":
           "Jestliže je nastaveno, je možné stáhnout soubor přímo z Aria2 serveru.",
@@ -11422,7 +12463,8 @@
           "Úspěšně připojeno k Aria2 pomocí RPC, ale připojení není zabezpečené. Pro úplné zabezpečení přidejte bezpečnostní token při spuštění Aria2 (pomocí možnosti --rpc-secret) ",
         "Trying to connect to aria2 using the new connection configuration":
           "Zkouším se připojit k Aria2 za pomocí nového nastavení",
-        "Remove {{name}} and associated meta-data?": "Odstranit {{name}} a příslušná meta-data?"
+        "Remove {{name}} and associated meta-data?":
+          "Odstranit {{name}} a příslušná meta-data?"
       });
   },
   function(e, t) {
@@ -11469,7 +12511,8 @@
         "Save settings": "ذخیره تنظیمات",
         "Currently no download in line to display, use the":
           "در حال حاضر هیچ دانلودی برای نمایش وجود ندارد، استفاده از",
-        "download button to start downloading files!": "دکمه دانلود برای شروع دانلود فایل ها!",
+        "download button to start downloading files!":
+          "دکمه دانلود برای شروع دانلود فایل ها!",
         Peers: "همتایان",
         "More Info": "اطلاعات بیشتر",
         Remove: "حذف",
@@ -11487,7 +12530,8 @@
         Cancel: "لغو",
         Start: "شروع",
         Choose: "انتخاب",
-        "Quick Access (shown on the main page)": "دسترسی سریع (نشان داده شده در صفحه اصلی)",
+        "Quick Access (shown on the main page)":
+          "دسترسی سریع (نشان داده شده در صفحه اصلی)",
         "Add Downloads By Torrents": "اضافه کردن دانلود توسط تورنت",
         "- Select the torrent from the local filesystem to start the download.":
           "- تورنت را از سیستم فایل محلی انتخاب کنید تا دانلود را شروع کنید.",
@@ -11504,7 +12548,8 @@
         "- You can select multiple Metalinks to start multiple downloads.":
           "- شما می توانید چندین Metalinks را برای شروع چندین بار انتخاب کنید.",
         "Select a Metalink": "Metalink را انتخاب کنید",
-        "Choose files to start download for": "فایل را برای شروع دانلود انتخاب کنید",
+        "Choose files to start download for":
+          "فایل را برای شروع دانلود انتخاب کنید",
         "Select to download": "برای دانلود انتخاب کنید",
         "Aria2 RPC host and port": "میزبان و پورت Aria2 RPC",
         "Enter the host": "میزبان را وارد کنید",
@@ -11568,7 +12613,8 @@
           "با موفقیت به Aria2 از طریق RPC راه دور متصل شد، اما اتصال هنوز ناامن است. برای امنیت کامل سعی کنید مجوز نشانه مجوز را در هنگام شروع Aria2 (از طریق پرچم --rpc-secret)",
         "Trying to connect to aria2 using the new connection configuration":
           "تلاش برای اتصال به aria2 با استفاده از پیکربندی اتصال جدید",
-        "Remove {{name}} and associated meta-data?": "حذف {{name}} و متا داده های مرتبط"
+        "Remove {{name}} and associated meta-data?":
+          "حذف {{name}} و متا داده های مرتبط"
       });
   },
   function(e, t) {
@@ -11615,7 +12661,8 @@
         "Save settings": "Simpan pengaturan",
         "Currently no download in line to display, use the":
           "Sekarang tak ada unduhan yang ditampilkan, gunakan",
-        "download button to start downloading files!": "tombol unduh untuk mulai mengunduh berkas!",
+        "download button to start downloading files!":
+          "tombol unduh untuk mulai mengunduh berkas!",
         Peers: "Peer",
         "More Info": "Info Lengkap",
         Remove: "Hapus",
@@ -11633,7 +12680,8 @@
         Cancel: "Batal",
         Start: "Mulai",
         Choose: "Pilih",
-        "Quick Access (shown on the main page)": "Akses Cepat (terlihat di laman utama)",
+        "Quick Access (shown on the main page)":
+          "Akses Cepat (terlihat di laman utama)",
         "Add Downloads By Torrents": "Unduh dari Torrent",
         "- Select the torrent from the local filesystem to start the download.":
           "- Pilih torrent dari sistem berkas lokal untuk mulai mengunduh.",
@@ -11650,7 +12698,8 @@
         "- You can select multiple Metalinks to start multiple downloads.":
           "- Anda dapat memilih banyak Metalink untuk mulai multi unduh.",
         "Select a Metalink": "Pilih Metalink",
-        "Choose files to start download for": "Pilih berkas untuk mulai mengunduh",
+        "Choose files to start download for":
+          "Pilih berkas untuk mulai mengunduh",
         "Select to download": "Pilih untuk mengunduh",
         "Aria2 RPC host and port": "Port dan host RPC Aria2",
         "Enter the host": "Masukkan host",
@@ -11664,7 +12713,8 @@
           "Masukkan path untuk endpoint RPC Aria2 (asali: /jsonrpc)",
         "SSL/TLS encryption": "Enkripsi SSL/TLS",
         "Enable SSL/TLS encryption": "Aktifkan enkripsi SSL/TLS",
-        "Enter the secret token (optional)": "Masukkan token rahasia (opsional)",
+        "Enter the secret token (optional)":
+          "Masukkan token rahasia (opsional)",
         "Enter the Aria2 RPC secret token (leave empty if authentication is not enabled)":
           "Masukkan token rahasia RPC Aria2 (kosongkan jika otentifikasi tidak aktif)",
         "Enter the username (optional)": "Masukkan username (opsional)",
@@ -11762,7 +12812,8 @@
         "Save settings": "Salvar configurações",
         "Currently no download in line to display, use the":
           "No momento não existem downloads para mostrar, utilize botão",
-        "download button to start downloading files!": "pra iniciar a transferência de arquivos!",
+        "download button to start downloading files!":
+          "pra iniciar a transferência de arquivos!",
         Peers: "Peers",
         "More Info": "Mais informações",
         Remove: "Remover",
@@ -11780,7 +12831,8 @@
         Cancel: "Cancelar",
         Start: "Iniciar",
         Choose: "Escolher",
-        "Quick Access (shown on the main page)": "Acesso Rápido (exibido na página principal)",
+        "Quick Access (shown on the main page)":
+          "Acesso Rápido (exibido na página principal)",
         "Add Downloads By Torrents": "Adicionar Downloads por Torrents",
         "- Select the torrent from the local filesystem to start the download.":
           "- Selecione o torrent de seu sistema de arquivos local para iniciar o download.",
@@ -11797,7 +12849,8 @@
         "- You can select multiple Metalinks to start multiple downloads.":
           "- Você pode selecionar múltiplos Metalinks para iniciar múltiplos downloads.",
         "Select a Metalink": "Selecione um Metalink",
-        "Choose files to start download for": "Selecione os arquvos para serem baixados",
+        "Choose files to start download for":
+          "Selecione os arquvos para serem baixados",
         "Select to download": "Selecione para baixar",
         "Aria2 RPC host and port": "Host e porta do RPC Aria2",
         "Enter the host": "Informe o host",
@@ -11811,7 +12864,8 @@
           "Informe o caminho para o endpoint RPC do Aria2 (default: /jasonrpc)",
         "SSL/TLS encryption": "Criptografia SSL/TLS",
         "Enable SSL/TLS encryption": "Habilita criptografia SSL/TLS",
-        "Enter the secret token (optional)": "Informe o token secreto (opcional)",
+        "Enter the secret token (optional)":
+          "Informe o token secreto (opcional)",
         "Enter the Aria2 RPC secret token (leave empty if authentication is not enabled)":
           "Informe o token secreto do RPC Aria2 (deixe vazio se a autenticação não estiver habilitada)",
         "Enter the username (optional)": "Informe o usuário (opcional)",
@@ -11861,7 +12915,8 @@
           "Conectado com sucesso ao Aria2 através de seu RPC remoto, contudo a conexão é insegura. Para uma completa segurança tente adicionar um token secreto de autorização quando iniciar o Aria2 (através da opção --rpc-secret)",
         "Trying to connect to aria2 using the new connection configuration":
           "Tentando conectar-se ao aria2 utilizando a nova configuração de conexão",
-        "Remove {{name}} and associated meta-data?": "Remover {{name}} e os metadados associados?"
+        "Remove {{name}} and associated meta-data?":
+          "Remover {{name}} e os metadados associados?"
       });
   }
 ]);

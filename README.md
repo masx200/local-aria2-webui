@@ -1,8 +1,8 @@
 # local-aria2-webui
 
-本地化的aria2 webui
+本地化的 aria2 webui
 
-感谢原作者 
+感谢原作者
 
 https://github.com/ziahamza/webui-aria2
 
@@ -15,6 +15,7 @@ https://nodejs.org/
 ```shell
 apt install nodejs
 ```
+
 安装 yarn
 
 https://yarnpkg.com/
@@ -22,6 +23,7 @@ https://yarnpkg.com/
 ```shell
 npm install -g yarn
 ```
+
 安装 live-server
 
 https://www.npmjs.com/package/live-server
@@ -31,9 +33,7 @@ yarn global add live-server
 
 ```
 
-
 启动
-
 
 windows
 
@@ -41,7 +41,7 @@ windows
 start.cmd
 ```
 
-linux 
+linux
 
 ```shell
 start.sh
@@ -49,6 +49,4 @@ start.sh
 
 使用浏览器打开网址
 
-
 http://127.0.0.1:8080
-
