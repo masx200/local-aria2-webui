@@ -50,3 +50,8 @@ start.sh
 使用浏览器打开网址
 
 http://127.0.0.1:8080
+
+
+aria2c RPC 配置
+
+https://github.com/masx200/aria2c-backend-rpc-config
