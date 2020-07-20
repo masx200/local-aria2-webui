@@ -1,1 +1,23 @@
-{"scripts":{"start":"npx live-server --no-browser"}}
+{
+  "scripts": {
+    "start": "npx live-server --no-browser"
+  },
+  "name": "local-aria2-webui",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/masx200/local-aria2-webui.git"
+  },
+  "author": "masx200 <masx200@qq.com>",
+  "license": "MIT",
+  "description": "本地化的 aria2 webui",
+  "bugs": {
+    "url": "https://github.com/masx200/local-aria2-webui/issues"
+  },
+  "homepage": "https://github.com/masx200/local-aria2-webui#readme",
+  "keywords": [],
+  "dependencies": {
+    "live-server": "^1.2.1"
+  }
+}

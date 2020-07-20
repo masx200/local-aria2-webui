@@ -1,4 +1,4 @@
-!(function(e) {
+!(function (e) {
   function t(t) {
     for (
       var a, r, s = t[0], l = t[1], c = t[2], u = 0, p = [];
@@ -30,16 +30,16 @@
   }
   (r.m = e),
     (r.c = a),
-    (r.d = function(e, t, n) {
+    (r.d = function (e, t, n) {
       r.o(e, t) || Object.defineProperty(e, t, { enumerable: !0, get: n });
     }),
-    (r.r = function(e) {
+    (r.r = function (e) {
       "undefined" != typeof Symbol &&
         Symbol.toStringTag &&
         Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }),
         Object.defineProperty(e, "__esModule", { value: !0 });
     }),
-    (r.t = function(e, t) {
+    (r.t = function (e, t) {
       if ((1 & t && (e = r(e)), 8 & t)) return e;
       if (4 & t && "object" == typeof e && e && e.__esModule) return e;
       var n = Object.create(null);
@@ -52,24 +52,24 @@
           r.d(
             n,
             a,
-            function(t) {
+            function (t) {
               return e[t];
             }.bind(null, a)
           );
       return n;
     }),
-    (r.n = function(e) {
+    (r.n = function (e) {
       var t =
         e && e.__esModule
-          ? function() {
+          ? function () {
               return e.default;
             }
-          : function() {
+          : function () {
               return e;
             };
       return r.d(t, "a", t), t;
     }),
-    (r.o = function(e, t) {
+    (r.o = function (e, t) {
       return Object.prototype.hasOwnProperty.call(e, t);
     }),
     (r.p = "");
@@ -82,7 +82,7 @@
 })([
   ,
   ,
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a);
@@ -90,41 +90,41 @@
       .module("webui.services.alerts", ["webui.services.deps"])
       .factory("$alerts", [
         "$_",
-        function(e) {
+        function (e) {
           var t = [];
           return {
-            addAlert: function() {
+            addAlert: function () {
               var n = Array.prototype.slice.call(arguments, 0);
-              setTimeout(function() {
-                e.each(t, function(e) {
+              setTimeout(function () {
+                e.each(t, function (e) {
                   e.apply({}, n);
                 });
               }, 0);
             },
-            addAlerter: function(e) {
+            addAlerter: function (e) {
               t.push(e);
             },
-            log: function(e) {
+            log: function (e) {
               this.addAlert(e, "info");
-            }
+            },
           };
-        }
+        },
       ]).name;
   },
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a);
     t.a = o.a.module("webui.services.base64", []).factory("$base64", [
-      function() {
+      function () {
         var e = {},
           t =
             "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",
           n = {
-            indexOf: function(e) {
+            indexOf: function (e) {
               return e.charCodeAt(0);
             },
-            charAt: String.fromCharCode
+            charAt: String.fromCharCode,
           };
         function a(e, t, n, a, o, i) {
           var r,
@@ -149,12 +149,12 @@
           return d;
         }
         return (
-          (e.btoa = function(e) {
+          (e.btoa = function (e) {
             return (
               (e = a(e, !1, n, t, 256, 64)) + "====".slice(e.length % 4 || 4)
             );
           }),
-          (e.atob = function(e) {
+          (e.atob = function (e) {
             var o;
             for (o = (e = String(e).split("=")).length - 1; o >= 0; o -= 1) {
               if (e[o].length % 4 == 1) throw new RangeError();
@@ -164,10 +164,10 @@
           }),
           e
         );
-      }
+      },
     ]).name;
   },
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a);
@@ -187,18 +187,18 @@
         port: 6800,
         encrypt: !1,
         auth: {},
-        directURL: ""
+        directURL: "",
       })
       .constant("$enable", {
         torrent: !0,
         metalink: !0,
-        sidebar: { show: !0, stats: !0, filters: !0, starredProps: !0 }
+        sidebar: { show: !0, stats: !0, filters: !0, starredProps: !0 },
       })
       .constant("$starredProps", [
         "dir",
         "conf-path",
         "auto-file-renaming",
-        "max-connection-per-server"
+        "max-connection-per-server",
       ])
       .constant("$downloadProps", [
         "header",
@@ -206,11 +206,11 @@
         "http-passwd",
         "pause",
         "dir",
-        "max-connection-per-server"
+        "max-connection-per-server",
       ])
       .constant("$globalTimeout", 1e3).name;
   },
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a),
@@ -225,13 +225,13 @@
       .value("$json", JSON).name;
   },
   ,
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a);
     t.a = o.a
       .module("webui.services.errors", [])
-      .value("$getErrorStatus", function(e) {
+      .value("$getErrorStatus", function (e) {
         switch ((e -= 1)) {
           case 0:
             return "download was unsuccessful";
@@ -296,7 +296,7 @@
         }
       }).name;
   },
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a);
@@ -305,7 +305,7 @@
         "webui.services.rpc.syscall",
         "webui.services.configuration",
         "webui.services.alerts",
-        "webui.services.utils"
+        "webui.services.utils",
       ])
       .factory("$rpc", [
         "$syscall",
@@ -316,7 +316,7 @@
         "$location",
         "$authconf",
         "$filter",
-        function(e, t, n, a, i, r, s, l) {
+        function (e, t, n, a, i, r, s, l) {
           var c,
             d = [],
             u = [s],
@@ -330,7 +330,7 @@
               (u[0].auth = {
                 token: u[0].token,
                 user: u[0].username,
-                pass: u[0].password
+                pass: u[0].password,
               })),
             -1 != ["http", "https"].indexOf(r.protocol()) &&
               "localhost" != r.host() &&
@@ -340,19 +340,19 @@
                   host: r.host(),
                   port: r.port(),
                   path: "/jsonrpc",
-                  encrypt: "https" == r.protocol()
+                  encrypt: "https" == r.protocol(),
                 },
                 {
                   host: r.host(),
                   port: r.port(),
                   path: s.path,
-                  encrypt: "https" == r.protocol()
+                  encrypt: "https" == r.protocol(),
                 }
               );
           var g = !0,
-            v = function() {
+            v = function () {
               clearTimeout(h), (h = null);
-              var o = (d = _.filter(d, function(e) {
+              var o = (d = _.filter(d, function (e) {
                 return !!e && 2 !== e.once;
               })).slice();
               if (o.length) {
@@ -369,7 +369,7 @@
                     e.init(p),
                     void (h = setTimeout(v, t))
                   );
-                var r = _.map(o, function(e) {
+                var r = _.map(o, function (e) {
                   var t = e.params;
                   return (
                     c && (t = ["token:" + c].concat(t || [])),
@@ -379,9 +379,9 @@
                 e.invoke({
                   name: "system.multicall",
                   params: [r],
-                  success: function(e) {
+                  success: function (e) {
                     if (
-                      _.some(e.result, function(e) {
+                      _.some(e.result, function (e) {
                         return e.code && "Unauthorized" === e.message;
                       })
                     )
@@ -414,7 +414,7 @@
                       (u = [])),
                       a.setCookie("aria2conf", p);
                     var r = [];
-                    _.each(e.result, function(e, t) {
+                    _.each(e.result, function (e, t) {
                       var a = o[t];
                       a &&
                         (e.code &&
@@ -422,7 +422,7 @@
                         r.push({ cb: a.cb, data: e }),
                         a.once && (a.once = 2));
                     }),
-                      _.each(r, function(e) {
+                      _.each(r, function (e) {
                         e.cb(e.data);
                       }),
                       i.$digest(),
@@ -430,7 +430,7 @@
                         ? ((f = !1), (h = setTimeout(v, 0)))
                         : (h = setTimeout(v, t));
                   },
-                  error: function() {
+                  error: function () {
                     g = !0;
                     var e = u.indexOf(p);
                     -1 != e && u.splice(e, 1),
@@ -451,14 +451,14 @@
                             "error"
                           ),
                           (h = setTimeout(v, t)));
-                  }
+                  },
                 });
               } else h = setTimeout(v, t);
             };
           return (
             (h = setTimeout(v, t)),
             {
-              configure: function(e) {
+              configure: function (e) {
                 n.addAlert(
                   l("translate")(
                     "Trying to connect to aria2 using the new connection configuration"
@@ -468,41 +468,41 @@
                   (u = e instanceof Array ? e : [e]),
                   h && (clearTimeout(h), (h = setTimeout(v, 0)));
               },
-              getConfiguration: function() {
+              getConfiguration: function () {
                 return p;
               },
-              getDirectURL: function() {
+              getDirectURL: function () {
                 return p.directURL;
               },
-              once: function(e, t, n, a) {
+              once: function (e, t, n, a) {
                 (n = n || o.a.noop),
                   (t = t || []),
                   d.push({ once: !0, name: "aria2." + e, params: t, cb: n }),
                   a || this.forceUpdate();
               },
-              subscribe: function(e, t, n, a) {
+              subscribe: function (e, t, n, a) {
                 n = n || o.a.noop;
                 var i = {
                   once: !1,
                   name: "aria2." + e,
                   params: (t = t || []),
-                  cb: n
+                  cb: n,
                 };
                 return d.push(i), a || this.forceUpdate(), i;
               },
-              unsubscribe: function(e) {
+              unsubscribe: function (e) {
                 var t = d.indexOf(e);
                 d[t] = null;
               },
-              forceUpdate: function() {
+              forceUpdate: function () {
                 h ? (clearTimeout(h), (h = setTimeout(v, 0))) : (f = !0);
-              }
+              },
             }
           );
-        }
+        },
       ]).name;
   },
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a);
@@ -510,30 +510,30 @@
       .module("webui.services.rpc.helpers", [
         "webui.services.deps",
         "webui.services.rpc",
-        "webui.services.alerts"
+        "webui.services.alerts",
       ])
       .factory("$rpchelpers", [
         "$_",
         "$rpc",
         "$alerts",
-        function(e, t, n) {
+        function (e, t, n) {
           var a = { version: "", enabledFeatures: [] };
           return (
-            t.once("getVersion", [], function(e) {
+            t.once("getVersion", [], function (e) {
               a = e[0];
             }),
             {
-              isFeatureEnabled: function(e) {
+              isFeatureEnabled: function (e) {
                 return -1 != a.enabledFeatures.indexOf(e);
               },
-              getAria2Version: function() {
+              getAria2Version: function () {
                 return a.version;
               },
-              addUris: function(n, a, o) {
-                e.each(n, function(n) {
+              addUris: function (n, a, o) {
+                e.each(n, function (n) {
                   var i = [],
                     r = e.cloneDeep(a);
-                  e.each(n, function(e) {
+                  e.each(n, function (e) {
                     if (e.startsWith("--")) {
                       var t = e.split(/--|=(.*)/);
                       t.length > 2 && (r[t[2]] = t[3] || "true");
@@ -543,42 +543,42 @@
                 }),
                   t.forceUpdate();
               },
-              addTorrents: function(n, a, o) {
-                e.each(n, function(e) {
+              addTorrents: function (n, a, o) {
+                e.each(n, function (e) {
                   t.once("addTorrent", [e, [], a], o, !0);
                 }),
                   t.forceUpdate();
               },
-              addMetalinks: function(n, a, o) {
-                e.each(n, function(e) {
+              addMetalinks: function (n, a, o) {
+                e.each(n, function (e) {
                   t.once("addMetalink", [e, a], o, !0);
                 }),
                   t.forceUpdate();
-              }
+              },
             }
           );
-        }
+        },
       ]).name;
   },
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a);
     t.a = o.a
       .module("webui.services.rpc.jsoncall", [
         "webui.services.deps",
-        "webui.services.base64"
+        "webui.services.base64",
       ])
       .factory("$jsoncall", [
         "$",
         "$json",
         "$base64",
-        function(e, t, n) {
+        function (e, t, n) {
           return {
-            init: function(e) {
+            init: function (e) {
               (this.avgTimeout = 2e3), (this.serverConf = e);
             },
-            ariaRequest: function(n, a, o, i, r) {
+            ariaRequest: function (n, a, o, i, r) {
               var s = new Date(),
                 l = this;
               e.post({
@@ -589,15 +589,15 @@
                   jsonrpc: 2,
                   id: "webui",
                   method: a,
-                  params: o
+                  params: o,
                 }),
-                success: function(e) {
+                success: function (e) {
                   return (l.avgTimeout = 2e3 + 3 * (new Date() - s)), i(e);
                 },
-                error: r
+                error: r,
               });
             },
-            invoke: function(t) {
+            invoke: function (t) {
               var n = this,
                 a = n.serverConf.encrypt ? "https" : "http";
               n.ariaRequest(
@@ -610,7 +610,7 @@
                 t.name,
                 t.params,
                 t.success,
-                function() {
+                function () {
                   if (!n.serverConf.auth || !n.serverConf.auth.user)
                     return console.log("jsonrpc disconnect!!!"), t.error();
                   var o =
@@ -627,19 +627,27 @@
                     i = e("<img/>").attr("src", o);
                   e("body").append(i),
                     i.remove(),
-                    setTimeout(function() {
-                      n.ariaRequest(o, t.name, t.params, t.success, function() {
-                        return console.log("jsonrpc disconnect!!!"), t.error();
-                      });
+                    setTimeout(function () {
+                      n.ariaRequest(
+                        o,
+                        t.name,
+                        t.params,
+                        t.success,
+                        function () {
+                          return (
+                            console.log("jsonrpc disconnect!!!"), t.error()
+                          );
+                        }
+                      );
                     }, n.avgTimeout);
                 }
               );
-            }
+            },
           };
-        }
+        },
       ]).name;
   },
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a);
@@ -648,7 +656,7 @@
         "webui.services.deps",
         "webui.services.utils",
         "webui.services.base64",
-        "webui.services.alerts"
+        "webui.services.alerts",
       ])
       .factory("$sockcall", [
         "$_",
@@ -656,34 +664,34 @@
         "$name",
         "$utils",
         "$alerts",
-        function(e, t, n, a, i) {
+        function (e, t, n, a, i) {
           var r = {
             initialized: !1,
             handles: [],
             sock: null,
             conf: null,
             scheme: "ws",
-            onerror: function(t) {
-              e.each(r.handles, function(e) {
+            onerror: function (t) {
+              e.each(r.handles, function (e) {
                 e.error();
               }),
                 (r.handles = []),
                 (r.initialized = !1),
                 r.onready && (r.onready(), (r.onready = null));
             },
-            onclose: function(e) {
+            onclose: function (e) {
               r.handles &&
                 r.handles.length &&
                 r.onerror("Connection reset while calling aria2"),
                 (r.initialized = !1),
                 r.onready && (r.onready(), (r.onready = null));
             },
-            onopen: function() {
+            onopen: function () {
               console.log("websocket initialized!!!"),
                 (r.initialized = !0),
                 r.onready && (r.onready(), (r.onready = null));
             },
-            onmessage: function(e) {
+            onmessage: function (e) {
               for (
                 var n = t.parse(e.data), a = r.handles.length - 1;
                 a >= 0;
@@ -692,22 +700,22 @@
                 if (r.handles[a].id === n.id)
                   return r.handles[a].success(n), void r.handles.splice(a, 1);
             },
-            invoke: function(e) {
+            invoke: function (e) {
               var n = {
                 jsonrpc: 2,
                 id: a.uuid(),
                 method: e.name,
-                params: e.params && e.params.length ? e.params : void 0
+                params: e.params && e.params.length ? e.params : void 0,
               };
               n.params && !n.params.length && (n.params = void 0),
                 r.handles.push({
                   success: e.success || o.a.noop,
                   error: e.error || o.a.noop,
-                  id: n.id
+                  id: n.id,
                 }),
                 r.sock.send(t.stringify(n));
             },
-            init: function(e, t) {
+            init: function (e, t) {
               if (
                 ((r.initialized = !1),
                 r.onready && (r.onready(), (r.onready = null)),
@@ -725,7 +733,7 @@
                 r.sock &&
                   ((r.sock.onopen = r.sock.onmessage = r.sock.onerror = r.sock.onclose = null),
                   r.onerror({
-                    message: "Changing the websocket aria2 server details"
+                    message: "Changing the websocket aria2 server details",
                   }));
               try {
                 var n =
@@ -763,13 +771,13 @@
                   ),
                   t();
               }
-            }
+            },
           };
           return r;
-        }
+        },
       ]).name;
   },
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a);
@@ -778,37 +786,37 @@
         "webui.services.rpc.jsoncall",
         "webui.services.rpc.sockcall",
         "webui.services.utils",
-        "webui.services.alerts"
+        "webui.services.alerts",
       ])
       .factory("$syscall", [
         "$log",
         "$jsoncall",
         "$sockcall",
         "$alerts",
-        function(e, t, n, a) {
+        function (e, t, n, a) {
           return {
             state: "none",
-            init: function(e) {
+            init: function (e) {
               console.log("Syscall is initializing to", e),
                 (this.state = "initializing"),
                 t.init(e);
               var a = this;
-              n.init(e, function() {
+              n.init(e, function () {
                 console.log("Syscall is ready"), (a.state = "ready");
               });
             },
-            invoke: function(e) {
+            invoke: function (e) {
               return (
                 (e.success = e.success || o.a.noop),
                 (e.error = e.error || o.a.noop),
                 n.initialized ? n.invoke(e) : t.invoke(e)
               );
-            }
+            },
           };
-        }
+        },
       ]).name;
   },
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a);
@@ -818,702 +826,702 @@
         "all-proxy": {
           val: "",
           desc:
-            'Use this proxy server for all   protocols. To erase previously defined proxy, use "". You can override this setting and specify a proxy server for a particular protocol using http-proxy, https-proxy and ftp-proxy options. This affects all URIs. The format of PROXY is [http://][USER:PASSWORD@]HOST[:PORT].'
+            'Use this proxy server for all   protocols. To erase previously defined proxy, use "". You can override this setting and specify a proxy server for a particular protocol using http-proxy, https-proxy and ftp-proxy options. This affects all URIs. The format of PROXY is [http://][USER:PASSWORD@]HOST[:PORT].',
         },
         "all-proxy-passwd": {
           val: "",
-          desc: "Set password for all-proxy option."
+          desc: "Set password for all-proxy option.",
         },
         "all-proxy-user": { val: "", desc: "Set user for all-proxy option." },
         "allow-overwrite": {
           val: !1,
           options: ["true", "false"],
           desc:
-            "Restart download from scratch if the corresponding control file doesn't exist. See also auto-file-renaming option. Default: false"
+            "Restart download from scratch if the corresponding control file doesn't exist. See also auto-file-renaming option. Default: false",
         },
         "allow-piece-length-change": {
           val: !1,
           options: ["true", "false"],
           desc:
-            "If false is given, aria2 aborts download when a piece length is different from one in a control file. If true is given, you can proceed but some download progress will be lost. Default: false"
+            "If false is given, aria2 aborts download when a piece length is different from one in a control file. If true is given, you can proceed but some download progress will be lost. Default: false",
         },
         "always-resume": {
           val: !0,
           options: ["true", "false"],
           desc:
-            "Always resume download. If true is given, aria2 always tries to resume download and if resume is not possible, aborts download. If false is given, when all given URIs do not support resume or aria2 encounters N URIs which does not support resume (N is the value specified using --max-resume-failure-tries option), aria2 downloads file from scratch. See --max-resume-failure-tries option. Default: true"
+            "Always resume download. If true is given, aria2 always tries to resume download and if resume is not possible, aborts download. If false is given, when all given URIs do not support resume or aria2 encounters N URIs which does not support resume (N is the value specified using --max-resume-failure-tries option), aria2 downloads file from scratch. See --max-resume-failure-tries option. Default: true",
         },
         "async-dns": {
           val: !0,
           options: ["true", "false"],
-          desc: "Enable asynchronous DNS. Default: true"
+          desc: "Enable asynchronous DNS. Default: true",
         },
         "auto-file-renaming": {
           val: !0,
           options: ["true", "false"],
           desc:
-            "Rename file name if the same file already exists. This option works only in HTTP(S)/FTP download. The new file name has a dot and a number(1..9999) appended. Default: true"
+            "Rename file name if the same file already exists. This option works only in HTTP(S)/FTP download. The new file name has a dot and a number(1..9999) appended. Default: true",
         },
         "bt-detach-seed-only": {
           desc:
             "Exclude seed only downloads when counting concurrent active downloads (See -j option). This means that if -j3 is given and this option is turned on and 3 downloads are active and one of those enters seed mode, then it is excluded from active download count (thus it becomes 2), and the next download waiting in queue gets started. But be aware that seeding item is still recognized as active download in RPC method. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "bt-enable-hook-after-hash-check": {
           desc:
             "Allow hook command invocation after hash check (see -V option) in BitTorrent download. By default, when hash check succeeds, the command given by --on-bt-download-complete is executed. To disable this action, give false to this option. Default: true",
           val: !0,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "bt-enable-lpd": {
           desc:
             "Enable Local Peer Discovery. If a private flag is set in a torrent, aria2 doesn't use this feature for that download even if true is given. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "bt-exclude-tracker": {
           val: "",
           desc:
-            "Comma separated list of BitTorrent tracker's announce URI to remove. You can use special value * which matches all URIs, thus removes all announce URIs. When specifying * in shell command-line, don't forget to escape or quote it. See also --bt-tracker option."
+            "Comma separated list of BitTorrent tracker's announce URI to remove. You can use special value * which matches all URIs, thus removes all announce URIs. When specifying * in shell command-line, don't forget to escape or quote it. See also --bt-tracker option.",
         },
         "bt-external-ip": {
           val: "",
           desc:
-            "Specify the external IP address to report to a BitTorrent tracker. Although this function is named external, it can accept any kind of IP addresses. IPADDRESS must be a numeric IP address."
+            "Specify the external IP address to report to a BitTorrent tracker. Although this function is named external, it can accept any kind of IP addresses. IPADDRESS must be a numeric IP address.",
         },
         "bt-force-encryption": {
           desc:
             "Requires BitTorrent message payload encryption with arc4. This is a shorthand of --bt-require-crypto --bt-min-crypto-level=arc4. This option does not change the option value of those options. If true is given, deny legacy BitTorrent handshake and only use Obfuscation handshake and always encrypt message payload. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "bt-hash-check-seed": {
           desc:
             "If true is given, after hash check using --check-integrity option and file is complete, continue to seed file. If you want to check file and download it only when it is damaged or incomplete, set this option to false. This option has effect only on BitTorrent download. Default: true",
           val: !0,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "bt-max-open-files": {
           val: 100,
           desc:
-            "Specify maximum number of files to open in each BitTorrent download. Default: 100"
+            "Specify maximum number of files to open in each BitTorrent download. Default: 100",
         },
         "bt-max-peers": {
           val: 55,
           desc:
-            "Specify the maximum number of peers per torrent. 0 means unlimited. See also bt-request-peer-speed-limit option. Default: 55"
+            "Specify the maximum number of peers per torrent. 0 means unlimited. See also bt-request-peer-speed-limit option. Default: 55",
         },
         "bt-metadata-only": {
           desc:
             "Download metadata only. The file(s) described in metadata will not be downloaded. This option has effect only when BitTorrent Magnet URI is used. See also --bt-save-metadata option. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "bt-min-crypto-level": {
           desc:
             "Set minimum level of encryption method. If several encryption methods are provided by a peer, aria2 chooses the lowest one which satisfies the given level. Default: plain",
           val: "plain",
-          options: ["plain", "arc4"]
+          options: ["plain", "arc4"],
         },
         "bt-prioritize-piece": {
           val: "",
           desc:
-            "Try to download first and last pieces of each file first. This is useful for previewing files. The argument can contain 2 keywords: head and tail. To include both keywords, they must be separated by comma. These keywords can take one parameter, SIZE. For example, if head=<SIZE> is specified, pieces in the range of first SIZE bytes of each file get higher priority. tail=<SIZE> means the range of last SIZE bytes of each file. SIZE can include K or M (1K = 1024, 1M = 1024K). If SIZE is omitted, SIZE=1M is used."
+            "Try to download first and last pieces of each file first. This is useful for previewing files. The argument can contain 2 keywords: head and tail. To include both keywords, they must be separated by comma. These keywords can take one parameter, SIZE. For example, if head=<SIZE> is specified, pieces in the range of first SIZE bytes of each file get higher priority. tail=<SIZE> means the range of last SIZE bytes of each file. SIZE can include K or M (1K = 1024, 1M = 1024K). If SIZE is omitted, SIZE=1M is used.",
         },
         "bt-request-peer-speed-limit": {
           val: "50K",
           desc:
-            "If the whole download speed of every torrent is lower than SPEED, aria2 temporarily increases the number of peers to try for more download speed. Configuring this option with your preferred download speed can increase your download speed in some cases. You can append K or M (1K = 1024, 1M = 1024K). Default: 50K"
+            "If the whole download speed of every torrent is lower than SPEED, aria2 temporarily increases the number of peers to try for more download speed. Configuring this option with your preferred download speed can increase your download speed in some cases. You can append K or M (1K = 1024, 1M = 1024K). Default: 50K",
         },
         "bt-require-crypto": {
           desc:
             "If true is given, aria2 doesn't accept and establish connection with legacy BitTorrent handshake(19BitTorrent protocol). Thus aria2 always uses Obfuscation handshake. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "bt-save-metadata": {
           desc:
             "Save metadata as .torrent file. This option has effect only when BitTorrent Magnet URI is used. The filename is hex encoded info hash with suffix .torrent. The directory to be saved is the same directory where download file is saved. If the same file already exists, metadata is not saved. See also --bt-metadata-only option. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "bt-seed-unverified": {
           desc:
             "Seed previously downloaded files without verifying piece hashes. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "bt-stop-timeout": {
           val: 0,
           desc:
-            "Stop BitTorrent download if download speed is 0 in consecutive SEC seconds. If 0 is given, this feature is disabled. Default: 0"
+            "Stop BitTorrent download if download speed is 0 in consecutive SEC seconds. If 0 is given, this feature is disabled. Default: 0",
         },
         "bt-tracker": {
           val: "",
           desc:
-            "Comma separated list of additional BitTorrent tracker's announce URI. These URIs are not affected by --bt-exclude-tracker option because they are added after URIs in --bt-exclude-tracker option are removed."
+            "Comma separated list of additional BitTorrent tracker's announce URI. These URIs are not affected by --bt-exclude-tracker option because they are added after URIs in --bt-exclude-tracker option are removed.",
         },
         "bt-tracker-connect-timeout": {
           val: 60,
           desc:
-            "Set the connect timeout in seconds to establish connection to tracker. After the connection is established, this option makes no effect and --bt-tracker-timeout option is used instead. Default: 60"
+            "Set the connect timeout in seconds to establish connection to tracker. After the connection is established, this option makes no effect and --bt-tracker-timeout option is used instead. Default: 60",
         },
         "bt-tracker-interval": {
           val: 0,
           desc:
-            "Set the interval in seconds between tracker requests. This completely overrides interval value and aria2 just uses this value and ignores the min interval and interval value in the response of tracker. If 0 is set, aria2 determines interval based on the response of tracker and the download progress. Default: 0"
+            "Set the interval in seconds between tracker requests. This completely overrides interval value and aria2 just uses this value and ignores the min interval and interval value in the response of tracker. If 0 is set, aria2 determines interval based on the response of tracker and the download progress. Default: 0",
         },
         "bt-tracker-timeout": {
           val: 60,
-          desc: "Set timeout in seconds. Default: 60"
+          desc: "Set timeout in seconds. Default: 60",
         },
         "bt-remove-unselected-file": {
           desc:
             "Removes the unselected files when download is completed in BitTorrent. To select files, use --select-file option. If it is not used, all files are assumed to be selected. Please use this option with care because it will actually remove files from your disk. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "check-certificate": {
           desc:
             "Verify the peer using certificates specified in --ca-certificate option. Default: true",
           val: !0,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "check-integrity": {
           desc:
             "Check file integrity by validating piece hashes or a hash of entire file. This option has effect only in BitTorrent, Metalink downloads with checksums or HTTP(S)/FTP downloads with --checksum option. If piece hashes are provided, this option can detect damaged portions of a file and re-download them. If a hash of entire file is provided, hash check is only done when file has been already download. This is determined by file length. If hash check fails, file is re-downloaded from scratch. If both piece hashes and a hash of entire file are provided, only piece hashes are used. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "conditional-get": {
           desc:
             "Download file only when the local file is older than remote file. This function only works with HTTP(S) downloads only. It does not work if file size is specified in Metalink. It also ignores Content-Disposition header. If a control file exists, this option will be ignored. This function uses If-Modified-Since header to get only newer file conditionally. When getting modification time of local file, it uses user supplied filename(see --out option) or filename part in URI if --out is not specified. To overwrite existing file, --allow-overwrite is required. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "connect-timeout": {
           val: 60,
           desc:
-            "Set the connect timeout in seconds to establish connection to HTTP/FTP/proxy server. After the connection is established, this option makes no effect and --timeout option is used instead. Default: 60"
+            "Set the connect timeout in seconds to establish connection to HTTP/FTP/proxy server. After the connection is established, this option makes no effect and --timeout option is used instead. Default: 60",
         },
         continue: {
           desc:
             "Continue downloading a partially downloaded file. Use this option to resume a download started by a web browser or another program which downloads files sequentially from the beginning. Currently this option is only applicable to HTTP(S)/FTP downloads.",
           val: !0,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         daemon: {
           desc:
             "Run as daemon. The current working directory will be changed to / and standard input, standard output and standard error will be redirected to /dev/null. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "deferred-input": {
           desc:
             "If true is given, aria2 does not read all URIs and options from file specified by --input-file option at startup, but it reads one by one when it needs later. This may reduce memory usage if input file contains a lot of URIs to download. If false is given, aria2 reads all URIs and options at startup. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         dir: { val: "", desc: "The directory to store the downloaded file." },
         "disable-ipv6": {
           desc:
             "Disable IPv6. This is useful if you have to use broken DNS and want to avoid terribly slow AAAA record lookup. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "dry-run": {
           desc:
             "If true is given, aria2 just checks whether the remote file is available and doesn't download data. This option has effect on HTTP/FTP download. BitTorrent downloads are canceled if true is specified. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "enable-async-dns6": {
           desc:
             "Enable IPv6 name resolution in asynchronous DNS resolver. This option will be ignored when --async-dns=false. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "enable-color": {
           desc: "Enable color output for a terminal. Default: true",
           val: !0,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "enable-dht": {
           desc:
             "Enable IPv4 DHT functionality. It also enables UDP tracker support. If a private flag is set in a torrent, aria2 doesn’t use DHT for that download even if true is given. Default: true",
           val: !0,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "enable-dht6": {
           desc:
             "Enable IPv6 DHT functionality. If a private flag is set in a torrent, aria2 doesn’t use DHT for that download even if true is given. Use --dht-listen-port option to specify port number to listen on. See also --dht-listen-addr6 option.",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "enable-http-keep-alive": {
           desc: "Enable HTTP/1.1 persistent connection. Default: true",
           val: !0,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "enable-http-pipelining": {
           desc: "Enable HTTP/1.1 pipelining. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "enable-peer-exchange": {
           desc:
             "Enable Peer Exchange extension. If a private flag is set in a torrent, this feature is disabled for that download even if true is given. Default: true",
           val: !0,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "enable-mmap": {
           desc:
             "Map files into memory. This option may not work if the file space is not pre-allocated. See --file-allocation. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "enable-rpc": {
           desc:
             "Enable JSON-RPC/XML-RPC server. It is strongly recommended to set secret authorization token using --rpc-secret option. See also --rpc-listen-port option. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "file-allocation": {
           desc:
             "Specify file allocation method. none doesn't pre-allocate file space. prealloc pre-allocates file space before download begins. This may take some time depending on the size of the file. If you are using newer file systems such as ext4 (with extents support), btrfs, xfs or NTFS(MinGW build only), falloc is your best choice. It allocates large(few GiB) files almost instantly. Don't use falloc with legacy file systems such as ext3 and FAT32 because it takes almost same time as prealloc and it blocks aria2 entirely until allocation finishes. falloc may not be available if your system doesn't have posix_fallocate(3) function. Possible Values: none, prealloc, falloc Default: prealloc",
           val: void 0,
-          options: ["none", "prealloc", "falloc", "trunc"]
+          options: ["none", "prealloc", "falloc", "trunc"],
         },
         "follow-metalink": {
           desc:
             "If true or mem is specified, when a file whose suffix is .meta4 or .metalink or content type of application/metalink4+xml or application/metalink+xml is downloaded, aria2 parses it as a metalink file and downloads files mentioned in it. If mem is specified, a metalink file is not written to the disk, but is just kept in memory. If false is specified, the action mentioned above is not taken. Default: true",
           val: !0,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "follow-torrent": {
           desc:
             "If true or mem is specified, when a file whose suffix is .torrent or content type is application/x-bittorrent is downloaded, aria2 parses it as a torrent file and downloads files mentioned in it. If mem is specified, a torrent file is not written to the disk, but is just kept in memory. If false is specified, the action mentioned above is not taken. Default: true",
           val: !0,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "force-save": {
           desc:
             "Save download with --save-session option even if the download is completed or removed. This option also saves control file in that situations. This may be useful to save BitTorrent seeding which is recognized as completed state. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "ftp-passwd": {
           val: "ARIA2USER@",
           desc:
-            "Set FTP password. This affects all URIs. If user name is embedded but password is missing in URI, aria2 tries to resolve password using .netrc. If password is found in .netrc, then use it as password. If not, use the password specified in this option. Default: ARIA2USER@"
+            "Set FTP password. This affects all URIs. If user name is embedded but password is missing in URI, aria2 tries to resolve password using .netrc. If password is found in .netrc, then use it as password. If not, use the password specified in this option. Default: ARIA2USER@",
         },
         "ftp-pasv": {
           desc:
             "Use the passive mode in FTP. If false is given, the active mode will be used. Default: true",
           val: !0,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "ftp-proxy": {
           val: "",
           desc:
-            'Use this proxy server for FTP. To erase previously defined proxy, use "". See also --all-proxy option. This affects all URIs. The format of PROXY is [http://][USER:PASSWORD@]HOST[:PORT].'
+            'Use this proxy server for FTP. To erase previously defined proxy, use "". See also --all-proxy option. This affects all URIs. The format of PROXY is [http://][USER:PASSWORD@]HOST[:PORT].',
         },
         "ftp-proxy-passwd": {
           val: "",
-          desc: "Set password for --ftp-proxy option."
+          desc: "Set password for --ftp-proxy option.",
         },
         "ftp-proxy-user": { val: "", desc: "Set user for --ftp-proxy option." },
         "ftp-reuse-connection": {
           desc: "Reuse connection in FTP. Default: true.",
           val: !0,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "ftp-type": {
           desc:
             "Set FTP transfer type. TYPE is either binary or ascii. Default: binary",
           val: "binary",
-          options: ["binary", "ascii"]
+          options: ["binary", "ascii"],
         },
         "ftp-user": {
           val: "anonymous",
-          desc: "Set FTP user. This affects all URIs. Default: anonymous"
+          desc: "Set FTP user. This affects all URIs. Default: anonymous",
         },
         header: {
           val: "",
           desc: "Append HEADER to HTTP request header.",
-          multiline: !0
+          multiline: !0,
         },
         "http-accept-gzip": {
           desc:
             "Send Accept: deflate, gzip request header and inflate response if remote server responds with Content-Encoding: gzip or Content-Encoding: deflate. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "http-auth-challenge": {
           desc:
             "Send HTTP authorization header only when it is requested by the server. If false is set, then authorization header is always sent to the server. There is an exception: if username and password are embedded in URI, authorization header is always sent to the server regardless of this option. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "http-no-cache": {
           desc:
             "Send Cache-Control: no-cache and Pragma: no-cache header to avoid cached content. If false is given, these headers are not sent and you can add Cache-Control header with a directive you like using --header option. Default: true",
           val: !0,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "http-user": { val: "", desc: "Set HTTP username." },
         "http-passwd": { val: "", desc: "Set HTTP password." },
         "http-proxy": {
           val: "",
           desc:
-            'Use this proxy server for HTTP. To erase previously defined proxy, use "". See also --all-proxy option. This affects all URIs. The format of PROXY is [http://][USER:PASSWORD@]HOST[:PORT].'
+            'Use this proxy server for HTTP. To erase previously defined proxy, use "". See also --all-proxy option. This affects all URIs. The format of PROXY is [http://][USER:PASSWORD@]HOST[:PORT].',
         },
         "http-proxy-passwd": {
           val: "",
-          desc: "Set password for --http-proxy option."
+          desc: "Set password for --http-proxy option.",
         },
         "http-proxy-user": {
           val: "",
-          desc: "Set user for --http-proxy option."
+          desc: "Set user for --http-proxy option.",
         },
         "human-readable": {
           desc:
             "Print sizes and speed in human readable format (e.g., 1.2Ki, 3.4Mi) in the console readout. Default: true",
           val: !0,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "index-out": {
           val: void 0,
           desc:
-            "Set file path for file with index=INDEX. You can find the file index using the --show-files option. PATH is a relative path to the path specified in --dir option. You can use this option multiple times. Using this option, you can specify the output filenames of BitTorrent downloads."
+            "Set file path for file with index=INDEX. You can find the file index using the --show-files option. PATH is a relative path to the path specified in --dir option. You can use this option multiple times. Using this option, you can specify the output filenames of BitTorrent downloads.",
         },
         "lowest-speed-limit": {
           val: "0",
           desc:
-            "Close connection if download speed is lower than or equal to this value(bytes per sec). 0 means aria2 does not have a lowest speed limit. You can append K or M (1K = 1024, 1M = 1024K). This option does not affect BitTorrent downloads. Default: 0"
+            "Close connection if download speed is lower than or equal to this value(bytes per sec). 0 means aria2 does not have a lowest speed limit. You can append K or M (1K = 1024, 1M = 1024K). This option does not affect BitTorrent downloads. Default: 0",
         },
         "max-connection-per-server": {
           val: 1,
           desc:
-            "The maximum number of connections to one server for each download. Default: 1"
+            "The maximum number of connections to one server for each download. Default: 1",
         },
         "max-download-limit": {
           val: "0",
           desc:
-            "Set max download speed per each download in bytes/sec. 0 means unrestricted. You can append K or M (1K = 1024, 1M = 1024K). To limit the overall download speed, use --max-overall-download-limit option. Default: 0"
+            "Set max download speed per each download in bytes/sec. 0 means unrestricted. You can append K or M (1K = 1024, 1M = 1024K). To limit the overall download speed, use --max-overall-download-limit option. Default: 0",
         },
         "max-file-not-found": {
           val: 0,
           desc:
-            'If aria2 receives "file not found" status from the remote HTTP/FTP servers NUM times without getting a single byte, then force the download to fail. Specify 0 to disable this option. This options is effective only when using HTTP/FTP servers. Default: 0'
+            'If aria2 receives "file not found" status from the remote HTTP/FTP servers NUM times without getting a single byte, then force the download to fail. Specify 0 to disable this option. This options is effective only when using HTTP/FTP servers. Default: 0',
         },
         "max-resume-failure-tries": {
           val: 0,
           desc:
-            "When used with --always-resume=false, aria2 downloads file from scratch when aria2 detects N number of URIs that does not support resume. If N is 0, aria2 downloads file from scratch when all given URIs do not support resume. See --always-resume option. Default: 0"
+            "When used with --always-resume=false, aria2 downloads file from scratch when aria2 detects N number of URIs that does not support resume. If N is 0, aria2 downloads file from scratch when all given URIs do not support resume. See --always-resume option. Default: 0",
         },
         "max-tries": {
           val: 0,
           desc:
-            "Set number of tries. 0 means unlimited. See also --retry-wait. Default: 5"
+            "Set number of tries. 0 means unlimited. See also --retry-wait. Default: 5",
         },
         "max-upload-limit": {
           val: "0",
           desc:
-            "Set max upload speed per each torrent in bytes/sec. 0 means unrestricted. You can append K or M (1K = 1024, 1M = 1024K). To limit the overall upload speed, use --max-overall-upload-limit option. Default: 0"
+            "Set max upload speed per each torrent in bytes/sec. 0 means unrestricted. You can append K or M (1K = 1024, 1M = 1024K). To limit the overall upload speed, use --max-overall-upload-limit option. Default: 0",
         },
         "metalink-enable-unique-protocol": {
           desc:
             "If true is given and several protocols are available for a mirror in a metalink file, aria2 uses one of them. Use --metalink-preferred-protocol option to specify the preference of protocol. Default: true",
           val: !0,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "metalink-language": {
           val: "",
-          desc: "The language of the file to download."
+          desc: "The language of the file to download.",
         },
         "metalink-location": {
           val: "",
           desc:
-            "The location of the preferred server. A comma-delimited list of locations is acceptable, for example, jp,us."
+            "The location of the preferred server. A comma-delimited list of locations is acceptable, for example, jp,us.",
         },
         "metalink-os": {
           val: "",
-          desc: "The operating system of the file to download."
+          desc: "The operating system of the file to download.",
         },
         "metalink-version": {
           val: "",
-          desc: "The version of the file to download."
+          desc: "The version of the file to download.",
         },
         "min-split-size": {
           val: "20M",
           desc:
-            "aria2 does not split less than 2*SIZE byte range. For example, let's consider downloading 20MiB file. If SIZE is 10M, aria2 can split file into 2 range [0-10MiB) and [10MiB-20MiB) and download it using 2 sources(if --split >= 2, of course). If SIZE is 15M, since 2*15M > 20MiB, aria2 does not split file and download it using 1 source. You can append K or M (1K = 1024, 1M = 1024K). Possible Values: 1M -1024M Default: 20M"
+            "aria2 does not split less than 2*SIZE byte range. For example, let's consider downloading 20MiB file. If SIZE is 10M, aria2 can split file into 2 range [0-10MiB) and [10MiB-20MiB) and download it using 2 sources(if --split >= 2, of course). If SIZE is 15M, since 2*15M > 20MiB, aria2 does not split file and download it using 1 source. You can append K or M (1K = 1024, 1M = 1024K). Possible Values: 1M -1024M Default: 20M",
         },
         "no-conf": {
           desc: "Disable loading aria2.conf file.",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "no-file-allocation-limit": {
           val: "5M",
           desc:
-            "No file allocation is made for files whose size is smaller than SIZE. You can append K or M (1K = 1024, 1M = 1024K). Default: 5M"
+            "No file allocation is made for files whose size is smaller than SIZE. You can append K or M (1K = 1024, 1M = 1024K). Default: 5M",
         },
         "no-netrc": {
           desc:
             "Disables netrc support. netrc support is enabled by default.Note netrc file is only read at the startup if --no-netrc is false. So if --no-netrc is true at the startup, no netrc is available throughout the session. You cannot get netrc enabled even if you change this setting.",
           val: !0,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "no-proxy": {
           val: "",
           desc:
-            "Specify comma separated hostnames, domains and network address with or without CIDR block where proxy should not be used."
+            "Specify comma separated hostnames, domains and network address with or without CIDR block where proxy should not be used.",
         },
         out: {
           val: "",
           desc:
-            "The file name of the downloaded file. When --force-sequential option is used, this option is ignored."
+            "The file name of the downloaded file. When --force-sequential option is used, this option is ignored.",
         },
         "parameterized-uri": {
           desc:
             "Enable parameterized URI support. You can specify set of parts: http://{sv1,sv2,sv3}/foo.iso. Also you can specify numeric sequences with step counter: http://host/image[000-100:2].img. A step counter can be omitted. If all URIs do not point to the same file, such as the second example above, -Z option is required. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "pause-metadata": {
           desc:
             "Pause downloads created as a result of metadata download. There are 3 types of metadata downloads in aria2: (1) downloading .torrent file. (2) downloading torrent metadata using magnet link. (3) downloading metalink file. These metadata downloads will generate downloads using their metadata. This option pauses these subsequent downloads. This option is effective only when --enable-rpc=true is given. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "proxy-method": {
           desc:
             "Set the method to use in proxy request. METHOD is either get or tunnel. HTTPS downloads always use tunnel regardless of this option. Default: get",
           val: "get",
-          options: ["get", "tunnel"]
+          options: ["get", "tunnel"],
         },
         quiet: {
           desc: "Make aria2 quiet (no console output). Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "realtime-chunk-checksum": {
           desc:
             "Validate chunk of data by calculating checksum while downloading a file if chunk checksums are provided. Default: true",
           val: !0,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         referer: { val: "", desc: "Set Referer. This affects all URIs." },
         "remote-time": {
           desc:
             "Retrieve timestamp of the remote file from the remote HTTP/FTP server and if it is available, apply it to the local file. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "remove-control-file": {
           desc:
             "Remove control file before download. Using with --allow-overwrite=true, download always starts from scratch. This will be useful for users behind proxy server which disables resume.",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "reuse-uri": {
           desc:
             "Reuse already used URIs if no unused URIs are left. Default: true",
           val: !0,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "seed-ratio": {
           val: 0,
           desc:
-            "Specify share ratio. Seed completed torrents until share ratio reaches RATIO. You are strongly encouraged to specify equals or more than 1.0 here. Specify 0.0 if you intend to do seeding regardless of share ratio. If --seed-time option is specified along with this option, seeding ends when at least one of the conditions is satisfied. Default: 1.0"
+            "Specify share ratio. Seed completed torrents until share ratio reaches RATIO. You are strongly encouraged to specify equals or more than 1.0 here. Specify 0.0 if you intend to do seeding regardless of share ratio. If --seed-time option is specified along with this option, seeding ends when at least one of the conditions is satisfied. Default: 1.0",
         },
         "seed-time": {
           val: 0,
           desc:
-            "Specify seeding time in minutes. Also see the --seed-ratio option. Note Specifying --seed-time=0 disables seeding after download completed."
+            "Specify seeding time in minutes. Also see the --seed-ratio option. Note Specifying --seed-time=0 disables seeding after download completed.",
         },
         "select-file": {
           val: "",
           desc:
-            "Set file to download by specifying its index. You can find the file index using the --show-files option. Multiple indexes can be specified by using ,, for example: 3,6. You can also use - to specify a range: 1-5. , and - can be used together: 1-5,8,9. When used with the -M option, index may vary depending on the query ."
+            "Set file to download by specifying its index. You can find the file index using the --show-files option. Multiple indexes can be specified by using ,, for example: 3,6. You can also use - to specify a range: 1-5. , and - can be used together: 1-5,8,9. When used with the -M option, index may vary depending on the query .",
         },
         split: {
           val: 5,
           desc:
-            "Download a file using N connections. If more than N URIs are given, first N URIs are used and remaining URIs are used for backup. If less than N URIs are given, those URIs are used more than once so that N connections total are made simultaneously. The number of connections to the same host is restricted by --max-connection-per-server option. See also --min-split-size option. Default: 5"
+            "Download a file using N connections. If more than N URIs are given, first N URIs are used and remaining URIs are used for backup. If less than N URIs are given, those URIs are used more than once so that N connections total are made simultaneously. The number of connections to the same host is restricted by --max-connection-per-server option. See also --min-split-size option. Default: 5",
         },
         timeout: { val: 60, desc: "Set timeout in seconds. Default: 60" },
         "use-head": {
           desc:
             "Use HEAD method for the first request to the HTTP server. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "user-agent": {
           val: "aria2/$VERSION",
           desc:
-            "Set user agent for HTTP(S) downloads. Default: aria2/$VERSION, $VERSION is replaced by package version."
+            "Set user agent for HTTP(S) downloads. Default: aria2/$VERSION, $VERSION is replaced by package version.",
         },
         "retry-wait": {
           val: 0,
           desc:
-            "Set the seconds to wait between retries. With SEC > 0, aria2 will retry download when the HTTP server returns 503 response. Default: 0."
+            "Set the seconds to wait between retries. With SEC > 0, aria2 will retry download when the HTTP server returns 503 response. Default: 0.",
         },
         "metalink-base-uri": {
           val: "",
           desc:
-            "Specify base URI to resolve relative URI in metalink:url and metalink:metaurl element in a metalink file stored in local disk. If URI points to a directory, URI must end with /."
+            "Specify base URI to resolve relative URI in metalink:url and metalink:metaurl element in a metalink file stored in local disk. If URI points to a directory, URI must end with /.",
         },
         pause: {
           desc:
             "Pause download after added. This option is effective only when --enable-rpc=true is given. Default: false",
           val: "false",
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "rpc-allow-origin-all": {
           desc:
             "Add Access-Control-Allow-Origin header field with value * to the RPC response. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "rpc-listen-all": {
           desc:
             "Listen incoming JSON-RPC/XML-RPC requests on all network interfaces. If false is given, listen only on local loopback interface. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "rpc-secure": {
           desc:
             "RPC transport will be encrypted by SSL/TLS. The RPC clients must use https scheme to access the server. For WebSocket client, use wss scheme. Use --rpc-certificate and --rpc-private-key options to specify the server certificate and private key.",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "stream-piece-selector": {
           desc:
             "Specify piece selection algorithm used in HTTP/FTP download. Piece means fixed length segment which is downloaded in parallel in segmented download. If default is given, aria2 selects piece so that it reduces the number of establishing connection. This is reasonable default behaviour because establishing connection is an expensive operation. If inorder is given, aria2 selects piece which has minimum index. Index=0 means first of the file. This will be useful to view movie while downloading it. --enable-http-pipelining option may be useful to reduce reconnection overhead. Please note that aria2 honors --min-split-size option, so it will be necessary to specify a reasonable value to --min-split-size option. If geom is given, at the beginning aria2 selects piece which has minimum index like inorder, but it exponentially increasingly keeps space from previously selected piece. This will reduce the number of establishing connection and at the same time it will download the beginning part of the file first. This will be useful to view movie while downloading it. Default: default",
           val: "default",
-          options: ["default", "inorder", "geom"]
+          options: ["default", "inorder", "geom"],
         },
         "show-console-readout": {
           desc: "Show console readout. Default: true",
           val: !0,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "show-files": {
           desc:
             "Print file listing of “.torrent”, “.meta4” and “.metalink” file and exit. In case of “.torrent” file, additional information (infohash, piece length, etc) is also printed.",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "truncate-console-readout": {
           desc:
             "Truncate console readout to fit in a single line. Default: true",
           val: !0,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         "hash-check-only": {
           desc:
             "If true is given, after hash check using --check-integrity option, abort download whether or not download is complete. Default: false",
           val: !1,
-          options: ["true", "false"]
+          options: ["true", "false"],
         },
         checksum: {
           val: void 0,
           desc:
-            "Set checksum. TYPE is hash type. The supported hash type is listed in Hash Algorithms in aria2c -v. DIGEST is hex digest. For example, setting sha-1 digest looks like this: sha-1=0192ba11326fe2298c8cb4de616f4d4140213838 This option applies only to HTTP(S)/FTP downloads."
+            "Set checksum. TYPE is hash type. The supported hash type is listed in Hash Algorithms in aria2c -v. DIGEST is hex digest. For example, setting sha-1 digest looks like this: sha-1=0192ba11326fe2298c8cb4de616f4d4140213838 This option applies only to HTTP(S)/FTP downloads.",
         },
         "piece-length": {
           val: "1M",
           desc:
-            "Set a piece length for HTTP/FTP downloads. This is the boundary when aria2 splits a file. All splits occur at multiple of this length. This option will be ignored in BitTorrent downloads. It will be also ignored if Metalink file contains piece hashes. Default: 1M"
+            "Set a piece length for HTTP/FTP downloads. This is the boundary when aria2 splits a file. All splits occur at multiple of this length. This option will be ignored in BitTorrent downloads. It will be also ignored if Metalink file contains piece hashes. Default: 1M",
         },
         "uri-selector": {
           desc:
             "Specify URI selection algorithm. The possible values are inorder, feedback and adaptive. If inorder is given, URI is tried in the order appeared in the URI list. If feedback is given, aria2 uses download speed observed in the previous downloads and choose fastest server in the URI list. This also effectively skips dead mirrors. The observed download speed is a part of performance profile of servers mentioned in --server-stat-of and --server-stat-if options. If adaptive is given, selects one of the best mirrors for the first and reserved connections. For supplementary ones, it returns mirrors which has not been tested yet, and if each of them has already been tested, returns mirrors which has to be tested again. Otherwise, it doesn't select anymore mirrors. Like feedback, it uses a performance profile of servers. Default: feedback",
           val: "feedback",
-          options: ["inorder", "feedback", "adaptive"]
-        }
+          options: ["inorder", "feedback", "adaptive"],
+        },
       })
       .value("$globalSettings", {
         "download-result": {
           desc:
             "This option changes the way Download Results is formatted. If OPT is default, print GID, status, average download speed and path/URI. If multiple files are involved, path/URI of first requested file is printed and remaining ones are omitted. If OPT is full, print GID, status, average download speed, percentage of progress and path/URI. The percentage of progress and path/URI are printed for each requested file in each row. Default: default",
           val: "default",
-          options: ["default", "full"]
+          options: ["default", "full"],
         },
         log: {
           val: "",
           desc:
-            'The file name of the log file. If - is specified, log is written to stdout. If empty string("") is specified, log is not written to file.'
+            'The file name of the log file. If - is specified, log is written to stdout. If empty string("") is specified, log is not written to file.',
         },
         "log-level": {
           desc:
             "Set log level to output. LEVEL is either debug, info, notice, warn or error. Default: debug.",
           val: "debug",
-          options: ["debug", "info", "notice", "warn", "error"]
+          options: ["debug", "info", "notice", "warn", "error"],
         },
         "max-concurrent-downloads": {
           val: 5,
           desc:
-            "Set maximum number of parallel downloads for every static (HTTP/FTP) URI, torrent and metalink. See also --split option. Default: 5"
+            "Set maximum number of parallel downloads for every static (HTTP/FTP) URI, torrent and metalink. See also --split option. Default: 5",
         },
         "max-download-result": {
           val: 1e3,
           desc:
-            "Set maximum number of download result kept in memory. The download results are completed/error/removed downloads. The download results are stored in FIFO queue and it can store at most NUM download results. When queue is full and new download result is created, oldest download result is removed from the front of the queue and new one is pushed to the back. Setting big number in this option may result high memory consumption after thousands of downloads. Specifying 0 means no download result is kept. Default: 1000"
+            "Set maximum number of download result kept in memory. The download results are completed/error/removed downloads. The download results are stored in FIFO queue and it can store at most NUM download results. When queue is full and new download result is created, oldest download result is removed from the front of the queue and new one is pushed to the back. Setting big number in this option may result high memory consumption after thousands of downloads. Specifying 0 means no download result is kept. Default: 1000",
         },
         "max-overall-download-limit": {
           val: "0",
           desc:
-            "Set max overall download speed in bytes/sec. 0 means unrestricted. You can append K or M (1K = 1024, 1M = 1024K). To limit the download speed per download, use --max-download-limit option. Default: 0."
+            "Set max overall download speed in bytes/sec. 0 means unrestricted. You can append K or M (1K = 1024, 1M = 1024K). To limit the download speed per download, use --max-download-limit option. Default: 0.",
         },
         "max-overall-upload-limit": {
           val: "0",
           desc:
-            "Set max overall upload speed in bytes/sec. 0 means unrestricted. You can append K or M (1K = 1024, 1M = 1024K). To limit the upload speed per torrent, use --max-upload-limit option. Default: 0."
+            "Set max overall upload speed in bytes/sec. 0 means unrestricted. You can append K or M (1K = 1024, 1M = 1024K). To limit the upload speed per torrent, use --max-upload-limit option. Default: 0.",
         },
         "save-cookies": {
           val: "",
           desc:
-            "Save Cookies to FILE in Mozilla/Firefox(1.x/2.x)/ Netscape format. If FILE already exists, it is overwritten. Session Cookies are also saved and their expiry values are treated as 0. Possible Values: /path/to/file."
+            "Save Cookies to FILE in Mozilla/Firefox(1.x/2.x)/ Netscape format. If FILE already exists, it is overwritten. Session Cookies are also saved and their expiry values are treated as 0. Possible Values: /path/to/file.",
         },
         "save-session": {
           val: "",
           desc:
-            "Save error/unfinished downloads to FILE on exit. You can pass this output file to aria2c with --input-file option on restart."
+            "Save error/unfinished downloads to FILE on exit. You can pass this output file to aria2c with --input-file option on restart.",
         },
         "server-stat-of": {
           val: "",
           desc:
-            "Specify the filename to which performance profile of the servers is saved. You can load saved data using --server-stat-if option. See Server Performance Profile subsection below for file format."
-        }
+            "Specify the filename to which performance profile of the servers is saved. You can load saved data using --server-stat-if option. See Server Performance Profile subsection below for file format.",
+        },
       })
       .value("$globalExclude", [
         "checksum",
         "index-out",
         "out",
         "pause",
-        "select-file"
+        "select-file",
       ])
       .value("$waitingExclude", [
         "dry-run",
         "metalink-base-uri",
         "parameterized-uri",
         "pause",
-        "piece-length"
+        "piece-length",
       ])
       .value("$activeInclude", [
         "bt-max-peers",
         "bt-request-peer-speed-limit",
         "bt-remove-unselected-file",
         "max-download-limit",
-        "max-upload-limit"
+        "max-upload-limit",
       ]).name;
   },
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a);
@@ -1524,44 +1532,44 @@
         "index-out",
         "out",
         "pause",
-        "select-file"
+        "select-file",
       ])
       .value("$waitingsettingsexclude", [
         "dry-run",
         "metalink-base-uri",
         "parameterized-uri",
         "pause",
-        "piece-length"
+        "piece-length",
       ])
       .value("$activesettingsfilter", [
         "bt-max-peers",
         "bt-request-peer-speed-limit",
         "bt-remove-unselected-file",
         "max-download-limit",
-        "max-upload-limit"
+        "max-upload-limit",
       ]).name;
   },
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a);
     t.a = o.a
       .module("webui.services.modals", [])
-      .factory("$modals", function() {
+      .factory("$modals", function () {
         var e = {};
         return {
-          register: function(t, n) {
+          register: function (t, n) {
             e[t] = n;
           },
-          invoke: function(t, n) {
+          invoke: function (t, n) {
             if (!e[t]) return !1;
             var a = Array.prototype.slice.call(arguments, 1);
             return e[t].apply({}, a);
-          }
+          },
         };
       }).name;
   },
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a);
@@ -1571,17 +1579,17 @@
         "$filter",
         "$name",
         "$titlePattern",
-        function(e, t, n) {
-          var a = (function() {
+        function (e, t, n) {
+          var a = (function () {
               var e = new Uint8Array(16),
-                t = function() {
+                t = function () {
                   for (var t, n = 0; n < 16; n++)
                     n % 3 || (t = (4294967296 * Math.random()) | 0),
                       (e[n] = (t >>> ((3 & n) << 3)) & 255);
                   return e;
                 };
               return window.crypto && crypto.getRandomValues
-                ? function() {
+                ? function () {
                     try {
                       return crypto.getRandomValues(e), e;
                     } catch (e) {
@@ -1591,7 +1599,7 @@
                 : t;
             })(),
             o = {
-              fmtsize: function(e) {
+              fmtsize: function (e) {
                 return (e = +e) <= 1024
                   ? e.toFixed(0) + " B"
                   : (e /= 1024) <= 1024
@@ -1600,17 +1608,17 @@
                   ? e.toFixed(2) + " MB"
                   : (e /= 1024).toFixed(3) + " GB";
               },
-              fmtspeed: function(e) {
+              fmtspeed: function (e) {
                 return o.fmtsize(e) + "/s";
               },
-              setCookie: function(e, t) {
+              setCookie: function (e, t) {
                 var n = new Date();
                 n.setDate(n.getDate() + 360);
                 var a =
                   escape(JSON.stringify(t)) + "; expires=" + n.toUTCString();
                 document.cookie = e + "=" + a;
               },
-              getCookie: function(e) {
+              getCookie: function (e) {
                 for (
                   var t = document.cookie.split(";"), n = 0;
                   n < t.length;
@@ -1624,16 +1632,16 @@
                 }
                 return null;
               },
-              getFileName: function(e) {
+              getFileName: function (e) {
                 var t = e.split(/[/\\]/);
                 return t[t.length - 1];
               },
-              uuid: (function() {
+              uuid: (function () {
                 for (var e = [], t = 0; t < 256; ++t)
                   e.push((t + 256).toString(16).substr(1));
                 return (
                   Object.freeze(e),
-                  function() {
+                  function () {
                     var t = a();
                     return (
                       (t[6] = (15 & t[6]) | 64),
@@ -1662,17 +1670,17 @@
                   }
                 );
               })(),
-              randStr: function() {
+              randStr: function () {
                 return o.uuid();
               },
-              mergeMap: function(e, t, n) {
+              mergeMap: function (e, t, n) {
                 t || (t = []);
                 for (var a = 0, o = Math.min(e.length, t.length); a < o; ++a)
                   n(e[a], t[a]);
                 for (; a < e.length; ) t.push(n(e[a++]));
                 return (t.length = e.length), t;
               },
-              getTitle: function(e) {
+              getTitle: function (e) {
                 return (
                   e || (e = {}),
                   n
@@ -1690,7 +1698,7 @@
                     .replace("{name}", t)
                 );
               },
-              getChunksFromHex: function(e, t) {
+              getChunksFromHex: function (e, t) {
                 var n = [],
                   a = 0,
                   o = parseInt(t);
@@ -1710,13 +1718,13 @@
                         return n;
                     }
                 return n;
-              }
+              },
             };
           return o;
-        }
+        },
       ]).name;
   },
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a);
@@ -1725,22 +1733,22 @@
       .filter("blength", [
         "$filter",
         "$utils",
-        function(e, t) {
+        function (e, t) {
           return t.fmtsize;
-        }
+        },
       ])
       .filter("bspeed", [
         "$filter",
         "$utils",
-        function(e, t) {
+        function (e, t) {
           return t.fmtspeed;
-        }
+        },
       ])
-      .filter("time", function() {
+      .filter("time", function () {
         function e(e) {
           return ("0" + e).substr(-2);
         }
-        return function(t) {
+        return function (t) {
           if (!(t = parseInt(t, 10)) || !isFinite(t)) return "∞";
           var n = t % 60;
           if (t < 60) return n + "s";
@@ -1753,17 +1761,17 @@
         };
       }).name;
   },
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a);
     t.a = o.a
       .module("webui.filters.url", ["webui.services.utils"])
-      .filter("encodeURI", function() {
+      .filter("encodeURI", function () {
         return window.encodeURI;
       }).name;
   },
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a);
@@ -1771,14 +1779,14 @@
       .module("webui.directives.chunkbar", ["webui.services.utils"])
       .directive("chunkbar", [
         "$utils",
-        function(e) {
-          return function(t, n, a) {
+        function (e) {
+          return function (t, n, a) {
             var o = "",
               i = 0,
               r = !0,
-              s = function() {
+              s = function () {
                 r &&
-                  (function(e, t, n) {
+                  (function (e, t, n) {
                     if (((t = t || []), e.getContext)) {
                       var a = e.getContext("2d");
                       (a.fillStyle = n || "#149BDF"),
@@ -1786,7 +1794,7 @@
                       var o = 0,
                         i = e.width,
                         r = e.height;
-                      t.forEach(function(e) {
+                      t.forEach(function (e) {
                         var t = e.ratio * i;
                         e.show && a.fillRect(o, 0, t, r), (o += t);
                       });
@@ -1794,41 +1802,41 @@
                       console.log("use chunk bar on an canvas implementation!");
                   })(n[0], e.getChunksFromHex(o, i), a.fillStyle);
               };
-            t.$watch(a.bitfield, function(e) {
+            t.$watch(a.bitfield, function (e) {
               (o = e), s();
             }),
-              t.$watch(a.pieces, function(e) {
+              t.$watch(a.pieces, function (e) {
                 (i = e), s();
               }),
               a.draw &&
-                t.$watch(a.draw, function(e) {
+                t.$watch(a.draw, function (e) {
                   r = e;
                 }),
               s();
           };
-        }
+        },
       ]).name;
   },
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a);
     t.a = o.a
       .module("webui.directives.dgraph", [
         "webui.filters.bytes",
-        "webui.services.deps"
+        "webui.services.deps",
       ])
       .directive("dgraph", [
         "$",
         "$filter",
         "$parse",
-        function(e, t, n) {
+        function (e, t, n) {
           var a = "%H:%M:%S";
           try {
             /16/.test(new Date(2e3, 0, 1, 16, 7, 9).toLocaleTimeString()) ||
               (a = "%I:%M:%S %P");
           } catch (e) {}
-          return function(n, i, r) {
+          return function (n, i, r) {
             var s = !1,
               l = 180,
               c = 0,
@@ -1838,13 +1846,13 @@
                 label: "DOWN",
                 data: [],
                 color: "#00ff00",
-                lines: { show: !0 }
+                lines: { show: !0 },
               },
               h = {
                 label: "UP",
                 data: [],
                 color: "#0000ff",
-                lines: { show: !0 }
+                lines: { show: !0 },
               };
             i.height(0.6 * i.width());
             var f = e.plot(i, [p, h], {
@@ -1852,7 +1860,7 @@
                   show: void 0 == r.nolabel,
                   backgroundOpacity: 0,
                   margin: [10, 20],
-                  labelFormatter: function(e, n) {
+                  labelFormatter: function (e, n) {
                     return n.data.length
                       ? e +
                           " (" +
@@ -1860,18 +1868,18 @@
                           ")"
                       : e;
                   },
-                  position: "sw"
+                  position: "sw",
                 },
                 xaxis: {
                   show: !0,
                   mode: "time",
                   timeformat: a,
                   ticks: +r.xticks || 10,
-                  minTickSize: [30, "second"]
+                  minTickSize: [30, "second"],
                 },
                 yaxis: {
                   position: "right",
-                  ticks: function(e) {
+                  ticks: function (e) {
                     for (
                       var t = [0],
                         n = +r.yticks || yticks,
@@ -1885,13 +1893,13 @@
                     }
                     return t;
                   },
-                  tickFormatter: function(e, n) {
+                  tickFormatter: function (e, n) {
                     return t("bspeed")(e);
                   },
-                  min: 0
-                }
+                  min: 0,
+                },
               }),
-              m = function() {
+              m = function () {
                 var e = i.width();
                 0 != e &&
                   (i.height(0.6 * e),
@@ -1900,16 +1908,16 @@
                   f.setupGrid(),
                   f.draw());
               };
-            n.$watch(r.dspeed, function(e) {
+            n.$watch(r.dspeed, function (e) {
               void 0 !== e && ((u = !0), (c = parseFloat(e) || 0));
             }),
-              n.$watch(r.uspeed, function(e) {
+              n.$watch(r.uspeed, function (e) {
                 void 0 !== e && ((u = !0), (d = parseFloat(e) || 0));
               }),
-              n.$watch(r.draw, function(e) {
+              n.$watch(r.draw, function (e) {
                 s = e;
               });
-            var g = setInterval(function() {
+            var g = setInterval(function () {
               if (u) {
                 var e = new Date();
                 (e = Date.UTC(
@@ -1928,14 +1936,14 @@
               }
             }, 1e3);
             o.a.element(window).bind("resize", m),
-              i.bind("$destroy", function() {
+              i.bind("$destroy", function () {
                 clearInterval(g);
               });
           };
-        }
+        },
       ]).name;
   },
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a);
@@ -1943,17 +1951,17 @@
       .module("webui.directives.fselect", ["webui.services.deps"])
       .directive("fselect", [
         "$parse",
-        function(e) {
-          return function(t, n, a) {
+        function (e) {
+          return function (t, n, a) {
             var o = e(a.fselect || a.files).assign;
-            n.bind("change", function() {
+            n.bind("change", function () {
               o(t, n[0].files);
             }).filestyle({ placeholder: "No file selected" });
           };
-        }
+        },
       ]).name;
   },
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a);
@@ -1961,36 +1969,36 @@
       .module("webui.directives.fileselect", ["webui.services.deps"])
       .directive("indeterminate", [
         "$parse",
-        function(e) {
+        function (e) {
           return {
             require: "ngModel",
             restrict: "A",
-            link: function(t, n, a, o) {
+            link: function (t, n, a, o) {
               var i = e(a.ngModel),
                 r = [],
                 s = 0,
                 l = 0,
-                c = function() {
+                c = function () {
                   return i(t);
                 },
-                d = function(e) {
+                d = function (e) {
                   n.prop("indeterminate", e);
                 },
-                u = function(e) {
+                u = function (e) {
                   o.$setViewValue(e), o.$render();
                 },
-                p = function(e) {
-                  return function() {
+                p = function (e) {
+                  return function () {
                     r.length > 0 && e.apply(this, arguments);
                   };
                 },
-                h = function(e) {
-                  return function() {
+                h = function (e) {
+                  return function () {
                     0 === r.length && e.apply(this, arguments);
                   };
                 },
-                f = function(e) {
-                  return function(t) {
+                f = function (e) {
+                  return function (t) {
                     if (t.targetScope !== t.currentScope)
                       return e.apply(this, arguments);
                   };
@@ -2004,14 +2012,14 @@
                   !t.$eval(a.indeterminate))
               )
                 o.$viewChangeListeners.push(
-                  h(function() {
+                  h(function () {
                     t.$emit("childSelectedChange", c());
                   })
                 ),
                   t.$on(
                     "ParentSelectedChange",
                     f(
-                      h(function(e, t) {
+                      h(function (e, t) {
                         u(t);
                       })
                     )
@@ -2021,18 +2029,18 @@
               else {
                 t.$on(
                   "i'm child input",
-                  f(function(e, t) {
+                  f(function (e, t) {
                     r.push(t);
                   })
                 );
                 o.$viewChangeListeners.push(
                   p(
-                    (function(e) {
-                      return function() {
+                    (function (e) {
+                      return function () {
                         if (!n.prop("indeterminate"))
                           return e.apply(this, arguments);
                       };
-                    })(function() {
+                    })(function () {
                       t.$broadcast("ParentSelectedChange", c());
                     })
                   )
@@ -2040,7 +2048,7 @@
                   t.$on(
                     "childSelectedChange",
                     f(
-                      p(function(e, t) {
+                      p(function (e, t) {
                         if (s + l !== r.length) {
                           (s = 0), (l = 0);
                           for (var n = 0; n < r.length; n++)
@@ -2052,27 +2060,27 @@
                     )
                   );
               }
-            }
+            },
           };
-        }
+        },
       ]).name;
   },
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
-    t.a = function() {
+    t.a = function () {
       return {
         restrict: "E",
-        link: function(e, t) {
-          t.attr("placeholder", function(e, t) {
+        link: function (e, t) {
+          t.attr("placeholder", function (e, t) {
             return void 0 !== t ? t.replace(/\\n/g, "\n") : t;
-          }).bind("keydown keypress", function(t) {
+          }).bind("keydown keypress", function (t) {
             t.ctrlKey && 13 === t.which && (t.preventDefault(), e.$close());
           });
-        }
+        },
       };
     };
   },
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a);
@@ -2082,20 +2090,20 @@
         "$scope",
         "$alerts",
         "$sce",
-        function(e, t, n) {
+        function (e, t, n) {
           (e.pendingAlerts = []),
-            (e.removeAlert = function(e) {
+            (e.removeAlert = function (e) {
               this.pendingAlerts.splice(e, 1);
             }),
-            t.addAlerter(function(t, a) {
+            t.addAlerter(function (t, a) {
               a = a || "warning";
               var o = { msg: n.trustAsHtml(t), type: a };
-              (e.pendingAlerts = _.filter(e.pendingAlerts, function(e) {
+              (e.pendingAlerts = _.filter(e.pendingAlerts, function (e) {
                 return !e.expired;
               })),
                 e.pendingAlerts.push(o),
                 setTimeout(
-                  function() {
+                  function () {
                     var t = e.pendingAlerts.indexOf(o);
                     -1 != t &&
                       ((e.pendingAlerts[t].expired = !0),
@@ -2105,10 +2113,10 @@
                 ),
                 e.$digest();
             });
-        }
+        },
       ]).name;
   },
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a);
@@ -2122,7 +2130,7 @@
         "webui.services.settings",
         "webui.services.modals",
         "webui.services.configuration",
-        "webui.services.errors"
+        "webui.services.errors",
       ])
       .controller("MainCtrl", [
         "$scope",
@@ -2140,7 +2148,7 @@
         "$getErrorStatus",
         "$rootScope",
         "$filter",
-        function(e, t, n, a, o, i, r, s, l, c, d, u, p, h, f) {
+        function (e, t, n, a, o, i, r, s, l, c, d, u, p, h, f) {
           (e.name = t), (e.enable = n);
           var m = /\\/g,
             g = [];
@@ -2150,27 +2158,27 @@
             (e.gstats = {}),
             (e.hideLinkedMetadata = !0),
             (e.propFilter = ""),
-            (e.pause = function(e) {
+            (e.pause = function (e) {
               a.once("forcePause", [e.gid]);
             }),
-            (e.resume = function(e) {
+            (e.resume = function (e) {
               a.once("unpause", [e.gid]);
             }),
-            (e.restart = function(t) {
-              a.once("getOption", [t.gid], function(n) {
+            (e.restart = function (t) {
+              a.once("getOption", [t.gid], function (n) {
                 var i = n[0];
-                a.once("getFiles", [t.gid], function(n) {
+                a.once("getFiles", [t.gid], function (n) {
                   var a = n[0],
                     r = _.chain(a)
-                      .map(function(e) {
+                      .map(function (e) {
                         return e.uris;
                       })
-                      .filter(function(e) {
+                      .filter(function (e) {
                         return e && e.length;
                       })
-                      .map(function(e) {
+                      .map(function (e) {
                         return _.chain(e)
-                          .map(function(e) {
+                          .map(function (e) {
                             return e.uri;
                           })
                           .uniq()
@@ -2181,7 +2189,7 @@
                     (console.log("adding uris:", r, i),
                     e.remove(
                       t,
-                      function() {
+                      function () {
                         o.addUris(r, i);
                       },
                       !0
@@ -2189,13 +2197,13 @@
                 });
               });
             }),
-            (e.canRestart = function(e) {
+            (e.canRestart = function (e) {
               return (
                 -1 == ["active", "paused"].indexOf(e.status) && !e.bittorrent
               );
             }),
-            (e.remove = function(t, n, o) {
-              setTimeout(function() {
+            (e.remove = function (t, n, o) {
+              setTimeout(function () {
                 if (
                   o ||
                   confirm(
@@ -2208,7 +2216,7 @@
                   var i = "remove";
                   "stopped" == e.getType(t) && (i = "removeDownloadResult"),
                     t.followedFrom &&
-                      (e.remove(t.followedFrom, function() {}, !0),
+                      (e.remove(t.followedFrom, function () {}, !0),
                       (t.followedFrom = null)),
                     a.once(i, [t.gid], n);
                   for (
@@ -2223,31 +2231,31 @@
                 }
               }, 0);
             }),
-            a.subscribe("tellActive", [], function(t) {
-              e.$apply(function() {
+            a.subscribe("tellActive", [], function (t) {
+              e.$apply(function () {
                 i.mergeMap(t[0], e.active, e.getCtx);
               });
             }),
-            a.subscribe("tellWaiting", [0, 1e3], function(t) {
-              e.$apply(function() {
+            a.subscribe("tellWaiting", [0, 1e3], function (t) {
+              e.$apply(function () {
                 i.mergeMap(t[0], e.waiting, e.getCtx);
               });
             }),
-            a.subscribe("tellStopped", [0, 1e3], function(t) {
-              e.$apply(function() {
+            a.subscribe("tellStopped", [0, 1e3], function (t) {
+              e.$apply(function () {
                 if (e.hideLinkedMetadata) {
                   i.mergeMap(t[0], g, e.getCtx);
                   var n = {};
-                  _.forEach(g, function(e) {
+                  _.forEach(g, function (e) {
                     n[e.gid] = e;
                   }),
-                    _.forEach(e.active, function(e) {
+                    _.forEach(e.active, function (e) {
                       n[e.gid] = e;
                     }),
-                    _.forEach(e.waiting, function(e) {
+                    _.forEach(e.waiting, function (e) {
                       n[e.gid] = e;
                     }),
-                    (e.stopped = _.filter(g, function(e) {
+                    (e.stopped = _.filter(g, function (e) {
                       return (
                         !(e.metadata && e.followedBy && e.followedBy in n) ||
                         ((n[e.followedBy].followedFrom = e), !1)
@@ -2257,29 +2265,29 @@
               });
             }),
             (h.pageTitle = i.getTitle()),
-            a.subscribe("getGlobalStat", [], function(t) {
-              e.$apply(function() {
+            a.subscribe("getGlobalStat", [], function (t) {
+              e.$apply(function () {
                 (e.gstats = t[0]), (h.pageTitle = i.getTitle(e.gstats));
               });
             }),
-            a.once("getVersion", [], function(t) {
-              e.$apply(function() {
+            a.once("getVersion", [], function (t) {
+              e.$apply(function () {
                 e.miscellaneous = t[0];
               });
             }),
             (e.totalDownloads = 0),
             (e.downloadFilter = ""),
             (e.downloadFilterCommitted = ""),
-            (e.onDownloadFilter = function() {
+            (e.onDownloadFilter = function () {
               e.downloadFilterTimer && clearTimeout(e.downloadFilterTimer),
-                (e.downloadFilterTimer = setTimeout(function() {
+                (e.downloadFilterTimer = setTimeout(function () {
                   delete e.downloadFilterTimer,
                     e.downloadFilterCommitted !== e.downloadFilter &&
                       ((e.downloadFilterCommitted = e.downloadFilter),
                       e.$digest());
                 }, 500));
             }),
-            (e.filterDownloads = function(t) {
+            (e.filterDownloads = function (t) {
               if (!e.downloadFilterCommitted) return t;
               var n = e.downloadFilterCommitted
                 .replace(/[{}()\[\]\\^$.?]/g, "\\$&")
@@ -2287,20 +2295,20 @@
                 .replace(/\./g, ".");
               return (
                 (n = new RegExp(n, "i")),
-                _.filter(t, function(e) {
+                _.filter(t, function (e) {
                   return (
                     !!n.test(e.name) ||
-                    _.filter(e.files, function(e) {
+                    _.filter(e.files, function (e) {
                       return n.test(e.relpath);
                     }).length
                   );
                 })
               );
             }),
-            (e.clearFilter = function() {
+            (e.clearFilter = function () {
               e.downloadFilter = e.downloadFilterCommitted = "";
             }),
-            (e.toggleStateFilters = function() {
+            (e.toggleStateFilters = function () {
               (e.filterSpeed = !e.filterSpeed),
                 (e.filterActive = !e.filterActive),
                 (e.filterWaiting = !e.filterWaiting),
@@ -2310,12 +2318,12 @@
                 (e.filterRemoved = !e.filterRemoved),
                 e.persistFilters();
             }),
-            (e.resetFilters = function() {
+            (e.resetFilters = function () {
               (e.filterSpeed = e.filterActive = e.filterWaiting = e.filterComplete = e.filterError = e.filterPaused = e.filterRemoved = !0),
                 e.clearFilter(),
                 e.persistFilters();
             }),
-            (e.persistFilters = function() {
+            (e.persistFilters = function () {
               var t = JSON.stringify({
                 s: e.filterSpeed,
                 a: e.filterActive,
@@ -2323,11 +2331,11 @@
                 c: e.filterComplete,
                 e: e.filterError,
                 p: e.filterPaused,
-                r: e.filterRemoved
+                r: e.filterRemoved,
               });
               i.setCookie("aria2filters", t);
             }),
-            (e.loadFilters = function() {
+            (e.loadFilters = function () {
               var t = JSON.parse(i.getCookie("aria2filters"));
               t
                 ? ((e.filterSpeed = !!t.s),
@@ -2340,84 +2348,84 @@
                 : e.resetFilters();
             }),
             e.loadFilters(),
-            (e.toggleCollapsed = function(t) {
+            (e.toggleCollapsed = function (t) {
               if (!t.collapsed)
                 return (
                   (t.animCollapsed = !0),
-                  void setTimeout(function() {
-                    e.$apply(function() {
+                  void setTimeout(function () {
+                    e.$apply(function () {
                       t.collapsed = !0;
                     });
                   }, 500)
                 );
               (t.collapsed = !1),
-                setTimeout(function() {
-                  e.$apply(function() {
+                setTimeout(function () {
+                  e.$apply(function () {
                     t.animCollapsed = !1;
                   });
                 }, 0);
             }),
             (e.pageSize = u),
             (e.currentPage = 1),
-            (e.totalAria2Downloads = function() {
+            (e.totalAria2Downloads = function () {
               return e.active.length + e.waiting.length + e.stopped.length;
             }),
-            (e.getErrorStatus = function(e) {
+            (e.getErrorStatus = function (e) {
               return p(+e);
             }),
-            (e.getDownloads = function() {
+            (e.getDownloads = function () {
               var t = [];
               e.filterActive
                 ? e.filterSpeed
                   ? t.push(e.active)
                   : t.push(
-                      _.filter(e.active, function(e) {
+                      _.filter(e.active, function (e) {
                         return !+e.uploadSpeed && !+e.downloadSpeed;
                       })
                     )
                 : e.filterSpeed &&
                   t.push(
-                    _.filter(e.active, function(e) {
+                    _.filter(e.active, function (e) {
                       return +e.uploadSpeed || +e.downloadSpeed;
                     })
                   ),
                 e.filterWaiting &&
                   t.push(
-                    _.filter(e.waiting, function(e) {
+                    _.filter(e.waiting, function (e) {
                       return "waiting" == e.status;
                     })
                   ),
                 e.filterPaused &&
                   t.push(
-                    _.filter(e.waiting, function(e) {
+                    _.filter(e.waiting, function (e) {
                       return "paused" == e.status;
                     })
                   ),
                 e.filterError &&
                   t.push(
-                    _.filter(e.stopped, function(e) {
+                    _.filter(e.stopped, function (e) {
                       return "error" == e.status;
                     })
                   ),
                 e.filterComplete &&
                   t.push(
-                    _.filter(e.stopped, function(e) {
+                    _.filter(e.stopped, function (e) {
                       return "complete" == e.status;
                     })
                   ),
                 e.filterRemoved &&
                   t.push(
-                    _.filter(e.stopped, function(e) {
+                    _.filter(e.stopped, function (e) {
                       return "removed" == e.status;
                     })
                   );
               var n = t
-                .map(function(e) {
-                  return _.sortBy(e, function(e) {
+                .map(function (e) {
+                  return _.sortBy(e, function (e) {
                     return -e.completedLength / e.totalLength;
                   });
                 })
-                .reduce(function(e, t) {
+                .reduce(function (e, t) {
                   return e.concat(t);
                 }, []);
               return (
@@ -2429,13 +2437,13 @@
                 n
               );
             }),
-            (e.hasDirectURL = function() {
+            (e.hasDirectURL = function () {
               return "" != a.getDirectURL();
             }),
-            (e.getDirectURL = function() {
+            (e.getDirectURL = function () {
               return a.getDirectURL();
             }),
-            (e.getCtx = function(e, t) {
+            (e.getCtx = function (e, t) {
               var n;
               t
                 ? (t.gid !== e.gid && (t.files = []),
@@ -2512,7 +2520,7 @@
                     fmtUploadSpeed: i.fmtspeed(e.uploadSpeed),
                     collapsed: !0,
                     animCollapsed: !0,
-                    files: []
+                    files: [],
                   }),
                   e.verifiedLength &&
                     ((t.verifiedLength = e.verifiedLength),
@@ -2557,10 +2565,10 @@
                 ? 0 != n.length && (e(t, n[0]) || e(t, n.slice(1)))
                 : t.status == n;
             }),
-            (e.getEta = function(e) {
+            (e.getEta = function (e) {
               return (e.totalLength - e.completedLength) / e.downloadSpeed;
             }),
-            (e.getProgressClass = function(e) {
+            (e.getProgressClass = function (e) {
               switch (e.status) {
                 case "paused":
                   return "progress-bar-info";
@@ -2578,7 +2586,7 @@
                   return "";
               }
             }),
-            (e.getProgress = function(e) {
+            (e.getProgress = function (e) {
               var t = 0;
               return (
                 (t = (t = e.verifiedLength
@@ -2589,7 +2597,7 @@
                 t
               );
             }),
-            (e.getRatio = function(e) {
+            (e.getRatio = function (e) {
               var t = 0;
               return (
                 (t = (t = e.uploadLength / e.completedLength || 0).toFixed(
@@ -2598,7 +2606,7 @@
                 t
               );
             }),
-            (e.getType = function(e) {
+            (e.getType = function (e) {
               var t = e.status;
               return (
                 "paused" == t && (t = "waiting"),
@@ -2607,28 +2615,28 @@
                 t
               );
             }),
-            (e.selectFiles = function(e) {
+            (e.selectFiles = function (e) {
               console.log("got back files for the torrent ..."),
-                s.invoke("selectFiles", e.files, function(t) {
+                s.invoke("selectFiles", e.files, function (t) {
                   var n = "";
-                  _.forEach(t, function(e) {
+                  _.forEach(t, function (e) {
                     e.selected && (n += "," + e.index);
                   }),
                     (n = n.slice(1)),
                     a.once(
                       "changeOption",
                       [e.gid, { "select-file": n }],
-                      function(e) {
+                      function (e) {
                         console.log("changed indexes to:", n, e);
                       }
                     );
                 });
             }),
-            (e.showSettings = function(t) {
+            (e.showSettings = function (t) {
               var n = e.getType(t),
                 o = {};
               return (
-                a.once("getOption", [t.gid], function(e) {
+                a.once("getOption", [t.gid], function (e) {
                   var i = e[0],
                     r = _.cloneDeep(l);
                   for (var u in r)
@@ -2640,7 +2648,7 @@
                     o,
                     t.name + " settings",
                     "Change",
-                    function(e) {
+                    function (e) {
                       var n = {};
                       for (var o in e) n[o] = e[o].val;
                       a.once("changeOption", [t.gid, n]);
@@ -2650,16 +2658,16 @@
                 !1
               );
             }),
-            (e.moveDown = function(e) {
+            (e.moveDown = function (e) {
               a.once("changePosition", [e.gid, 1, "POS_CUR"]);
             }),
-            (e.moveUp = function(e) {
+            (e.moveUp = function (e) {
               a.once("changePosition", [e.gid, -1, "POS_CUR"]);
             });
-        }
+        },
       ])
-      .filter("objFilter", function() {
-        return function(e, t) {
+      .filter("objFilter", function () {
+        return function (e, t) {
           e = e || {};
           var n = {};
           for (var a in e) a.startsWith(t) && (n[a] = e[a]);
@@ -2667,22 +2675,22 @@
         };
       }).name;
   },
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a),
-      i = function(e, t) {
+      i = function (e, t) {
         var n = 0,
           a = [],
-          o = function(e) {
+          o = function (e) {
             var o = e.target.result;
             a.push(o.split(",")[1]), --n || t(a);
           };
-        _.each(e, function(e) {
+        _.each(e, function (e) {
           n++, console.log("starting file reader");
           var a = new FileReader();
           (a.onload = o),
-            (a.onerror = function(e) {
+            (a.onerror = function (e) {
               console.log("got back error", e), t([]);
             }),
             a.readAsDataURL(e);
@@ -2694,7 +2702,7 @@
         "webui.services.deps",
         "webui.services.modals",
         "webui.services.rpc",
-        "webui.services.configuration"
+        "webui.services.configuration",
       ])
       .controller("ModalCtrl", [
         "$_",
@@ -2704,9 +2712,9 @@
         "$rpc",
         "$fileSettings",
         "$downloadProps",
-        function(e, t, n, a, o, r, s) {
+        function (e, t, n, a, o, r, s) {
           (t.getUris = {
-            open: function(a) {
+            open: function (a) {
               var o = this;
               (this.uris = ""),
                 (this.downloadSettingsCollapsed = !0),
@@ -2714,16 +2722,16 @@
                 (this.settings = {}),
                 (this.fsettings = e.cloneDeep(r)),
                 (this.cb = a),
-                e.forEach(s, function(e) {
+                e.forEach(s, function (e) {
                   (o.settings[e] = o.fsettings[e]), delete o.fsettings[e];
                 }),
                 (this.inst = n.open({
                   templateUrl: "getUris.html",
                   scope: t,
-                  windowClass: "modal-large"
+                  windowClass: "modal-large",
                 })),
                 this.inst.result.then(
-                  function() {
+                  function () {
                     if ((delete o.inst, o.cb)) {
                       var e = {};
                       for (var t in o.settings)
@@ -2735,36 +2743,36 @@
                       console.log("sending settings:", e), o.cb(o.parse(), e);
                     }
                   },
-                  function() {
+                  function () {
                     delete o.inst;
                   }
                 );
             },
-            parse: function() {
+            parse: function () {
               return e
                 .chain(this.uris.trim().split(/\r?\n/g))
-                .map(function(t) {
+                .map(function (t) {
                   return e(t)
-                    .replace(/["'][^"']*["']/g, function(e) {
+                    .replace(/["'][^"']*["']/g, function (e) {
                       return e.replace(/%/g, "%25").replace(/ /g, "%20");
                     })
                     .trim()
                     .split(/\s+/g)
-                    .map(function(e) {
+                    .map(function (e) {
                       return e
                         .replace(/%20/g, " ")
                         .replace(/%25/g, "%")
                         .replace(/["']/g, "");
                     });
                 })
-                .filter(function(e) {
+                .filter(function (e) {
                   return e.length;
                 })
                 .value();
-            }
+            },
           }),
             (t.settings = {
-              open: function(e, a, o, i) {
+              open: function (e, a, o, i) {
                 var r = this;
                 (this.settings = e),
                   (this.title = a),
@@ -2772,30 +2780,30 @@
                   (this.inst = n.open({
                     templateUrl: "settings.html",
                     scope: t,
-                    windowClass: "modal-large"
+                    windowClass: "modal-large",
                   })),
                   this.inst.result.then(
-                    function() {
+                    function () {
                       delete r.inst, i && i(r.settings);
                     },
-                    function() {
+                    function () {
                       delete r.inst;
                     }
                   );
-              }
+              },
             }),
             (t.selectFiles = {
-              open: function(a, o) {
+              open: function (a, o) {
                 var i = this;
                 this.files = e.cloneDeep(a);
-                (this.groupedFiles = (function(e) {
+                (this.groupedFiles = (function (e) {
                   function t() {
                     (this.dirs = {}),
                       (this.files = []),
                       (this.show = !1),
                       (this.selected = !0);
                   }
-                  e.sort(function(e, t) {
+                  e.sort(function (e, t) {
                     return e.relpath < t.relpath ? -1 : 1;
                   });
                   for (var n, a = new t(), o = 0; o < e.length; o++) {
@@ -2814,58 +2822,58 @@
                   (this.inst = n.open({
                     templateUrl: "selectFiles.html",
                     scope: t,
-                    windowClass: "modal-large"
+                    windowClass: "modal-large",
                   })),
                   this.inst.result.then(
-                    function() {
+                    function () {
                       delete i.inst, o && o(i.files);
                     },
-                    function() {
+                    function () {
                       delete i.inst;
                     }
                   );
-              }
+              },
             }),
             (t.connection = {
-              open: function(e, a) {
+              open: function (e, a) {
                 var i = this;
                 (this.conf = o.getConfiguration()),
                   (this.inst = n.open({
                     templateUrl: "connection.html",
                     scope: t,
-                    windowClass: "modal-large"
+                    windowClass: "modal-large",
                   })),
                   this.inst.result.then(
-                    function() {
+                    function () {
                       delete i.inst, a && a(i.conf);
                     },
-                    function() {
+                    function () {
                       delete i.inst;
                     }
                   );
-              }
+              },
             }),
-            e.each(["getTorrents", "getMetalinks"], function(a) {
+            e.each(["getTorrents", "getMetalinks"], function (a) {
               t[a] = {
-                open: function(o) {
+                open: function (o) {
                   var l = this;
                   (this.files = []),
                     (this.collapsed = !0),
                     (this.settings = {}),
                     (this.fsettings = e.cloneDeep(r)),
-                    e.forEach(s, function(e) {
+                    e.forEach(s, function (e) {
                       (l.settings[e] = l.fsettings[e]), delete l.fsettings[e];
                     }),
                     (this.inst = n.open({
                       templateUrl: a + ".html",
                       scope: t,
-                      windowClass: "modal-large"
+                      windowClass: "modal-large",
                     })),
                     this.inst.result.then(
-                      function() {
+                      function () {
                         delete l.inst,
                           o &&
-                            i(l.files, function(e) {
+                            i(l.files, function (e) {
                               var t = {};
                               for (var n in l.settings)
                                 r[n].val != l.settings[n].val &&
@@ -2876,30 +2884,30 @@
                               console.log("sending settings:", t), o(e, t);
                             });
                       },
-                      function() {
+                      function () {
                         delete l.inst;
                       }
                     );
-                }
+                },
               };
             }),
-            e.each(["about", "server_info"], function(e) {
+            e.each(["about", "server_info"], function (e) {
               t[e] = {
-                open: function() {
+                open: function () {
                   var a = this;
                   (this.inst = n.open({ templateUrl: e + ".html", scope: t })),
                     this.inst.result.then(
-                      function() {
+                      function () {
                         delete a.inst;
                       },
-                      function() {
+                      function () {
                         delete a.inst;
                       }
                     );
-                }
+                },
               };
             }),
-            o.once("getVersion", [], function(e) {
+            o.once("getVersion", [], function (e) {
               t.miscellaneous = e[0];
             }),
             e.each(
@@ -2911,10 +2919,10 @@
                 "settings",
                 "connection",
                 "server_info",
-                "about"
+                "about",
               ],
-              function(e) {
-                a.register(e, function() {
+              function (e) {
+                a.register(e, function () {
                   if (!t[e].inst) {
                     var n = Array.prototype.slice.call(arguments, 0);
                     t[e].open.apply(t[e], n);
@@ -2922,10 +2930,10 @@
                 });
               }
             );
-        }
+        },
       ]).name;
   },
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a);
@@ -2936,7 +2944,7 @@
         "webui.services.rpc",
         "webui.services.rpc.helpers",
         "webui.services.settings",
-        "webui.services.utils"
+        "webui.services.utils",
       ])
       .controller("NavCtrl", [
         "$scope",
@@ -2949,47 +2957,47 @@
         "$utils",
         "$translate",
         "$filter",
-        function(e, t, n, a, o, i, r, s, l, c) {
-          (e.isFeatureEnabled = function(e) {
+        function (e, t, n, a, o, i, r, s, l, c) {
+          (e.isFeatureEnabled = function (e) {
             return a.isFeatureEnabled(e);
           }),
             (e.collapsed = !0),
-            (e.onDownloadFilter = function() {
+            (e.onDownloadFilter = function () {
               (e.$parent.downloadFilter = e.downloadFilter),
                 e.$parent.onDownloadFilter();
             }),
-            (e.forcePauseAll = function() {
+            (e.forcePauseAll = function () {
               n.once("forcePauseAll", []);
             }),
-            (e.purgeDownloadResult = function() {
+            (e.purgeDownloadResult = function () {
               n.once("purgeDownloadResult", []);
             }),
-            (e.unpauseAll = function() {
+            (e.unpauseAll = function () {
               n.once("unpauseAll", []);
             }),
-            (e.addUris = function() {
+            (e.addUris = function () {
               t.invoke("getUris", _.bind(a.addUris, a));
             }),
-            (e.addMetalinks = function() {
+            (e.addMetalinks = function () {
               t.invoke("getMetalinks", _.bind(a.addMetalinks, a));
             }),
-            (e.addTorrents = function() {
+            (e.addTorrents = function () {
               t.invoke("getTorrents", _.bind(a.addTorrents, a));
             }),
-            (e.changeCSettings = function() {
+            (e.changeCSettings = function () {
               t.invoke(
                 "connection",
                 n.getConfiguration(),
                 _.bind(n.configure, n)
               );
             }),
-            (e.changeGSettings = function() {
-              n.once("getGlobalOption", [], function(e) {
+            (e.changeGSettings = function () {
+              n.once("getGlobalOption", [], function (e) {
                 var a = s.getCookie("aria2props");
                 (a && a.indexOf) || (a = []);
                 var l = e[0],
                   d = {};
-                for (var u in (_.forEach([o, i], function(e) {
+                for (var u in (_.forEach([o, i], function (e) {
                   for (var t in e)
                     -1 == r.indexOf(t) &&
                       ((d[t] = _.cloneDeep(e[t])),
@@ -3003,14 +3011,14 @@
                           name: u,
                           val: l[u],
                           desc: "",
-                          starred: -1 != a.indexOf(u)
+                          starred: -1 != a.indexOf(u),
                         }));
                 t.invoke(
                   "settings",
                   _.cloneDeep(d),
                   c("translate")("Global Settings"),
                   c("translate")("Save"),
-                  function(e) {
+                  function (e) {
                     var t = {},
                       a = [];
                     for (var o in e)
@@ -3024,22 +3032,22 @@
                 );
               });
             }),
-            (e.showServerInfo = function() {
+            (e.showServerInfo = function () {
               t.invoke("server_info");
             }),
-            (e.showAbout = function() {
+            (e.showAbout = function () {
               t.invoke("about");
             }),
-            (e.changeLanguage = function(e) {
+            (e.changeLanguage = function (e) {
               l.use(e);
             }),
-            (e.shutDownServer = function() {
+            (e.shutDownServer = function () {
               n.once("shutdown", []);
             });
-        }
+        },
       ]).name;
   },
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
     var a = n(0),
       o = n.n(a);
@@ -3049,7 +3057,7 @@
         "webui.services.settings",
         "webui.services.deps",
         "webui.services.rpc",
-        "webui.services.configuration"
+        "webui.services.configuration",
       ])
       .controller("StarredPropsCtrl", [
         "$scope",
@@ -3059,26 +3067,26 @@
         "$globalSettings",
         "$fileSettings",
         "$starredProps",
-        function(e, t, n, a, o, i, r) {
+        function (e, t, n, a, o, i, r) {
           (e._props = []),
             (e.dirty = !0),
             (e.properties = []),
-            (e.getProps = function() {
+            (e.getProps = function () {
               var e = n.getCookie("aria2props");
               return (e && e.indexOf) || (e = r), e;
             }),
-            (e.enabled = function() {
+            (e.enabled = function () {
               for (var t = 0; t < e.properties.length; t++)
                 if (e.properties[t]._val != e.properties[t].val) return !0;
               return !1;
             }),
-            (e.save = function() {
+            (e.save = function () {
               for (var t = {}, n = !1, o = 0; o < e.properties.length; o++)
                 e.properties[o]._val != e.properties[o].val &&
                   ((t[e.properties[o].name] = e.properties[o].val), (n = !0));
               n && a.once("changeGlobalOption", [t]);
             }),
-            a.subscribe("getGlobalOption", [], function(t) {
+            a.subscribe("getGlobalOption", [], function (t) {
               for (
                 var a = t[0], r = e.getProps(), s = [], l = 0;
                 l < r.length;
@@ -3097,7 +3105,7 @@
                     s.push(c))
                   : r[l] in a && s.push({ name: r[l], val: a[r[l]] });
               }
-              n.mergeMap(s, e.properties, function(e, t) {
+              n.mergeMap(s, e.properties, function (e, t) {
                 return (
                   ((t = t || {}).name = e.name),
                   (t.options = e.options),
@@ -3110,13 +3118,13 @@
                 );
               });
             });
-        }
+        },
       ]).name;
   },
-  function(e, t, n) {
+  function (e, t, n) {
     "use strict";
     n.r(t),
-      function(e) {
+      function (e) {
         var t = n(0),
           a = n.n(t),
           o = (n(31), n(36), n(2)),
@@ -3192,7 +3200,7 @@
           R.a,
           D.a,
           "ui.bootstrap",
-          "pascalprecht.translate"
+          "pascalprecht.translate",
         ]);
         function M(e, t) {
           for (var n in t)
@@ -3202,7 +3210,7 @@
         $.config([
           "$translateProvider",
           "$locationProvider",
-          function(e, t) {
+          function (e, t) {
             e
               .translations("en_US", translations.en_US)
               .translations("nl_NL", M(translations.nl_NL, translations.en_US))
@@ -3223,7 +3231,7 @@
               .useSanitizeValueStrategy("escapeParameters")
               .determinePreferredLanguage(),
               t.html5Mode({ enabled: !0, requireBase: !1 });
-          }
+          },
         ]),
           $.directive("textarea", C.a),
           "serviceWorker" in navigator &&
@@ -3231,22 +3239,22 @@
             window.addEventListener("load", () => {
               navigator.serviceWorker
                 .register("service-worker.js")
-                .then(e => {
+                .then((e) => {
                   console.log("SW registered: ", e);
                 })
-                .catch(e => {
+                .catch((e) => {
                   console.log("SW registration failed: ", e);
                 });
             }),
-          e(function() {
+          e(function () {
             String.prototype.startsWith ||
               Object.defineProperty(String.prototype, "startsWith", {
                 enumerable: !1,
                 configurable: !1,
                 writable: !1,
-                value: function(e, t) {
+                value: function (e, t) {
                   return (t = t || 0), this.indexOf(e, t) === t;
-                }
+                },
               }),
               a.a.bootstrap(document, ["webui"]);
           });
@@ -3254,7 +3262,7 @@
   },
   ,
   ,
-  function(e, t) {
+  function (e, t) {
     angular.module("ui.bootstrap", [
       "ui.bootstrap.tpls",
       "ui.bootstrap.collapse",
@@ -3276,7 +3284,7 @@
       "ui.bootstrap.tabs",
       "ui.bootstrap.timepicker",
       "ui.bootstrap.transition",
-      "ui.bootstrap.typeahead"
+      "ui.bootstrap.typeahead",
     ]),
       angular.module("ui.bootstrap.tpls", [
         "template/accordion/accordion-group.html",
@@ -3308,13 +3316,13 @@
         "template/tabs/tabset.html",
         "template/timepicker/timepicker.html",
         "template/typeahead/typeahead-match.html",
-        "template/typeahead/typeahead-popup.html"
+        "template/typeahead/typeahead-popup.html",
       ]),
       angular.module("ui.bootstrap.collapse", []).directive("collapse", [
         "$animate",
-        function(e) {
+        function (e) {
           return {
-            link: function(t, n, a) {
+            link: function (t, n, a) {
               function o() {
                 n
                   .removeClass("collapse")
@@ -3323,7 +3331,7 @@
                   .attr("aria-hidden", !1),
                   e
                     .addClass(n, "in", {
-                      to: { height: n[0].scrollHeight + "px" }
+                      to: { height: n[0].scrollHeight + "px" },
                     })
                     .then(i);
               }
@@ -3348,12 +3356,12 @@
                   n.removeClass("collapsing"),
                   n.addClass("collapse");
               }
-              t.$watch(a.collapse, function(e) {
+              t.$watch(a.collapse, function (e) {
                 e ? r() : o();
               });
-            }
+            },
           };
-        }
+        },
       ]),
       angular
         .module("ui.bootstrap.accordion", ["ui.bootstrap.collapse"])
@@ -3362,96 +3370,96 @@
           "$scope",
           "$attrs",
           "accordionConfig",
-          function(e, t, n) {
+          function (e, t, n) {
             (this.groups = []),
-              (this.closeOthers = function(a) {
+              (this.closeOthers = function (a) {
                 (angular.isDefined(t.closeOthers)
                   ? e.$eval(t.closeOthers)
                   : n.closeOthers) &&
-                  angular.forEach(this.groups, function(e) {
+                  angular.forEach(this.groups, function (e) {
                     e !== a && (e.isOpen = !1);
                   });
               }),
-              (this.addGroup = function(e) {
+              (this.addGroup = function (e) {
                 var t = this;
                 this.groups.push(e),
-                  e.$on("$destroy", function(n) {
+                  e.$on("$destroy", function (n) {
                     t.removeGroup(e);
                   });
               }),
-              (this.removeGroup = function(e) {
+              (this.removeGroup = function (e) {
                 var t = this.groups.indexOf(e);
                 -1 !== t && this.groups.splice(t, 1);
               });
-          }
+          },
         ])
-        .directive("accordion", function() {
+        .directive("accordion", function () {
           return {
             restrict: "EA",
             controller: "AccordionController",
             controllerAs: "accordion",
             transclude: !0,
             replace: !1,
-            templateUrl: function(e, t) {
+            templateUrl: function (e, t) {
               return t.templateUrl || "template/accordion/accordion.html";
-            }
+            },
           };
         })
-        .directive("accordionGroup", function() {
+        .directive("accordionGroup", function () {
           return {
             require: "^accordion",
             restrict: "EA",
             transclude: !0,
             replace: !0,
-            templateUrl: function(e, t) {
+            templateUrl: function (e, t) {
               return t.templateUrl || "template/accordion/accordion-group.html";
             },
             scope: { heading: "@", isOpen: "=?", isDisabled: "=?" },
-            controller: function() {
-              this.setHeading = function(e) {
+            controller: function () {
+              this.setHeading = function (e) {
                 this.heading = e;
               };
             },
-            link: function(e, t, n, a) {
+            link: function (e, t, n, a) {
               a.addGroup(e),
                 (e.openClass = n.openClass || "panel-open"),
                 (e.panelClass = n.panelClass),
-                e.$watch("isOpen", function(n) {
+                e.$watch("isOpen", function (n) {
                   t.toggleClass(e.openClass, n), n && a.closeOthers(e);
                 }),
-                (e.toggleOpen = function(t) {
+                (e.toggleOpen = function (t) {
                   e.isDisabled ||
                     (t && 32 !== t.which) ||
                     (e.isOpen = !e.isOpen);
                 });
-            }
+            },
           };
         })
-        .directive("accordionHeading", function() {
+        .directive("accordionHeading", function () {
           return {
             restrict: "EA",
             transclude: !0,
             template: "",
             replace: !0,
             require: "^accordionGroup",
-            link: function(e, t, n, a, o) {
+            link: function (e, t, n, a, o) {
               a.setHeading(o(e, angular.noop));
-            }
+            },
           };
         })
-        .directive("accordionTransclude", function() {
+        .directive("accordionTransclude", function () {
           return {
             require: "^accordionGroup",
-            link: function(e, t, n, a) {
+            link: function (e, t, n, a) {
               e.$watch(
-                function() {
+                function () {
                   return a[n.accordionTransclude];
                 },
-                function(e) {
+                function (e) {
                   e && (t.find("span").html(""), t.find("span").append(e));
                 }
               );
-            }
+            },
           };
         }),
       angular
@@ -3459,34 +3467,34 @@
         .controller("AlertController", [
           "$scope",
           "$attrs",
-          function(e, t) {
+          function (e, t) {
             (e.closeable = !!t.close), (this.close = e.close);
-          }
+          },
         ])
-        .directive("alert", function() {
+        .directive("alert", function () {
           return {
             controller: "AlertController",
             controllerAs: "alert",
-            templateUrl: function(e, t) {
+            templateUrl: function (e, t) {
               return t.templateUrl || "template/alert/alert.html";
             },
             transclude: !0,
             replace: !0,
-            scope: { type: "@", close: "&" }
+            scope: { type: "@", close: "&" },
           };
         })
         .directive("dismissOnTimeout", [
           "$timeout",
-          function(e) {
+          function (e) {
             return {
               require: "alert",
-              link: function(t, n, a, o) {
-                e(function() {
+              link: function (t, n, a, o) {
+                e(function () {
                   o.close();
                 }, parseInt(a.dismissOnTimeout, 10));
-              }
+              },
             };
-          }
+          },
         ]),
       angular
         .module("ui.bootstrap.bindHtml", [])
@@ -3494,68 +3502,68 @@
         .directive("bindHtmlUnsafe", [
           "$log",
           "$bindHtmlUnsafeSuppressDeprecated",
-          function(e, t) {
-            return function(n, a, o) {
+          function (e, t) {
+            return function (n, a, o) {
               t ||
                 e.warn(
                   "bindHtmlUnsafe is now deprecated. Use ngBindHtml instead"
                 ),
                 a.addClass("ng-binding").data("$binding", o.bindHtmlUnsafe),
-                n.$watch(o.bindHtmlUnsafe, function(e) {
+                n.$watch(o.bindHtmlUnsafe, function (e) {
                   a.html(e || "");
                 });
             };
-          }
+          },
         ]),
       angular
         .module("ui.bootstrap.buttons", [])
         .constant("buttonConfig", {
           activeClass: "active",
-          toggleEvent: "click"
+          toggleEvent: "click",
         })
         .controller("ButtonsController", [
           "buttonConfig",
-          function(e) {
+          function (e) {
             (this.activeClass = e.activeClass || "active"),
               (this.toggleEvent = e.toggleEvent || "click");
-          }
+          },
         ])
-        .directive("btnRadio", function() {
+        .directive("btnRadio", function () {
           return {
             require: ["btnRadio", "ngModel"],
             controller: "ButtonsController",
             controllerAs: "buttons",
-            link: function(e, t, n, a) {
+            link: function (e, t, n, a) {
               var o = a[0],
                 i = a[1];
               t.find("input").css({ display: "none" }),
-                (i.$render = function() {
+                (i.$render = function () {
                   t.toggleClass(
                     o.activeClass,
                     angular.equals(i.$modelValue, e.$eval(n.btnRadio))
                   );
                 }),
-                t.bind(o.toggleEvent, function() {
+                t.bind(o.toggleEvent, function () {
                   if (!n.disabled) {
                     var a = t.hasClass(o.activeClass);
                     (!a || angular.isDefined(n.uncheckable)) &&
-                      e.$apply(function() {
+                      e.$apply(function () {
                         i.$setViewValue(a ? null : e.$eval(n.btnRadio)),
                           i.$render();
                       });
                   }
                 });
-            }
+            },
           };
         })
         .directive("btnCheckbox", [
           "$document",
-          function(e) {
+          function (e) {
             return {
               require: ["btnCheckbox", "ngModel"],
               controller: "ButtonsController",
               controllerAs: "button",
-              link: function(t, n, a, o) {
+              link: function (t, n, a, o) {
                 function i() {
                   return s(a.btnCheckboxTrue, !0);
                 }
@@ -3569,31 +3577,31 @@
                 var l = o[0],
                   c = o[1];
                 n.find("input").css({ display: "none" }),
-                  (c.$render = function() {
+                  (c.$render = function () {
                     n.toggleClass(
                       l.activeClass,
                       angular.equals(c.$modelValue, i())
                     );
                   }),
-                  n.bind(l.toggleEvent, function() {
+                  n.bind(l.toggleEvent, function () {
                     a.disabled ||
-                      t.$apply(function() {
+                      t.$apply(function () {
                         c.$setViewValue(n.hasClass(l.activeClass) ? r() : i()),
                           c.$render();
                       });
                   }),
-                  n.on("keypress", function(o) {
+                  n.on("keypress", function (o) {
                     a.disabled ||
                       32 !== o.which ||
                       e[0].activeElement !== n[0] ||
-                      t.$apply(function() {
+                      t.$apply(function () {
                         c.$setViewValue(n.hasClass(l.activeClass) ? r() : i()),
                           c.$render();
                       });
                   });
-              }
+              },
             };
-          }
+          },
         ]),
       angular
         .module("ui.bootstrap.carousel", [])
@@ -3602,13 +3610,13 @@
           "$element",
           "$interval",
           "$animate",
-          function(e, t, n, a) {
+          function (e, t, n, a) {
             function o(t, n, o) {
               g ||
                 (angular.extend(t, { direction: o, active: !0 }),
                 angular.extend(u.currentSlide || {}, {
                   direction: o,
-                  active: !1
+                  active: !1,
                 }),
                 a.enabled() &&
                   !e.noTransition &&
@@ -3621,11 +3629,11 @@
                     u.currentSlide.$element.data(f, t.direction),
                   (e.$currentTransition = !0),
                   h
-                    ? a.on("addClass", t.$element, function(t, n) {
+                    ? a.on("addClass", t.$element, function (t, n) {
                         "close" === n &&
                           ((e.$currentTransition = null), a.off("addClass", t));
                       })
-                    : t.$element.one("$animate:close", function() {
+                    : t.$element.one("$animate:close", function () {
                         e.$currentTransition = null;
                       })),
                 (u.currentSlide = t),
@@ -3659,7 +3667,7 @@
               m = -1;
             u.currentSlide = null;
             var g = !1;
-            (u.select = e.select = function(t, n) {
+            (u.select = e.select = function (t, n) {
               var a = e.indexOfSlide(t);
               void 0 === n && (n = a > u.getCurrentIndex() ? "next" : "prev"),
                 t &&
@@ -3667,24 +3675,24 @@
                   !e.$currentTransition &&
                   o(t, a, n);
             }),
-              e.$on("$destroy", function() {
+              e.$on("$destroy", function () {
                 g = !0;
               }),
-              (u.getCurrentIndex = function() {
+              (u.getCurrentIndex = function () {
                 return u.currentSlide && angular.isDefined(u.currentSlide.index)
                   ? +u.currentSlide.index
                   : m;
               }),
-              (e.indexOfSlide = function(e) {
+              (e.indexOfSlide = function (e) {
                 return angular.isDefined(e.index) ? +e.index : p.indexOf(e);
               }),
-              (e.next = function() {
+              (e.next = function () {
                 var t = (u.getCurrentIndex() + 1) % p.length;
                 return 0 === t && e.noWrap()
                   ? void e.pause()
                   : u.select(i(t), "next");
               }),
-              (e.prev = function() {
+              (e.prev = function () {
                 var t =
                   u.getCurrentIndex() - 1 < 0
                     ? p.length - 1
@@ -3693,27 +3701,27 @@
                   ? void e.pause()
                   : u.select(i(t), "prev");
               }),
-              (e.isActive = function(e) {
+              (e.isActive = function (e) {
                 return u.currentSlide === e;
               }),
               e.$watch("interval", r),
               e.$on("$destroy", s),
-              (e.play = function() {
+              (e.play = function () {
                 d || ((d = !0), r());
               }),
-              (e.pause = function() {
+              (e.pause = function () {
                 e.noPause || ((d = !1), s());
               }),
-              (u.addSlide = function(t, n) {
+              (u.addSlide = function (t, n) {
                 (t.$element = n),
                   p.push(t),
                   1 === p.length || t.active
                     ? (u.select(p[p.length - 1]), 1 == p.length && e.play())
                     : (t.active = !1);
               }),
-              (u.removeSlide = function(e) {
+              (u.removeSlide = function (e) {
                 angular.isDefined(e.index) &&
-                  p.sort(function(e, t) {
+                  p.sort(function (e, t) {
                     return +e.index > +t.index;
                   });
                 var t = p.indexOf(e);
@@ -3725,13 +3733,13 @@
                     : m > t && m--,
                   0 === p.length && (u.currentSlide = null);
               }),
-              e.$watch("noTransition", function(e) {
+              e.$watch("noTransition", function (e) {
                 t.data("uib-noTransition", e);
               });
-          }
+          },
         ])
         .directive("carousel", [
-          function() {
+          function () {
             return {
               restrict: "EA",
               transclude: !0,
@@ -3739,43 +3747,43 @@
               controller: "CarouselController",
               controllerAs: "carousel",
               require: "carousel",
-              templateUrl: function(e, t) {
+              templateUrl: function (e, t) {
                 return t.templateUrl || "template/carousel/carousel.html";
               },
               scope: {
                 interval: "=",
                 noTransition: "=",
                 noPause: "=",
-                noWrap: "&"
-              }
+                noWrap: "&",
+              },
             };
-          }
+          },
         ])
-        .directive("slide", function() {
+        .directive("slide", function () {
           return {
             require: "^carousel",
             restrict: "EA",
             transclude: !0,
             replace: !0,
-            templateUrl: function(e, t) {
+            templateUrl: function (e, t) {
               return t.templateUrl || "template/carousel/slide.html";
             },
             scope: { active: "=?", actual: "=?", index: "=?" },
-            link: function(e, t, n, a) {
+            link: function (e, t, n, a) {
               a.addSlide(e, t),
-                e.$on("$destroy", function() {
+                e.$on("$destroy", function () {
                   a.removeSlide(e);
                 }),
-                e.$watch("active", function(t) {
+                e.$watch("active", function (t) {
                   t && a.select(e);
                 });
-            }
+            },
           };
         })
         .animation(".item", [
           "$injector",
           "$animate",
-          function(e, t) {
+          function (e, t) {
             function n(e, t, n) {
               e.removeClass(t), n && n();
             }
@@ -3785,7 +3793,7 @@
             return (
               e.has("$animateCss") && (i = e.get("$animateCss")),
               {
-                beforeAddClass: function(e, r, s) {
+                beforeAddClass: function (e, r, s) {
                   if ("active" == r && e.parent() && !e.parent().data(a)) {
                     var l = !1,
                       c = e.data(o),
@@ -3794,53 +3802,49 @@
                     return (
                       e.addClass(c),
                       i
-                        ? i(e, { addClass: d })
-                            .start()
-                            .done(u)
-                        : t.addClass(e, d).then(function() {
+                        ? i(e, { addClass: d }).start().done(u)
+                        : t.addClass(e, d).then(function () {
                             l || u(), s();
                           }),
-                      function() {
+                      function () {
                         l = !0;
                       }
                     );
                   }
                   s();
                 },
-                beforeRemoveClass: function(e, r, s) {
+                beforeRemoveClass: function (e, r, s) {
                   if ("active" === r && e.parent() && !e.parent().data(a)) {
                     var l = !1,
                       c = "next" == e.data(o) ? "left" : "right",
                       d = n.bind(this, e, c, s);
                     return (
                       i
-                        ? i(e, { addClass: c })
-                            .start()
-                            .done(d)
-                        : t.addClass(e, c).then(function() {
+                        ? i(e, { addClass: c }).start().done(d)
+                        : t.addClass(e, c).then(function () {
                             l || d(), s();
                           }),
-                      function() {
+                      function () {
                         l = !0;
                       }
                     );
                   }
                   s();
-                }
+                },
               }
             );
-          }
+          },
         ]),
       angular.module("ui.bootstrap.dateparser", []).service("dateParser", [
         "$log",
         "$locale",
         "orderByFilter",
-        function(e, t, n) {
+        function (e, t, n) {
           function a(e) {
             var t = [],
               a = e.split("");
             return (
-              angular.forEach(i, function(n, o) {
+              angular.forEach(i, function (n, o) {
                 var i = e.indexOf(o);
                 if (i > -1) {
                   (e = e.split("")), (a[i] = "(" + n.regex + ")"), (e[i] = "$");
@@ -3857,123 +3861,123 @@
           var i = {
             yyyy: {
               regex: "\\d{4}",
-              apply: function(e) {
+              apply: function (e) {
                 this.year = +e;
-              }
+              },
             },
             yy: {
               regex: "\\d{2}",
-              apply: function(e) {
+              apply: function (e) {
                 this.year = +e + 2e3;
-              }
+              },
             },
             y: {
               regex: "\\d{1,4}",
-              apply: function(e) {
+              apply: function (e) {
                 this.year = +e;
-              }
+              },
             },
             MMMM: {
               regex: t.DATETIME_FORMATS.MONTH.join("|"),
-              apply: function(e) {
+              apply: function (e) {
                 this.month = t.DATETIME_FORMATS.MONTH.indexOf(e);
-              }
+              },
             },
             MMM: {
               regex: t.DATETIME_FORMATS.SHORTMONTH.join("|"),
-              apply: function(e) {
+              apply: function (e) {
                 this.month = t.DATETIME_FORMATS.SHORTMONTH.indexOf(e);
-              }
+              },
             },
             MM: {
               regex: "0[1-9]|1[0-2]",
-              apply: function(e) {
+              apply: function (e) {
                 this.month = e - 1;
-              }
+              },
             },
             M: {
               regex: "[1-9]|1[0-2]",
-              apply: function(e) {
+              apply: function (e) {
                 this.month = e - 1;
-              }
+              },
             },
             dd: {
               regex: "[0-2][0-9]{1}|3[0-1]{1}",
-              apply: function(e) {
+              apply: function (e) {
                 this.date = +e;
-              }
+              },
             },
             d: {
               regex: "[1-2]?[0-9]{1}|3[0-1]{1}",
-              apply: function(e) {
+              apply: function (e) {
                 this.date = +e;
-              }
+              },
             },
             EEEE: { regex: t.DATETIME_FORMATS.DAY.join("|") },
             EEE: { regex: t.DATETIME_FORMATS.SHORTDAY.join("|") },
             HH: {
               regex: "(?:0|1)[0-9]|2[0-3]",
-              apply: function(e) {
+              apply: function (e) {
                 this.hours = +e;
-              }
+              },
             },
             hh: {
               regex: "0[0-9]|1[0-2]",
-              apply: function(e) {
+              apply: function (e) {
                 this.hours = +e;
-              }
+              },
             },
             H: {
               regex: "1?[0-9]|2[0-3]",
-              apply: function(e) {
+              apply: function (e) {
                 this.hours = +e;
-              }
+              },
             },
             h: {
               regex: "[0-9]|1[0-2]",
-              apply: function(e) {
+              apply: function (e) {
                 this.hours = +e;
-              }
+              },
             },
             mm: {
               regex: "[0-5][0-9]",
-              apply: function(e) {
+              apply: function (e) {
                 this.minutes = +e;
-              }
+              },
             },
             m: {
               regex: "[0-9]|[1-5][0-9]",
-              apply: function(e) {
+              apply: function (e) {
                 this.minutes = +e;
-              }
+              },
             },
             sss: {
               regex: "[0-9][0-9][0-9]",
-              apply: function(e) {
+              apply: function (e) {
                 this.milliseconds = +e;
-              }
+              },
             },
             ss: {
               regex: "[0-5][0-9]",
-              apply: function(e) {
+              apply: function (e) {
                 this.seconds = +e;
-              }
+              },
             },
             s: {
               regex: "[0-9]|[1-5][0-9]",
-              apply: function(e) {
+              apply: function (e) {
                 this.seconds = +e;
-              }
+              },
             },
             a: {
               regex: t.DATETIME_FORMATS.AMPMS.join("|"),
-              apply: function(e) {
+              apply: function (e) {
                 12 === this.hours && (this.hours = 0),
                   "PM" === e && (this.hours += 12);
-              }
-            }
+              },
+            },
           };
-          this.parse = function(n, i, r) {
+          this.parse = function (n, i, r) {
             if (!angular.isString(n) || !i) return n;
             (i = (i = t.DATETIME_FORMATS[i] || i).replace(o, "\\$&")),
               this.parsers[i] || (this.parsers[i] = a(i));
@@ -3991,7 +3995,7 @@
                     hours: r.getHours(),
                     minutes: r.getMinutes(),
                     seconds: r.getSeconds(),
-                    milliseconds: r.getMilliseconds()
+                    milliseconds: r.getMilliseconds(),
                   })
                 : (r && e.warn("dateparser:", "baseDate is not a valid date"),
                   (u = {
@@ -4001,14 +4005,14 @@
                     hours: 0,
                     minutes: 0,
                     seconds: 0,
-                    milliseconds: 0
+                    milliseconds: 0,
                   }));
               for (var h = 1, f = d.length; f > h; h++) {
                 var m = c[h - 1];
                 m.apply && m.apply.call(u, d[h]);
               }
               return (
-                (function(e, t, n) {
+                (function (e, t, n) {
                   return (
                     !(1 > n) &&
                     (1 === t && n > 28
@@ -4030,16 +4034,16 @@
               );
             }
           };
-        }
+        },
       ]),
       angular.module("ui.bootstrap.position", []).factory("$position", [
         "$document",
         "$window",
-        function(e, t) {
+        function (e, t) {
           function n(e) {
             return (
               "static" ===
-              ((function(e, n) {
+              ((function (e, n) {
                 return e.currentStyle
                   ? e.currentStyle[n]
                   : t.getComputedStyle
@@ -4048,13 +4052,13 @@
               })(e, "position") || "static")
             );
           }
-          var a = function(t) {
+          var a = function (t) {
             for (var a = e[0], o = t.offsetParent || a; o && o !== a && n(o); )
               o = o.offsetParent;
             return o || a;
           };
           return {
-            position: function(t) {
+            position: function (t) {
               var n = this.offset(t),
                 o = { top: 0, left: 0 },
                 i = a(t[0]);
@@ -4067,20 +4071,20 @@
                 width: r.width || t.prop("offsetWidth"),
                 height: r.height || t.prop("offsetHeight"),
                 top: n.top - o.top,
-                left: n.left - o.left
+                left: n.left - o.left,
               };
             },
-            offset: function(n) {
+            offset: function (n) {
               var a = n[0].getBoundingClientRect();
               return {
                 width: a.width || n.prop("offsetWidth"),
                 height: a.height || n.prop("offsetHeight"),
                 top: a.top + (t.pageYOffset || e[0].documentElement.scrollTop),
                 left:
-                  a.left + (t.pageXOffset || e[0].documentElement.scrollLeft)
+                  a.left + (t.pageXOffset || e[0].documentElement.scrollLeft),
               };
             },
-            positionElements: function(e, t, n, a) {
+            positionElements: function (e, t, n, a) {
               var o,
                 i,
                 r,
@@ -4092,26 +4096,26 @@
                 (i = t.prop("offsetWidth")),
                 (r = t.prop("offsetHeight"));
               var u = {
-                  center: function() {
+                  center: function () {
                     return o.left + o.width / 2 - i / 2;
                   },
-                  left: function() {
+                  left: function () {
                     return o.left;
                   },
-                  right: function() {
+                  right: function () {
                     return o.left + o.width;
-                  }
+                  },
                 },
                 p = {
-                  center: function() {
+                  center: function () {
                     return o.top + o.height / 2 - r / 2;
                   },
-                  top: function() {
+                  top: function () {
                     return o.top;
                   },
-                  bottom: function() {
+                  bottom: function () {
                     return o.top + o.height;
-                  }
+                  },
                 };
               switch (c) {
                 case "right":
@@ -4127,14 +4131,14 @@
                   s = { top: o.top - r, left: u[d]() };
               }
               return s;
-            }
+            },
           };
-        }
+        },
       ]),
       angular
         .module("ui.bootstrap.datepicker", [
           "ui.bootstrap.dateparser",
-          "ui.bootstrap.position"
+          "ui.bootstrap.position",
         ])
         .value("$datepickerSuppressError", !1)
         .constant("datepickerConfig", {
@@ -4152,7 +4156,7 @@
           yearRange: 20,
           minDate: null,
           maxDate: null,
-          shortcutPropagation: !1
+          shortcutPropagation: !1,
         })
         .controller("DatepickerController", [
           "$scope",
@@ -4163,7 +4167,7 @@
           "dateFilter",
           "datepickerConfig",
           "$datepickerSuppressError",
-          function(e, t, n, a, o, i, r, s) {
+          function (e, t, n, a, o, i, r, s) {
             var l = this,
               c = { $setViewValue: angular.noop };
             (this.modes = ["day", "month", "year"]),
@@ -4178,9 +4182,9 @@
                   "showWeeks",
                   "startingDay",
                   "yearRange",
-                  "shortcutPropagation"
+                  "shortcutPropagation",
                 ],
-                function(n, o) {
+                function (n, o) {
                   l[n] = angular.isDefined(t[n])
                     ? 6 > o
                       ? a(t[n])(e.$parent)
@@ -4188,16 +4192,16 @@
                     : r[n];
                 }
               ),
-              angular.forEach(["minDate", "maxDate"], function(a) {
+              angular.forEach(["minDate", "maxDate"], function (a) {
                 t[a]
-                  ? e.$parent.$watch(n(t[a]), function(e) {
+                  ? e.$parent.$watch(n(t[a]), function (e) {
                       (l[a] = e ? new Date(e) : null), l.refreshView();
                     })
                   : (l[a] = r[a] ? new Date(r[a]) : null);
               }),
-              angular.forEach(["minMode", "maxMode"], function(a) {
+              angular.forEach(["minMode", "maxMode"], function (a) {
                 t[a]
-                  ? e.$parent.$watch(n(t[a]), function(n) {
+                  ? e.$parent.$watch(n(t[a]), function (n) {
                       (l[a] = angular.isDefined(n) ? n : t[a]),
                         (e[a] = l[a]),
                         (("minMode" == a &&
@@ -4216,24 +4220,24 @@
               angular.isDefined(t.initDate)
                 ? ((this.activeDate =
                     e.$parent.$eval(t.initDate) || new Date()),
-                  e.$parent.$watch(t.initDate, function(e) {
+                  e.$parent.$watch(t.initDate, function (e) {
                     e &&
                       (c.$isEmpty(c.$modelValue) || c.$invalid) &&
                       ((l.activeDate = e), l.refreshView());
                   }))
                 : (this.activeDate = new Date()),
-              (e.isActive = function(t) {
+              (e.isActive = function (t) {
                 return (
                   0 === l.compare(t.date, l.activeDate) &&
                   ((e.activeDateId = t.uid), !0)
                 );
               }),
-              (this.init = function(e) {
-                (c = e).$render = function() {
+              (this.init = function (e) {
+                (c = e).$render = function () {
                   l.render();
                 };
               }),
-              (this.render = function() {
+              (this.render = function () {
                 if (c.$viewValue) {
                   var e = new Date(c.$viewValue);
                   !isNaN(e)
@@ -4245,7 +4249,7 @@
                 }
                 this.refreshView();
               }),
-              (this.refreshView = function() {
+              (this.refreshView = function () {
                 if (this.element) {
                   this._refreshView();
                   var e = c.$viewValue ? new Date(c.$viewValue) : null;
@@ -4255,7 +4259,7 @@
                   );
                 }
               }),
-              (this.createDateObject = function(e, t) {
+              (this.createDateObject = function (e, t) {
                 var n = c.$viewValue ? new Date(c.$viewValue) : null;
                 return {
                   date: e,
@@ -4263,10 +4267,10 @@
                   selected: n && 0 === this.compare(e, n),
                   disabled: this.isDisabled(e),
                   current: 0 === this.compare(e, new Date()),
-                  customClass: this.customClass(e)
+                  customClass: this.customClass(e),
                 };
               }),
-              (this.isDisabled = function(n) {
+              (this.isDisabled = function (n) {
                 return (
                   (this.minDate && this.compare(n, this.minDate) < 0) ||
                   (this.maxDate && this.compare(n, this.maxDate) > 0) ||
@@ -4274,18 +4278,18 @@
                     e.dateDisabled({ date: n, mode: e.datepickerMode }))
                 );
               }),
-              (this.customClass = function(t) {
+              (this.customClass = function (t) {
                 return e.customClass({ date: t, mode: e.datepickerMode });
               }),
-              (this.split = function(e, t) {
+              (this.split = function (e, t) {
                 for (var n = []; e.length > 0; ) n.push(e.splice(0, t));
                 return n;
               }),
-              (this.fixTimeZone = function(e) {
+              (this.fixTimeZone = function (e) {
                 var t = e.getHours();
                 e.setHours(23 === t ? t + 2 : 0);
               }),
-              (e.select = function(t) {
+              (e.select = function (t) {
                 if (e.datepickerMode === l.minMode) {
                   var n = c.$viewValue
                     ? new Date(c.$viewValue)
@@ -4298,12 +4302,12 @@
                     (e.datepickerMode =
                       l.modes[l.modes.indexOf(e.datepickerMode) - 1]);
               }),
-              (e.move = function(e) {
+              (e.move = function (e) {
                 var t = l.activeDate.getFullYear() + e * (l.step.years || 0),
                   n = l.activeDate.getMonth() + e * (l.step.months || 0);
                 l.activeDate.setFullYear(t, n, 1), l.refreshView();
               }),
-              (e.toggleMode = function(t) {
+              (e.toggleMode = function (t) {
                 (t = t || 1),
                   (e.datepickerMode === l.maxMode && 1 === t) ||
                     (e.datepickerMode === l.minMode && -1 === t) ||
@@ -4320,13 +4324,13 @@
                 37: "left",
                 38: "up",
                 39: "right",
-                40: "down"
+                40: "down",
               });
-            var d = function() {
+            var d = function () {
               l.element[0].focus();
             };
             e.$on("datepicker.focus", d),
-              (e.keydown = function(t) {
+              (e.keydown = function (t) {
                 var n = e.keys[t.which];
                 if (n && !t.shiftKey && !t.altKey)
                   if (
@@ -4341,40 +4345,40 @@
                       ? (l.handleKeyDown(n, t), l.refreshView())
                       : (e.toggleMode("up" === n ? 1 : -1), d());
               });
-          }
+          },
         ])
-        .directive("datepicker", function() {
+        .directive("datepicker", function () {
           return {
             restrict: "EA",
             replace: !0,
-            templateUrl: function(e, t) {
+            templateUrl: function (e, t) {
               return t.templateUrl || "template/datepicker/datepicker.html";
             },
             scope: {
               datepickerMode: "=?",
               dateDisabled: "&",
               customClass: "&",
-              shortcutPropagation: "&?"
+              shortcutPropagation: "&?",
             },
             require: ["datepicker", "^ngModel"],
             controller: "DatepickerController",
             controllerAs: "datepicker",
-            link: function(e, t, n, a) {
+            link: function (e, t, n, a) {
               var o = a[0],
                 i = a[1];
               o.init(i);
-            }
+            },
           };
         })
         .directive("daypicker", [
           "dateFilter",
-          function(e) {
+          function (e) {
             return {
               restrict: "EA",
               replace: !0,
               templateUrl: "template/datepicker/day.html",
               require: "^datepicker",
-              link: function(t, n, a, o) {
+              link: function (t, n, a, o) {
                 function i(e, t) {
                   return 1 !== t || e % 4 != 0 || (e % 100 == 0 && e % 400 != 0)
                     ? s[t]
@@ -4394,7 +4398,7 @@
                   (o.step = { months: 1 }),
                   (o.element = n);
                 var s = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-                (o._refreshView = function() {
+                (o._refreshView = function () {
                   var n = o.activeDate.getFullYear(),
                     a = o.activeDate.getMonth(),
                     i = new Date(n, a, 1),
@@ -4403,7 +4407,7 @@
                     c = new Date(i);
                   l > 0 && c.setDate(1 - l);
                   for (
-                    var d = (function(e, t) {
+                    var d = (function (e, t) {
                         for (
                           var n, a = new Array(t), i = new Date(e), r = 0;
                           t > r;
@@ -4423,14 +4427,14 @@
                       o.createDateObject(d[u], o.formatDay),
                       {
                         secondary: d[u].getMonth() !== a,
-                        uid: t.uniqueId + "-" + u
+                        uid: t.uniqueId + "-" + u,
                       }
                     );
                   t.labels = new Array(7);
                   for (var p = 0; 7 > p; p++)
                     t.labels[p] = {
                       abbr: e(d[p].date, o.formatDayHeader),
-                      full: e(d[p].date, "EEEE")
+                      full: e(d[p].date, "EEEE"),
                     };
                   if (
                     ((t.title = e(o.activeDate, o.formatDayTitle)),
@@ -4448,13 +4452,13 @@
                       t.weekNumbers.push(r(t.rows[m][h].date));
                   }
                 }),
-                  (o.compare = function(e, t) {
+                  (o.compare = function (e, t) {
                     return (
                       new Date(e.getFullYear(), e.getMonth(), e.getDate()) -
                       new Date(t.getFullYear(), t.getMonth(), t.getDate())
                     );
                   }),
-                  (o.handleKeyDown = function(e, t) {
+                  (o.handleKeyDown = function (e, t) {
                     var n = o.activeDate.getDate();
                     if ("left" === e) n -= 1;
                     else if ("up" === e) n -= 7;
@@ -4482,22 +4486,22 @@
                     o.activeDate.setDate(n);
                   }),
                   o.refreshView();
-              }
+              },
             };
-          }
+          },
         ])
         .directive("monthpicker", [
           "dateFilter",
-          function(e) {
+          function (e) {
             return {
               restrict: "EA",
               replace: !0,
               templateUrl: "template/datepicker/month.html",
               require: "^datepicker",
-              link: function(t, n, a, o) {
+              link: function (t, n, a, o) {
                 (o.step = { years: 1 }),
                   (o.element = n),
-                  (o._refreshView = function() {
+                  (o._refreshView = function () {
                     for (
                       var n,
                         a = new Array(12),
@@ -4511,19 +4515,19 @@
                         (a[r] = angular.extend(
                           o.createDateObject(n, o.formatMonth),
                           {
-                            uid: t.uniqueId + "-" + r
+                            uid: t.uniqueId + "-" + r,
                           }
                         ));
                     (t.title = e(o.activeDate, o.formatMonthTitle)),
                       (t.rows = o.split(a, 3));
                   }),
-                  (o.compare = function(e, t) {
+                  (o.compare = function (e, t) {
                     return (
                       new Date(e.getFullYear(), e.getMonth()) -
                       new Date(t.getFullYear(), t.getMonth())
                     );
                   }),
-                  (o.handleKeyDown = function(e, t) {
+                  (o.handleKeyDown = function (e, t) {
                     var n = o.activeDate.getMonth();
                     if ("left" === e) n -= 1;
                     else if ("up" === e) n -= 3;
@@ -4537,26 +4541,26 @@
                     o.activeDate.setMonth(n);
                   }),
                   o.refreshView();
-              }
+              },
             };
-          }
+          },
         ])
         .directive("yearpicker", [
           "dateFilter",
-          function(e) {
+          function (e) {
             return {
               restrict: "EA",
               replace: !0,
               templateUrl: "template/datepicker/year.html",
               require: "^datepicker",
-              link: function(e, t, n, a) {
+              link: function (e, t, n, a) {
                 function o(e) {
                   return parseInt((e - 1) / i, 10) * i + 1;
                 }
                 var i = a.yearRange;
                 (a.step = { years: i }),
                   (a.element = t),
-                  (a._refreshView = function() {
+                  (a._refreshView = function () {
                     for (
                       var t,
                         n = new Array(i),
@@ -4570,16 +4574,16 @@
                         (n[r] = angular.extend(
                           a.createDateObject(t, a.formatYear),
                           {
-                            uid: e.uniqueId + "-" + r
+                            uid: e.uniqueId + "-" + r,
                           }
                         ));
                     (e.title = [n[0].label, n[i - 1].label].join(" - ")),
                       (e.rows = a.split(n, 5));
                   }),
-                  (a.compare = function(e, t) {
+                  (a.compare = function (e, t) {
                     return e.getFullYear() - t.getFullYear();
                   }),
-                  (a.handleKeyDown = function(e, t) {
+                  (a.handleKeyDown = function (e, t) {
                     var n = a.activeDate.getFullYear();
                     "left" === e
                       ? (n -= 1)
@@ -4598,9 +4602,9 @@
                       a.activeDate.setFullYear(n);
                   }),
                   a.refreshView();
-              }
+              },
             };
-          }
+          },
         ])
         .constant("datepickerPopupConfig", {
           datepickerPopup: "yyyy-MM-dd",
@@ -4609,7 +4613,7 @@
           html5Types: {
             date: "yyyy-MM-dd",
             "datetime-local": "yyyy-MM-ddTHH:mm:ss.sss",
-            month: "yyyy-MM"
+            month: "yyyy-MM",
           },
           currentText: "Today",
           clearText: "Clear",
@@ -4617,7 +4621,7 @@
           closeOnDateSelection: !0,
           appendToBody: !1,
           showButtonBar: !0,
-          onOpenFocus: !0
+          onOpenFocus: !0,
         })
         .directive("datepickerPopup", [
           "$compile",
@@ -4629,7 +4633,7 @@
           "dateParser",
           "datepickerPopupConfig",
           "$timeout",
-          function(e, t, n, a, o, i, r, s, l) {
+          function (e, t, n, a, o, i, r, s, l) {
             return {
               restrict: "EA",
               require: "ngModel",
@@ -4639,11 +4643,11 @@
                 clearText: "@",
                 closeText: "@",
                 dateDisabled: "&",
-                customClass: "&"
+                customClass: "&",
               },
-              link: function(c, d, u, p) {
+              link: function (c, d, u, p) {
                 function h(e) {
-                  return e.replace(/([A-Z])/g, function(e) {
+                  return e.replace(/([A-Z])/g, function (e) {
                     return "-" + e.toLowerCase();
                   });
                 }
@@ -4667,17 +4671,17 @@
                 (c.showButtonBar = angular.isDefined(u.showButtonBar)
                   ? c.$parent.$eval(u.showButtonBar)
                   : s.showButtonBar),
-                  (c.getText = function(e) {
+                  (c.getText = function (e) {
                     return c[e + "Text"] || s[e + "Text"];
                   }),
-                  (c.isDisabled = function(e) {
+                  (c.isDisabled = function (e) {
                     return (
                       "today" === e && (e = new Date()),
                       (c.watchData.minDate && c.compare(e, y.minDate) < 0) ||
                         (c.watchData.maxDate && c.compare(e, y.maxDate) > 0)
                     );
                   }),
-                  (c.compare = function(e, t) {
+                  (c.compare = function (e, t) {
                     return (
                       new Date(e.getFullYear(), e.getMonth(), e.getDate()) -
                       new Date(t.getFullYear(), t.getMonth(), t.getDate())
@@ -4688,7 +4692,7 @@
                   (s.html5Types[u.type]
                     ? ((f = s.html5Types[u.type]), (k = !0))
                     : ((f = u.datepickerPopup || s.datepickerPopup),
-                      u.$observe("datepickerPopup", function(e, t) {
+                      u.$observe("datepickerPopup", function (e, t) {
                         var n = e || s.datepickerPopup;
                         if (n !== f && ((f = n), (p.$modelValue = null), !f))
                           throw new Error(
@@ -4710,7 +4714,7 @@
                 S.attr({
                   "ng-model": "date",
                   "ng-change": "dateSelection(date)",
-                  "template-url": b
+                  "template-url": b,
                 });
                 var T = angular.element(S.children()[0]);
                 if (
@@ -4727,7 +4731,7 @@
                     ((c.initDate = C.initDate),
                     T.attr("init-date", "initDate"),
                     delete C.initDate),
-                    angular.forEach(C, function(e, t) {
+                    angular.forEach(C, function (e, t) {
                       T.attr(h(t), e);
                     });
                 }
@@ -4740,13 +4744,13 @@
                       "maxDate",
                       "datepickerMode",
                       "initDate",
-                      "shortcutPropagation"
+                      "shortcutPropagation",
                     ],
-                    function(e) {
+                    function (e) {
                       if (u[e]) {
                         var n = t(u[e]);
                         if (
-                          (c.$parent.$watch(n, function(t) {
+                          (c.$parent.$watch(n, function (t) {
                             (c.watchData[e] = t),
                               ("minDate" === e || "maxDate" === e) &&
                                 (y[e] = new Date(t));
@@ -4755,7 +4759,7 @@
                           "datepickerMode" === e)
                         ) {
                           var a = n.assign;
-                          c.$watch("watchData." + e, function(e, t) {
+                          c.$watch("watchData." + e, function (e, t) {
                             angular.isFunction(a) && e !== t && a(c.$parent, e);
                           });
                         }
@@ -4774,11 +4778,11 @@
                       "customClass({ date: date, mode: mode })"
                     ),
                   k
-                    ? p.$formatters.push(function(e) {
+                    ? p.$formatters.push(function (e) {
                         return (c.date = e), e;
                       })
                     : ((p.$$parserName = "date"),
-                      (p.$validators.date = function(e, t) {
+                      (p.$validators.date = function (e, t) {
                         var n = e || t;
                         if (!u.ngRequired && !n) return !0;
                         if ((angular.isNumber(n) && (n = new Date(n)), n)) {
@@ -4791,7 +4795,7 @@
                         }
                         return !0;
                       }),
-                      p.$parsers.unshift(function(e) {
+                      p.$parsers.unshift(function (e) {
                         if ((angular.isNumber(e) && (e = new Date(e)), !e))
                           return null;
                         if (angular.isDate(e) && !isNaN(e)) return e;
@@ -4800,32 +4804,32 @@
                           return isNaN(t) ? void 0 : t;
                         }
                       }),
-                      p.$formatters.push(function(e) {
+                      p.$formatters.push(function (e) {
                         return (c.date = e), p.$isEmpty(e) ? e : i(e, f);
                       })),
-                  (c.dateSelection = function(e) {
+                  (c.dateSelection = function (e) {
                     angular.isDefined(e) && (c.date = e);
                     var t = c.date ? i(c.date, f) : null;
                     d.val(t),
                       p.$setViewValue(t),
                       m && ((c.isOpen = !1), d[0].focus());
                   }),
-                  p.$viewChangeListeners.push(function() {
+                  p.$viewChangeListeners.push(function () {
                     c.date = r.parse(p.$viewValue, f, c.date);
                   });
-                var P = function(e) {
+                var P = function (e) {
                     !c.isOpen ||
                       d[0].contains(e.target) ||
                       S[0].contains(e.target) ||
-                      c.$apply(function() {
+                      c.$apply(function () {
                         c.isOpen = !1;
                       });
                   },
-                  A = function(e) {
+                  A = function (e) {
                     27 === e.which && c.isOpen
                       ? (e.preventDefault(),
                         e.stopPropagation(),
-                        c.$apply(function() {
+                        c.$apply(function () {
                           c.isOpen = !1;
                         }),
                         d[0].focus())
@@ -4833,21 +4837,21 @@
                         c.isOpen ||
                         (e.preventDefault(),
                         e.stopPropagation(),
-                        c.$apply(function() {
+                        c.$apply(function () {
                           c.isOpen = !0;
                         }));
                   };
                 d.bind("keydown", A),
-                  (c.keydown = function(e) {
+                  (c.keydown = function (e) {
                     27 === e.which && ((c.isOpen = !1), d[0].focus());
                   }),
-                  c.$watch("isOpen", function(e) {
+                  c.$watch("isOpen", function (e) {
                     e
                       ? ((c.position = g ? o.offset(d) : o.position(d)),
                         (c.position.top =
                           c.position.top + d.prop("offsetHeight")),
                         l(
-                          function() {
+                          function () {
                             v && c.$broadcast("datepicker.focus"),
                               n.bind("click", P);
                           },
@@ -4856,7 +4860,7 @@
                         ))
                       : n.unbind("click", P);
                   }),
-                  (c.select = function(e) {
+                  (c.select = function (e) {
                     if ("today" === e) {
                       var t = new Date();
                       angular.isDate(c.date)
@@ -4869,34 +4873,34 @@
                     }
                     c.dateSelection(e);
                   }),
-                  (c.close = function() {
+                  (c.close = function () {
                     (c.isOpen = !1), d[0].focus();
                   });
                 var x = e(S)(c);
                 S.remove(),
                   g ? n.find("body").append(x) : d.after(x),
-                  c.$on("$destroy", function() {
+                  c.$on("$destroy", function () {
                     !0 === c.isOpen &&
                       (a.$$phase ||
-                        c.$apply(function() {
+                        c.$apply(function () {
                           c.isOpen = !1;
                         })),
                       x.remove(),
                       d.unbind("keydown", A),
                       n.unbind("click", P);
                   });
-              }
+              },
             };
-          }
+          },
         ])
-        .directive("datepickerPopupWrap", function() {
+        .directive("datepickerPopupWrap", function () {
           return {
             restrict: "EA",
             replace: !0,
             transclude: !0,
-            templateUrl: function(e, t) {
+            templateUrl: function (e, t) {
               return t.templateUrl || "template/datepicker/popup.html";
-            }
+            },
           };
         }),
       angular
@@ -4905,18 +4909,18 @@
         .service("dropdownService", [
           "$document",
           "$rootScope",
-          function(e, t) {
+          function (e, t) {
             var n = null;
-            (this.open = function(t) {
+            (this.open = function (t) {
               n || (e.bind("click", a), e.bind("keydown", o)),
                 n && n !== t && (n.isOpen = !1),
                 (n = t);
             }),
-              (this.close = function(t) {
+              (this.close = function (t) {
                 n === t &&
                   ((n = null), e.unbind("click", a), e.unbind("keydown", o));
               });
-            var a = function(e) {
+            var a = function (e) {
                 if (n && (!e || "disabled" !== n.getAutoClose())) {
                   var a = n.getToggleElement();
                   if (!(e && a && a[0].contains(e.target))) {
@@ -4929,7 +4933,7 @@
                   }
                 }
               },
-              o = function(e) {
+              o = function (e) {
                 27 === e.which
                   ? (n.focusToggleElement(), a())
                   : n.isKeynavEnabled() &&
@@ -4939,7 +4943,7 @@
                     e.stopPropagation(),
                     n.focusDropdownEntry(e.which));
               };
-          }
+          },
         ])
         .controller("DropdownController", [
           "$scope",
@@ -4952,7 +4956,7 @@
           "$document",
           "$compile",
           "$templateRequest",
-          function(e, t, n, a, o, i, r, s, l, c) {
+          function (e, t, n, a, o, i, r, s, l, c) {
             var d,
               u,
               p = this,
@@ -4963,12 +4967,12 @@
               v = !1,
               b = !1,
               w = s.find("body");
-            (this.init = function(a) {
+            (this.init = function (a) {
               (p.$element = a),
                 t.isOpen &&
                   ((u = n(t.isOpen)),
                   (m = u.assign),
-                  e.$watch(u, function(e) {
+                  e.$watch(u, function (e) {
                     h.isOpen = !!e;
                   })),
                 (v = angular.isDefined(t.dropdownAppendToBody)),
@@ -4977,36 +4981,32 @@
                   p.dropdownMenu &&
                   (w.append(p.dropdownMenu),
                   w.addClass("dropdown"),
-                  a.on("$destroy", function() {
+                  a.on("$destroy", function () {
                     p.dropdownMenu.remove();
                   }));
             }),
-              (this.toggle = function(e) {
+              (this.toggle = function (e) {
                 return (h.isOpen = arguments.length ? !!e : !h.isOpen);
               }),
-              (this.isOpen = function() {
+              (this.isOpen = function () {
                 return h.isOpen;
               }),
-              (h.getToggleElement = function() {
+              (h.getToggleElement = function () {
                 return p.toggleElement;
               }),
-              (h.getAutoClose = function() {
+              (h.getAutoClose = function () {
                 return t.autoClose || "always";
               }),
-              (h.getElement = function() {
+              (h.getElement = function () {
                 return p.$element;
               }),
-              (h.isKeynavEnabled = function() {
+              (h.isKeynavEnabled = function () {
                 return b;
               }),
-              (h.focusDropdownEntry = function(e) {
+              (h.focusDropdownEntry = function (e) {
                 var t = p.dropdownMenu
                   ? angular.element(p.dropdownMenu).find("a")
-                  : angular
-                      .element(p.$element)
-                      .find("ul")
-                      .eq(0)
-                      .find("a");
+                  : angular.element(p.$element).find("ul").eq(0).find("a");
                 switch (e) {
                   case 40:
                     angular.isNumber(p.selectedOption)
@@ -5024,13 +5024,13 @@
                 }
                 t[p.selectedOption].focus();
               }),
-              (h.getDropdownElement = function() {
+              (h.getDropdownElement = function () {
                 return p.dropdownMenu;
               }),
-              (h.focusToggleElement = function() {
+              (h.focusToggleElement = function () {
                 p.toggleElement && p.toggleElement[0].focus();
               }),
-              h.$watch("isOpen", function(t, n) {
+              h.$watch("isOpen", function (t, n) {
                 if (v && p.dropdownMenu) {
                   var a = r.positionElements(
                       p.$element,
@@ -5050,15 +5050,15 @@
                 }
                 var u = v ? w : p.$element;
                 if (
-                  (i[t ? "addClass" : "removeClass"](u, f).then(function() {
+                  (i[t ? "addClass" : "removeClass"](u, f).then(function () {
                     angular.isDefined(t) && t !== n && g(e, { open: !!t });
                   }),
                   t)
                 )
                   p.dropdownMenuTemplateUrl &&
-                    c(p.dropdownMenuTemplateUrl).then(function(e) {
+                    c(p.dropdownMenuTemplateUrl).then(function (e) {
                       (d = h.$new()),
-                        l(e.trim())(d, function(e) {
+                        l(e.trim())(d, function (e) {
                           var t = e;
                           p.dropdownMenu.replaceWith(t), (p.dropdownMenu = t);
                         });
@@ -5075,42 +5075,42 @@
                 }
                 angular.isFunction(m) && m(e, t);
               }),
-              e.$on("$locationChangeSuccess", function() {
+              e.$on("$locationChangeSuccess", function () {
                 "disabled" !== h.getAutoClose() && (h.isOpen = !1);
               });
-            var y = e.$on("$destroy", function() {
+            var y = e.$on("$destroy", function () {
               h.$destroy();
             });
             h.$on("$destroy", y);
-          }
+          },
         ])
-        .directive("dropdown", function() {
+        .directive("dropdown", function () {
           return {
             controller: "DropdownController",
-            link: function(e, t, n, a) {
+            link: function (e, t, n, a) {
               a.init(t), t.addClass("dropdown");
-            }
+            },
           };
         })
-        .directive("dropdownMenu", function() {
+        .directive("dropdownMenu", function () {
           return {
             restrict: "AC",
             require: "?^dropdown",
-            link: function(e, t, n, a) {
+            link: function (e, t, n, a) {
               if (a) {
                 var o = n.templateUrl;
                 o && (a.dropdownMenuTemplateUrl = o),
                   a.dropdownMenu || (a.dropdownMenu = t);
               }
-            }
+            },
           };
         })
-        .directive("keyboardNav", function() {
+        .directive("keyboardNav", function () {
           return {
             restrict: "A",
             require: "?^dropdown",
-            link: function(e, t, n, a) {
-              t.bind("keydown", function(e) {
+            link: function (e, t, n, a) {
+              t.bind("keydown", function (e) {
                 if (-1 !== [38, 40].indexOf(e.which)) {
                   e.preventDefault(), e.stopPropagation();
                   var t = a.dropdownMenu.find("a");
@@ -5132,57 +5132,57 @@
                   t[a.selectedOption].focus();
                 }
               });
-            }
+            },
           };
         })
-        .directive("dropdownToggle", function() {
+        .directive("dropdownToggle", function () {
           return {
             require: "?^dropdown",
-            link: function(e, t, n, a) {
+            link: function (e, t, n, a) {
               if (a) {
                 t.addClass("dropdown-toggle"), (a.toggleElement = t);
-                var o = function(o) {
+                var o = function (o) {
                   o.preventDefault(),
                     t.hasClass("disabled") ||
                       n.disabled ||
-                      e.$apply(function() {
+                      e.$apply(function () {
                         a.toggle();
                       });
                 };
                 t.bind("click", o),
                   t.attr({ "aria-haspopup": !0, "aria-expanded": !1 }),
-                  e.$watch(a.isOpen, function(e) {
+                  e.$watch(a.isOpen, function (e) {
                     t.attr("aria-expanded", !!e);
                   }),
-                  e.$on("$destroy", function() {
+                  e.$on("$destroy", function () {
                     t.unbind("click", o);
                   });
               }
-            }
+            },
           };
         }),
       angular
         .module("ui.bootstrap.modal", [])
-        .factory("$$stackedMap", function() {
+        .factory("$$stackedMap", function () {
           return {
-            createNew: function() {
+            createNew: function () {
               var e = [];
               return {
-                add: function(t, n) {
+                add: function (t, n) {
                   e.push({ key: t, value: n });
                 },
-                get: function(t) {
+                get: function (t) {
                   for (var n = 0; n < e.length; n++)
                     if (t == e[n].key) return e[n];
                 },
-                keys: function() {
+                keys: function () {
                   for (var t = [], n = 0; n < e.length; n++) t.push(e[n].key);
                   return t;
                 },
-                top: function() {
+                top: function () {
                   return e[e.length - 1];
                 },
-                remove: function(t) {
+                remove: function (t) {
                   for (var n = -1, a = 0; a < e.length; a++)
                     if (t == e[a].key) {
                       n = a;
@@ -5190,65 +5190,63 @@
                     }
                   return e.splice(n, 1)[0];
                 },
-                removeTop: function() {
+                removeTop: function () {
                   return e.splice(e.length - 1, 1)[0];
                 },
-                length: function() {
+                length: function () {
                   return e.length;
-                }
+                },
               };
-            }
+            },
           };
         })
-        .factory("$$multiMap", function() {
+        .factory("$$multiMap", function () {
           return {
-            createNew: function() {
+            createNew: function () {
               var e = {};
               return {
-                entries: function() {
-                  return Object.keys(e).map(function(t) {
+                entries: function () {
+                  return Object.keys(e).map(function (t) {
                     return { key: t, value: e[t] };
                   });
                 },
-                get: function(t) {
+                get: function (t) {
                   return e[t];
                 },
-                hasKey: function(t) {
+                hasKey: function (t) {
                   return !!e[t];
                 },
-                keys: function() {
+                keys: function () {
                   return Object.keys(e);
                 },
-                put: function(t, n) {
+                put: function (t, n) {
                   e[t] || (e[t] = []), e[t].push(n);
                 },
-                remove: function(t, n) {
+                remove: function (t, n) {
                   var a = e[t];
                   if (a) {
                     var o = a.indexOf(n);
                     -1 !== o && a.splice(o, 1), a.length || delete e[t];
                   }
-                }
+                },
               };
-            }
+            },
           };
         })
         .directive("modalBackdrop", [
           "$animate",
           "$injector",
           "$modalStack",
-          function(e, t, n) {
+          function (e, t, n) {
             function a(t, a, i) {
               i.modalInClass &&
                 (o
                   ? o(a, { addClass: i.modalInClass }).start()
                   : e.addClass(a, i.modalInClass),
-                t.$on(n.NOW_CLOSING_EVENT, function(t, n) {
+                t.$on(n.NOW_CLOSING_EVENT, function (t, n) {
                   var r = n();
                   o
-                    ? o(a, { removeClass: i.modalInClass })
-                        .start()
-                        .then(r)
+                    ? o(a, { removeClass: i.modalInClass }).start().then(r)
                     : e.removeClass(a, i.modalInClass).then(r);
                 }));
             }
@@ -5259,19 +5257,19 @@
                 restrict: "EA",
                 replace: !0,
                 templateUrl: "template/modal/backdrop.html",
-                compile: function(e, t) {
+                compile: function (e, t) {
                   return e.addClass(t.backdropClass), a;
-                }
+                },
               }
             );
-          }
+          },
         ])
         .directive("modalWindow", [
           "$modalStack",
           "$q",
           "$animate",
           "$injector",
-          function(e, t, n, a) {
+          function (e, t, n, a) {
             var o = null;
             return (
               a.has("$animateCss") && (o = a.get("$animateCss")),
@@ -5280,13 +5278,13 @@
                 scope: { index: "@" },
                 replace: !0,
                 transclude: !0,
-                templateUrl: function(e, t) {
+                templateUrl: function (e, t) {
                   return t.templateUrl || "template/modal/window.html";
                 },
-                link: function(a, i, r) {
+                link: function (a, i, r) {
                   i.addClass(r.windowClass || ""),
                     (a.size = r.size),
-                    (a.close = function(t) {
+                    (a.close = function (t) {
                       var n = e.getTop();
                       n &&
                         n.value.backdrop &&
@@ -5298,16 +5296,16 @@
                     }),
                     (a.$isRendered = !0);
                   var s = t.defer();
-                  r.$observe("modalRender", function(e) {
+                  r.$observe("modalRender", function (e) {
                     "true" == e && s.resolve();
                   }),
-                    s.promise.then(function() {
+                    s.promise.then(function () {
                       var s = null;
                       r.modalInClass &&
                         ((s = o
                           ? o(i, { addClass: r.modalInClass }).start()
                           : n.addClass(i, r.modalInClass)),
-                        a.$on(e.NOW_CLOSING_EVENT, function(e, t) {
+                        a.$on(e.NOW_CLOSING_EVENT, function (e, t) {
                           var a = t();
                           o
                             ? o(i, { removeClass: r.modalInClass })
@@ -5315,34 +5313,34 @@
                                 .then(a)
                             : n.removeClass(i, r.modalInClass).then(a);
                         })),
-                        t.when(s).then(function() {
+                        t.when(s).then(function () {
                           var e = i[0].querySelectorAll("[autofocus]");
                           e.length ? e[0].focus() : i[0].focus();
                         });
                       var l = e.getTop();
                       l && e.modalRendered(l.key);
                     });
-                }
+                },
               }
             );
-          }
+          },
         ])
         .directive("modalAnimationClass", [
-          function() {
+          function () {
             return {
-              compile: function(e, t) {
+              compile: function (e, t) {
                 t.modalAnimation && e.addClass(t.modalAnimationClass);
-              }
+              },
             };
-          }
+          },
         ])
-        .directive("modalTransclude", function() {
+        .directive("modalTransclude", function () {
           return {
-            link: function(e, t, n, a, o) {
-              o(e.$parent, function(e) {
+            link: function (e, t, n, a, o) {
+              o(e.$parent, function (e) {
                 t.empty(), t.append(e);
               });
-            }
+            },
           };
         })
         .factory("$modalStack", [
@@ -5355,7 +5353,7 @@
           "$injector",
           "$$multiMap",
           "$$stackedMap",
-          function(e, t, n, a, o, i, r, s, l) {
+          function (e, t, n, a, o, i, r, s, l) {
             function c() {
               for (var e = -1, t = b.keys(), n = 0; n < t.length; n++)
                 b.get(t[n]).value.backdrop && (e = n);
@@ -5365,13 +5363,13 @@
               var a = n.find("body").eq(0),
                 o = b.get(e).value;
               b.remove(e),
-                u(o.modalDomEl, o.modalScope, function() {
+                u(o.modalDomEl, o.modalScope, function () {
                   var t = o.openedClass || v;
                   w.remove(t, e), a.toggleClass(t, w.hasKey(t));
                 }),
-                (function() {
+                (function () {
                   if (f && -1 == c()) {
-                    u(f, m, function() {
+                    u(f, m, function () {
                       null;
                     }),
                       (f = void 0),
@@ -5384,10 +5382,10 @@
               var o,
                 r = null;
               return (
-                n.$broadcast(y.NOW_CLOSING_EVENT, function() {
+                n.$broadcast(y.NOW_CLOSING_EVENT, function () {
                   return (
                     o || ((o = i.defer()), (r = o.promise)),
-                    function() {
+                    function () {
                       o.resolve();
                     }
                   );
@@ -5398,7 +5396,7 @@
                     h
                       ? h(t, { event: "leave" })
                           .start()
-                          .then(function() {
+                          .then(function () {
                             t.remove();
                           })
                       : e.leave(t),
@@ -5421,17 +5419,17 @@
               w = s.createNew(),
               y = { NOW_CLOSING_EVENT: "modal.stack.now-closing" };
             return (
-              o.$watch(c, function(e) {
+              o.$watch(c, function (e) {
                 m && (m.index = e);
               }),
-              n.bind("keydown", function(e) {
+              n.bind("keydown", function (e) {
                 if (e.isDefaultPrevented()) return e;
                 var t = b.top();
                 if (t && t.value.keyboard)
                   switch (e.which) {
                     case 27:
                       e.preventDefault(),
-                        o.$apply(function() {
+                        o.$apply(function () {
                           y.dismiss(t.key, "escape key press");
                         });
                       break;
@@ -5446,7 +5444,7 @@
                         n && (e.preventDefault(), e.stopPropagation());
                   }
               }),
-              (y.open = function(e, t) {
+              (y.open = function (e, t) {
                 var i = n[0].activeElement,
                   r = t.openedClass || v;
                 b.add(e, {
@@ -5455,7 +5453,7 @@
                   modalScope: t.scope,
                   backdrop: t.backdrop,
                   keyboard: t.keyboard,
-                  openedClass: t.openedClass
+                  openedClass: t.openedClass,
                 }),
                   w.put(r, e);
                 var s = n.find("body").eq(0),
@@ -5479,7 +5477,7 @@
                     "window-class": t.windowClass,
                     size: t.size,
                     index: b.length() - 1,
-                    animate: "animate"
+                    animate: "animate",
                   })
                   .html(t.content),
                   t.animation && u.attr("modal-animation", "true");
@@ -5490,7 +5488,7 @@
                   s.addClass(r),
                   y.clearFocusListCache();
               }),
-              (y.close = function(e, t) {
+              (y.close = function (e, t) {
                 var n = b.get(e);
                 return n && p(n, t, !0)
                   ? ((n.value.modalScope.$$uibDestructionScheduled = !0),
@@ -5499,7 +5497,7 @@
                     !0)
                   : !n;
               }),
-              (y.dismiss = function(e, t) {
+              (y.dismiss = function (e, t) {
                 var n = b.get(e);
                 return n && p(n, t, !1)
                   ? ((n.value.modalScope.$$uibDestructionScheduled = !0),
@@ -5508,35 +5506,35 @@
                     !0)
                   : !n;
               }),
-              (y.dismissAll = function(e) {
+              (y.dismissAll = function (e) {
                 for (var t = this.getTop(); t && this.dismiss(t.key, e); )
                   t = this.getTop();
               }),
-              (y.getTop = function() {
+              (y.getTop = function () {
                 return b.top();
               }),
-              (y.modalRendered = function(e) {
+              (y.modalRendered = function (e) {
                 var t = b.get(e);
                 t && t.value.renderDeferred.resolve();
               }),
-              (y.focusFirstFocusableElement = function() {
+              (y.focusFirstFocusableElement = function () {
                 return g.length > 0 && (g[0].focus(), !0);
               }),
-              (y.focusLastFocusableElement = function() {
+              (y.focusLastFocusableElement = function () {
                 return g.length > 0 && (g[g.length - 1].focus(), !0);
               }),
-              (y.isFocusInFirstItem = function(e) {
+              (y.isFocusInFirstItem = function (e) {
                 return g.length > 0 && (e.target || e.srcElement) == g[0];
               }),
-              (y.isFocusInLastItem = function(e) {
+              (y.isFocusInLastItem = function (e) {
                 return (
                   g.length > 0 && (e.target || e.srcElement) == g[g.length - 1]
                 );
               }),
-              (y.clearFocusListCache = function() {
+              (y.clearFocusListCache = function () {
                 (g = []), 0;
               }),
-              (y.loadFocusElementList = function(e) {
+              (y.loadFocusElementList = function (e) {
                 if ((void 0 === g || !g.length0) && e) {
                   var t = e.value.modalDomEl;
                   t &&
@@ -5548,9 +5546,9 @@
               }),
               y
             );
-          }
+          },
         ])
-        .provider("$modal", function() {
+        .provider("$modal", function () {
           var e = {
             options: { animation: !0, backdrop: !0, keyboard: !0 },
             $get: [
@@ -5560,7 +5558,7 @@
               "$templateRequest",
               "$controller",
               "$modalStack",
-              function(t, n, a, o, i, r) {
+              function (t, n, a, o, i, r) {
                 function s(e) {
                   return e.template
                     ? a.when(e.template)
@@ -5573,7 +5571,7 @@
                 function l(e) {
                   var n = [];
                   return (
-                    angular.forEach(e, function(e) {
+                    angular.forEach(e, function (e) {
                       angular.isFunction(e) || angular.isArray(e)
                         ? n.push(a.when(t.invoke(e)))
                         : angular.isString(e)
@@ -5586,10 +5584,10 @@
                 var c = {},
                   d = null;
                 return (
-                  (c.getPromiseChain = function() {
+                  (c.getPromiseChain = function () {
                     return d;
                   }),
-                  (c.open = function(t) {
+                  (c.open = function (t) {
                     var o = a.defer(),
                       c = a.defer(),
                       u = a.defer(),
@@ -5597,12 +5595,12 @@
                         result: o.promise,
                         opened: c.promise,
                         rendered: u.promise,
-                        close: function(e) {
+                        close: function (e) {
                           return r.close(p, e);
                         },
-                        dismiss: function(e) {
+                        dismiss: function (e) {
                           return r.dismiss(p, e);
-                        }
+                        },
                       };
                     if (
                       (((t = angular.extend({}, e.options, t)).resolve =
@@ -5618,19 +5616,19 @@
                       (h = d = a
                         .all([d])
                         .then(
-                          function() {
+                          function () {
                             return f;
                           },
-                          function() {
+                          function () {
                             return f;
                           }
                         )
                         .then(
-                          function(e) {
+                          function (e) {
                             var a = (t.scope || n).$new();
                             (a.$close = p.close),
                               (a.$dismiss = p.dismiss),
-                              a.$on("$destroy", function() {
+                              a.$on("$destroy", function () {
                                 a.$$uibDestructionScheduled ||
                                   a.$dismiss("$uibUnscheduledDestruction");
                               });
@@ -5640,7 +5638,7 @@
                             t.controller &&
                               ((l.$scope = a),
                               (l.$modalInstance = p),
-                              angular.forEach(t.resolve, function(t, n) {
+                              angular.forEach(t.resolve, function (t, n) {
                                 l[n] = e[d++];
                               }),
                               (s = i(t.controller, l)),
@@ -5659,15 +5657,15 @@
                                 windowClass: t.windowClass,
                                 windowTemplateUrl: t.windowTemplateUrl,
                                 size: t.size,
-                                openedClass: t.openedClass
+                                openedClass: t.openedClass,
                               }),
                               c.resolve(!0);
                           },
-                          function(e) {
+                          function (e) {
                             c.reject(e), o.reject(e);
                           }
                         )
-                        .finally(function() {
+                        .finally(function () {
                           d === h && (d = null);
                         })),
                       p
@@ -5675,8 +5673,8 @@
                   }),
                   c
                 );
-              }
-            ]
+              },
+            ],
           };
           return e;
         }),
@@ -5686,40 +5684,40 @@
           "$scope",
           "$attrs",
           "$parse",
-          function(e, t, n) {
+          function (e, t, n) {
             var a = this,
               o = { $setViewValue: angular.noop },
               i = t.numPages ? n(t.numPages).assign : angular.noop;
-            (this.init = function(r, s) {
+            (this.init = function (r, s) {
               (o = r),
                 (this.config = s),
-                (o.$render = function() {
+                (o.$render = function () {
                   a.render();
                 }),
                 t.itemsPerPage
-                  ? e.$parent.$watch(n(t.itemsPerPage), function(t) {
+                  ? e.$parent.$watch(n(t.itemsPerPage), function (t) {
                       (a.itemsPerPage = parseInt(t, 10)),
                         (e.totalPages = a.calculateTotalPages());
                     })
                   : (this.itemsPerPage = s.itemsPerPage),
-                e.$watch("totalItems", function() {
+                e.$watch("totalItems", function () {
                   e.totalPages = a.calculateTotalPages();
                 }),
-                e.$watch("totalPages", function(t) {
+                e.$watch("totalPages", function (t) {
                   i(e.$parent, t), e.page > t ? e.selectPage(t) : o.$render();
                 });
             }),
-              (this.calculateTotalPages = function() {
+              (this.calculateTotalPages = function () {
                 var t =
                   this.itemsPerPage < 1
                     ? 1
                     : Math.ceil(e.totalItems / this.itemsPerPage);
                 return Math.max(t || 0, 1);
               }),
-              (this.render = function() {
+              (this.render = function () {
                 e.page = parseInt(o.$viewValue, 10) || 1;
               }),
-              (e.selectPage = function(t, n) {
+              (e.selectPage = function (t, n) {
                 n && n.preventDefault(),
                   (!e.ngDisabled || !n) &&
                     e.page !== t &&
@@ -5729,16 +5727,16 @@
                     o.$setViewValue(t),
                     o.$render());
               }),
-              (e.getText = function(t) {
+              (e.getText = function (t) {
                 return e[t + "Text"] || a.config[t + "Text"];
               }),
-              (e.noPrevious = function() {
+              (e.noPrevious = function () {
                 return 1 === e.page;
               }),
-              (e.noNext = function() {
+              (e.noNext = function () {
                 return e.page === e.totalPages;
               });
-          }
+          },
         ])
         .constant("paginationConfig", {
           itemsPerPage: 10,
@@ -5748,12 +5746,12 @@
           previousText: "Previous",
           nextText: "Next",
           lastText: "Last",
-          rotate: !0
+          rotate: !0,
         })
         .directive("pagination", [
           "$parse",
           "paginationConfig",
-          function(e, t) {
+          function (e, t) {
             return {
               restrict: "EA",
               scope: {
@@ -5762,16 +5760,16 @@
                 previousText: "@",
                 nextText: "@",
                 lastText: "@",
-                ngDisabled: "="
+                ngDisabled: "=",
               },
               require: ["pagination", "?ngModel"],
               controller: "PaginationController",
               controllerAs: "pagination",
-              templateUrl: function(e, t) {
+              templateUrl: function (e, t) {
                 return t.templateUrl || "template/pagination/pagination.html";
               },
               replace: !0,
-              link: function(n, a, o, i) {
+              link: function (n, a, o, i) {
                 function r(e, t, n) {
                   return { number: e, text: t, active: n };
                 }
@@ -5792,15 +5790,15 @@
                       : t.directionLinks),
                     s.init(l, t),
                     o.maxSize &&
-                      n.$parent.$watch(e(o.maxSize), function(e) {
+                      n.$parent.$watch(e(o.maxSize), function (e) {
                         (c = parseInt(e, 10)), s.render();
                       });
                   var u = s.render;
-                  s.render = function() {
+                  s.render = function () {
                     u(),
                       n.page > 0 &&
                         n.page <= n.totalPages &&
-                        (n.pages = (function(e, t) {
+                        (n.pages = (function (e, t) {
                           var n = [],
                             a = 1,
                             o = t,
@@ -5831,35 +5829,35 @@
                         })(n.page, n.totalPages));
                   };
                 }
-              }
+              },
             };
-          }
+          },
         ])
         .constant("pagerConfig", {
           itemsPerPage: 10,
           previousText: "« Previous",
           nextText: "Next »",
-          align: !0
+          align: !0,
         })
         .directive("pager", [
           "pagerConfig",
-          function(e) {
+          function (e) {
             return {
               restrict: "EA",
               scope: {
                 totalItems: "=",
                 previousText: "@",
                 nextText: "@",
-                ngDisabled: "="
+                ngDisabled: "=",
               },
               require: ["pager", "?ngModel"],
               controller: "PaginationController",
               controllerAs: "pagination",
-              templateUrl: function(e, t) {
+              templateUrl: function (e, t) {
                 return t.templateUrl || "template/pagination/pager.html";
               },
               replace: !0,
-              link: function(t, n, a, o) {
+              link: function (t, n, a, o) {
                 var i = o[0],
                   r = o[1];
                 r &&
@@ -5867,33 +5865,33 @@
                     ? t.$parent.$eval(a.align)
                     : e.align),
                   i.init(r, e));
-              }
+              },
             };
-          }
+          },
         ]),
       angular
         .module("ui.bootstrap.tooltip", [
           "ui.bootstrap.position",
-          "ui.bootstrap.bindHtml"
+          "ui.bootstrap.bindHtml",
         ])
-        .provider("$tooltip", function() {
+        .provider("$tooltip", function () {
           var e = {
               placement: "top",
               animation: !0,
               popupDelay: 0,
-              useContentExp: !1
+              useContentExp: !1,
             },
             t = {
               mouseenter: "mouseleave",
               click: "click",
               focus: "blur",
-              none: ""
+              none: "",
             },
             n = {};
-          (this.options = function(e) {
+          (this.options = function (e) {
             angular.extend(n, e);
           }),
-            (this.setTriggers = function(e) {
+            (this.setTriggers = function (e) {
               angular.extend(t, e);
             }),
             (this.$get = [
@@ -5905,20 +5903,20 @@
               "$interpolate",
               "$rootScope",
               "$parse",
-              function(a, o, i, r, s, l, c, d) {
-                return function(a, u, p, h) {
+              function (a, o, i, r, s, l, c, d) {
+                return function (a, u, p, h) {
                   function f(e) {
                     var n = (e || h.trigger || p).split(" ");
                     return {
                       show: n,
-                      hide: n.map(function(e) {
+                      hide: n.map(function (e) {
                         return t[e] || e;
-                      })
+                      }),
                     };
                   }
                   h = angular.extend({}, e, n, h);
-                  var m = (function(e) {
-                      return e.replace(/[A-Z]/g, function(e, t) {
+                  var m = (function (e) {
+                      return e.replace(/[A-Z]/g, function (e, t) {
                         return (t ? "-" : "") + e.toLowerCase();
                       });
                     })(a),
@@ -5946,9 +5944,9 @@
                       '" animation="animation" is-open="isOpen"origin-scope="origScope" ></div>';
                   return {
                     restrict: "EA",
-                    compile: function(e, t) {
+                    compile: function (e, t) {
                       var n = o(b);
-                      return function(e, t, o, l) {
+                      return function (e, t, o, l) {
                         function p() {
                           D.isOpen ? g() : m();
                         }
@@ -5956,7 +5954,7 @@
                           (!R || e.$eval(o[u + "Enable"])) &&
                             ((D.popupClass = o[u + "Class"]),
                             y(),
-                            (function() {
+                            (function () {
                               var e = o[u + "PopupDelay"],
                                 t = parseInt(e, 10);
                               D.popupDelay = isNaN(t) ? h.popupDelay : t;
@@ -5972,22 +5970,20 @@
                           return (
                             (C = null),
                             T && (i.cancel(T), (T = null)),
-                            (h.useContentExp
-                            ? D.contentExp()
-                            : D.content)
+                            (h.useContentExp ? D.contentExp() : D.content)
                               ? (k && w(),
                                 (S = D.$new()),
-                                (k = n(S, function(e) {
+                                (k = n(S, function (e) {
                                   A ? r.find("body").append(e) : t.after(e);
                                 })),
                                 h.useContentExp &&
-                                  (S.$watch("contentExp()", function(e) {
+                                  (S.$watch("contentExp()", function (e) {
                                     !e && D.isOpen && b();
                                   }),
-                                  S.$watch(function() {
+                                  S.$watch(function () {
                                     $ ||
                                       (($ = !0),
-                                      S.$$postDigest(function() {
+                                      S.$$postDigest(function () {
                                         ($ = !1), D.isOpen && I();
                                       }));
                                   })),
@@ -6032,16 +6028,16 @@
                           M =
                             !!angular.isDefined(o[u + "IsOpen"]) &&
                             d(o[u + "IsOpen"]),
-                          I = function() {
+                          I = function () {
                             k &&
                               (P ||
                                 (P = i(
-                                  function() {
+                                  function () {
                                     k.css({
                                       top: 0,
                                       left: 0,
                                       width: "auto",
-                                      height: "auto"
+                                      height: "auto",
                                     });
                                     var e = s.position(k),
                                       n = s.positionElements(
@@ -6063,40 +6059,40 @@
                           };
                         (D.origScope = e),
                           (D.isOpen = !1),
-                          (D.contentExp = function() {
+                          (D.contentExp = function () {
                             return e.$eval(o[a]);
                           }),
                           h.useContentExp ||
-                            o.$observe(a, function(e) {
+                            o.$observe(a, function (e) {
                               (D.content = e), !e && D.isOpen ? b() : I();
                             }),
-                          o.$observe("disabled", function(e) {
+                          o.$observe("disabled", function (e) {
                             C && e && (i.cancel(C), (C = null)),
                               e && D.isOpen && b();
                           }),
-                          o.$observe(u + "Title", function(e) {
+                          o.$observe(u + "Title", function (e) {
                             (D.title = e), I();
                           }),
-                          o.$observe(u + "Placement", function() {
+                          o.$observe(u + "Placement", function () {
                             D.isOpen && (y(), I());
                           }),
                           M &&
-                            e.$watch(M, function(e) {
+                            e.$watch(M, function (e) {
                               e !== D.isOpen && p();
                             });
-                        var E = function() {
-                          x.show.forEach(function(e) {
+                        var E = function () {
+                          x.show.forEach(function (e) {
                             t.unbind(e, m);
                           }),
-                            x.hide.forEach(function(e) {
+                            x.hide.forEach(function (e) {
                               t.unbind(e, g);
                             });
                         };
-                        !(function() {
+                        !(function () {
                           var e = o[u + "Trigger"];
                           E(),
                             "none" !== (x = f(e)).show &&
-                              x.show.forEach(function(e, n) {
+                              x.show.forEach(function (e, n) {
                                 e === x.hide[n]
                                   ? t[0].addEventListener(e, p)
                                   : e &&
@@ -6108,10 +6104,10 @@
                         D.animation = angular.isDefined(z) ? !!z : h.animation;
                         var U = e.$eval(o[u + "AppendToBody"]);
                         (A = angular.isDefined(U) ? U : A) &&
-                          e.$on("$locationChangeSuccess", function() {
+                          e.$on("$locationChangeSuccess", function () {
                             D.isOpen && b();
                           }),
-                          e.$on("$destroy", function() {
+                          e.$on("$destroy", function () {
                             i.cancel(T),
                               i.cancel(C),
                               i.cancel(P),
@@ -6120,10 +6116,10 @@
                               (D = null);
                           });
                       };
-                    }
+                    },
                   };
                 };
-              }
+              },
             ]);
         })
         .directive("tooltipTemplateTransclude", [
@@ -6131,19 +6127,19 @@
           "$sce",
           "$compile",
           "$templateRequest",
-          function(e, t, n, a) {
+          function (e, t, n, a) {
             return {
-              link: function(o, i, r) {
+              link: function (o, i, r) {
                 var s,
                   l,
                   c,
                   d = o.$eval(r.tooltipTemplateTranscludeScope),
                   u = 0,
-                  p = function() {
+                  p = function () {
                     l && (l.remove(), (l = null)),
                       s && (s.$destroy(), (s = null)),
                       c &&
-                        (e.leave(c).then(function() {
+                        (e.leave(c).then(function () {
                           l = null;
                         }),
                         (l = c),
@@ -6151,21 +6147,21 @@
                   };
                 o.$watch(
                   t.parseAsResourceUrl(r.tooltipTemplateTransclude),
-                  function(t) {
+                  function (t) {
                     var r = ++u;
                     t
                       ? (a(t, !0).then(
-                          function(a) {
+                          function (a) {
                             if (r === u) {
                               var o = d.$new(),
-                                l = n(a)(o, function(t) {
+                                l = n(a)(o, function (t) {
                                   p(), e.enter(t, i);
                                 });
                               (c = l),
                                 (s = o).$emit("$includeContentLoaded", t);
                             }
                           },
-                          function() {
+                          function () {
                             r === u &&
                               (p(), o.$emit("$includeContentError", t));
                           }
@@ -6175,21 +6171,21 @@
                   }
                 ),
                   o.$on("$destroy", p);
-              }
+              },
             };
-          }
+          },
         ])
-        .directive("tooltipClasses", function() {
+        .directive("tooltipClasses", function () {
           return {
             restrict: "A",
-            link: function(e, t, n) {
+            link: function (e, t, n) {
               e.placement && t.addClass(e.placement),
                 e.popupClass && t.addClass(e.popupClass),
                 e.animation() && t.addClass(n.tooltipAnimationClass);
-            }
+            },
           };
         })
-        .directive("tooltipPopup", function() {
+        .directive("tooltipPopup", function () {
           return {
             restrict: "EA",
             replace: !0,
@@ -6198,18 +6194,18 @@
               placement: "@",
               popupClass: "@",
               animation: "&",
-              isOpen: "&"
+              isOpen: "&",
             },
-            templateUrl: "template/tooltip/tooltip-popup.html"
+            templateUrl: "template/tooltip/tooltip-popup.html",
           };
         })
         .directive("tooltip", [
           "$tooltip",
-          function(e) {
+          function (e) {
             return e("tooltip", "tooltip", "mouseenter");
-          }
+          },
         ])
-        .directive("tooltipTemplatePopup", function() {
+        .directive("tooltipTemplatePopup", function () {
           return {
             restrict: "EA",
             replace: !0,
@@ -6219,20 +6215,20 @@
               popupClass: "@",
               animation: "&",
               isOpen: "&",
-              originScope: "&"
+              originScope: "&",
             },
-            templateUrl: "template/tooltip/tooltip-template-popup.html"
+            templateUrl: "template/tooltip/tooltip-template-popup.html",
           };
         })
         .directive("tooltipTemplate", [
           "$tooltip",
-          function(e) {
+          function (e) {
             return e("tooltipTemplate", "tooltip", "mouseenter", {
-              useContentExp: !0
+              useContentExp: !0,
             });
-          }
+          },
         ])
-        .directive("tooltipHtmlPopup", function() {
+        .directive("tooltipHtmlPopup", function () {
           return {
             restrict: "EA",
             replace: !0,
@@ -6241,20 +6237,20 @@
               placement: "@",
               popupClass: "@",
               animation: "&",
-              isOpen: "&"
+              isOpen: "&",
             },
-            templateUrl: "template/tooltip/tooltip-html-popup.html"
+            templateUrl: "template/tooltip/tooltip-html-popup.html",
           };
         })
         .directive("tooltipHtml", [
           "$tooltip",
-          function(e) {
+          function (e) {
             return e("tooltipHtml", "tooltip", "mouseenter", {
-              useContentExp: !0
+              useContentExp: !0,
             });
-          }
+          },
         ])
-        .directive("tooltipHtmlUnsafePopup", function() {
+        .directive("tooltipHtmlUnsafePopup", function () {
           return {
             restrict: "EA",
             replace: !0,
@@ -6263,9 +6259,9 @@
               placement: "@",
               popupClass: "@",
               animation: "&",
-              isOpen: "&"
+              isOpen: "&",
             },
-            templateUrl: "template/tooltip/tooltip-html-unsafe-popup.html"
+            templateUrl: "template/tooltip/tooltip-html-unsafe-popup.html",
           };
         })
         .value("tooltipHtmlUnsafeSuppressDeprecated", !1)
@@ -6273,7 +6269,7 @@
           "$tooltip",
           "tooltipHtmlUnsafeSuppressDeprecated",
           "$log",
-          function(e, t, n) {
+          function (e, t, n) {
             return (
               t ||
                 n.warn(
@@ -6281,11 +6277,11 @@
                 ),
               e("tooltipHtmlUnsafe", "tooltip", "mouseenter")
             );
-          }
+          },
         ]),
       angular
         .module("ui.bootstrap.popover", ["ui.bootstrap.tooltip"])
-        .directive("popoverTemplatePopup", function() {
+        .directive("popoverTemplatePopup", function () {
           return {
             restrict: "EA",
             replace: !0,
@@ -6296,20 +6292,20 @@
               popupClass: "@",
               animation: "&",
               isOpen: "&",
-              originScope: "&"
+              originScope: "&",
             },
-            templateUrl: "template/popover/popover-template.html"
+            templateUrl: "template/popover/popover-template.html",
           };
         })
         .directive("popoverTemplate", [
           "$tooltip",
-          function(e) {
+          function (e) {
             return e("popoverTemplate", "popover", "click", {
-              useContentExp: !0
+              useContentExp: !0,
             });
-          }
+          },
         ])
-        .directive("popoverHtmlPopup", function() {
+        .directive("popoverHtmlPopup", function () {
           return {
             restrict: "EA",
             replace: !0,
@@ -6319,18 +6315,18 @@
               placement: "@",
               popupClass: "@",
               animation: "&",
-              isOpen: "&"
+              isOpen: "&",
             },
-            templateUrl: "template/popover/popover-html.html"
+            templateUrl: "template/popover/popover-html.html",
           };
         })
         .directive("popoverHtml", [
           "$tooltip",
-          function(e) {
+          function (e) {
             return e("popoverHtml", "popover", "click", { useContentExp: !0 });
-          }
+          },
         ])
-        .directive("popoverPopup", function() {
+        .directive("popoverPopup", function () {
           return {
             restrict: "EA",
             replace: !0,
@@ -6340,16 +6336,16 @@
               placement: "@",
               popupClass: "@",
               animation: "&",
-              isOpen: "&"
+              isOpen: "&",
             },
-            templateUrl: "template/popover/popover.html"
+            templateUrl: "template/popover/popover.html",
           };
         })
         .directive("popover", [
           "$tooltip",
-          function(e) {
+          function (e) {
             return e("popover", "popover", "click");
-          }
+          },
         ]),
       angular
         .module("ui.bootstrap.progressbar", [])
@@ -6359,42 +6355,42 @@
           "$scope",
           "$attrs",
           "progressConfig",
-          function(e, t, n) {
+          function (e, t, n) {
             var a = this,
               o = angular.isDefined(t.animate)
                 ? e.$parent.$eval(t.animate)
                 : n.animate;
             (this.bars = []),
               (e.max = angular.isDefined(e.max) ? e.max : n.max),
-              (this.addBar = function(t, n) {
+              (this.addBar = function (t, n) {
                 o || n.css({ transition: "none" }),
                   this.bars.push(t),
                   (t.max = e.max),
-                  t.$watch("value", function(e) {
+                  t.$watch("value", function (e) {
                     t.recalculatePercentage();
                   }),
-                  (t.recalculatePercentage = function() {
+                  (t.recalculatePercentage = function () {
                     t.percent = +((100 * t.value) / t.max).toFixed(2);
-                    var e = a.bars.reduce(function(e, t) {
+                    var e = a.bars.reduce(function (e, t) {
                       return e + t.percent;
                     }, 0);
                     e > 100 && (t.percent -= e - 100);
                   }),
-                  t.$on("$destroy", function() {
+                  t.$on("$destroy", function () {
                     (n = null), a.removeBar(t);
                   });
               }),
-              (this.removeBar = function(e) {
+              (this.removeBar = function (e) {
                 this.bars.splice(this.bars.indexOf(e), 1);
               }),
-              e.$watch("max", function(t) {
-                a.bars.forEach(function(t) {
+              e.$watch("max", function (t) {
+                a.bars.forEach(function (t) {
                   (t.max = e.max), t.recalculatePercentage();
                 });
               });
-          }
+          },
         ])
-        .directive("uibProgress", function() {
+        .directive("uibProgress", function () {
           return {
             restrict: "EA",
             replace: !0,
@@ -6402,13 +6398,13 @@
             controller: "ProgressController",
             require: "uibProgress",
             scope: { max: "=?" },
-            templateUrl: "template/progressbar/progress.html"
+            templateUrl: "template/progressbar/progress.html",
           };
         })
         .directive("progress", [
           "$log",
           "$progressSuppressWarning",
-          function(e, t) {
+          function (e, t) {
             return {
               restrict: "EA",
               replace: !0,
@@ -6417,16 +6413,16 @@
               require: "progress",
               scope: { max: "=?" },
               templateUrl: "template/progressbar/progress.html",
-              link: function() {
+              link: function () {
                 t &&
                   e.warn(
                     "progress is now deprecated. Use uib-progress instead"
                   );
-              }
+              },
             };
-          }
+          },
         ])
-        .directive("uibBar", function() {
+        .directive("uibBar", function () {
           return {
             restrict: "EA",
             replace: !0,
@@ -6434,15 +6430,15 @@
             require: "^uibProgress",
             scope: { value: "=", type: "@" },
             templateUrl: "template/progressbar/bar.html",
-            link: function(e, t, n, a) {
+            link: function (e, t, n, a) {
               a.addBar(e, t);
-            }
+            },
           };
         })
         .directive("bar", [
           "$log",
           "$progressSuppressWarning",
-          function(e, t) {
+          function (e, t) {
             return {
               restrict: "EA",
               replace: !0,
@@ -6450,14 +6446,14 @@
               require: "^progress",
               scope: { value: "=", type: "@" },
               templateUrl: "template/progressbar/bar.html",
-              link: function(n, a, o, i) {
+              link: function (n, a, o, i) {
                 t && e.warn("bar is now deprecated. Use uib-bar instead"),
                   i.addBar(n, a);
-              }
+              },
             };
-          }
+          },
         ])
-        .directive("progressbar", function() {
+        .directive("progressbar", function () {
           return {
             restrict: "EA",
             replace: !0,
@@ -6465,9 +6461,9 @@
             controller: "ProgressController",
             scope: { value: "=", max: "=?", type: "@" },
             templateUrl: "template/progressbar/progressbar.html",
-            link: function(e, t, n, a) {
+            link: function (e, t, n, a) {
               a.addBar(e, angular.element(t.children()[0]));
-            }
+            },
           };
         }),
       angular
@@ -6476,17 +6472,17 @@
           max: 5,
           stateOn: null,
           stateOff: null,
-          titles: ["one", "two", "three", "four", "five"]
+          titles: ["one", "two", "three", "four", "five"],
         })
         .controller("RatingController", [
           "$scope",
           "$attrs",
           "ratingConfig",
-          function(e, t, n) {
+          function (e, t, n) {
             var a = { $setViewValue: angular.noop };
-            (this.init = function(o) {
+            (this.init = function (o) {
               ((a = o).$render = this.render),
-                a.$formatters.push(function(e) {
+                a.$formatters.push(function (e) {
                   return (
                     angular.isNumber(e) && e << 0 !== e && (e = Math.round(e)),
                     e
@@ -6509,35 +6505,35 @@
                   );
               e.range = this.buildTemplateObjects(r);
             }),
-              (this.buildTemplateObjects = function(e) {
+              (this.buildTemplateObjects = function (e) {
                 for (var t = 0, n = e.length; n > t; t++)
                   e[t] = angular.extend(
                     { index: t },
                     {
                       stateOn: this.stateOn,
                       stateOff: this.stateOff,
-                      title: this.getTitle(t)
+                      title: this.getTitle(t),
                     },
                     e[t]
                   );
                 return e;
               }),
-              (this.getTitle = function(e) {
+              (this.getTitle = function (e) {
                 return e >= this.titles.length ? e + 1 : this.titles[e];
               }),
-              (e.rate = function(t) {
+              (e.rate = function (t) {
                 !e.readonly &&
                   t >= 0 &&
                   t <= e.range.length &&
                   (a.$setViewValue(a.$viewValue === t ? 0 : t), a.$render());
               }),
-              (e.enter = function(t) {
+              (e.enter = function (t) {
                 e.readonly || (e.value = t), e.onHover({ value: t });
               }),
-              (e.reset = function() {
+              (e.reset = function () {
                 (e.value = a.$viewValue), e.onLeave();
               }),
-              (e.onKeydown = function(t) {
+              (e.onKeydown = function (t) {
                 /(37|38|39|40)/.test(t.which) &&
                   (t.preventDefault(),
                   t.stopPropagation(),
@@ -6545,12 +6541,12 @@
                     e.value + (38 === t.which || 39 === t.which ? 1 : -1)
                   ));
               }),
-              (this.render = function() {
+              (this.render = function () {
                 e.value = a.$viewValue;
               });
-          }
+          },
         ])
-        .directive("rating", function() {
+        .directive("rating", function () {
           return {
             restrict: "EA",
             require: ["rating", "ngModel"],
@@ -6558,23 +6554,23 @@
             controller: "RatingController",
             templateUrl: "template/rating/rating.html",
             replace: !0,
-            link: function(e, t, n, a) {
+            link: function (e, t, n, a) {
               var o = a[0],
                 i = a[1];
               o.init(i);
-            }
+            },
           };
         }),
       angular
         .module("ui.bootstrap.tabs", [])
         .controller("TabsetController", [
           "$scope",
-          function(e) {
+          function (e) {
             var t,
               n = this,
               a = (n.tabs = e.tabs = []);
-            (n.select = function(e) {
-              angular.forEach(a, function(t) {
+            (n.select = function (e) {
+              angular.forEach(a, function (t) {
                 t.active &&
                   t !== e &&
                   ((t.active = !1), t.onDeselect(), (e.selectCalled = !1));
@@ -6582,7 +6578,7 @@
                 (e.active = !0),
                 e.selectCalled || (e.onSelect(), (e.selectCalled = !0));
             }),
-              (n.addTab = function(e) {
+              (n.addTab = function (e) {
                 a.push(e),
                   1 === a.length && !1 !== e.active
                     ? (e.active = !0)
@@ -6590,7 +6586,7 @@
                     ? n.select(e)
                     : (e.active = !1);
               }),
-              (n.removeTab = function(e) {
+              (n.removeTab = function (e) {
                 var o = a.indexOf(e);
                 if (e.active && a.length > 1 && !t) {
                   var i = o == a.length - 1 ? o - 1 : o + 1;
@@ -6598,12 +6594,12 @@
                 }
                 a.splice(o, 1);
               }),
-              e.$on("$destroy", function() {
+              e.$on("$destroy", function () {
                 t = !0;
               });
-          }
+          },
         ])
-        .directive("tabset", function() {
+        .directive("tabset", function () {
           return {
             restrict: "EA",
             transclude: !0,
@@ -6611,19 +6607,19 @@
             scope: { type: "@" },
             controller: "TabsetController",
             templateUrl: "template/tabs/tabset.html",
-            link: function(e, t, n) {
+            link: function (e, t, n) {
               (e.vertical =
                 !!angular.isDefined(n.vertical) && e.$parent.$eval(n.vertical)),
                 (e.justified =
                   !!angular.isDefined(n.justified) &&
                   e.$parent.$eval(n.justified));
-            }
+            },
           };
         })
         .directive("tab", [
           "$parse",
           "$log",
-          function(e, t) {
+          function (e, t) {
             return {
               require: "^tabset",
               restrict: "EA",
@@ -6634,57 +6630,57 @@
                 active: "=?",
                 heading: "@",
                 onSelect: "&select",
-                onDeselect: "&deselect"
+                onDeselect: "&deselect",
               },
-              controller: function() {},
-              link: function(n, a, o, i, r) {
-                n.$watch("active", function(e) {
+              controller: function () {},
+              link: function (n, a, o, i, r) {
+                n.$watch("active", function (e) {
                   e && i.select(n);
                 }),
                   (n.disabled = !1),
                   o.disable &&
-                    n.$parent.$watch(e(o.disable), function(e) {
+                    n.$parent.$watch(e(o.disable), function (e) {
                       n.disabled = !!e;
                     }),
                   o.disabled &&
                     (t.warn(
                       'Use of "disabled" attribute has been deprecated, please use "disable"'
                     ),
-                    n.$parent.$watch(e(o.disabled), function(e) {
+                    n.$parent.$watch(e(o.disabled), function (e) {
                       n.disabled = !!e;
                     })),
-                  (n.select = function() {
+                  (n.select = function () {
                     n.disabled || (n.active = !0);
                   }),
                   i.addTab(n),
-                  n.$on("$destroy", function() {
+                  n.$on("$destroy", function () {
                     i.removeTab(n);
                   }),
                   (n.$transcludeFn = r);
-              }
+              },
             };
-          }
+          },
         ])
-        .directive("tabHeadingTransclude", function() {
+        .directive("tabHeadingTransclude", function () {
           return {
             restrict: "A",
             require: "^tab",
-            link: function(e, t, n, a) {
-              e.$watch("headingElement", function(e) {
+            link: function (e, t, n, a) {
+              e.$watch("headingElement", function (e) {
                 e && (t.html(""), t.append(e));
               });
-            }
+            },
           };
         })
-        .directive("tabContentTransclude", function() {
+        .directive("tabContentTransclude", function () {
           return {
             restrict: "A",
             require: "^tabset",
-            link: function(e, t, n) {
+            link: function (e, t, n) {
               var a = e.$eval(n.tabContentTransclude);
-              a.$transcludeFn(a.$parent, function(e) {
-                angular.forEach(e, function(e) {
-                  !(function(e) {
+              a.$transcludeFn(a.$parent, function (e) {
+                angular.forEach(e, function (e) {
+                  !(function (e) {
                     return (
                       e.tagName &&
                       (e.hasAttribute("tab-heading") ||
@@ -6699,7 +6695,7 @@
                     : (a.headingElement = e);
                 });
               });
-            }
+            },
           };
         }),
       angular
@@ -6712,7 +6708,7 @@
           readonlyInput: !1,
           mousewheel: !0,
           arrowkeys: !0,
-          showSpinners: !0
+          showSpinners: !0,
         })
         .controller("TimepickerController", [
           "$scope",
@@ -6721,12 +6717,10 @@
           "$log",
           "$locale",
           "timepickerConfig",
-          function(e, t, n, a, o, i) {
+          function (e, t, n, a, o, i) {
             function r() {
               var t = parseInt(e.hours, 10);
-              return (e.showMeridian
-              ? t > 0 && 13 > t
-              : t >= 0 && 24 > t)
+              return (e.showMeridian ? t > 0 && 13 > t : t >= 0 && 24 > t)
                 ? (e.showMeridian &&
                     (12 === t && (t = 0), e.meridian === g[1] && (t += 12)),
                   t)
@@ -6770,9 +6764,9 @@
               g = angular.isDefined(t.meridians)
                 ? e.$parent.$eval(t.meridians)
                 : i.meridians || o.DATETIME_FORMATS.AMPMS;
-            this.init = function(n, a) {
+            this.init = function (n, a) {
               ((m = n).$render = this.render),
-                m.$formatters.unshift(function(e) {
+                m.$formatters.unshift(function (e) {
                   return e ? new Date(e) : null;
                 });
               var o = a.eq(0),
@@ -6790,46 +6784,46 @@
             };
             var v = i.hourStep;
             t.hourStep &&
-              e.$parent.$watch(n(t.hourStep), function(e) {
+              e.$parent.$watch(n(t.hourStep), function (e) {
                 v = parseInt(e, 10);
               });
             var b,
               w,
               y = i.minuteStep;
             t.minuteStep &&
-              e.$parent.$watch(n(t.minuteStep), function(e) {
+              e.$parent.$watch(n(t.minuteStep), function (e) {
                 y = parseInt(e, 10);
               }),
-              e.$parent.$watch(n(t.min), function(e) {
+              e.$parent.$watch(n(t.min), function (e) {
                 var t = new Date(e);
                 b = isNaN(t) ? void 0 : t;
               }),
-              e.$parent.$watch(n(t.max), function(e) {
+              e.$parent.$watch(n(t.max), function (e) {
                 var t = new Date(e);
                 w = isNaN(t) ? void 0 : t;
               }),
-              (e.noIncrementHours = function() {
+              (e.noIncrementHours = function () {
                 var e = p(f, 60 * v);
                 return e > w || (f > e && b > e);
               }),
-              (e.noDecrementHours = function() {
+              (e.noDecrementHours = function () {
                 var e = p(f, 60 * -v);
                 return b > e || (e > f && e > w);
               }),
-              (e.noIncrementMinutes = function() {
+              (e.noIncrementMinutes = function () {
                 var e = p(f, y);
                 return e > w || (f > e && b > e);
               }),
-              (e.noDecrementMinutes = function() {
+              (e.noDecrementMinutes = function () {
                 var e = p(f, -y);
                 return b > e || (e > f && e > w);
               }),
-              (e.noToggleMeridian = function() {
+              (e.noToggleMeridian = function () {
                 return f.getHours() < 13 ? p(f, 720) > w : p(f, -720) < b;
               }),
               (e.showMeridian = i.showMeridian),
               t.showMeridian &&
-                e.$parent.$watch(n(t.showMeridian), function(t) {
+                e.$parent.$watch(n(t.showMeridian), function (t) {
                   if (((e.showMeridian = !!t), m.$error.time)) {
                     var n = r(),
                       a = s();
@@ -6838,64 +6832,64 @@
                       (f.setHours(n), c());
                   } else u();
                 }),
-              (this.setupMousewheelEvents = function(t, n) {
-                var a = function(e) {
+              (this.setupMousewheelEvents = function (t, n) {
+                var a = function (e) {
                   e.originalEvent && (e = e.originalEvent);
                   var t = e.wheelDelta ? e.wheelDelta : -e.deltaY;
                   return e.detail || t > 0;
                 };
-                t.bind("mousewheel wheel", function(t) {
+                t.bind("mousewheel wheel", function (t) {
                   e.$apply(a(t) ? e.incrementHours() : e.decrementHours()),
                     t.preventDefault();
                 }),
-                  n.bind("mousewheel wheel", function(t) {
+                  n.bind("mousewheel wheel", function (t) {
                     e.$apply(
                       a(t) ? e.incrementMinutes() : e.decrementMinutes()
                     ),
                       t.preventDefault();
                   });
               }),
-              (this.setupArrowkeyEvents = function(t, n) {
-                t.bind("keydown", function(t) {
+              (this.setupArrowkeyEvents = function (t, n) {
+                t.bind("keydown", function (t) {
                   38 === t.which
                     ? (t.preventDefault(), e.incrementHours(), e.$apply())
                     : 40 === t.which &&
                       (t.preventDefault(), e.decrementHours(), e.$apply());
                 }),
-                  n.bind("keydown", function(t) {
+                  n.bind("keydown", function (t) {
                     38 === t.which
                       ? (t.preventDefault(), e.incrementMinutes(), e.$apply())
                       : 40 === t.which &&
                         (t.preventDefault(), e.decrementMinutes(), e.$apply());
                   });
               }),
-              (this.setupInputEvents = function(t, n) {
+              (this.setupInputEvents = function (t, n) {
                 if (e.readonlyInput)
                   return (
                     (e.updateHours = angular.noop),
                     void (e.updateMinutes = angular.noop)
                   );
-                var a = function(t, n) {
+                var a = function (t, n) {
                   m.$setViewValue(null),
                     m.$setValidity("time", !1),
                     angular.isDefined(t) && (e.invalidHours = t),
                     angular.isDefined(n) && (e.invalidMinutes = n);
                 };
-                (e.updateHours = function() {
+                (e.updateHours = function () {
                   var e = r(),
                     t = s();
                   angular.isDefined(e) && angular.isDefined(t)
                     ? (f.setHours(e), b > f || f > w ? a(!0) : c("h"))
                     : a(!0);
                 }),
-                  t.bind("blur", function(t) {
+                  t.bind("blur", function (t) {
                     !e.invalidHours &&
                       e.hours < 10 &&
-                      e.$apply(function() {
+                      e.$apply(function () {
                         e.hours = l(e.hours);
                       });
                   }),
-                  (e.updateMinutes = function() {
+                  (e.updateMinutes = function () {
                     var e = s(),
                       t = r();
                     angular.isDefined(e) && angular.isDefined(t)
@@ -6903,15 +6897,15 @@
                         b > f || f > w ? a(void 0, !0) : c("m"))
                       : a(void 0, !0);
                   }),
-                  n.bind("blur", function(t) {
+                  n.bind("blur", function (t) {
                     !e.invalidMinutes &&
                       e.minutes < 10 &&
-                      e.$apply(function() {
+                      e.$apply(function () {
                         e.minutes = l(e.minutes);
                       });
                   });
               }),
-              (this.render = function() {
+              (this.render = function () {
                 var t = m.$viewValue;
                 isNaN(t)
                   ? (m.$setValidity("time", !1),
@@ -6929,24 +6923,24 @@
               (e.showSpinners = angular.isDefined(t.showSpinners)
                 ? e.$parent.$eval(t.showSpinners)
                 : i.showSpinners),
-              (e.incrementHours = function() {
+              (e.incrementHours = function () {
                 e.noIncrementHours() || h(60 * v);
               }),
-              (e.decrementHours = function() {
+              (e.decrementHours = function () {
                 e.noDecrementHours() || h(60 * -v);
               }),
-              (e.incrementMinutes = function() {
+              (e.incrementMinutes = function () {
                 e.noIncrementMinutes() || h(y);
               }),
-              (e.decrementMinutes = function() {
+              (e.decrementMinutes = function () {
                 e.noDecrementMinutes() || h(-y);
               }),
-              (e.toggleMeridian = function() {
+              (e.toggleMeridian = function () {
                 e.noToggleMeridian() || h(720 * (f.getHours() < 12 ? 1 : -1));
               });
-          }
+          },
         ])
-        .directive("timepicker", function() {
+        .directive("timepicker", function () {
           return {
             restrict: "EA",
             require: ["timepicker", "?^ngModel"],
@@ -6954,14 +6948,14 @@
             controllerAs: "timepicker",
             replace: !0,
             scope: {},
-            templateUrl: function(e, t) {
+            templateUrl: function (e, t) {
               return t.templateUrl || "template/timepicker/timepicker.html";
             },
-            link: function(e, t, n, a) {
+            link: function (e, t, n, a) {
               var o = a[0],
                 i = a[1];
               i && o.init(i, t.find("input"));
-            }
+            },
           };
         }),
       angular
@@ -6973,7 +6967,7 @@
           "$rootScope",
           "$log",
           "$transitionSuppressDeprecated",
-          function(e, t, n, a, o) {
+          function (e, t, n, a, o) {
             function i(e) {
               for (var t in e) if (void 0 !== s.style[t]) return e[t];
             }
@@ -6981,7 +6975,7 @@
               a.warn(
                 "$transition is now deprecated. Use $animate from ngAnimate instead."
               );
-            var r = function(a, o, i) {
+            var r = function (a, o, i) {
                 i = i || {};
                 var s = e.defer(),
                   l =
@@ -6990,14 +6984,14 @@
                         ? "animationEndEventName"
                         : "transitionEndEventName"
                     ],
-                  c = function(e) {
-                    n.$apply(function() {
+                  c = function (e) {
+                    n.$apply(function () {
                       a.unbind(l, c), s.resolve(a);
                     });
                   };
                 return (
                   l && a.bind(l, c),
-                  t(function() {
+                  t(function () {
                     angular.isString(o)
                       ? a.addClass(o)
                       : angular.isFunction(o)
@@ -7005,7 +6999,7 @@
                       : angular.isObject(o) && a.css(o),
                       l || s.resolve(a);
                   }),
-                  (s.promise.cancel = function() {
+                  (s.promise.cancel = function () {
                     l && a.unbind(l, c), s.reject("Transition cancelled");
                   }),
                   s.promise
@@ -7017,26 +7011,26 @@
                 WebkitTransition: "webkitTransitionEnd",
                 MozTransition: "transitionend",
                 OTransition: "oTransitionEnd",
-                transition: "transitionend"
+                transition: "transitionend",
               })),
               (r.animationEndEventName = i({
                 WebkitTransition: "webkitAnimationEnd",
                 MozTransition: "animationend",
                 OTransition: "oAnimationEnd",
-                transition: "animationend"
+                transition: "animationend",
               })),
               r
             );
-          }
+          },
         ]),
       angular
         .module("ui.bootstrap.typeahead", ["ui.bootstrap.position"])
         .factory("typeaheadParser", [
           "$parse",
-          function(e) {
+          function (e) {
             var t = /^\s*([\s\S]+?)(?:\s+as\s+([\s\S]+?))?\s+for\s+(?:([\$\w][\$\w\d]*))\s+in\s+([\s\S]+?)$/;
             return {
-              parse: function(n) {
+              parse: function (n) {
                 var a = n.match(t);
                 if (!a)
                   throw new Error(
@@ -7048,11 +7042,11 @@
                   itemName: a[3],
                   source: e(a[4]),
                   viewMapper: e(a[2] || a[1]),
-                  modelMapper: e(a[1])
+                  modelMapper: e(a[1]),
                 };
-              }
+              },
             };
-          }
+          },
         ])
         .directive("typeahead", [
           "$compile",
@@ -7064,16 +7058,16 @@
           "$rootScope",
           "$position",
           "typeaheadParser",
-          function(e, t, n, a, o, i, r, s, l) {
+          function (e, t, n, a, o, i, r, s, l) {
             var c = [9, 13, 27, 38, 40],
               d = 200;
             return {
               require: ["ngModel", "^?ngModelOptions"],
-              link: function(u, p, h, f) {
+              link: function (u, p, h, f) {
                 function m() {
                   U.moveInProgress || ((U.moveInProgress = !0), U.$digest()),
                     N && a.cancel(N),
-                    (N = a(function() {
+                    (N = a(function () {
                       U.matches.length && g(),
                         (U.moveInProgress = !1),
                         U.$digest();
@@ -7111,7 +7105,7 @@
                   E = t(h.ngModel + "($$$p)"),
                   z = l.parse(h.typeahead),
                   U = u.$new(),
-                  L = u.$on("$destroy", function() {
+                  L = u.$on("$destroy", function () {
                     U.$destroy();
                   });
                 U.$on("$destroy", L);
@@ -7120,7 +7114,7 @@
                 p.attr({
                   "aria-autocomplete": "list",
                   "aria-expanded": !1,
-                  "aria-owns": F
+                  "aria-owns": F,
                 });
                 var O = angular.element("<div typeahead-popup></div>");
                 O.attr({
@@ -7130,32 +7124,32 @@
                   select: "select(activeIdx)",
                   "move-in-progress": "moveInProgress",
                   query: "query",
-                  position: "position"
+                  position: "position",
                 }),
                   angular.isDefined(h.typeaheadTemplateUrl) &&
                     O.attr("template-url", h.typeaheadTemplateUrl),
                   angular.isDefined(h.typeaheadPopupTemplateUrl) &&
                     O.attr("popup-template-url", h.typeaheadPopupTemplateUrl);
-                var B = function() {
+                var B = function () {
                     (U.matches = []),
                       (U.activeIdx = -1),
                       p.attr("aria-expanded", !1);
                   },
-                  j = function(e) {
+                  j = function (e) {
                     return F + "-option-" + e;
                   };
-                U.$watch("activeIdx", function(e) {
+                U.$watch("activeIdx", function (e) {
                   0 > e
                     ? p.removeAttr("aria-activedescendant")
                     : p.attr("aria-activedescendant", j(e));
                 });
                 var N,
-                  H = function(e) {
+                  H = function (e) {
                     var t = { $viewValue: e };
                     C(u, !0),
                       x(u, !1),
                       n.when(z.source(u, t)).then(
-                        function(n) {
+                        function (n) {
                           var a = e === v.$viewValue;
                           if (a && y)
                             if (n && n.length > 0) {
@@ -7167,14 +7161,14 @@
                                   U.matches.push({
                                     id: j(o),
                                     label: z.viewMapper(U, t),
-                                    model: n[o]
+                                    model: n[o],
                                   });
                               (U.query = e),
                                 g(),
                                 p.attr("aria-expanded", !0),
                                 M &&
                                   1 === U.matches.length &&
-                                  (function(e, t) {
+                                  (function (e, t) {
                                     return (
                                       !!(U.matches.length > t && e) &&
                                       e.toUpperCase() ===
@@ -7185,7 +7179,7 @@
                             } else B(), x(u, !0);
                           a && C(u, !1);
                         },
-                        function() {
+                        function () {
                           B(), C(u, !1), x(u, !0);
                         }
                       );
@@ -7197,17 +7191,17 @@
                   B(),
                   (U.query = void 0);
                 var W,
-                  V = function() {
+                  V = function () {
                     W && a.cancel(W);
                   };
-                v.$parsers.unshift(function(e) {
+                v.$parsers.unshift(function (e) {
                   return (
                     (y = !0),
                     0 === w || (e && e.length >= w)
                       ? S > 0
                         ? (V(),
-                          (function(e) {
-                            W = a(function() {
+                          (function (e) {
+                            W = a(function () {
                               H(e);
                             }, S);
                           })(e))
@@ -7220,7 +7214,7 @@
                       : (v.$setValidity("editable", !0), null)
                   );
                 }),
-                  v.$formatters.push(function(e) {
+                  v.$formatters.push(function (e) {
                     var t,
                       n = {};
                     return (
@@ -7233,14 +7227,14 @@
                           t !== z.viewMapper(u, n) ? t : e)
                     );
                   }),
-                  (U.select = function(e) {
+                  (U.select = function (e) {
                     var t,
                       n,
                       o = {};
                     (k = !0),
                       (o[z.itemName] = n = U.matches[e].model),
                       (t = z.modelMapper(u, o)),
-                      (function(e, t) {
+                      (function (e, t) {
                         angular.isFunction(I(u)) &&
                         b &&
                         b.$options &&
@@ -7254,14 +7248,14 @@
                       B(),
                       !1 !== U.$eval(h.typeaheadFocusOnSelect) &&
                         a(
-                          function() {
+                          function () {
                             p[0].focus();
                           },
                           0,
                           !1
                         );
                   }),
-                  p.bind("keydown", function(e) {
+                  p.bind("keydown", function (e) {
                     if (0 !== U.matches.length && -1 !== c.indexOf(e.which)) {
                       if (
                         -1 === U.activeIdx &&
@@ -7280,42 +7274,42 @@
                                 : U.matches.length) - 1),
                             U.$digest())
                           : 13 === e.which || 9 === e.which
-                          ? U.$apply(function() {
+                          ? U.$apply(function () {
                               U.select(U.activeIdx);
                             })
                           : 27 === e.which &&
                             (e.stopPropagation(), B(), U.$digest());
                     }
                   }),
-                  p.bind("blur", function() {
+                  p.bind("blur", function () {
                     A &&
                       U.matches.length &&
                       -1 !== U.activeIdx &&
                       !k &&
                       ((k = !0),
-                      U.$apply(function() {
+                      U.$apply(function () {
                         U.select(U.activeIdx);
                       })),
                       (y = !1),
                       (k = !1);
                   });
-                var Y = function(e) {
+                var Y = function (e) {
                   p[0] !== e.target &&
                     3 !== e.which &&
                     0 !== U.matches.length &&
                     (B(), r.$$phase || U.$digest());
                 };
                 o.bind("click", Y),
-                  u.$on("$destroy", function() {
+                  u.$on("$destroy", function () {
                     o.unbind("click", Y), D && q.remove(), O.remove();
                   });
                 var q = e(O)(U);
                 D ? o.find("body").append(q) : p.after(q);
-              }
+              },
             };
-          }
+          },
         ])
-        .directive("typeaheadPopup", function() {
+        .directive("typeaheadPopup", function () {
           return {
             restrict: "EA",
             scope: {
@@ -7324,71 +7318,71 @@
               active: "=",
               position: "&",
               moveInProgress: "=",
-              select: "&"
+              select: "&",
             },
             replace: !0,
-            templateUrl: function(e, t) {
+            templateUrl: function (e, t) {
               return (
                 t.popupTemplateUrl || "template/typeahead/typeahead-popup.html"
               );
             },
-            link: function(e, t, n) {
+            link: function (e, t, n) {
               (e.templateUrl = n.templateUrl),
-                (e.isOpen = function() {
+                (e.isOpen = function () {
                   return e.matches.length > 0;
                 }),
-                (e.isActive = function(t) {
+                (e.isActive = function (t) {
                   return e.active == t;
                 }),
-                (e.selectActive = function(t) {
+                (e.selectActive = function (t) {
                   e.active = t;
                 }),
-                (e.selectMatch = function(t) {
+                (e.selectMatch = function (t) {
                   e.select({ activeIdx: t });
                 });
-            }
+            },
           };
         })
         .directive("typeaheadMatch", [
           "$templateRequest",
           "$compile",
           "$parse",
-          function(e, t, n) {
+          function (e, t, n) {
             return {
               restrict: "EA",
               scope: { index: "=", match: "=", query: "=" },
-              link: function(a, o, i) {
+              link: function (a, o, i) {
                 var r =
                   n(i.templateUrl)(a.$parent) ||
                   "template/typeahead/typeahead-match.html";
-                e(r).then(function(e) {
-                  t(e.trim())(a, function(e) {
+                e(r).then(function (e) {
+                  t(e.trim())(a, function (e) {
                     o.replaceWith(e);
                   });
                 });
-              }
+              },
             };
-          }
+          },
         ])
         .filter("typeaheadHighlight", [
           "$sce",
           "$injector",
           "$log",
-          function(e, t, n) {
+          function (e, t, n) {
             var a;
             return (
               (a = t.has("$sanitize")),
-              function(t, o) {
+              function (t, o) {
                 return (
                   !a &&
-                    (function(e) {
+                    (function (e) {
                       return /<.*>/g.test(e);
                     })(t) &&
                     n.warn("Unsafe use of typeahead please use ngSanitize"),
                   (t = o
                     ? ("" + t).replace(
                         new RegExp(
-                          (function(e) {
+                          (function (e) {
                             return e.replace(/([.?*+^$[\]\\(){}|-])/g, "\\$1");
                           })(o),
                           "gi"
@@ -7401,279 +7395,279 @@
                 );
               }
             );
-          }
+          },
         ]),
       angular.module("template/accordion/accordion-group.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/accordion/accordion-group.html",
             '<div class="panel {{panelClass || \'panel-default\'}}">\n  <div class="panel-heading" ng-keypress="toggleOpen($event)">\n    <h4 class="panel-title">\n      <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" accordion-transclude="heading"><span ng-class="{\'text-muted\': isDisabled}">{{heading}}</span></a>\n    </h4>\n  </div>\n  <div class="panel-collapse collapse" collapse="!isOpen">\n\t  <div class="panel-body" ng-transclude></div>\n  </div>\n</div>\n'
           );
-        }
+        },
       ]),
       angular.module("template/accordion/accordion.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/accordion/accordion.html",
             '<div class="panel-group" ng-transclude></div>'
           );
-        }
+        },
       ]),
       angular.module("template/alert/alert.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/alert/alert.html",
             '<div class="alert" ng-class="[\'alert-\' + (type || \'warning\'), closeable ? \'alert-dismissible\' : null]" role="alert">\n    <button ng-show="closeable" type="button" class="close" ng-click="close($event)">\n        <span aria-hidden="true">&times;</span>\n        <span class="sr-only">Close</span>\n    </button>\n    <div ng-transclude></div>\n</div>\n'
           );
-        }
+        },
       ]),
       angular.module("template/carousel/carousel.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/carousel/carousel.html",
             '<div ng-mouseenter="pause()" ng-mouseleave="play()" class="carousel" ng-swipe-right="prev()" ng-swipe-left="next()">\n    <ol class="carousel-indicators" ng-show="slides.length > 1">\n        <li ng-repeat="slide in slides | orderBy:indexOfSlide track by $index" ng-class="{active: isActive(slide)}" ng-click="select(slide)"></li>\n    </ol>\n    <div class="carousel-inner" ng-transclude></div>\n    <a class="left carousel-control" ng-click="prev()" ng-show="slides.length > 1"><span class="glyphicon glyphicon-chevron-left"></span></a>\n    <a class="right carousel-control" ng-click="next()" ng-show="slides.length > 1"><span class="glyphicon glyphicon-chevron-right"></span></a>\n</div>\n'
           );
-        }
+        },
       ]),
       angular.module("template/carousel/slide.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/carousel/slide.html",
             '<div ng-class="{\n    \'active\': active\n  }" class="item text-center" ng-transclude></div>\n'
           );
-        }
+        },
       ]),
       angular.module("template/datepicker/datepicker.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/datepicker/datepicker.html",
             '<div ng-switch="datepickerMode" role="application" ng-keydown="keydown($event)">\n  <daypicker ng-switch-when="day" tabindex="0"></daypicker>\n  <monthpicker ng-switch-when="month" tabindex="0"></monthpicker>\n  <yearpicker ng-switch-when="year" tabindex="0"></yearpicker>\n</div>'
           );
-        }
+        },
       ]),
       angular.module("template/datepicker/day.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/datepicker/day.html",
             '<table role="grid" aria-labelledby="{{::uniqueId}}-title" aria-activedescendant="{{activeDateId}}">\n  <thead>\n    <tr>\n      <th><button type="button" class="btn btn-default btn-sm pull-left" ng-click="move(-1)" tabindex="-1"><i class="glyphicon glyphicon-chevron-left"></i></button></th>\n      <th colspan="{{::5 + showWeeks}}"><button id="{{::uniqueId}}-title" role="heading" aria-live="assertive" aria-atomic="true" type="button" class="btn btn-default btn-sm" ng-click="toggleMode()" ng-disabled="datepickerMode === maxMode" tabindex="-1" style="width:100%;"><strong>{{title}}</strong></button></th>\n      <th><button type="button" class="btn btn-default btn-sm pull-right" ng-click="move(1)" tabindex="-1"><i class="glyphicon glyphicon-chevron-right"></i></button></th>\n    </tr>\n    <tr>\n      <th ng-if="showWeeks" class="text-center"></th>\n      <th ng-repeat="label in ::labels track by $index" class="text-center"><small aria-label="{{::label.full}}">{{::label.abbr}}</small></th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr ng-repeat="row in rows track by $index">\n      <td ng-if="showWeeks" class="text-center h6"><em>{{ weekNumbers[$index] }}</em></td>\n      <td ng-repeat="dt in row track by dt.date" class="text-center" role="gridcell" id="{{::dt.uid}}" ng-class="::dt.customClass">\n        <button type="button" style="min-width:100%;" class="btn btn-default btn-sm" ng-class="{\'btn-info\': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="::{\'text-muted\': dt.secondary, \'text-info\': dt.current}">{{::dt.label}}</span></button>\n      </td>\n    </tr>\n  </tbody>\n</table>\n'
           );
-        }
+        },
       ]),
       angular.module("template/datepicker/month.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/datepicker/month.html",
             '<table role="grid" aria-labelledby="{{::uniqueId}}-title" aria-activedescendant="{{activeDateId}}">\n  <thead>\n    <tr>\n      <th><button type="button" class="btn btn-default btn-sm pull-left" ng-click="move(-1)" tabindex="-1"><i class="glyphicon glyphicon-chevron-left"></i></button></th>\n      <th><button id="{{::uniqueId}}-title" role="heading" aria-live="assertive" aria-atomic="true" type="button" class="btn btn-default btn-sm" ng-click="toggleMode()" ng-disabled="datepickerMode === maxMode" tabindex="-1" style="width:100%;"><strong>{{title}}</strong></button></th>\n      <th><button type="button" class="btn btn-default btn-sm pull-right" ng-click="move(1)" tabindex="-1"><i class="glyphicon glyphicon-chevron-right"></i></button></th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr ng-repeat="row in rows track by $index">\n      <td ng-repeat="dt in row track by dt.date" class="text-center" role="gridcell" id="{{::dt.uid}}" ng-class="::dt.customClass">\n        <button type="button" style="min-width:100%;" class="btn btn-default" ng-class="{\'btn-info\': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="::{\'text-info\': dt.current}">{{::dt.label}}</span></button>\n      </td>\n    </tr>\n  </tbody>\n</table>\n'
           );
-        }
+        },
       ]),
       angular.module("template/datepicker/popup.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/datepicker/popup.html",
             '<ul class="dropdown-menu" ng-if="isOpen" style="display: block" ng-style="{top: position.top+\'px\', left: position.left+\'px\'}" ng-keydown="keydown($event)" ng-click="$event.stopPropagation()">\n\t<li ng-transclude></li>\n\t<li ng-if="showButtonBar" style="padding:10px 9px 2px">\n\t\t<span class="btn-group pull-left">\n\t\t\t<button type="button" class="btn btn-sm btn-info" ng-click="select(\'today\')" ng-disabled="isDisabled(\'today\')">{{ getText(\'current\') }}</button>\n\t\t\t<button type="button" class="btn btn-sm btn-danger" ng-click="select(null)">{{ getText(\'clear\') }}</button>\n\t\t</span>\n\t\t<button type="button" class="btn btn-sm btn-success pull-right" ng-click="close()">{{ getText(\'close\') }}</button>\n\t</li>\n</ul>\n'
           );
-        }
+        },
       ]),
       angular.module("template/datepicker/year.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/datepicker/year.html",
             '<table role="grid" aria-labelledby="{{::uniqueId}}-title" aria-activedescendant="{{activeDateId}}">\n  <thead>\n    <tr>\n      <th><button type="button" class="btn btn-default btn-sm pull-left" ng-click="move(-1)" tabindex="-1"><i class="glyphicon glyphicon-chevron-left"></i></button></th>\n      <th colspan="3"><button id="{{::uniqueId}}-title" role="heading" aria-live="assertive" aria-atomic="true" type="button" class="btn btn-default btn-sm" ng-click="toggleMode()" ng-disabled="datepickerMode === maxMode" tabindex="-1" style="width:100%;"><strong>{{title}}</strong></button></th>\n      <th><button type="button" class="btn btn-default btn-sm pull-right" ng-click="move(1)" tabindex="-1"><i class="glyphicon glyphicon-chevron-right"></i></button></th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr ng-repeat="row in rows track by $index">\n      <td ng-repeat="dt in row track by dt.date" class="text-center" role="gridcell" id="{{::dt.uid}}">\n        <button type="button" style="min-width:100%;" class="btn btn-default" ng-class="{\'btn-info\': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="::{\'text-info\': dt.current}">{{::dt.label}}</span></button>\n      </td>\n    </tr>\n  </tbody>\n</table>\n'
           );
-        }
+        },
       ]),
       angular.module("template/modal/backdrop.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/modal/backdrop.html",
             '<div class="modal-backdrop"\n     modal-animation-class="fade"\n     modal-in-class="in"\n     ng-style="{\'z-index\': 1040 + (index && 1 || 0) + index*10}"\n></div>\n'
           );
-        }
+        },
       ]),
       angular.module("template/modal/window.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/modal/window.html",
             '<div modal-render="{{$isRendered}}" tabindex="-1" role="dialog" class="modal"\n    modal-animation-class="fade"\n    modal-in-class="in"\n\tng-style="{\'z-index\': 1050 + index*10, display: \'block\'}" ng-click="close($event)">\n    <div class="modal-dialog" ng-class="size ? \'modal-\' + size : \'\'"><div class="modal-content" modal-transclude></div></div>\n</div>\n'
           );
-        }
+        },
       ]),
       angular.module("template/pagination/pager.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/pagination/pager.html",
             '<ul class="pager">\n  <li ng-class="{disabled: noPrevious()||ngDisabled, previous: align}"><a href ng-click="selectPage(page - 1, $event)">{{::getText(\'previous\')}}</a></li>\n  <li ng-class="{disabled: noNext()||ngDisabled, next: align}"><a href ng-click="selectPage(page + 1, $event)">{{::getText(\'next\')}}</a></li>\n</ul>\n'
           );
-        }
+        },
       ]),
       angular.module("template/pagination/pagination.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/pagination/pagination.html",
             '<ul class="pagination">\n  <li ng-if="::boundaryLinks" ng-class="{disabled: noPrevious()||ngDisabled}" class="pagination-first"><a href ng-click="selectPage(1, $event)">{{::getText(\'first\')}}</a></li>\n  <li ng-if="::directionLinks" ng-class="{disabled: noPrevious()||ngDisabled}" class="pagination-prev"><a href ng-click="selectPage(page - 1, $event)">{{::getText(\'previous\')}}</a></li>\n  <li ng-repeat="page in pages track by $index" ng-class="{active: page.active,disabled: ngDisabled&&!page.active}" class="pagination-page"><a href ng-click="selectPage(page.number, $event)">{{page.text}}</a></li>\n  <li ng-if="::directionLinks" ng-class="{disabled: noNext()||ngDisabled}" class="pagination-next"><a href ng-click="selectPage(page + 1, $event)">{{::getText(\'next\')}}</a></li>\n  <li ng-if="::boundaryLinks" ng-class="{disabled: noNext()||ngDisabled}" class="pagination-last"><a href ng-click="selectPage(totalPages, $event)">{{::getText(\'last\')}}</a></li>\n</ul>\n'
           );
-        }
+        },
       ]),
       angular.module("template/tooltip/tooltip-html-popup.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/tooltip/tooltip-html-popup.html",
             '<div class="tooltip"\n  tooltip-animation-class="fade"\n  tooltip-classes\n  ng-class="{ in: isOpen() }">\n  <div class="tooltip-arrow"></div>\n  <div class="tooltip-inner" ng-bind-html="contentExp()"></div>\n</div>\n'
           );
-        }
+        },
       ]),
       angular
         .module("template/tooltip/tooltip-html-unsafe-popup.html", [])
         .run([
           "$templateCache",
-          function(e) {
+          function (e) {
             e.put(
               "template/tooltip/tooltip-html-unsafe-popup.html",
               '<div class="tooltip"\n  tooltip-animation-class="fade"\n  tooltip-classes\n  ng-class="{ in: isOpen() }">\n  <div class="tooltip-arrow"></div>\n  <div class="tooltip-inner" bind-html-unsafe="content"></div>\n</div>\n'
             );
-          }
+          },
         ]),
       angular.module("template/tooltip/tooltip-popup.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/tooltip/tooltip-popup.html",
             '<div class="tooltip"\n  tooltip-animation-class="fade"\n  tooltip-classes\n  ng-class="{ in: isOpen() }">\n  <div class="tooltip-arrow"></div>\n  <div class="tooltip-inner" ng-bind="content"></div>\n</div>\n'
           );
-        }
+        },
       ]),
       angular.module("template/tooltip/tooltip-template-popup.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/tooltip/tooltip-template-popup.html",
             '<div class="tooltip"\n  tooltip-animation-class="fade"\n  tooltip-classes\n  ng-class="{ in: isOpen() }">\n  <div class="tooltip-arrow"></div>\n  <div class="tooltip-inner"\n    tooltip-template-transclude="contentExp()"\n    tooltip-template-transclude-scope="originScope()"></div>\n</div>\n'
           );
-        }
+        },
       ]),
       angular.module("template/popover/popover-html.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/popover/popover-html.html",
             '<div class="popover"\n  tooltip-animation-class="fade"\n  tooltip-classes\n  ng-class="{ in: isOpen() }">\n  <div class="arrow"></div>\n\n  <div class="popover-inner">\n      <h3 class="popover-title" ng-bind="title" ng-if="title"></h3>\n      <div class="popover-content" ng-bind-html="contentExp()"></div>\n  </div>\n</div>\n'
           );
-        }
+        },
       ]),
       angular.module("template/popover/popover-template.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/popover/popover-template.html",
             '<div class="popover"\n  tooltip-animation-class="fade"\n  tooltip-classes\n  ng-class="{ in: isOpen() }">\n  <div class="arrow"></div>\n\n  <div class="popover-inner">\n      <h3 class="popover-title" ng-bind="title" ng-if="title"></h3>\n      <div class="popover-content"\n        tooltip-template-transclude="contentExp()"\n        tooltip-template-transclude-scope="originScope()"></div>\n  </div>\n</div>\n'
           );
-        }
+        },
       ]),
       angular.module("template/popover/popover.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/popover/popover.html",
             '<div class="popover"\n  tooltip-animation-class="fade"\n  tooltip-classes\n  ng-class="{ in: isOpen() }">\n  <div class="arrow"></div>\n\n  <div class="popover-inner">\n      <h3 class="popover-title" ng-bind="title" ng-if="title"></h3>\n      <div class="popover-content" ng-bind="content"></div>\n  </div>\n</div>\n'
           );
-        }
+        },
       ]),
       angular.module("template/progressbar/bar.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/progressbar/bar.html",
             '<div class="progress-bar" ng-class="type && \'progress-bar-\' + type" role="progressbar" aria-valuenow="{{value}}" aria-valuemin="0" aria-valuemax="{{max}}" ng-style="{width: (percent < 100 ? percent : 100) + \'%\'}" aria-valuetext="{{percent | number:0}}%" style="min-width: 0;" ng-transclude></div>\n'
           );
-        }
+        },
       ]),
       angular.module("template/progressbar/progress.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/progressbar/progress.html",
             '<div class="progress" ng-transclude></div>'
           );
-        }
+        },
       ]),
       angular.module("template/progressbar/progressbar.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/progressbar/progressbar.html",
             '<div class="progress">\n  <div class="progress-bar" ng-class="type && \'progress-bar-\' + type" role="progressbar" aria-valuenow="{{value}}" aria-valuemin="0" aria-valuemax="{{max}}" ng-style="{width: (percent < 100 ? percent : 100) + \'%\'}" aria-valuetext="{{percent | number:0}}%" style="min-width: 0;" ng-transclude></div>\n</div>\n'
           );
-        }
+        },
       ]),
       angular.module("template/rating/rating.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/rating/rating.html",
             '<span ng-mouseleave="reset()" ng-keydown="onKeydown($event)" tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="{{range.length}}" aria-valuenow="{{value}}">\n    <span ng-repeat-start="r in range track by $index" class="sr-only">({{ $index < value ? \'*\' : \' \' }})</span>\n    <i ng-repeat-end ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon" ng-class="$index < value && (r.stateOn || \'glyphicon-star\') || (r.stateOff || \'glyphicon-star-empty\')" ng-attr-title="{{r.title}}" ></i>\n</span>\n'
           );
-        }
+        },
       ]),
       angular.module("template/tabs/tab.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/tabs/tab.html",
             '<li ng-class="{active: active, disabled: disabled}">\n  <a href ng-click="select()" tab-heading-transclude>{{heading}}</a>\n</li>\n'
           );
-        }
+        },
       ]),
       angular.module("template/tabs/tabset.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/tabs/tabset.html",
             '<div>\n  <ul class="nav nav-{{type || \'tabs\'}}" ng-class="{\'nav-stacked\': vertical, \'nav-justified\': justified}" ng-transclude></ul>\n  <div class="tab-content">\n    <div class="tab-pane" \n         ng-repeat="tab in tabs" \n         ng-class="{active: tab.active}"\n         tab-content-transclude="tab">\n    </div>\n  </div>\n</div>\n'
           );
-        }
+        },
       ]),
       angular.module("template/timepicker/timepicker.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/timepicker/timepicker.html",
             '<table>\n  <tbody>\n    <tr class="text-center" ng-show="::showSpinners">\n      <td><a ng-click="incrementHours()" ng-class="{disabled: noIncrementHours()}" class="btn btn-link"><span class="glyphicon glyphicon-chevron-up"></span></a></td>\n      <td>&nbsp;</td>\n      <td><a ng-click="incrementMinutes()" ng-class="{disabled: noIncrementMinutes()}" class="btn btn-link"><span class="glyphicon glyphicon-chevron-up"></span></a></td>\n      <td ng-show="showMeridian"></td>\n    </tr>\n    <tr>\n      <td class="form-group" ng-class="{\'has-error\': invalidHours}">\n        <input style="width:50px;" type="text" ng-model="hours" ng-change="updateHours()" class="form-control text-center" ng-readonly="::readonlyInput" maxlength="2">\n      </td>\n      <td>:</td>\n      <td class="form-group" ng-class="{\'has-error\': invalidMinutes}">\n        <input style="width:50px;" type="text" ng-model="minutes" ng-change="updateMinutes()" class="form-control text-center" ng-readonly="::readonlyInput" maxlength="2">\n      </td>\n      <td ng-show="showMeridian"><button type="button" ng-class="{disabled: noToggleMeridian()}" class="btn btn-default text-center" ng-click="toggleMeridian()">{{meridian}}</button></td>\n    </tr>\n    <tr class="text-center" ng-show="::showSpinners">\n      <td><a ng-click="decrementHours()" ng-class="{disabled: noDecrementHours()}" class="btn btn-link"><span class="glyphicon glyphicon-chevron-down"></span></a></td>\n      <td>&nbsp;</td>\n      <td><a ng-click="decrementMinutes()" ng-class="{disabled: noDecrementMinutes()}" class="btn btn-link"><span class="glyphicon glyphicon-chevron-down"></span></a></td>\n      <td ng-show="showMeridian"></td>\n    </tr>\n  </tbody>\n</table>\n'
           );
-        }
+        },
       ]),
       angular.module("template/typeahead/typeahead-match.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/typeahead/typeahead-match.html",
             '<a href tabindex="-1" ng-bind-html="match.label | typeaheadHighlight:query"></a>\n'
           );
-        }
+        },
       ]),
       angular.module("template/typeahead/typeahead-popup.html", []).run([
         "$templateCache",
-        function(e) {
+        function (e) {
           e.put(
             "template/typeahead/typeahead-popup.html",
             '<ul class="dropdown-menu" ng-show="isOpen() && !moveInProgress" ng-style="{top: position().top+\'px\', left: position().left+\'px\'}" style="display: block;" role="listbox" aria-hidden="{{!isOpen()}}">\n    <li ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }" ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}">\n        <div typeahead-match index="$index" match="match" query="query" template-url="templateUrl"></div>\n    </li>\n</ul>\n'
           );
-        }
+        },
       ]),
       !angular.$$csp() &&
         angular
@@ -7683,27 +7677,27 @@
             '<style type="text/css">.ng-animate.item:not(.left):not(.right){-webkit-transition:0s ease-in-out left;transition:0s ease-in-out left}</style>'
           );
   },
-  function(e, t, n) {
-    (function(e) {
-      !(function(e) {
+  function (e, t, n) {
+    (function (e) {
+      !(function (e) {
         "use strict";
         var t = 0,
-          n = function(t, n) {
+          n = function (t, n) {
             (this.options = n),
               (this.$elementFilestyle = []),
               (this.$element = e(t));
           };
         n.prototype = {
-          clear: function() {
+          clear: function () {
             this.$element.val(""),
               this.$elementFilestyle.find(":text").val(""),
               this.$elementFilestyle.find(".badge").remove();
           },
-          destroy: function() {
+          destroy: function () {
             this.$element.removeAttr("style").removeData("filestyle"),
               this.$elementFilestyle.remove();
           },
-          disabled: function(e) {
+          disabled: function (e) {
             if (!0 === e)
               this.options.disabled ||
                 (this.$element.attr("disabled", "true"),
@@ -7717,7 +7711,7 @@
                 (this.options.disabled = !1));
             }
           },
-          buttonBefore: function(e) {
+          buttonBefore: function (e) {
             if (!0 === e)
               this.options.buttonBefore ||
                 ((this.options.buttonBefore = !0),
@@ -7735,7 +7729,7 @@
                   this.pushNameFiles()));
             }
           },
-          icon: function(e) {
+          icon: function (e) {
             if (!0 === e)
               this.options.icon ||
                 ((this.options.icon = !0),
@@ -7747,7 +7741,7 @@
                 this.$elementFilestyle.find(".icon-span-filestyle").remove());
             }
           },
-          input: function(e) {
+          input: function (e) {
             if (!0 === e)
               this.options.input ||
                 ((this.options.input = !0),
@@ -7776,7 +7770,7 @@
               }
             }
           },
-          size: function(e) {
+          size: function (e) {
             if (void 0 === e) return this.options.size;
             var t = this.$elementFilestyle.find("label"),
               n = this.$elementFilestyle.find("input");
@@ -7784,39 +7778,39 @@
               n.removeClass("input-lg input-sm"),
               "nr" != e && (t.addClass("btn-" + e), n.addClass("input-" + e));
           },
-          placeholder: function(e) {
+          placeholder: function (e) {
             if (void 0 === e) return this.options.placeholder;
             (this.options.placeholder = e),
               this.$elementFilestyle.find("input").attr("placeholder", e);
           },
-          buttonText: function(e) {
+          buttonText: function (e) {
             if (void 0 === e) return this.options.buttonText;
             (this.options.buttonText = e),
               this.$elementFilestyle
                 .find("label .buttonText")
                 .html(this.options.buttonText);
           },
-          buttonName: function(e) {
+          buttonName: function (e) {
             if (void 0 === e) return this.options.buttonName;
             (this.options.buttonName = e),
               this.$elementFilestyle
                 .find("label")
                 .attr({ class: "btn " + this.options.buttonName });
           },
-          iconName: function(e) {
+          iconName: function (e) {
             if (void 0 === e) return this.options.iconName;
             this.$elementFilestyle
               .find(".icon-span-filestyle")
               .attr({ class: "icon-span-filestyle " + this.options.iconName });
           },
-          htmlIcon: function() {
+          htmlIcon: function () {
             return this.options.icon
               ? '<span class="icon-span-filestyle ' +
                   this.options.iconName +
                   '"></span> '
               : "";
           },
-          htmlInput: function() {
+          htmlInput: function () {
             return this.options.input
               ? '<input type="text" class="form-control ' +
                   ("nr" == this.options.size
@@ -7827,7 +7821,7 @@
                   '" disabled> '
               : "";
           },
-          pushNameFiles: function() {
+          pushNameFiles: function () {
             var e = "",
               t = [];
             void 0 === this.$element[0].files
@@ -7844,7 +7838,7 @@
               t
             );
           },
-          constructor: function() {
+          constructor: function () {
             var n,
               a,
               o = this,
@@ -7885,11 +7879,11 @@
               o.$elementFilestyle
                 .find(".group-span-filestyle")
                 .attr("tabindex", "0")
-                .keypress(function(e) {
+                .keypress(function (e) {
                   if (13 === e.keyCode || 32 === e.charCode)
                     return o.$elementFilestyle.find("label").click(), !1;
                 }),
-              o.$elementFilestyle.find("#" + r + "-clear").click(function(e) {
+              o.$elementFilestyle.find("#" + r + "-clear").click(function (e) {
                 o.clear();
               }),
               o.$element
@@ -7898,7 +7892,7 @@
                 .after(o.$elementFilestyle),
               (o.options.disabled || o.$element.attr("disabled")) &&
                 o.$element.attr("disabled", "true"),
-              o.$element.change(function() {
+              o.$element.change(function () {
                 var e = o.pushNameFiles();
                 0 == o.options.input && o.options.badge
                   ? 0 == o.$elementFilestyle.find(".badge").length
@@ -7911,15 +7905,15 @@
                   : o.$elementFilestyle.find(".badge").remove();
               }),
               window.navigator.userAgent.search(/firefox/i) > -1 &&
-                o.$elementFilestyle.find("label").click(function() {
+                o.$elementFilestyle.find("label").click(function () {
                   return o.$element.click(), !1;
                 });
-          }
+          },
         };
         var a = e.fn.filestyle;
-        (e.fn.filestyle = function(t, a) {
+        (e.fn.filestyle = function (t, a) {
           var o = "",
-            i = this.each(function() {
+            i = this.each(function () {
               if ("file" === e(this).attr("type")) {
                 var i = e(this),
                   r = i.data("filestyle"),
@@ -7946,13 +7940,13 @@
             icon: !0,
             buttonBefore: !1,
             disabled: !1,
-            placeholder: ""
+            placeholder: "",
           }),
-          (e.fn.filestyle.noConflict = function() {
+          (e.fn.filestyle.noConflict = function () {
             return (e.fn.filestyle = a), this;
           }),
-          e(function() {
-            e(".filestyle").each(function() {
+          e(function () {
+            e(".filestyle").each(function () {
               var t = e(this),
                 n = {
                   input: "false" !== t.attr("data-input"),
@@ -7964,7 +7958,7 @@
                   buttonName: t.attr("data-buttonName"),
                   iconName: t.attr("data-iconName"),
                   badge: "false" !== t.attr("data-badge"),
-                  placeholder: t.attr("data-placeholder")
+                  placeholder: t.attr("data-placeholder"),
                 };
               t.filestyle(n);
             });
@@ -7972,31 +7966,31 @@
       })(e);
     }.call(this, n(1)));
   },
-  function(e, t, n) {
-    (function(e) {
-      !(function(e) {
+  function (e, t, n) {
+    (function (e) {
+      !(function (e) {
         (e.color = {}),
-          (e.color.make = function(t, n, a, o) {
+          (e.color.make = function (t, n, a, o) {
             var i = {};
             return (
               (i.r = t || 0),
               (i.g = n || 0),
               (i.b = a || 0),
               (i.a = null != o ? o : 1),
-              (i.add = function(e, t) {
+              (i.add = function (e, t) {
                 for (var n = 0; n < e.length; ++n) i[e.charAt(n)] += t;
                 return i.normalize();
               }),
-              (i.scale = function(e, t) {
+              (i.scale = function (e, t) {
                 for (var n = 0; n < e.length; ++n) i[e.charAt(n)] *= t;
                 return i.normalize();
               }),
-              (i.toString = function() {
+              (i.toString = function () {
                 return i.a >= 1
                   ? "rgb(" + [i.r, i.g, i.b].join(",") + ")"
                   : "rgba(" + [i.r, i.g, i.b, i.a].join(",") + ")";
               }),
-              (i.normalize = function() {
+              (i.normalize = function () {
                 function e(e, t, n) {
                   return t < e ? e : t > n ? n : t;
                 }
@@ -8008,13 +8002,13 @@
                   i
                 );
               }),
-              (i.clone = function() {
+              (i.clone = function () {
                 return e.color.make(i.r, i.b, i.g, i.a);
               }),
               i.normalize()
             );
           }),
-          (e.color.extract = function(t, n) {
+          (e.color.extract = function (t, n) {
             var a;
             do {
               if ("" != (a = t.css(n).toLowerCase()) && "transparent" != a)
@@ -8025,7 +8019,7 @@
               "rgba(0, 0, 0, 0)" == a && (a = "transparent"), e.color.parse(a)
             );
           }),
-          (e.color.parse = function(n) {
+          (e.color.parse = function (n) {
             var a,
               o = e.color.make;
             if (
@@ -8132,10 +8126,10 @@
           red: [255, 0, 0],
           silver: [192, 192, 192],
           white: [255, 255, 255],
-          yellow: [255, 255, 0]
+          yellow: [255, 255, 0],
         };
       })(e),
-        (function(e) {
+        (function (e) {
           var t = Object.prototype.hasOwnProperty;
           function n(t, n) {
             var a = n.children("." + t)[0];
@@ -8147,7 +8141,7 @@
                   direction: "ltr",
                   position: "absolute",
                   left: 0,
-                  top: 0
+                  top: 0,
                 })
                 .appendTo(n),
               !a.getContext)
@@ -8188,7 +8182,7 @@
                   margin: 5,
                   backgroundColor: null,
                   backgroundOpacity: 0.85,
-                  sorted: null
+                  sorted: null,
                 },
                 xaxis: {
                   show: null,
@@ -8211,7 +8205,7 @@
                   alignTicksWithAxis: null,
                   tickDecimals: null,
                   tickSize: null,
-                  minTickSize: null
+                  minTickSize: null,
                 },
                 yaxis: { autoscaleMargin: 0.02, position: "left" },
                 xaxes: [],
@@ -8223,7 +8217,7 @@
                     lineWidth: 2,
                     fill: !0,
                     fillColor: "#ffffff",
-                    symbol: "circle"
+                    symbol: "circle",
                   },
                   lines: { lineWidth: 2, fill: !1, fillColor: null, steps: !1 },
                   bars: {
@@ -8234,10 +8228,10 @@
                     fillColor: null,
                     align: "left",
                     horizontal: !1,
-                    zero: !0
+                    zero: !0,
                   },
                   shadowSize: 3,
-                  highlightColor: null
+                  highlightColor: null,
                 },
                 grid: {
                   show: !0,
@@ -8257,10 +8251,10 @@
                   clickable: !1,
                   hoverable: !1,
                   autoHighlight: !0,
-                  mouseActiveRadius: 10
+                  mouseActiveRadius: 10,
                 },
                 interaction: { redrawOverlayInterval: 1e3 / 60 },
-                hooks: {}
+                hooks: {},
               },
               l = null,
               c = null,
@@ -8282,7 +8276,7 @@
                 draw: [],
                 bindEvents: [],
                 drawOverlay: [],
-                shutdown: []
+                shutdown: [],
               },
               w = this;
             function y(e, t) {
@@ -8290,7 +8284,7 @@
               for (var n = 0; n < e.length; ++n) e[n].apply(this, t);
             }
             function k(t) {
-              (r = (function(t) {
+              (r = (function (t) {
                 for (var n = [], a = 0; a < t.length; ++a) {
                   var o = e.extend(!0, {}, s.series);
                   null != t[a].data
@@ -8303,7 +8297,7 @@
                 }
                 return n;
               })(t)),
-                (function() {
+                (function () {
                   var t,
                     n = r.length,
                     a = -1;
@@ -8348,7 +8342,7 @@
                       (p.yaxis = P(f, S(p, "y")));
                   }
                 })(),
-                (function() {
+                (function () {
                   var t,
                     n,
                     a,
@@ -8369,7 +8363,7 @@
                       n > e.datamax && n != g && (e.datamax = n);
                   }
                   for (
-                    e.each(T(), function(e, t) {
+                    e.each(T(), function (e, t) {
                       (t.datamin = f), (t.datamax = m), (t.used = !1);
                     }),
                       t = 0;
@@ -8396,7 +8390,7 @@
                           number: !0,
                           required: !1,
                           defaultValue: 0,
-                          autoscale: w
+                          autoscale: w,
                         }),
                           i.bars.horizontal &&
                             (delete h[h.length - 1].y,
@@ -8491,7 +8485,7 @@
                     }
                     v(i.xaxis, C, A), v(i.yaxis, P, x);
                   }
-                  e.each(T(), function(e, t) {
+                  e.each(T(), function (e, t) {
                     t.datamin == f && (t.datamin = null),
                       t.datamax == m && (t.datamax = null);
                   });
@@ -8506,7 +8500,7 @@
               );
             }
             function T() {
-              return e.grep(h.concat(f), function(e) {
+              return e.grep(h.concat(f), function (e) {
                 return e;
               });
             }
@@ -8530,7 +8524,7 @@
                   (t[n - 1] = {
                     n: n,
                     direction: t == h ? "x" : "y",
-                    options: e.extend(!0, {}, t == h ? s.xaxis : s.yaxis)
+                    options: e.extend(!0, {}, t == h ? s.xaxis : s.yaxis),
                   }),
                 t[n - 1]
               );
@@ -8554,7 +8548,7 @@
                 p = !0,
                 g = !0,
                 v = !1;
-              e.each(i ? h : f, function(e, n) {
+              e.each(i ? h : f, function (e, n) {
                 n &&
                   (n.show || n.reserveSpace) &&
                   (n === t
@@ -8596,12 +8590,12 @@
                   ? (m[i] += o ? s.grid.borderWidth[i] : 0)
                   : (m[i] += o ? s.grid.borderWidth : 0);
               if (
-                (e.each(a, function(e, t) {
+                (e.each(a, function (e, t) {
                   var n = t.options;
                   (t.show = null == n.show ? t.used : n.show),
                     (t.reserveSpace =
                       null == n.reserveSpace ? t.show : n.reserveSpace),
-                    (function(e) {
+                    (function (e) {
                       var t = e.options,
                         n = +(null != t.min ? t.min : e.datamin),
                         a = +(null != t.max ? t.max : e.datamax),
@@ -8629,12 +8623,12 @@
                 }),
                 o)
               ) {
-                var d = e.grep(a, function(e) {
+                var d = e.grep(a, function (e) {
                   return e.show || e.reserveSpace;
                 });
                 for (
-                  e.each(d, function(t, n) {
-                    !(function(t) {
+                  e.each(d, function (t, n) {
+                    !(function (t) {
                       var n,
                         a = t.options;
                       n =
@@ -8671,10 +8665,10 @@
                           "Time mode requires the flot.time plugin."
                         );
                       t.tickGenerator ||
-                        ((t.tickGenerator = function(e) {
+                        ((t.tickGenerator = function (e) {
                           var t,
                             n = [],
-                            a = (function(e, t) {
+                            a = (function (e, t) {
                               return t * Math.floor(e / t);
                             })(e.min, e.tickSize),
                             o = 0,
@@ -8684,7 +8678,7 @@
                           } while (i < e.max && i != t);
                           return n;
                         }),
-                        (t.tickFormatter = function(e, t) {
+                        (t.tickFormatter = function (e, t) {
                           var n = t.tickDecimals
                               ? Math.pow(10, t.tickDecimals)
                               : 1,
@@ -8701,7 +8695,7 @@
                           return a;
                         }));
                       e.isFunction(a.tickFormatter) &&
-                        (t.tickFormatter = function(e, t) {
+                        (t.tickFormatter = function (e, t) {
                           return "" + a.tickFormatter(e, t);
                         });
                       if (null != a.alignTicksWithAxis) {
@@ -8716,7 +8710,7 @@
                               null == a.max &&
                                 p.length > 1 &&
                                 (t.max = Math.max(t.max, p[p.length - 1]))),
-                            (t.tickGenerator = function(e) {
+                            (t.tickGenerator = function (e) {
                               var t,
                                 n,
                                 a = [];
@@ -8740,7 +8734,7 @@
                         }
                       }
                     })(n),
-                      (function(t) {
+                      (function (t) {
                         var n,
                           a,
                           o = t.options.ticks,
@@ -8758,7 +8752,7 @@
                             isNaN(a) || t.ticks.push({ v: a, label: r });
                         }
                       })(n),
-                      (function(e, t) {
+                      (function (e, t) {
                         e.options.autoscaleMargin &&
                           t.length > 0 &&
                           (null == e.options.min &&
@@ -8767,7 +8761,7 @@
                             t.length > 1 &&
                             (e.max = Math.max(e.max, t[t.length - 1].v)));
                       })(n, n.ticks),
-                      (function(e) {
+                      (function (e) {
                         for (
                           var t = e.options,
                             n = e.ticks || [],
@@ -8813,7 +8807,7 @@
                   --n
                 )
                   x(d[n]);
-                !(function() {
+                !(function () {
                   var t,
                     n = s.grid.minBorderMargin;
                   if (null == n)
@@ -8823,7 +8817,7 @@
                         2 * (r[t].points.radius + r[t].points.lineWidth / 2)
                       );
                   var a = { left: n, right: n, top: n, bottom: n };
-                  e.each(T(), function(e, t) {
+                  e.each(T(), function (e, t) {
                     t.reserveSpace &&
                       t.ticks &&
                       t.ticks.length &&
@@ -8838,8 +8832,8 @@
                     (m.top = Math.ceil(Math.max(a.top, m.top))),
                     (m.bottom = Math.ceil(Math.max(a.bottom, m.bottom)));
                 })(),
-                  e.each(d, function(e, t) {
-                    !(function(e) {
+                  e.each(d, function (e, t) {
+                    !(function (e) {
                       "x" == e.direction
                         ? ((e.box.left = m.left - e.labelWidth / 2),
                           (e.box.width =
@@ -8852,8 +8846,8 @@
               }
               (g = l.width - m.left - m.right),
                 (v = l.height - m.bottom - m.top),
-                e.each(a, function(e, t) {
-                  !(function(e) {
+                e.each(a, function (e, t) {
+                  !(function (e) {
                     function t(e) {
                       return e;
                     }
@@ -8869,23 +8863,23 @@
                         (a = Math.max(o(e.max), o(e.min)))),
                       (e.p2c =
                         o == t
-                          ? function(e) {
+                          ? function (e) {
                               return (e - a) * n;
                             }
-                          : function(e) {
+                          : function (e) {
                               return (o(e) - a) * n;
                             }),
                       (e.c2p = i
-                        ? function(e) {
+                        ? function (e) {
                             return i(a + e / n);
                           }
-                        : function(e) {
+                        : function (e) {
                             return a + e / n;
                           });
                   })(t);
                 }),
                 o &&
-                  e.each(T(), function(e, t) {
+                  e.each(T(), function (e, t) {
                     var n,
                       a,
                       o,
@@ -8922,7 +8916,7 @@
                                 : (a = s.left + s.padding)),
                           l.addText(d, a, o, n.label, u, null, null, i, r));
                   }),
-                (function() {
+                (function () {
                   null != s.legend.container
                     ? e(s.legend.container).html("")
                     : t.find(".legend").remove();
@@ -8946,7 +8940,7 @@
                     else if ("reverse" == s.legend.sorted) i.reverse();
                     else {
                       var u = "descending" != s.legend.sorted;
-                      i.sort(function(e, t) {
+                      i.sort(function (e, t) {
                         return e.label == t.label
                           ? 0
                           : e.label < t.label != u
@@ -9249,7 +9243,7 @@
             }
             function I(e) {
               e.lines.show &&
-                (function(e) {
+                (function (e) {
                   function t(e, t, n, a, o) {
                     var i = e.points,
                       r = e.pointsize,
@@ -9333,7 +9327,7 @@
                   var i = z(e.lines, e.color, 0, v);
                   i &&
                     ((u.fillStyle = i),
-                    (function(e, t, n) {
+                    (function (e, t, n) {
                       var a = e.points,
                         o = e.pointsize,
                         i = Math.min(Math.max(0, n.min), n.max),
@@ -9421,7 +9415,7 @@
                   u.restore();
                 })(e),
                 e.bars.show &&
-                  (function(e) {
+                  (function (e) {
                     var t;
                     switch (
                       (u.save(),
@@ -9440,11 +9434,11 @@
                         t = -e.bars.barWidth / 2;
                     }
                     var n = e.bars.fill
-                      ? function(t, n) {
+                      ? function (t, n) {
                           return z(e.bars, e.color, t, n);
                         }
                       : null;
-                    (function(t, n, a, o, i, r) {
+                    (function (t, n, a, o, i, r) {
                       for (
                         var s = t.points, l = t.pointsize, c = 0;
                         c < s.length;
@@ -9475,7 +9469,7 @@
                       u.restore();
                   })(e),
                 e.points.show &&
-                  (function(e) {
+                  (function (e) {
                     function t(e, t, n, a, o, i, r, s) {
                       for (
                         var l = e.points, c = e.pointsize, d = 0;
@@ -9600,45 +9594,45 @@
             (w.setData = k),
               (w.setupGrid = R),
               (w.draw = D),
-              (w.getPlaceholder = function() {
+              (w.getPlaceholder = function () {
                 return t;
               }),
-              (w.getCanvas = function() {
+              (w.getCanvas = function () {
                 return l.element;
               }),
-              (w.getPlotOffset = function() {
+              (w.getPlotOffset = function () {
                 return m;
               }),
-              (w.width = function() {
+              (w.width = function () {
                 return g;
               }),
-              (w.height = function() {
+              (w.height = function () {
                 return v;
               }),
-              (w.offset = function() {
+              (w.offset = function () {
                 var e = d.offset();
                 return (e.left += m.left), (e.top += m.top), e;
               }),
-              (w.getData = function() {
+              (w.getData = function () {
                 return r;
               }),
-              (w.getAxes = function() {
+              (w.getAxes = function () {
                 var t = {};
                 return (
-                  e.each(h.concat(f), function(e, n) {
+                  e.each(h.concat(f), function (e, n) {
                     n && (t[n.direction + (1 != n.n ? n.n : "") + "axis"] = n);
                   }),
                   t
                 );
               }),
-              (w.getXAxes = function() {
+              (w.getXAxes = function () {
                 return h;
               }),
-              (w.getYAxes = function() {
+              (w.getYAxes = function () {
                 return f;
               }),
               (w.c2p = C),
-              (w.p2c = function(e) {
+              (w.p2c = function (e) {
                 var t,
                   n,
                   a,
@@ -9667,20 +9661,20 @@
                   }
                 return o;
               }),
-              (w.getOptions = function() {
+              (w.getOptions = function () {
                 return s;
               }),
               (w.highlight = W),
               (w.unhighlight = V),
               (w.triggerRedrawOverlay = N),
-              (w.pointOffset = function(e) {
+              (w.pointOffset = function (e) {
                 return {
                   left: parseInt(h[S(e, "x") - 1].p2c(+e.x) + m.left, 10),
-                  top: parseInt(f[S(e, "y") - 1].p2c(+e.y) + m.top, 10)
+                  top: parseInt(f[S(e, "y") - 1].p2c(+e.y) + m.top, 10),
                 };
               }),
               (w.shutdown = A),
-              (w.destroy = function() {
+              (w.destroy = function () {
                 A(),
                   t.removeData("plot").empty(),
                   (r = []),
@@ -9696,19 +9690,19 @@
                   (U = []),
                   (w = null);
               }),
-              (w.resize = function() {
+              (w.resize = function () {
                 var e = t.width(),
                   n = t.height();
                 l.resize(e, n), c.resize(e, n);
               }),
               (w.hooks = b),
-              (function() {
+              (function () {
                 for (var t = { Canvas: n }, a = 0; a < i.length; ++a) {
                   var o = i[a];
                   o.init(w, t), o.options && e.extend(!0, s, o.options);
                 }
               })(),
-              (function(n) {
+              (function (n) {
                 e.extend(!0, s, n), n && n.colors && (s.colors = n.colors);
                 null == s.xaxis.color &&
                   (s.xaxis.color = e.color
@@ -9741,7 +9735,7 @@
                     size: Math.round(0.8 * l),
                     variant: t.css("font-variant"),
                     weight: t.css("font-weight"),
-                    family: t.css("font-family")
+                    family: t.css("font-family"),
                   };
                 for (i = s.xaxes.length || 1, a = 0; a < i; ++a)
                   (o = s.xaxes[a]) && !o.tickColor && (o.tickColor = o.color),
@@ -9796,11 +9790,11 @@
                     (b[d] = b[d].concat(s.hooks[d]));
                 y(b.processOptions, [s]);
               })(o),
-              (function() {
+              (function () {
                 t
                   .css("padding", 0)
                   .children()
-                  .filter(function() {
+                  .filter(function () {
                     return (
                       !e(this).hasClass("flot-overlay") &&
                       !e(this).hasClass("flot-base")
@@ -9821,7 +9815,7 @@
               k(a),
               R(),
               D(),
-              (function() {
+              (function () {
                 s.grid.hoverable && (d.mousemove(F), d.bind("mouseleave", O));
                 s.grid.clickable && d.click(B);
                 y(b.bindEvents, [d]);
@@ -9830,18 +9824,18 @@
               L = null;
             function F(e) {
               s.grid.hoverable &&
-                j("plothover", e, function(e) {
+                j("plothover", e, function (e) {
                   return 0 != e.hoverable;
                 });
             }
             function O(e) {
               s.grid.hoverable &&
-                j("plothover", e, function(e) {
+                j("plothover", e, function (e) {
                   return !1;
                 });
             }
             function B(e) {
-              j("plotclick", e, function(e) {
+              j("plotclick", e, function (e) {
                 return 0 != e.clickable;
               });
             }
@@ -9851,7 +9845,7 @@
                 l = n.pageY - o.top - m.top,
                 c = C({ left: i, top: l });
               (c.pageX = n.pageX), (c.pageY = n.pageY);
-              var u = (function(e, t, n) {
+              var u = (function (e, t, n) {
                 var a,
                   o,
                   i,
@@ -9931,7 +9925,7 @@
                       ),
                       dataIndex: o,
                       series: r[a],
-                      seriesIndex: a
+                      seriesIndex: a,
                     })
                   : null;
               })(i, l, a);
@@ -10015,10 +10009,7 @@
                 s =
                   "string" == typeof t.highlightColor
                     ? t.highlightColor
-                    : e.color
-                        .parse(t.color)
-                        .scale("a", 0.5)
-                        .toString();
+                    : e.color.parse(t.color).scale("a", 0.5).toString();
               if (!(a < i.min || a > i.max || o < r.min || o > r.max)) {
                 var l = t.points.radius + t.points.lineWidth / 2;
                 (p.lineWidth = l), (p.strokeStyle = s);
@@ -10038,10 +10029,7 @@
                 o =
                   "string" == typeof t.highlightColor
                     ? t.highlightColor
-                    : e.color
-                        .parse(t.color)
-                        .scale("a", 0.5)
-                        .toString(),
+                    : e.color.parse(t.color).scale("a", 0.5).toString(),
                 i = o;
               switch (t.bars.align) {
                 case "left":
@@ -10061,7 +10049,7 @@
                   n[2] || 0,
                   a,
                   a + t.bars.barWidth,
-                  function() {
+                  function () {
                     return i;
                   },
                   t.xaxis,
@@ -10093,12 +10081,12 @@
             }
           }
           e.fn.detach ||
-            (e.fn.detach = function() {
-              return this.each(function() {
+            (e.fn.detach = function () {
+              return this.each(function () {
                 this.parentNode && this.parentNode.removeChild(this);
               });
             }),
-            (n.prototype.resize = function(e, t) {
+            (n.prototype.resize = function (e, t) {
               if (e <= 0 || t <= 0)
                 throw new Error(
                   "Invalid dimensions for plot, width = " +
@@ -10121,10 +10109,10 @@
                 a.save(),
                 a.scale(o, o);
             }),
-            (n.prototype.clear = function() {
+            (n.prototype.clear = function () {
               this.context.clearRect(0, 0, this.width, this.height);
             }),
-            (n.prototype.render = function() {
+            (n.prototype.render = function () {
               var e = this._textCache;
               for (var n in e)
                 if (t.call(e, n)) {
@@ -10151,7 +10139,7 @@
                   a.show();
                 }
             }),
-            (n.prototype.getTextLayer = function(t) {
+            (n.prototype.getTextLayer = function (t) {
               var n = this.text[t];
               return (
                 null == n &&
@@ -10164,7 +10152,7 @@
                         bottom: 0,
                         right: 0,
                         "font-size": "smaller",
-                        color: "#545454"
+                        color: "#545454",
                       })
                       .insertAfter(this.element)),
                   (n = this.text[t] = e("<div></div>")
@@ -10174,13 +10162,13 @@
                       top: 0,
                       left: 0,
                       bottom: 0,
-                      right: 0
+                      right: 0,
                     })
                     .appendTo(this.textContainer))),
                 n
               );
             }),
-            (n.prototype.getTextInfo = function(t, n, a, o, i) {
+            (n.prototype.getTextInfo = function (t, n, a, o, i) {
               var r, s, l, c;
               if (
                 ((n = "" + n),
@@ -10214,13 +10202,13 @@
                     width: d.outerWidth(!0),
                     height: d.outerHeight(!0),
                     element: d,
-                    positions: []
+                    positions: [],
                   }),
                   d.detach();
               }
               return c;
             }),
-            (n.prototype.addText = function(e, t, n, a, o, i, r, s, l) {
+            (n.prototype.addText = function (e, t, n, a, o, i, r, s, l) {
               var c = this.getTextInfo(e, a, o, i, r),
                 d = c.positions;
               "center" == s
@@ -10236,16 +10224,16 @@
                 rendered: !1,
                 element: d.length ? c.element.clone() : c.element,
                 x: t,
-                y: n
+                y: n,
               }),
                 d.push(u),
                 u.element.css({
                   top: Math.round(n),
                   left: Math.round(t),
-                  "text-align": s
+                  "text-align": s,
                 });
             }),
-            (n.prototype.removeText = function(e, n, a, o, i, r) {
+            (n.prototype.removeText = function (e, n, a, o, i, r) {
               if (null == o) {
                 var s = this._textCache[e];
                 if (null != s)
@@ -10267,29 +10255,29 @@
                   h.x == n && h.y == a && (h.active = !1);
               }
             }),
-            (e.plot = function(t, n, o) {
+            (e.plot = function (t, n, o) {
               return new a(e(t), n, o, e.plot.plugins);
             }),
             (e.plot.version = "0.8.3"),
             (e.plot.plugins = []),
-            (e.fn.plot = function(t, n) {
-              return this.each(function() {
+            (e.fn.plot = function (t, n) {
+              return this.each(function () {
                 e.plot(this, t, n);
               });
             });
         })(e);
     }.call(this, n(1)));
   },
-  function(e, t, n) {
-    (function(e) {
-      !(function(e) {
+  function (e, t, n) {
+    (function (e) {
+      !(function (e) {
         function t(e, t) {
           return t * Math.floor(e / t);
         }
         function n(e, t, n, a) {
           if ("function" == typeof e.strftime) return e.strftime(t);
           var o,
-            i = function(e, t) {
+            i = function (e, t) {
               return (
                 (e = "" + e),
                 (t = "" + (null == t ? "0" : t)),
@@ -10313,7 +10301,7 @@
               "Sep",
               "Oct",
               "Nov",
-              "Dec"
+              "Dec",
             ]),
             null == a &&
               (a = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]),
@@ -10378,7 +10366,7 @@
         }
         function a(e) {
           function t(e, t, n, a) {
-            e[t] = function() {
+            e[t] = function () {
               return n[a].apply(n, arguments);
             };
           }
@@ -10395,7 +10383,7 @@
                 "Milliseconds",
                 "Minutes",
                 "Month",
-                "Seconds"
+                "Seconds",
               ],
               o = 0;
             o < a.length;
@@ -10426,7 +10414,7 @@
             day: 864e5,
             month: 2592e6,
             quarter: 7776e6,
-            year: 525949.2 * 60 * 1e3
+            year: 525949.2 * 60 * 1e3,
           },
           r = [
             [1, "second"],
@@ -10450,25 +10438,25 @@
             [0.25, "month"],
             [0.5, "month"],
             [1, "month"],
-            [2, "month"]
+            [2, "month"],
           ],
           s = r.concat([
             [3, "month"],
             [6, "month"],
-            [1, "year"]
+            [1, "year"],
           ]),
           l = r.concat([
             [1, "quarter"],
             [2, "quarter"],
-            [1, "year"]
+            [1, "year"],
           ]);
         e.plot.plugins.push({
-          init: function(a) {
-            a.hooks.processOptions.push(function(a, r) {
-              e.each(a.getAxes(), function(e, a) {
+          init: function (a) {
+            a.hooks.processOptions.push(function (a, r) {
+              e.each(a.getAxes(), function (e, a) {
                 var r = a.options;
                 "time" == r.mode &&
-                  ((a.tickGenerator = function(e) {
+                  ((a.tickGenerator = function (e) {
                     var n = [],
                       a = o(e.min, r),
                       c = 0,
@@ -10561,7 +10549,7 @@
                     } while (y < e.max && y != b);
                     return n;
                   }),
-                  (a.tickFormatter = function(e, t) {
+                  (a.tickFormatter = function (e, t) {
                     var a = o(e, t.options);
                     if (null != r.timeformat)
                       return n(a, r.timeformat, r.monthNames, r.dayNames);
@@ -10605,22 +10593,22 @@
               timezone: null,
               timeformat: null,
               twelveHourClock: !1,
-              monthNames: null
-            }
+              monthNames: null,
+            },
           },
           name: "time",
-          version: "1.0"
+          version: "1.0",
         }),
           (e.plot.formatDate = n),
           (e.plot.dateGenerator = o);
       })(e);
     }.call(this, n(1)));
   },
-  function(e, t, n) {},
+  function (e, t, n) {},
   ,
   ,
   ,
-  function(e, t) {
+  function (e, t) {
     "undefined" == typeof translations && (translations = {}),
       (translations.nl_NL = {
         Search: "Zoeken",
@@ -10739,10 +10727,10 @@
           "Om de nieuwste versie van het project te downloaden, problemen te rapporteren of bij te dragen, ga naar",
         "Or you can open the latest version in the browser through":
           "Of je kunt hier de nieuwste versie in je browser openen",
-        Close: "Afsluiten"
+        Close: "Afsluiten",
       });
   },
-  function(e, t) {
+  function (e, t) {
     "undefined" == typeof translations && (translations = {}),
       (translations.en_US = {
         Search: "Search",
@@ -10890,10 +10878,10 @@
         "Trying to connect to aria2 using the new connection configuration":
           "Trying to connect to aria2 using the new connection configuration",
         "Remove {{name}} and associated meta-data?":
-          "Remove {{name}} and associated meta-data?"
+          "Remove {{name}} and associated meta-data?",
       });
   },
-  function(e, t) {
+  function (e, t) {
     "undefined" == typeof translations && (translations = {}),
       (translations.th_TH = {
         Search: "ค้นหา",
@@ -11003,10 +10991,10 @@
           "ให้ดาวน์โหลดรุ่นสุดท้ายของโครงการ เพิ่มปัญหา หรือช่วยเหลือมีส่วนร่วม ไปสู่",
         "Or you can open the latest version in the browser through":
           "หรือเปิดรุ่นสุดท้ายในเบราว์เซอร์โดยใช้",
-        Close: "ปิด"
+        Close: "ปิด",
       });
   },
-  function(e, t) {
+  function (e, t) {
     "undefined" == typeof translations && (translations = {}),
       (translations.zh_CN = {
         Search: "搜索",
@@ -11150,10 +11138,10 @@
         "Trying to connect to aria2 using the new connection configuration":
           "正在尝试使用新的连接配置来连接到 Aria2 ……",
         "Remove {{name}} and associated meta-data?":
-          "是否删除 {{name}} 和关联的元数据？"
+          "是否删除 {{name}} 和关联的元数据？",
       });
   },
-  function(e, t) {
+  function (e, t) {
     "undefined" == typeof translations && (translations = {}),
       (translations.zh_TW = {
         Search: "搜尋",
@@ -11297,10 +11285,10 @@
         "Trying to connect to aria2 using the new connection configuration":
           "正在嘗試使用新的連線配置來連線到 Aria2 ……",
         "Remove {{name}} and associated meta-data?":
-          "是否刪除 {{name}} 和關聯的元資料？"
+          "是否刪除 {{name}} 和關聯的元資料？",
       });
   },
-  function(e, t) {
+  function (e, t) {
     "undefined" == typeof translations && (translations = {}),
       (translations.pl_PL = {
         Search: "Szukaj",
@@ -11443,10 +11431,10 @@
         "Successfully connected to Aria2 through remote RPC, however the connection is still insecure. For complete security try adding an authorization secret token while starting Aria2 (through the flag --rpc-secret)":
           "Pomyślnie połączono się z Aria2 przez RPC, jednakże połączenie nie jest bezpieczne. Aby zabezpieczyć dodaj sekretny token autoryzacji podczas startu Aria2 (przez użycie flagi --rpc-secret)",
         "Trying to connect to aria2 using the new connection configuration":
-          "Próba połączenia się z Aria2 poprzez użycie nowej konfiguracji połączenia"
+          "Próba połączenia się z Aria2 poprzez użycie nowej konfiguracji połączenia",
       });
   },
-  function(e, t) {
+  function (e, t) {
     "undefined" == typeof translations && (translations = {}),
       (translations.fr_FR = {
         Search: "Rechercher",
@@ -11598,10 +11586,10 @@
         "Trying to connect to aria2 using the new connection configuration":
           "Tentative de connexion à aria2 avec la nouvelle configuration",
         "Remove {{name}} and associated meta-data?":
-          "Supprimer {{name}} et les métadonnées associées"
+          "Supprimer {{name}} et les métadonnées associées",
       });
   },
-  function(e, t) {
+  function (e, t) {
     "undefined" == typeof translations && (translations = {}),
       (translations.de_DE = {
         Search: "Suche",
@@ -11729,10 +11717,10 @@
         Uploaded: "Hochgeladen",
         "Download GID": "Download GID",
         "Number of Pieces": "Anzahl der Stücken",
-        "Piece Length": "Größe der Stücken"
+        "Piece Length": "Größe der Stücken",
       });
   },
-  function(e, t) {
+  function (e, t) {
     "undefined" == typeof translations && (translations = {}),
       (translations.es_ES = {
         Search: "Buscar",
@@ -11878,10 +11866,10 @@
         "Successfully connected to Aria2 through remote RPC, however the connection is still insecure. For complete security try adding an authorization secret token while starting Aria2 (through the flag --rpc-secret)":
           "Conexión exitosa con el servidor Aria2 mediante la interfaz RPC, sin embargo la conexión no es segura. Para mejorar la seguridad, añada un token de autorización al iniciar Aria2 (con la opción --rpc-secret)",
         "Trying to connect to aria2 using the new connection configuration":
-          "Intentando conectar con el servidor Aria2 usando los nuevos Ajustes de Conexión"
+          "Intentando conectar con el servidor Aria2 usando los nuevos Ajustes de Conexión",
       });
   },
-  function(e, t) {
+  function (e, t) {
     "undefined" == typeof translations && (translations = {}),
       (translations.ru_RU = {
         Search: "Поиск",
@@ -12024,10 +12012,10 @@
         "Successfully connected to Aria2 through remote RPC, however the connection is still insecure. For complete security try adding an authorization secret token while starting Aria2 (through the flag --rpc-secret)":
           "Успешное подключение к Aria2 через удаленный RPC, однако соединение все еще небезопасно. Для обеспечения лучшей безопасности добавьте секретный токен авторизации при запуске aria2 (через флаг --rpc-secret)",
         "Trying to connect to aria2 using the new connection configuration":
-          "Попытка подключиться к aria2 с использованием новой конфигурации"
+          "Попытка подключиться к aria2 с использованием новой конфигурации",
       });
   },
-  function(e, t) {
+  function (e, t) {
     "undefined" == typeof translations && (translations = {}),
       (translations.it_IT = {
         Search: "Cerca",
@@ -12168,10 +12156,10 @@
         "Successfully connected to Aria2 through remote RPC, however the connection is still insecure. For complete security try adding an authorization secret token while starting Aria2 (through the flag --rpc-secret)":
           "Correttamente connesso al server Aria2 mediante RPC, ma in modo non sicuro. Per una completa sicurezza prova ad aggiungere un token di autorizzazione segreto all'avvio di Aria2 (mediante il flag --rpc-secret)",
         "Trying to connect to aria2 using the new connection configuration":
-          "Provo a connettermi a Aria2 attraverso le nuove impostazioni"
+          "Provo a connettermi a Aria2 attraverso le nuove impostazioni",
       });
   },
-  function(e, t) {
+  function (e, t) {
     "undefined" == typeof translations && (translations = {}),
       (translations.tr_TR = {
         Search: "Arama",
@@ -12312,10 +12300,10 @@
         "Successfully connected to Aria2 through remote RPC, however the connection is still insecure. For complete security try adding an authorization secret token while starting Aria2 (through the flag --rpc-secret)":
           "Uzak RPC aracılığıyla Aria2'ye başarıyla bağlandı ancak bağlantı hala güvende değil. Tam güvenlik için, Aria2'yi başlatırken (--rpc-secret bayrağını kullanın) ve bir yetkilendirme gizli simgesi eklemeyi deneyin.",
         "Trying to connect to aria2 using the new connection configuration":
-          "Yeni bağlantı yapılandırmasını kullanarak aria2'ye bağlanmaya çalışılıyor"
+          "Yeni bağlantı yapılandırmasını kullanarak aria2'ye bağlanmaya çalışılıyor",
       });
   },
-  function(e, t) {
+  function (e, t) {
     "undefined" == typeof translations && (translations = {}),
       (translations.cs_CZ = {
         Search: "Hledat",
@@ -12464,10 +12452,10 @@
         "Trying to connect to aria2 using the new connection configuration":
           "Zkouším se připojit k Aria2 za pomocí nového nastavení",
         "Remove {{name}} and associated meta-data?":
-          "Odstranit {{name}} a příslušná meta-data?"
+          "Odstranit {{name}} a příslušná meta-data?",
       });
   },
-  function(e, t) {
+  function (e, t) {
     "undefined" == typeof translations && (translations = {}),
       (translations.fa_IR = {
         Search: "جستجو",
@@ -12614,10 +12602,10 @@
         "Trying to connect to aria2 using the new connection configuration":
           "تلاش برای اتصال به aria2 با استفاده از پیکربندی اتصال جدید",
         "Remove {{name}} and associated meta-data?":
-          "حذف {{name}} و متا داده های مرتبط"
+          "حذف {{name}} و متا داده های مرتبط",
       });
   },
-  function(e, t) {
+  function (e, t) {
     "undefined" == typeof translations && (translations = {}),
       (translations.id_ID = {
         Search: "Telusuri",
@@ -12765,10 +12753,10 @@
         "Trying to connect to aria2 using the new connection configuration":
           "Mencoba koneksi ke aria2 menggunakan konfigurasi koneksi baru",
         "Remove {{name}} and associated meta-data?":
-          "Hapus {{name}} dan meta-data yang berhubungan?"
+          "Hapus {{name}} dan meta-data yang berhubungan?",
       });
   },
-  function(e, t) {
+  function (e, t) {
     "undefined" == typeof translations && (translations = {}),
       (translations.pt_BR = {
         Search: "Buscar",
@@ -12916,7 +12904,7 @@
         "Trying to connect to aria2 using the new connection configuration":
           "Tentando conectar-se ao aria2 utilizando a nova configuração de conexão",
         "Remove {{name}} and associated meta-data?":
-          "Remover {{name}} e os metadados associados?"
+          "Remover {{name}} e os metadados associados?",
       });
-  }
+  },
 ]);
