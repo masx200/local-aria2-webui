@@ -6,7 +6,12 @@
 
 https://github.com/ziahamza/webui-aria2
 
-安装
+在线访问
+
+https://masx200.github.io/local-aria2-webui/
+
+
+# 安装
 
 安装 nodejs
 
