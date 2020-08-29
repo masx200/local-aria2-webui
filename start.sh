@@ -1,1 +1,1 @@
-npx live-server --no-browser
+npx live-server --no-browser --host=[::]
