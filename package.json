@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "npx live-server --no-browser --host=[::]"
+    "start": "npx live-server --no-browser --host=::"
   },
   "name": "@masx200/local-aria2-webui",
   "version": "1.0.2",
