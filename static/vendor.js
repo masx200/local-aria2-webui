@@ -1,3 +1,4 @@
+// @ts-nocheck
 (window.webpackJsonp = window.webpackJsonp || []).push([
     [1],
     {

@@ -1,11 +1,12 @@
 {
+    "type": "module",
     "bin": "cli.js",
     "scripts": {
         "start": "npx live-server --no-browser --verbose",
         "format": "prettier --write *.js *.json *.md *.css *.html"
     },
     "name": "@masx200/local-aria2-webui",
-    "version": "1.0.3",
+    "version": "1.1.0",
     "main": "index.js",
     "repository": {
         "type": "git",

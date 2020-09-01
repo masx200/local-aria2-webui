@@ -37,7 +37,11 @@ yarn global add live-server
 
 ```
 
-启动
+```bash
+yarn global add @masx200/local-aria2-webui
+```
+
+# 启动
 
 windows
 
@@ -49,6 +53,10 @@ linux
 
 ```shell
 start.sh
+```
+
+```bash
+npx @masx200/local-aria2-webui --port=8080 --host=localhost
 ```
 
 使用浏览器打开网址

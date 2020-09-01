@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Welcome to your Workbox-powered service worker!
  *
