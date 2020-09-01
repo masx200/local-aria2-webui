@@ -1,1 +1,1 @@
-npx live-server --no-browser --host=::
+npx live-server --no-browser --verbose
