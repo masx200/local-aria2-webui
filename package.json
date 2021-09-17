@@ -7,10 +7,10 @@
     "bin": "cli.js",
     "scripts": {
         "start": "node cli.js",
-        "format": "prettier --write *.js *.json *.md *.css *.html"
+        "format": "prettier --write *.js *.json *.md *.css *.html */*.html */*.css"
     },
     "name": "@masx200/local-aria2-webui",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "main": "index.js",
     "repository": {
         "type": "git",
@@ -25,7 +25,7 @@
     "homepage": "https://github.com/masx200/local-aria2-webui#readme",
     "keywords": [],
     "devDependencies": {
-        "prettier": "^2.1.1"
+        "prettier": "^2.4.1"
     },
     "dependencies": {
         "live-server": "^1.2.1"
