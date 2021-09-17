@@ -11,10 +11,14 @@ const __dirname = dirname(__filename);
 const cwd = path.join(__dirname, "static");
 
 const { spawn } = child_process;
-const execfile =
-    os.platform() === "win32" ? "live-server" + ".cmd" : "live-server";
-const cmd = path.join(__dirname, "node_modules", ".bin", execfile);
-const args = [...["--no-browser", "--verbose"], ...process.argv.slice(2)];
+const npx = "npx";
+const execfile = os.platform() === "win32" ? npx + ".cmd" : npx;
+const cmd = execfile;
+const args = [
+    "live-server",
+    ...["--no-browser", "--verbose"],
+    ...process.argv.slice(2),
+];
 const sp = spawn(cmd, args, { cwd });
 console.log("cwd: " + cwd);
 console.log("\n");
@@ -23,11 +27,11 @@ console.log("\n");
 console.log("args: ", args);
 console.log("\n");
 sp.stdout.on("data", (data) => {
-    console.log(` \n` + String(data)+` \n` );
+    console.log(` \n` + String(data) + ` \n`);
 });
 
 sp.stderr.on("data", (data) => {
-    console.error(` \n` + String(data)+` \n` );
+    console.error(` \n` + String(data) + ` \n`);
 });
 
 sp.on("close", (code) => {
