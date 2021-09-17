@@ -8,7 +8,7 @@ https://github.com/ziahamza/webui-aria2
 
 在线访问
 
-https://masx200.github.io/local-aria2-webui/
+https://masx200.github.io/local-aria2-webui/static
 
 # 安装
 
