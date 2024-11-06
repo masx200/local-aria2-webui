@@ -19,7 +19,7 @@ const args = [
     ...["--no-browser", "--verbose"],
     ...process.argv.slice(2),
 ];
-const sp = spawn(cmd, args, { cwd });
+const sp = spawn(cmd, args, { cwd, shell: true });
 console.log("cwd: " + cwd);
 console.log("\n");
 console.log("cmd: " + cmd);
