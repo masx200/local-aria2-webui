@@ -4,7 +4,9 @@
         "registry": "https://registry.npmjs.com"
     },
     "type": "module",
-    "bin": "cli.js",
+    "bin": {
+        "local-aria2-webui": "cli.js"
+    },
     "scripts": {
         "start": "node cli.js",
         "format": "prettier --write *.js *.json *.md *.css *.html */*.html */*.css"
